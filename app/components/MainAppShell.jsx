@@ -37,8 +37,7 @@ const navItemsStyles = {
   marginTop: "0.75rem",
 };
 
-function createNavItem(text) {
-  const isMobileView = useMediaQuery("(max-width: 768px)");
+function createNavItem(isMobileView, text) {
   const fontSize = isMobileView ? "2rem" : "2.5rem";
 
   return (
@@ -63,7 +62,7 @@ export default function MainAppShell({ children }) {
   const drawerSize = isMobileView ? "100%" : "calc(100% - 96px)";
 
   return (
-    <AppShell navbar={{ width: 96 }} padding="md">
+    <AppShell navbar={{ width: 96 }}>
       {!isMobileView ? (
         <AppShell.Navbar bg="#FFFAEF" p={20}>
           <Stack align="center" justify="space-between" h="100vh">
@@ -125,7 +124,7 @@ export default function MainAppShell({ children }) {
         >
           {navItems.map((item, index) => (
             <Box style={{ width: "100%" }} key={item}>
-              {createNavItem(item)}
+              {createNavItem(isMobileView, item)}
             </Box>
           ))}
         </Stack>
