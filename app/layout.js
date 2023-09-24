@@ -1,7 +1,6 @@
 import "./globals.css";
 import "@mantine/core/styles.css";
 import { MantineProvider, ColorSchemeScript, AppShell } from "@mantine/core";
-import Navbar from "./components/Navbar";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,11 +14,7 @@ export default function RootLayout({ children }) {
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>
-          <AppShell navbar={{ width: 96 }} padding="md">
-            <Navbar children={children} />
-          </AppShell>
-        </MantineProvider>
+        <MantineProvider>{children}</MantineProvider>
       </body>
     </html>
   );
