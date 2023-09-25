@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import {
   AppShell,
@@ -11,7 +11,10 @@ import {
   Box,
   Divider,
   Paper,
+  Group,
+  Transition,
 } from "@mantine/core";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 const commonTextStyles = {
   fontFamily: "General Sans",
@@ -38,20 +41,48 @@ const navItemsStyles = {
   marginTop: "0.75rem",
 };
 
-function createNavItem(isMobileView, text) {
+function createNavItem(isMobileView, text, hovered, sethovered) {
   const fontSize = isMobileView ? "2rem" : "2.5rem";
 
   return (
-    <Box key={text}>
-      <Text
-        pl={isMobileView ? "2.5rem" : "0"}
-        style={{
-          ...navItemsStyles,
-          fontSize: fontSize,
-        }}
+    <Box
+      key={text}
+      onMouseEnter={() => sethovered(text)}
+      onMouseLeave={() => sethovered("")}
+    >
+      <Group
+        justify="space-between"
+        align="center"
+        pr={20}
+        style={{ cursor: "pointer" }}
       >
-        {text}
-      </Text>
+        <Text
+          pl={isMobileView ? "2.5rem" : "0"}
+          style={{
+            ...navItemsStyles,
+            fontSize: fontSize,
+          }}
+        >
+          {text}
+        </Text>
+        <Transition
+          mounted={hovered == text}
+          transition="slide-right"
+          duration={400}
+          timingFunction="ease"
+        >
+          {(styles) => (
+            <div style={styles}>
+              {" "}
+              <IconArrowUpRight
+                size={"3.5rem"}
+                stroke={1}
+                style={{ marginBottom: "-0.75rem" }}
+              />
+            </div>
+          )}
+        </Transition>
+      </Group>
       <Divider color="#9A9A9A" size={"md"} mt={25} />
     </Box>
   );
@@ -61,6 +92,7 @@ export default function MainAppShell({ children }) {
 
   const [opened, { toggle, close }] = useDisclosure(false);
   const isMobileView = useMediaQuery("(max-width: 768px)");
+  const [hovered, sethovered] = useState("");
 
   return (
     <AppShell>
@@ -141,7 +173,7 @@ export default function MainAppShell({ children }) {
         >
           {navItems.map((item, index) => (
             <Box style={{ width: "100%" }} key={item}>
-              {createNavItem(isMobileView, item)}
+              {createNavItem(isMobileView, item, hovered, sethovered)}
             </Box>
           ))}
         </Stack>
