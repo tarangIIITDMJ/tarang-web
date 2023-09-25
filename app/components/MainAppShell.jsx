@@ -10,6 +10,7 @@ import {
   Stack,
   Box,
   Divider,
+  Paper,
 } from "@mantine/core";
 
 const commonTextStyles = {
@@ -43,6 +44,7 @@ function createNavItem(isMobileView, text) {
   return (
     <Box key={text}>
       <Text
+        pl={isMobileView ? "2.5rem" : "0"}
         style={{
           ...navItemsStyles,
           fontSize: fontSize,
@@ -59,39 +61,54 @@ export default function MainAppShell({ children }) {
 
   const [opened, { toggle, close }] = useDisclosure(false);
   const isMobileView = useMediaQuery("(max-width: 768px)");
-  const drawerSize = isMobileView ? "100%" : "calc(100% - 96px)";
 
   return (
-    <AppShell navbar={{ width: 96 }}>
-      {!isMobileView ? (
-        <AppShell.Navbar bg="#FFFAEF" p={20}>
-          <Stack align="center" justify="space-between" h="100vh">
-            <Burger opened={opened} onClick={toggle} />
-            <Text style={textStyles}>Tarang 23</Text>
-            <Text style={{ ...textStyles, ...homeTextStyles }}>Home</Text>
-          </Stack>
+    <AppShell>
+      {isMobileView !== undefined && (
+        <AppShell.Navbar
+          h={"min-content"}
+          zIndex={201}
+          withBorder={isMobileView ? false : true}
+          bg={isMobileView ? "transparent" : "#FFFAEF"}
+        >
+          {!isMobileView ? (
+            <Stack
+              align="center"
+              w={96}
+              p={20}
+              justify="space-between"
+              h="100vh"
+            >
+              <Burger opened={opened} onClick={toggle} />
+              <Text style={textStyles}>Tarang 23</Text>
+              <Text style={{ ...textStyles, ...homeTextStyles }}>Home</Text>
+            </Stack>
+          ) : (
+            <Paper
+              radius={"50%"}
+              bg={"#FFF4E2"}
+              pos={"relative"}
+              p={10}
+              top={25}
+              left={15}
+              withBorder
+              style={{ border: "1px solid black" }}
+            >
+              <Burger
+                opened={opened}
+                onClick={toggle}
+                size={"md"}
+                styles={{
+                  root: {
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  },
+                }}
+              />
+            </Paper>
+          )}
         </AppShell.Navbar>
-      ) : (
-        <Box p={20}>
-          <Burger
-            opened={opened}
-            onClick={toggle}
-            size="sm"
-            styles={{
-              root: {
-                position: "relative",
-                zIndex: "201",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: "50%",
-              },
-            }}
-            w={"2.5rem"}
-            h={"2.5rem"}
-            bg={"#FFFAEF"}
-          />
-        </Box>
       )}
       <AppShell.Main>{children}</AppShell.Main>
 
@@ -99,7 +116,7 @@ export default function MainAppShell({ children }) {
         opened={opened}
         onClose={close}
         withCloseButton={false}
-        size={drawerSize}
+        size={isMobileView ? "100%" : "calc(100% - 96px)"}
         position="right"
         styles={{
           content: {
@@ -118,7 +135,7 @@ export default function MainAppShell({ children }) {
           style={{
             padding: !isMobileView
               ? "2.5rem 6.5rem 5rem 2.5rem"
-              : "1.5rem 1.5rem 0 2rem",
+              : "4.5rem 1.0rem 0 1.0rem",
             marginTop: isMobileView ? "20px" : "0px",
           }}
         >
