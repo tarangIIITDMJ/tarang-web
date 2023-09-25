@@ -1,5 +1,5 @@
 import MainAppShell from "./components/MainAppShell";
-import { Button, Container, Text } from "@mantine/core";
+import { Box, Button, Container, Flex, Stack, Text } from "@mantine/core";
 import Image from "next/image";
 import TarangHeading from "../public/tarangHeading.svg";
 import { IconArrowRight } from "@tabler/icons-react";
@@ -7,21 +7,14 @@ import { IconArrowRight } from "@tabler/icons-react";
 export default function Home() {
   return (
     <MainAppShell>
-      <Container
-        h="100vh"
-        p={0}
-        m={0}
-        bg="blue"
-        miw="100%"
-        style={styles.container}
-      >
+      <Container h="100vh" m={0} bg="blue" miw="100%" style={styles.container}>
         <video loop muted autoPlay style={styles.video}>
           <source
             src="https://res.cloudinary.com/prajjwalcdn/video/upload/v1695590772/video_seh4ks.mp4"
             type="video/mp4"
           />
         </video>
-        <div style={styles.videoOverlay}>
+        <Box style={styles.videoOverlay}>
           <Container
             h="100%"
             p={0}
@@ -35,7 +28,7 @@ export default function Home() {
               pointerEvents: "auto",
             }}
           >
-            <Image src={TarangHeading} alt="Tarang Heading" />
+            <Image src={TarangHeading} alt="Tarang Heading" priority={true} />
             <Text size="28px" c="white" mt={22}>
               Glimmer in the wake of escapism
             </Text>
@@ -49,8 +42,28 @@ export default function Home() {
               Explore Now
             </Button>
           </Container>
-        </div>
+        </Box>
       </Container>
+      <Box style={styles.sponsorUs}>
+        <Flex
+          direction="column"
+          justify="center"
+          align="center"
+          gap="2rem"
+          wrap="wrap"
+        >
+          <Text size="3rem" c="#F2F2F2">
+            Our sponsors
+          </Text>
+          <Flex align="flex-start" gap="1.5rem">
+            {Array(6)
+              .fill()
+              .map((_, index) => (
+                <Box key={index} w="10.5rem" h="6.5rem" bg="#3D3D3D"></Box>
+              ))}
+          </Flex>
+        </Flex>
+      </Box>
     </MainAppShell>
   );
 }
@@ -77,5 +90,10 @@ const styles = {
     height: "100%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     pointerEvents: "none",
+    padding: "0 6rem 0 12rem",
+  },
+  sponsorUs: {
+    backgroundColor: "#150D0C",
+    padding: "6rem 6rem 6rem 12rem",
   },
 };

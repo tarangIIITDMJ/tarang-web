@@ -101,6 +101,9 @@ export default function MainAppShell({ children }) {
           h={"min-content"}
           zIndex={201}
           withBorder={isMobileView ? false : true}
+          style={{
+            border: isMobileView ? "none" : "2px solid #000",
+          }}
           bg={isMobileView ? "transparent" : "#FFFAEF"}
         >
           {!isMobileView ? (
