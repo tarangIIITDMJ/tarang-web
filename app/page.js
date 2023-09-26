@@ -1,5 +1,13 @@
 import MainAppShell from "./components/MainAppShell";
-import { Box, Button, Container, Flex, Stack, Text } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Group,
+  Stack,
+  Text,
+} from "@mantine/core";
 import EventSection from "./components/HomePageSections/EventSection";
 import HeroMain from "./components/HomePageSections/HeroMain";
 
@@ -18,24 +26,18 @@ export default function Home() {
         </Box>
       </Container>
       <Box style={styles.sponsorUs}>
-        <Flex
-          direction="column"
-          justify="center"
-          align="center"
-          gap="2rem"
-          wrap="wrap"
-        >
+        <Stack align="center" gap="2rem">
           <Text size="3rem" c="#F2F2F2">
             Our sponsors
           </Text>
-          <Flex align="flex-start" gap="1.5rem">
+          <Group gap="1.5rem" justify="center">
             {Array(6)
               .fill()
               .map((_, index) => (
                 <Box key={index} w="10.5rem" h="6.5rem" bg="#3D3D3D"></Box>
               ))}
-          </Flex>
-        </Flex>
+          </Group>
+        </Stack>
       </Box>
       <EventSection />
     </MainAppShell>
