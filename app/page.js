@@ -3,6 +3,7 @@ import { Box, Button, Container, Flex, Stack, Text } from "@mantine/core";
 import Image from "next/image";
 import TarangHeading from "../public/tarangHeading.svg";
 import { IconArrowRight } from "@tabler/icons-react";
+import EventSection from "./components/HomePageSections/EventSection";
 
 export default function Home() {
   return (
@@ -64,6 +65,7 @@ export default function Home() {
           </Flex>
         </Flex>
       </Box>
+      <EventSection />
     </MainAppShell>
   );
 }
@@ -80,7 +82,6 @@ const styles = {
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    // zIndex: -1,
   },
   videoOverlay: {
     position: "absolute",

@@ -13,6 +13,7 @@ import {
   Paper,
   Group,
   Transition,
+  Center,
 } from "@mantine/core";
 import { IconArrowUpRight } from "@tabler/icons-react";
 
@@ -68,7 +69,7 @@ function createNavItem(isMobileView, text, hovered, sethovered) {
         <Transition
           mounted={hovered == text}
           transition="slide-right"
-          duration={400}
+          duration={300}
           timingFunction="ease"
         >
           {(styles) => (
@@ -95,92 +96,81 @@ export default function MainAppShell({ children }) {
   const [hovered, sethovered] = useState("");
 
   return (
-    <AppShell>
-      {isMobileView !== undefined && (
-        <AppShell.Navbar
-          h={"min-content"}
-          zIndex={201}
-          withBorder={isMobileView ? false : true}
-          style={{
-            border: isMobileView ? "none" : "2px solid #000",
-          }}
-          bg={isMobileView ? "transparent" : "#FFFAEF"}
-        >
-          {!isMobileView ? (
-            <Stack
-              align="center"
-              w={96}
-              p={20}
-              justify="space-between"
-              h="100vh"
-            >
-              <Burger opened={opened} onClick={toggle} />
-              <Text style={textStyles}>Tarang 23</Text>
-              <Text style={{ ...textStyles, ...homeTextStyles }}>Home</Text>
-            </Stack>
-          ) : (
-            <Paper
-              radius={"50%"}
-              bg={"#FFF4E2"}
-              pos={"relative"}
-              p={10}
-              top={25}
-              left={15}
-              withBorder
-              style={{ border: "1px solid black" }}
-            >
-              <Burger
-                opened={opened}
-                onClick={toggle}
-                size={"md"}
-                styles={{
-                  root: {
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  },
-                }}
-              />
-            </Paper>
-          )}
-        </AppShell.Navbar>
-      )}
-      <AppShell.Main>{children}</AppShell.Main>
-
-      <Drawer
-        opened={opened}
-        onClose={close}
-        withCloseButton={false}
-        size={isMobileView ? "100%" : "calc(100% - 96px)"}
-        position="right"
-        styles={{
-          content: {
-            backgroundColor: "#FFF4E2",
-          },
-        }}
-        transitionProps={{
-          transition: "scale-x",
-          duration: 150,
-          timingFunction: "linear",
-        }}
-        overlayProps={{ backgroundOpacity: 0 }}
-      >
-        <Stack
-          align="flex-start"
-          style={{
-            padding: !isMobileView
-              ? "2.5rem 6.5rem 5rem 2.5rem"
-              : "4.5rem 1.0rem 0 1.0rem",
-            marginTop: isMobileView ? "20px" : "0px",
-          }}
-        >
-          {navItems.map((item, index) => (
-            <Box style={{ width: "100%" }} key={item}>
-              {createNavItem(isMobileView, item, hovered, sethovered)}
-            </Box>
-          ))}
+    <AppShell
+      navbar={{
+        width: 96,
+        breakpoint: "sm",
+        collapsed: { mobile: true },
+      }}
+    >
+      <AppShell.Navbar>
+        <Stack align="center" w={96} p={20} justify="space-between" h="100vh">
+          <Burger opened={opened} onClick={toggle} />
+          <Text style={textStyles}>Tarang 23</Text>
+          <Text style={{ ...textStyles, ...homeTextStyles }}>Home</Text>
         </Stack>
-      </Drawer>
+      </AppShell.Navbar>
+
+      {isMobileView && (
+        <AppShell.Header
+          style={styles.header}
+          pos={"fixed"}
+          top={48}
+          left={16}
+          zIndex={201}
+          h={56}
+          w={56}
+        >
+          <Center w={"100%"} h={"100%"}>
+            <Burger opened={opened} onClick={toggle} hiddenFrom="sm" />
+          </Center>
+        </AppShell.Header>
+      )}
+
+      <AppShell.Main>
+        <Drawer
+          opened={opened}
+          onClose={close}
+          withCloseButton={false}
+          size={isMobileView ? "100%" : "calc(100% - 96px)"}
+          position="right"
+          styles={{
+            content: {
+              backgroundColor: "#FFF4E2",
+            },
+          }}
+          transitionProps={{
+            transition: "scale-x",
+            duration: 150,
+            timingFunction: "linear",
+          }}
+          overlayProps={{ backgroundOpacity: 0 }}
+        >
+          <Stack
+            align="flex-start"
+            style={{
+              padding: !isMobileView
+                ? "2.5rem 6.5rem 5rem 2.5rem"
+                : "4.5rem 1.0rem 0 1.0rem",
+              marginTop: isMobileView ? "20px" : "0px",
+            }}
+          >
+            {navItems.map((item, index) => (
+              <Box style={{ width: "100%" }} key={item}>
+                {createNavItem(isMobileView, item, hovered, sethovered)}
+              </Box>
+            ))}
+          </Stack>
+        </Drawer>
+        {children}
+      </AppShell.Main>
     </AppShell>
   );
 }
+
+const styles = {
+  header: {
+    borderRadius: "50%",
+    border: "2px solid #252525",
+  },
+};
