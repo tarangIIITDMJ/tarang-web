@@ -11,6 +11,7 @@ export default function Home() {
       <SponsorSection />
       <SubMainSection />
       <EventSection />
+      <GalleryView />
     </MainAppShell>
   );
 }

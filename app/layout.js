@@ -15,7 +15,9 @@ export default function RootLayout({ children }) {
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );
