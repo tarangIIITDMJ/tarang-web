@@ -1,13 +1,9 @@
 import MainAppShell from "./components/MainAppShell";
 import { Box, Button, Container, Flex, Stack, Text } from "@mantine/core";
-import Image from "next/image";
-import TarangHeading from "../public/tarangHeading.svg";
-import { IconArrowRight } from "@tabler/icons-react";
+import EventSection from "./components/HomePageSections/EventSection";
 import HeroMain from "./components/HeroMain";
 
 export default function Home() {
-  // const isMobileView = useMediaQuery("(max-width: 768px)");
-
   return (
     <MainAppShell>
       <Container h="100vh" m={0} bg="blue" miw="100%" style={styles.container}>
@@ -41,6 +37,7 @@ export default function Home() {
           </Flex>
         </Flex>
       </Box>
+      <EventSection />
     </MainAppShell>
   );
 }
@@ -57,7 +54,6 @@ const styles = {
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    // zIndex: -1,
   },
   videoOverlay: {
     position: "absolute",
@@ -70,6 +66,6 @@ const styles = {
   },
   sponsorUs: {
     backgroundColor: "#150D0C",
-    padding: "6rem 6rem 6rem 12rem",
+    padding: "6rem",
   },
 };
