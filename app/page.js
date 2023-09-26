@@ -3,8 +3,11 @@ import { Box, Button, Container, Flex, Stack, Text } from "@mantine/core";
 import Image from "next/image";
 import TarangHeading from "../public/tarangHeading.svg";
 import { IconArrowRight } from "@tabler/icons-react";
+import HeroMain from "./components/HeroMain";
 
 export default function Home() {
+  // const isMobileView = useMediaQuery("(max-width: 768px)");
+
   return (
     <MainAppShell>
       <Container h="100vh" m={0} bg="blue" miw="100%" style={styles.container}>
@@ -15,33 +18,7 @@ export default function Home() {
           />
         </video>
         <Box style={styles.videoOverlay}>
-          <Container
-            h="100%"
-            p={0}
-            m={0}
-            miw="100%"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              pointerEvents: "auto",
-            }}
-          >
-            <Image src={TarangHeading} alt="Tarang Heading" priority={true} />
-            <Text size="28px" c="white" mt={22}>
-              Glimmer in the wake of escapism
-            </Text>
-
-            <Button
-              color="black"
-              size="lg"
-              mt={44}
-              rightSection={<IconArrowRight />}
-            >
-              Explore Now
-            </Button>
-          </Container>
+          <HeroMain />
         </Box>
       </Container>
       <Box style={styles.sponsorUs}>
@@ -86,11 +63,10 @@ const styles = {
     position: "absolute",
     top: 0,
     left: 0,
-    width: "100%",
-    height: "100%",
+    minWidth: "100%",
+    height: "100vh",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     pointerEvents: "none",
-    padding: "0 6rem 0 12rem",
   },
   sponsorUs: {
     backgroundColor: "#150D0C",
