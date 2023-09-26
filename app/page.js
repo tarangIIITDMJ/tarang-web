@@ -1,7 +1,7 @@
 import MainAppShell from "./components/MainAppShell";
 import { Box, Button, Container, Flex, Stack, Text } from "@mantine/core";
 import EventSection from "./components/HomePageSections/EventSection";
-import HeroMain from "./components/HeroMain";
+import HeroMain from "./components/HomePageSections/HeroMain";
 
 export default function Home() {
   return (

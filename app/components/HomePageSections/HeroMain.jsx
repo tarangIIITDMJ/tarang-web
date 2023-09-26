@@ -1,8 +1,6 @@
 "use client";
-import { Button, Text, Container } from "@mantine/core";
+import { Button, Text, Container, Image } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
-import Image from "next/image";
-import TarangHeading from "../../public/TarangHeading.svg";
 import { useMediaQuery } from "@mantine/hooks";
 
 const HeroMain = () => {
@@ -22,10 +20,9 @@ const HeroMain = () => {
       }}
     >
       <Image
-        src={TarangHeading}
+        src={"/tarangHeading.svg"}
         alt="Tarang Heading"
-        priority={true}
-        width={isMobileView && 300}
+        w={isMobileView ? 300 : 675}
       />
       <Text
         size={isMobileView ? "20px" : "28px"}
