@@ -10,7 +10,6 @@ import {
   Text,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import React, { useRef } from "react";
 
 export default function EventSection() {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -56,7 +55,7 @@ export default function EventSection() {
       px={isMobile ? "1rem" : "6.75rem"}
     >
       <Stack gap={"3.5rem"} align="center">
-        <Text size={isMobile ? "2.5rem" : "4rem"} c="#F2F2F2">
+        <Text size={isMobile ? "2rem" : "4rem"} c="#F2F2F2">
           Glimmer in the wake escapism
         </Text>
         <Grid gutter={20} justify="center">

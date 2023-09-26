@@ -39,7 +39,7 @@ const HeroMain = () => {
             ta={"center"}
             px={60}
           >
-            One line about Tarang 2023 cultural fest
+            Glimmer in the wake of escapism
           </Text>
 
           <Button
