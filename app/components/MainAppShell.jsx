@@ -120,6 +120,7 @@ export default function MainAppShell({ children }) {
           zIndex={201}
           h={56}
           w={56}
+          bg={opened ? "#FFF4E2" : "#FFF8DD"}
         >
           <Center w={"100%"} h={"100%"}>
             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" />

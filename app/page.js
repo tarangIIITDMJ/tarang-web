@@ -91,10 +91,10 @@ const styles = {
     height: "100%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     pointerEvents: "none",
-    padding: "0 6rem 0 12rem",
+    padding: "0 6rem 0 6rem",
   },
   sponsorUs: {
     backgroundColor: "#150D0C",
-    padding: "6rem 6rem 6rem 12rem",
+    padding: "6rem",
   },
 };
