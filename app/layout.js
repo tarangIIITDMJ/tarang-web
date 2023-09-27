@@ -1,7 +1,6 @@
 import "./globals.css";
 import "@mantine/core/styles.css";
-import { MantineProvider, ColorSchemeScript, AppShell } from "@mantine/core";
-import { theme } from "@/theme";
+import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,9 +14,7 @@ export default function RootLayout({ children }) {
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-          {children}
-        </MantineProvider>
+        <MantineProvider>{children}</MantineProvider>
       </body>
     </html>
   );

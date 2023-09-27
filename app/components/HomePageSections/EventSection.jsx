@@ -62,18 +62,18 @@ export default function EventSection() {
           <Grid.Col span={isMobile ? 12 : 6}>
             <Stack gap={20}>
               <CardComp
-                Imgprop={{ h: isMobile ? 150 : 300, src: "/EventImg1.png" }}
+                Imgprop={{ h: isMobile ? 150 : 300, src: "/eventImg1.webp" }}
               />
               <Grid>
                 <Grid.Col span={isMobile ? 12 : 6}>
                   <CardComp
-                    Imgprop={{ h: 193, src: "/EventImg1.png" }}
+                    Imgprop={{ h: 193, src: "/eventImg1.webp" }}
                     makeMobile={isMobile}
                   />
                 </Grid.Col>
                 <Grid.Col span={isMobile ? 12 : 6}>
                   <CardComp
-                    Imgprop={{ h: 193, src: "/EventImg1.png" }}
+                    Imgprop={{ h: 193, src: "/eventImg1.webp" }}
                     makeMobile={isMobile}
                   />
                 </Grid.Col>
@@ -89,19 +89,19 @@ export default function EventSection() {
               <Grid>
                 <Grid.Col span={isMobile ? 12 : 6}>
                   <CardComp
-                    Imgprop={{ h: 193, src: "/EventImg1.png" }}
+                    Imgprop={{ h: 193, src: "/eventImg1.webp" }}
                     makeMobile={isMobile}
                   />
                 </Grid.Col>
                 <Grid.Col span={isMobile ? 12 : 6}>
                   <CardComp
-                    Imgprop={{ h: 193, src: "/EventImg1.png" }}
+                    Imgprop={{ h: 193, src: "/eventImg1.webp" }}
                     makeMobile={isMobile}
                   />
                 </Grid.Col>
               </Grid>
               <CardComp
-                Imgprop={{ h: isMobile ? 150 : 300, src: "/EventImg2.jpeg" }}
+                Imgprop={{ h: isMobile ? 150 : 300, src: "/eventImg2.webp" }}
               />
             </Flex>
           </Grid.Col>

@@ -7,18 +7,18 @@ import {
   Image,
   ScrollArea,
   Text,
+  Box,
 } from "@mantine/core";
-import React from "react";
 import FlowerElement from "../uiComponents/FlowerElement";
-import { IconArrowRight, IconSignRight } from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 
 const galleryImages = [
-  "GalleryImage1.jpeg",
-  "GalleryImage2.jpeg",
-  "GalleryImage3.jpeg",
-  "GalleryImage4.jpeg",
-  "GalleryImage5.jpeg",
+  "GalleryImage1.webp",
+  "GalleryImage2.webp",
+  "GalleryImage3.webp",
+  "GalleryImage4.webp",
+  "GalleryImage5.webp",
 ];
 
 const ImageAccordion = ({ isMobileView }) => {
@@ -33,7 +33,7 @@ const ImageAccordion = ({ isMobileView }) => {
       justify="center"
     >
       {galleryImages.map((Img, index) => (
-        <div
+        <Box
           key={index}
           style={{
             width: initialWidth,
@@ -65,7 +65,7 @@ const ImageAccordion = ({ isMobileView }) => {
               e.target.style.filter = "grayscale(100%)";
             }}
           />
-        </div>
+        </Box>
       ))}
     </Group>
   );
@@ -75,7 +75,11 @@ function GalleryView() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
     <Container pr={0} h="100vh" maw="100%">
-      <Group gap={isMobileView?"2rem":"3rem"} p={isMobileView?"3rem":"4rem"} justify="center">
+      <Group
+        gap={isMobileView ? "2rem" : "3rem"}
+        p={isMobileView ? "3rem" : "4rem"}
+        justify="center"
+      >
         <FlowerElement size={isMobileView && 30} />
         <Text fz={isMobileView ? "2rem" : "4rem"}>Gallery</Text>
         <FlowerElement size={isMobileView && 30} />
