@@ -75,7 +75,7 @@ const ImageAccordion = ({ isMobileView }) => {
 function GalleryView() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
-    <Container pr={0} h="100vh" maw="100%">
+    <Container maw="100%">
       <Group
         gap={isMobileView ? "2rem" : "3rem"}
         p={isMobileView ? "3rem" : "4rem"}

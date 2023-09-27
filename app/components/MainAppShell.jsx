@@ -16,6 +16,7 @@ import {
   Center,
 } from "@mantine/core";
 import { IconArrowUpRight } from "@tabler/icons-react";
+import Footer from "./uiComponents/Footer";
 
 const commonTextStyles = {
   fontFamily: "General Sans",
@@ -111,22 +112,21 @@ export default function MainAppShell({ children }) {
         </Stack>
       </AppShell.Navbar>
 
-      {isMobileView && (
-        <AppShell.Header
-          style={styles.header}
-          pos={"fixed"}
-          top={48}
-          left={16}
-          zIndex={201}
-          h={56}
-          w={56}
-          bg={opened ? "#FFF4E2" : "#FFF8DD"}
-        >
-          <Center w={"100%"} h={"100%"}>
-            <Burger opened={opened} onClick={toggle} hiddenFrom="sm" />
-          </Center>
-        </AppShell.Header>
-      )}
+      <AppShell.Header
+        style={styles.header}
+        pos={"fixed"}
+        top={48}
+        left={16}
+        zIndex={201}
+        h={56}
+        w={56}
+        bg={opened ? "#FFF4E2" : "#FFF8DD"}
+        hiddenFrom="sm"
+      >
+        <Center w={"100%"} h={"100%"}>
+          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" />
+        </Center>
+      </AppShell.Header>
 
       <AppShell.Main>
         <Drawer
@@ -164,6 +164,7 @@ export default function MainAppShell({ children }) {
           </Stack>
         </Drawer>
         {children}
+        <Footer />
       </AppShell.Main>
     </AppShell>
   );

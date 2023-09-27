@@ -7,8 +7,12 @@ export default function SponsorSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   return (
-    <Box style={styles.sponsorUs}>
-      <Stack align="center" gap="2rem">
+    <Box
+      style={styles.sponsorUs}
+      px={isMobileView ? "1rem" : "6.75rem"}
+      py={isMobileView ? "4rem" : "6rem"}
+    >
+      <Stack align="center" gap="2rem" w={"100%"}>
         <Text size={isMobileView ? "20px" : "48px"} c="#F2F2F2">
           Our sponsors
         </Text>
@@ -32,6 +36,5 @@ export default function SponsorSection() {
 const styles = {
   sponsorUs: {
     backgroundColor: "#150D0C",
-    padding: "6rem 0",
   },
 };
