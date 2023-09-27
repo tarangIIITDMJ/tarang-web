@@ -14,11 +14,11 @@ import { IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 
 const galleryImages = [
-  "GalleryImage1.webp",
-  "GalleryImage2.webp",
-  "GalleryImage3.webp",
-  "GalleryImage4.webp",
-  "GalleryImage5.webp",
+  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845772/GalleryImage1_ugrcm8.webp",
+  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845772/GalleryImage5_gq2if8.webp",
+  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845772/GalleryImage3_wurhne.webp",
+  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845771/GalleryImage4_gferzi.webp",
+  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845771/GalleryImage2_g27kpb.webp",
 ];
 
 const ImageAccordion = ({ isMobileView }) => {
@@ -52,7 +52,8 @@ const ImageAccordion = ({ isMobileView }) => {
             alt="Images"
             w={"100%"}
             h={"100%"}
-            src={`/assets/${Img}`}
+            src={Img}
+            loading="lazy"
             style={{
               objectFit: "cover",
               filter: "grayscale(100%)",

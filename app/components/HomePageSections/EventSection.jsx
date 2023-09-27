@@ -62,18 +62,27 @@ export default function EventSection() {
           <Grid.Col span={isMobile ? 12 : 6}>
             <Stack gap={20}>
               <CardComp
-                Imgprop={{ h: isMobile ? 150 : 300, src: "/eventImg1.webp" }}
+                Imgprop={{
+                  h: isMobile ? 150 : 300,
+                  src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                }}
               />
               <Grid>
                 <Grid.Col span={isMobile ? 12 : 6}>
                   <CardComp
-                    Imgprop={{ h: 193, src: "/eventImg1.webp" }}
+                    Imgprop={{
+                      h: 193,
+                      src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                    }}
                     makeMobile={isMobile}
                   />
                 </Grid.Col>
                 <Grid.Col span={isMobile ? 12 : 6}>
                   <CardComp
-                    Imgprop={{ h: 193, src: "/eventImg1.webp" }}
+                    Imgprop={{
+                      h: 193,
+                      src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                    }}
                     makeMobile={isMobile}
                   />
                 </Grid.Col>
@@ -89,19 +98,28 @@ export default function EventSection() {
               <Grid>
                 <Grid.Col span={isMobile ? 12 : 6}>
                   <CardComp
-                    Imgprop={{ h: 193, src: "/eventImg1.webp" }}
+                    Imgprop={{
+                      h: 193,
+                      src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                    }}
                     makeMobile={isMobile}
                   />
                 </Grid.Col>
                 <Grid.Col span={isMobile ? 12 : 6}>
                   <CardComp
-                    Imgprop={{ h: 193, src: "/eventImg1.webp" }}
+                    Imgprop={{
+                      h: 193,
+                      src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                    }}
                     makeMobile={isMobile}
                   />
                 </Grid.Col>
               </Grid>
               <CardComp
-                Imgprop={{ h: isMobile ? 150 : 300, src: "/eventImg2.webp" }}
+                Imgprop={{
+                  h: isMobile ? 150 : 300,
+                  src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                }}
               />
             </Flex>
           </Grid.Col>
