@@ -18,6 +18,11 @@ export default function SubMainSection() {
         align="center"
         gap={"3rem"}
       >
+        {isMobileView && (
+          <Text size={isMobileView ? "2rem" : "4rem"} c="#252525">
+            Glimmer in the wake of escapism
+          </Text>
+        )}
         <Box
           style={styles.container}
           w={isMobileView ? "20.5rem" : "32rem"}
@@ -41,9 +46,11 @@ export default function SubMainSection() {
         </Box>
         <Box>
           <Stack align="flex-start" justify="center" gap={"2.25rem"}>
-            <Text size={isMobileView ? "2rem" : "4rem"} c="#252525">
-              Glimmer in the wake of escapism
-            </Text>
+            {!isMobileView && (
+              <Text size={isMobileView ? "2rem" : "4rem"} c="#252525">
+                Glimmer in the wake of escapism
+              </Text>
+            )}
             <Text size={isMobileView ? "1rem" : "1.25rem"} c="#252525">
               Quidam officiis similique sea ei, vel tollit indoctum efficiendi
               ei, at nihil tantas platonem eos. Mazim nemore singulis an ius,
