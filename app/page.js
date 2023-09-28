@@ -4,6 +4,7 @@ import SponsorSection from "./components/HomePageSections/SponsorSection";
 import SubMainSection from "./components/HomePageSections/SubMainSection";
 import EventSection from "./components/HomePageSections/EventSection";
 import GalleryView from "./components/HomePageSections/GalleryView";
+import SponsorUsSection from "./components/HomePageSections/SponsorUsSection";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <SubMainSection />
       <EventSection />
       <GalleryView />
+      <SponsorUsSection />
     </MainAppShell>
   );
 }
