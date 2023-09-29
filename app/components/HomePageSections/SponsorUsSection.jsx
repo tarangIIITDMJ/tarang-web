@@ -41,7 +41,7 @@ function SponsorUsSection() {
           </Container>
         </Grid.Col>
         <Grid.Col span={1} order={isMobileView ? 3 : ""}>
-          <Image h={"100%"} src={"/MobileFrame.webp"} />
+          <Image h={"100%"} src={"/MobileFrame.webp"} alt=""/>
         </Grid.Col>
         <Grid.Col order={isMobileView ? 1 : ""} span={1}>
           <Image
@@ -50,6 +50,7 @@ function SponsorUsSection() {
               transform: "scaleX(-1)",
             }}
             src={"/MobileFrame.webp"}
+            alt=""
           />
         </Grid.Col>
         <Grid.Col bg="black" order={isMobileView ? 4 : ""} span={1}>

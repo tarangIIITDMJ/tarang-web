@@ -23,6 +23,7 @@ export default function Footer() {
       >
         <Image
           src={"/tarangHeading.svg"}
+          alt=""
           style={{ filter: "brightness(0)" }}
           h={"4rem"}
         />
@@ -73,7 +74,7 @@ export default function Footer() {
             w={300}
           />
           <Stack w={350} justify="center" gap={"xl"}>
-            <Image src={"/map.webp"} radius={"md"} />
+            <Image src={"/map.png"} alt="" radius={"md"} />
             <Text fz={isMobileView ? 16 : 20} ta={"center"}>
               52GG+H4G, Airport Rd, PDPM IIITDM Jabalpur Campus, Khamaria,
               Jabalpur, Madhya Pradesh 482005
