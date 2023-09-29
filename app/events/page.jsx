@@ -4,12 +4,12 @@ import HeroSection from "@/app/components/EventPageSections/HeroSection";
 import EventCategories from "@/app/components/EventPageSections/EventCategories";
 import EventCards from "@/app/components/EventPageSections/EventCards";
 
-export default function EventPage() {
-    return(
-        <MainAppShell>
-            <HeroSection />
-            <EventCategories />
-            <EventCards />
-        </MainAppShell>
-    );
+export default function Events() {
+  return (
+    <MainAppShell>
+      <HeroSection />
+      <EventCategories />
+      <EventCards />
+    </MainAppShell>
+  );
 }

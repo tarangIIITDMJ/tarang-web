@@ -1,12 +1,45 @@
 "use client";
 import { Text, Stack, Grid, Card, Flex, Box, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import eventCardData from "./EventCardData";
 
+// TODO: replace this with api call
+
+const eventCardData = [
+  {
+    name: "Event Name",
+    description:
+      "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
+    img: "/assets/EventCard2.webp",
+  },
+  {
+    name: "Event Name",
+    description:
+      "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
+    img: "/assets/EventCard2.webp",
+  },
+  {
+    name: "Event Name",
+    description:
+      "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
+    img: "/assets/EventCard2.webp",
+  },
+  {
+    name: "Event Name",
+    description:
+      "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
+    img: "/assets/EventCard2.webp",
+  },
+  {
+    name: "Event Name",
+    description:
+      "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
+    img: "/assets/EventCard2.webp",
+  },
+];
 export default function EventCards() {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-  function CardComp({ Imgprop, makeMobile = false, name, description}) {
+  function CardComp({ Imgprop, makeMobile = false, name, description }) {
     return (
       <Card radius={0} w={isMobile ? "95%" : "100%"} p={0}>
         <Flex
