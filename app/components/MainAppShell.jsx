@@ -10,7 +10,6 @@ import {
   Stack,
   Box,
   Divider,
-  Paper,
   Group,
   Transition,
   Center,

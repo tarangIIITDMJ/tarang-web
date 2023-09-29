@@ -19,7 +19,7 @@ export default function SubMainSection() {
         gap={"3rem"}
       >
         {isMobileView && (
-          <Text size={isMobileView ? "2rem" : "4rem"} c="#252525">
+          <Text size={"2rem"} c="#252525" ta={"right"}>
             Glimmer in the wake of escapism
           </Text>
         )}
@@ -47,11 +47,15 @@ export default function SubMainSection() {
         <Box>
           <Stack align="flex-start" justify="center" gap={"2.25rem"}>
             {!isMobileView && (
-              <Text size={isMobileView ? "2rem" : "4rem"} c="#252525">
+              <Text size={"4rem"} c="#252525">
                 Glimmer in the wake of escapism
               </Text>
             )}
-            <Text size={isMobileView ? "1rem" : "1.25rem"} c="#252525">
+            <Text
+              size={isMobileView ? "1rem" : "1.25rem"}
+              ta={isMobileView ? "left" : "justiy"}
+              c="#252525"
+            >
               Quidam officiis similique sea ei, vel tollit indoctum efficiendi
               ei, at nihil tantas platonem eos. Mazim nemore singulis an ius,
               nullam ornatus nam ei.
@@ -61,6 +65,7 @@ export default function SubMainSection() {
               size={isMobileView ? "md" : "lg"}
               mt={isMobileView ? "1rem" : "1.5rem"}
               rightSection={<IconArrowRight />}
+              style={isMobileView ? { display: "block", margin: "0 auto" } : {}}
             >
               Read More
             </Button>
