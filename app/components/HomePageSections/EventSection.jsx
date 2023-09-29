@@ -26,6 +26,7 @@ export default function EventSection() {
             <Image
               w={makeMobile ? 120 : "100%"}
               style={{ objectPosition: "0% 0%", transition: "0.3s" }}
+              alt=""
               {...Imgprop}
             />
           </Box>

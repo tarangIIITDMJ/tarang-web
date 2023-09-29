@@ -18,6 +18,7 @@ export default function EventCards() {
             <Image
               w={makeMobile ? 135 : "100%"}
               style={{ objectPosition: "0% 0%", transition: "0.3s" }}
+              alt="eventImage"
               {...Imgprop}
             />
           </Box>
@@ -52,11 +53,11 @@ export default function EventCards() {
       pr={isMobile ? 0 : "20rem"}
     >
       <Grid gutter={isMobile ? 30 : 110}>
-        {eventCardData.map((event) => {
+        {eventCardData.map((event, index) => {
           return (
-            <Grid.Col span={isMobile ? 12 : 4}>
+            <Grid.Col span={isMobile ? 12 : 4} key={index}>
               <CardComp
-                Imgprop={{ h: 240, src: event.img }} // h: 240
+                Imgprop={{ h: 240, src: event.img }}
                 makeMobile={isMobile}
                 name={event.name}
                 description={event.description}
