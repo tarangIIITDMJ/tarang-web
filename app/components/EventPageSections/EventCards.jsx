@@ -1,51 +1,48 @@
 "use client";
 import { Text, Stack, Grid, Card, Flex, Box, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-
-// TODO: replace this with api call
-
-const eventCardData = [
-  {
-    name: "Event Name",
-    description:
-      "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
-    img: "/assets/EventCard2.webp",
-  },
-  {
-    name: "Event Name",
-    description:
-      "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
-    img: "/assets/EventCard2.webp",
-  },
-  {
-    name: "Event Name",
-    description:
-      "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
-    img: "/assets/EventCard2.webp",
-  },
-  {
-    name: "Event Name",
-    description:
-      "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
-    img: "/assets/EventCard2.webp",
-  },
-  {
-    name: "Event Name",
-    description:
-      "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
-    img: "/assets/EventCard2.webp",
-  },
-];
 export default function EventCards() {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const eventCardData = [
+    {
+      name: "Event Name",
+      description:
+        "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
+      img: "/assets/EventCard2.webp",
+    },
+    {
+      name: "Event Name",
+      description:
+        "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
+      img: "/assets/EventCard2.webp",
+    },
+    {
+      name: "Event Name",
+      description:
+        "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
+      img: "/assets/EventCard2.webp",
+    },
+    {
+      name: "Event Name",
+      description:
+        "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
+      img: "/assets/EventCard2.webp",
+    },
+    {
+      name: "Event Name",
+      description:
+        "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
+      img: "/assets/EventCard2.webp",
+    },
+  ];
 
   function CardComp({ Imgprop, makeMobile = false, name, description }) {
     return (
-      <Card radius={0} w={isMobile ? "95%" : "100%"} p={0}>
+      <Card radius={0} w={isMobile ? "95%" : "21vw"} p={0}>
         <Flex
           p={0}
           direction={makeMobile ? "row" : "column"}
-          h={makeMobile ? 140 : 350}
+          h={makeMobile ? 140 : "39vh"}
         >
           <Box>
             <Image
@@ -83,14 +80,14 @@ export default function EventCards() {
       align="flex-start"
       pl={isMobile ? "1.5rem" : "5rem"}
       py={isMobile ? "1rem" : "4rem"}
-      pr={isMobile ? 0 : "20rem"}
+      pr={isMobile ? 0 : "9vw"}
     >
       <Grid gutter={isMobile ? 30 : 110}>
         {eventCardData.map((event, index) => {
           return (
             <Grid.Col span={isMobile ? 12 : 4} key={index}>
               <CardComp
-                Imgprop={{ h: 240, src: event.img }}
+                Imgprop={{ h: "13vw", src: event.img }}
                 makeMobile={isMobile}
                 name={event.name}
                 description={event.description}
