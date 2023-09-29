@@ -39,10 +39,6 @@ export default function About() {
 }
 
 const styles = {
-  container: {
-    position: "relative",
-    overflow: "hidden",
-  },
   image: {
     position: "absolute",
     left: 0,
