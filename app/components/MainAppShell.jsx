@@ -101,6 +101,17 @@ export default function MainAppShell({ children }) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [hovered, sethovered] = useState("");
 
+  const styles = {
+    navbar: {
+      backgroundColor: "#1E1E1E",
+      border: "2px solid #000",
+    },
+    header: {
+      borderRadius: "50%",
+      border: `2px solid ${opened ? "black" : "white"}`,
+    },
+  };
+
   return (
     <AppShell
       navbar={{
@@ -125,11 +136,16 @@ export default function MainAppShell({ children }) {
         zIndex={201}
         h={56}
         w={56}
-        bg={opened ? "#FFF4E2" : "#FFF8DD"}
+        bg={opened ? "#FFF4E2" : "#000"}
         hiddenFrom="sm"
       >
         <Center w={"100%"} h={"100%"}>
-          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" />
+          <Burger
+            opened={opened}
+            onClick={toggle}
+            color={opened ? "black" : "white"}
+            hiddenFrom="sm"
+          />
         </Center>
       </AppShell.Header>
 
@@ -174,14 +190,3 @@ export default function MainAppShell({ children }) {
     </AppShell>
   );
 }
-
-const styles = {
-  navbar: {
-    backgroundColor: "#1E1E1E",
-    border: "2px solid #000",
-  },
-  header: {
-    borderRadius: "50%",
-    border: "2px solid #252525",
-  },
-};
