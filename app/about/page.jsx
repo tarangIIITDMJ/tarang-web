@@ -18,7 +18,7 @@ export default function About() {
       />
       <Box style={styles.imageOverlay}>
         <Stack gap={isMobileView ? "1rem" : "3.5rem"} justify="flex-end" h={isMobileView ? "40vh" : "50vh"} align="center">
-          <Text size={isMobileView ? "4rem" : "6rem"} c="white" w="80vw" fw={550}>
+          <Text size={isMobileView ? "4rem" : "6rem"} c="white" w="80vw" fw={550} p={"1rem"}>
             About
           </Text>
         </Stack>
