@@ -53,7 +53,6 @@ const ImageAccordion = ({ isMobileView }) => {
             w={"100%"}
             h={"100%"}
             src={Img}
-            loading="lazy"
             style={{
               objectFit: "cover",
               filter: "grayscale(100%)",

@@ -16,6 +16,7 @@ import {
 } from "@mantine/core";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Footer from "./uiComponents/Footer";
+import Link from "next/link";
 
 const commonTextStyles = {
   fontFamily: "General Sans",
@@ -42,13 +43,13 @@ const navItemsStyles = {
   marginTop: "0.75rem",
 };
 
-function createNavItem(isMobileView, text, hovered, sethovered) {
+function createNavItem(isMobileView, item, hovered, sethovered) {
   const fontSize = isMobileView ? "2rem" : "2.5rem";
 
   return (
     <Box
-      key={text}
-      onMouseEnter={() => sethovered(text)}
+      key={item.name}
+      onMouseEnter={() => sethovered(item.name)}
       onMouseLeave={() => sethovered("")}
     >
       <Group
@@ -64,17 +65,16 @@ function createNavItem(isMobileView, text, hovered, sethovered) {
             fontSize: fontSize,
           }}
         >
-          {text}
+          <Link href={item.link}>{item.name}</Link>
         </Text>
         <Transition
-          mounted={hovered == text}
+          mounted={hovered == item.name}
           transition="slide-right"
           duration={300}
           timingFunction="ease"
         >
           {(styles) => (
             <div style={styles}>
-              {" "}
               <IconArrowUpRight
                 size={"3.5rem"}
                 stroke={1}
@@ -89,11 +89,19 @@ function createNavItem(isMobileView, text, hovered, sethovered) {
   );
 }
 export default function MainAppShell({ children }) {
-  const navItems = ["Home", "About", "Events", "Gallery", "Contact Us", "FAQ"];
+  const navItems = [
+    { name: "Home", link: "/" },
+    { name: "About", link: "/about" },
+    { name: "Events", link: "/events" },
+    { name: "Gallery", link: "/gallery" },
+    { name: "Contact", link: "/contact" },
+    { name: "FAQ", link: "/faq" },
+  ];
 
   const [opened, { toggle, close }] = useDisclosure(false);
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [hovered, sethovered] = useState("");
+  console.log(hovered);
 
   return (
     <AppShell
@@ -156,7 +164,7 @@ export default function MainAppShell({ children }) {
             }}
           >
             {navItems.map((item, index) => (
-              <Box style={{ width: "100%" }} key={item}>
+              <Box style={{ width: "100%" }} key={item.name}>
                 {createNavItem(isMobileView, item, hovered, sethovered)}
               </Box>
             ))}
