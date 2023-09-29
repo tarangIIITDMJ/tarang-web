@@ -30,7 +30,7 @@ const HeroMain = () => {
           <Image
             src={"/tarangHeading.svg"}
             alt="Tarang Heading"
-            w={isMobileView ? 300 : 675}
+            w={isMobileView ? 150 : 375}
           />
           <Text
             size={isMobileView ? "20px" : "28px"}

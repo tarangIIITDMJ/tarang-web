@@ -19,10 +19,9 @@ import Footer from "./uiComponents/Footer";
 import Link from "next/link";
 
 const commonTextStyles = {
-  fontFamily: "General Sans",
   fontSize: "2rem",
   fontWeight: 500,
-  color: "#292929",
+  color: "#F8F8F8",
   whiteSpace: "nowrap",
 };
 
@@ -41,6 +40,7 @@ const navItemsStyles = {
   ...commonTextStyles,
   lineHeight: "143.98%",
   marginTop: "0.75rem",
+  color: "#292929",
 };
 
 function createNavItem(isMobileView, item, hovered, sethovered) {
@@ -92,16 +92,15 @@ export default function MainAppShell({ children }) {
   const navItems = [
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
-    { name: "Events", link: "/events" },
-    { name: "Gallery", link: "/gallery" },
-    { name: "Contact", link: "/contact" },
-    { name: "FAQ", link: "/faq" },
+    { name: "Events", link: "/" },
+    { name: "Gallery", link: "/" },
+    { name: "Contact", link: "/" },
+    { name: "FAQ", link: "/" },
   ];
 
   const [opened, { toggle, close }] = useDisclosure(false);
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [hovered, sethovered] = useState("");
-  console.log(hovered);
 
   return (
     <AppShell
@@ -111,9 +110,9 @@ export default function MainAppShell({ children }) {
         collapsed: { mobile: true },
       }}
     >
-      <AppShell.Navbar>
+      <AppShell.Navbar style={styles.navbar}>
         <Stack align="center" w={96} p={20} justify="space-between" h="100vh">
-          <Burger opened={opened} onClick={toggle} />
+          <Burger color="#FFF" opened={opened} onClick={toggle} />
           <Text style={textStyles}>Tarang 23</Text>
           <Text style={{ ...textStyles, ...homeTextStyles }}>Home</Text>
         </Stack>
@@ -178,6 +177,10 @@ export default function MainAppShell({ children }) {
 }
 
 const styles = {
+  navbar: {
+    backgroundColor: "#1E1E1E",
+    border: "2px solid #000",
+  },
   header: {
     borderRadius: "50%",
     border: "2px solid #252525",

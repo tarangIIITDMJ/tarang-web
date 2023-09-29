@@ -9,16 +9,15 @@ import {
   Text,
   Box,
 } from "@mantine/core";
-import FlowerElement from "../uiComponents/FlowerElement";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 
 const galleryImages = [
   "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845772/GalleryImage1_ugrcm8.webp",
-  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845772/GalleryImage5_gq2if8.webp",
+  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845771/GalleryImage2_g27kpb.webp",
   "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845772/GalleryImage3_wurhne.webp",
   "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845771/GalleryImage4_gferzi.webp",
-  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845771/GalleryImage2_g27kpb.webp",
+  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845772/GalleryImage5_gq2if8.webp",
 ];
 
 const ImageAccordion = ({ isMobileView }) => {
@@ -75,15 +74,21 @@ function GalleryView() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
     <Container maw="100%">
-      <Group
-        gap={isMobileView ? "2rem" : "3rem"}
-        p={isMobileView ? "3rem" : "4rem"}
-        justify="center"
-      >
-        <FlowerElement size={isMobileView && 30} />
-        <Text fz={isMobileView ? "2rem" : "4rem"}>Gallery</Text>
-        <FlowerElement size={isMobileView && 30} />
-      </Group>
+      <Box p={isMobileView ? "3rem" : "4rem"}>
+        <Group justify="center" align="center">
+          <Text
+            fz={isMobileView ? "2rem" : "3rem"}
+            bg={"#D0EB4C"}
+            px={"2.5rem"}
+            py={"0.75rem"}
+            style={{
+              borderRadius: "4rem",
+            }}
+          >
+            Gallery
+          </Text>
+        </Group>
+      </Box>
       <ScrollArea>
         <ImageAccordion isMobileView={isMobileView} />
       </ScrollArea>
