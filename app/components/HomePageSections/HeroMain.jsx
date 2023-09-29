@@ -9,7 +9,11 @@ const HeroMain = () => {
     <Container h="100vh" m={0} bg="blue" miw="100%" style={styles.container}>
       <video loop muted autoPlay style={styles.video}>
         <source
-          src="https://res.cloudinary.com/prajjwalcdn/video/upload/v1695590772/video_seh4ks.mp4"
+          src={
+            isMobileView
+              ? "https://res.cloudinary.com/prajjwalcdn/video/upload/v1696021679/mobile_bg_video_bt9ial.mp4"
+              : "https://res.cloudinary.com/prajjwalcdn/video/upload/v1696021675/dektop_bg_video_jjfbtl.mp4"
+          }
           type="video/mp4"
         />
       </video>
@@ -30,7 +34,7 @@ const HeroMain = () => {
           <Image
             src={"/tarangHeading.svg"}
             alt="Tarang Heading"
-            w={isMobileView ? 150 : 375}
+            w={isMobileView ? 200 : 375}
           />
           <Text
             size={isMobileView ? "20px" : "28px"}

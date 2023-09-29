@@ -42,18 +42,21 @@ export default function DateRevealSection() {
                 position: "relative",
                 marginLeft: index > 0 ? "-60px" : "0",
                 zIndex: index + 1,
-                transform:
-                  hoveredIndex === index ? "rotateY(180deg)" : "rotateY(0deg)",
-                transformStyle: "preserve-3d",
-                transition: "transform 0.6s ease",
               }}
             >
               <Image
                 src={hoveredIndex === index ? hoverImages[index] : src}
                 alt=""
-                width={isMobileView ? 125 : 200}
-                height={isMobileView ? 125 : 200}
-                style={{ transform: "scaleX(-1)" }}
+                width={isMobileView ? 125 : 250}
+                height={isMobileView ? 125 : 250}
+                style={{
+                  transform:
+                    hoveredIndex === index
+                      ? "rotateY(180deg) scaleX(-1)"
+                      : "rotateY(0deg)",
+                  transformStyle: "preserve-3d",
+                  transition: "transform 0.6s ease",
+                }}
               />
             </div>
           ))}

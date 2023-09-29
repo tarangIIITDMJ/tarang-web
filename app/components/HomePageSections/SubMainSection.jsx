@@ -9,7 +9,7 @@ export default function SubMainSection() {
 
   return (
     <Box
-      bg="#FFFAEF"
+      bg="#D0EB4C"
       px={isMobileView ? "1rem" : "6.25rem"}
       py={isMobileView ? "4rem" : "6rem"}
     >
