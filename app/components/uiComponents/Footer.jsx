@@ -4,7 +4,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import {
   IconBrandFacebook,
   IconBrandInstagram,
-  IconBrandYoutubeFilled,
+  IconBrandYoutube,
 } from "@tabler/icons-react";
 import Link from "next/link";
 
@@ -94,9 +94,9 @@ export default function Footer() {
             </Text>
             {isMobileView && (
               <Group justify="center" gap={20}>
-                <IconBrandFacebook size={28} />
-                <IconBrandYoutubeFilled size={28} />
-                <IconBrandInstagram size={28} />
+                <IconBrandFacebook size={28} color="#fff" />
+                <IconBrandYoutube size={28} color="#fff" />
+                <IconBrandInstagram size={28} color="#fff" />
               </Group>
             )}
             {isMobileView && (

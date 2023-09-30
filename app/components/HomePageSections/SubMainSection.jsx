@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Box, Flex, Group, Stack, Text, Button, Image } from "@mantine/core";
 import {
   IconPlayerPlay,
@@ -13,7 +13,13 @@ export default function SubMainSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const videoRef = useRef(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-
+  const [rotation, setRotation] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotation((current) => current + 1);
+    }, 40);
+    return () => clearInterval(interval);
+  }, []);
   const handlePlayPauseToggle = () => {
     const video = videoRef.current;
     if (video) {
@@ -51,7 +57,15 @@ export default function SubMainSection() {
               type="video/mp4"
             />
           </video>
-          <Image src={"/Group.webp"} alt="Video Ring" pos="absolute" />
+          <Image
+            src={"/Group.webp"}
+            alt="Video Ring"
+            pos="absolute"
+            style={{
+              transform: `rotate(${rotation}deg)`,
+              transition: "transform 0.3s ease",
+            }}
+          />
           <Group
             align="center"
             justify="center"
@@ -119,7 +133,7 @@ const styles = {
     transform: "translate(-50%, -50%)",
     borderRadius: "0.75rem",
     border: "2px solid #000",
-    background: "#F7AD1A;",
+    background: "#F7AD1A",
     cursor: "pointer",
   },
 };
