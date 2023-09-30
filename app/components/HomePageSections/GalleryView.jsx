@@ -89,7 +89,7 @@ function GalleryView() {
           </Text>
         </Group>
       </Box>
-      <ScrollArea>
+      <ScrollArea mr={isMobileView ? "-20px" : ""}>
         <ImageAccordion isMobileView={isMobileView} />
       </ScrollArea>
       <Center p={"4rem"}>
