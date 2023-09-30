@@ -5,7 +5,7 @@ export default function HeroSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
     <Container
-      h={isMobileView ? "50vh" : "60vh"}
+      h={isMobileView ? "50vh" : "45vh"}
       m={0}
       p={0}
       miw="100%"

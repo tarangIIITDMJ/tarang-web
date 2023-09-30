@@ -22,15 +22,6 @@ export default function Signup() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [active, setActive] = useState(0);
   const [error, setError] = useState("");
-  useEffect(() => {
-    if (active === 0) {
-      document.title = "Personal Information | Tarang";
-    } else if (active === 1) {
-      document.title = "College Information | Tarang";
-    } else if (active === 2) {
-      document.title = "Verify Email | Tarang";
-    }
-  }, [active]);
 
   const form = useForm({
     initialValues: {

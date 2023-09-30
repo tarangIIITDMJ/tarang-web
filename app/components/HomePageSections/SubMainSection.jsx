@@ -1,11 +1,30 @@
 "use client";
 
+import { useState, useRef } from "react";
 import { Box, Flex, Group, Stack, Text, Button, Image } from "@mantine/core";
-import { IconPlayerPlay, IconArrowRight } from "@tabler/icons-react";
+import {
+  IconPlayerPlay,
+  IconPlayerPause,
+  IconArrowRight,
+} from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 
 export default function SubMainSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
+  const videoRef = useRef(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  const handlePlayPauseToggle = () => {
+    const video = videoRef.current;
+    if (video) {
+      if (isVideoPlaying) {
+        video.pause();
+      } else {
+        video.play();
+      }
+      setIsVideoPlaying(!isVideoPlaying);
+    }
+  };
 
   return (
     <Box
@@ -26,27 +45,26 @@ export default function SubMainSection() {
           w={isMobileView ? "20.5rem" : "32rem"}
           h={isMobileView ? "20.5rem" : "32rem"}
         >
-          <video loop muted autoPlay style={styles.video}>
+          <video loop muted style={styles.video} ref={videoRef}>
             <source
               src="https://res.cloudinary.com/prajjwalcdn/video/upload/v1695590772/video_seh4ks.mp4"
               type="video/mp4"
             />
           </video>
-          <Image
-            src={"/Group.webp"}
-            alt="Video Ring"
-            style={{
-              ...styles.videoBorder,
-            }}
-          />
+          <Image src={"/Group.webp"} alt="Video Ring" pos="absolute" />
           <Group
             align="center"
             justify="center"
             w={isMobileView ? "3.125rem" : "5.75rem"}
             h={isMobileView ? "3.125rem" : "5.75rem"}
             style={styles.playBtn}
+            onClick={handlePlayPauseToggle}
           >
-            <IconPlayerPlay size={isMobileView ? 20 : 40} fill="#000" />
+            {isVideoPlaying ? (
+              <IconPlayerPause size={isMobileView ? 20 : 40} fill="#000" />
+            ) : (
+              <IconPlayerPlay size={isMobileView ? 20 : 40} fill="#000" />
+            )}
           </Group>
         </Box>
         <Box>
@@ -84,7 +102,6 @@ const styles = {
     position: "relative",
     flexShrink: 0,
     borderRadius: "50%",
-    border: "2px solid #000",
   },
   video: {
     position: "absolute",
@@ -104,11 +121,5 @@ const styles = {
     border: "2px solid #000",
     background: "#F7AD1A;",
     cursor: "pointer",
-  },
-  videoBorder: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    zindex: 1,
   },
 };

@@ -7,7 +7,23 @@ import {
   IconBrandYoutubeFilled,
 } from "@tabler/icons-react";
 import Link from "next/link";
-import React from "react";
+
+const styles = {
+  text: {
+    textDecoration: "underline",
+    fontSize: "20px",
+    color: "#fff",
+    cursor: "pointer",
+  },
+};
+
+function renderLink(href, text) {
+  return (
+    <Link href={href}>
+      <Text style={styles.text}>{text}</Text>
+    </Link>
+  );
+}
 
 export default function Footer() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -23,10 +39,9 @@ export default function Footer() {
         bg={"#1E1E1E"}
       >
         <Image
-          src={"/Tarangframe127.svg"}
+          src={"/tarangHeading_2.svg"}
           alt=""
-          // style={{ filter: "brightness(0)" }}
-          h={"4rem"}
+          w={isMobileView ? 175 : 375}
         />
         <Divider
           visibleFrom="lg"
@@ -45,38 +60,35 @@ export default function Footer() {
             justify={"center"}
           >
             <Stack gap={"1.5rem"}>
-              <Link href={"#"}>
-                <Text style={styles.text}>Home</Text>
-              </Link>
-              <Link href={"#"}>
-                <Text style={styles.text}>About</Text>
-              </Link>
-              <Link href={"#"}>
-                <Text style={styles.text}>Events</Text>
-              </Link>
+              {renderLink("/", "Home")}
+              {renderLink("/about", "About")}
+              {renderLink("/events", "Events")}
             </Stack>
             <Stack gap={"1.5rem"}>
-              <Link href={"#"}>
-                <Text style={styles.text}>Gallery</Text>
-              </Link>
-              <Link href={"#"}>
-                <Text style={styles.text}>Contact us</Text>
-              </Link>
-              <Link href={"#"}>
-                <Text style={styles.text}>FAQ</Text>
-              </Link>
+              {renderLink("#", "Gallery")}
+              {renderLink("#", "Contact us")}
+              {renderLink("#", "FAQ")}
             </Stack>
           </Flex>
           <Divider
             hiddenFrom="sm"
             orientation="horizontal"
             size={"sm"}
-            color="black"
+            color="white"
             w={300}
           />
-          <Stack w={350} justify="center" gap={"xl"}>
+          <Stack
+            w={350}
+            justify="center"
+            gap={"xl"}
+            px={isMobileView ? "3rem" : "0"}
+          >
             <Image src={"/map.webp"} alt="" radius={"md"} />
-            <Text fz={isMobileView ? 16 : 20} ta={"center"} color="#fff">
+            <Text
+              fz={isMobileView ? 12 : 18}
+              ta={isMobileView ? "center" : "left"}
+              c="#fff"
+            >
               52GG+H4G, Airport Rd, PDPM IIITDM Jabalpur Campus, Khamaria,
               Jabalpur, Madhya Pradesh 482005
             </Text>
@@ -88,7 +100,7 @@ export default function Footer() {
               </Group>
             )}
             {isMobileView && (
-              <Text c={"dimmed"} fz={isMobileView ? 16 : 20} ta={"center"}>
+              <Text c={"#979797"} fz={isMobileView ? 16 : 20} ta={"center"}>
                 Tarang’23 © 2023
               </Text>
             )}
@@ -98,11 +110,3 @@ export default function Footer() {
     </Box>
   );
 }
-
-const styles = {
-  text: {
-    textDecoration: "underline",
-    fontSize: "20px",
-    color: "#fff",
-  },
-};

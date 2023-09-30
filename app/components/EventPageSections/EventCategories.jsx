@@ -22,16 +22,18 @@ export default function EventCategories() {
     "Literature",
     "Others",
   ]);
-  const [selectedEvents, setSelectedEvents] = useState([]); // default value for selected event.
+
+  const [selectedEvents, setSelectedEvents] = useState([]);
   const isMobileView = useMediaQuery("(max-width: 768px)");
+
   function EventsButtonGroup({ isMobileView }) {
     return (
-      <Stack pl={isMobileView ? "1rem" : "5.5rem"}>
+      <Stack>
         <Group
           gap={isMobileView ? "sm" : "30"}
           w={isMobileView ? "fit-content" : "100%"}
           wrap={"no"}
-          py={isMobileView ? "" : "3rem"}
+          py={isMobileView ? "1rem" : "3rem"}
         >
           {list.map((event, index) => {
             return (
@@ -59,26 +61,29 @@ export default function EventCategories() {
             );
           })}
         </Group>
-        <Text
-          c="#9EA5AD"
-          size={isMobileView ? "1.2rem" : "2rem"}
-          mb={isMobileView ? "md" : "lg"}
-        >
-          &quot;Count&quot; Events
-        </Text>
       </Stack>
     );
   }
 
   return (
-    <Container pos="relative" m={0} p={0} miw="100%" bg={"#0F0F0F"}>
+    <Container
+      pos="relative"
+      m={0}
+      pl={isMobileView ? "1rem" : "5.5rem"}
+      miw="100%"
+      bg={"#0F0F0F"}
+    >
       {isMobileView ? (
-        <ScrollArea pt="3rem" pb="3rem">
+        <ScrollArea py={"1rem"}>
           <EventsButtonGroup isMobileView={isMobileView} />
         </ScrollArea>
       ) : (
         <EventsButtonGroup isMobileView={isMobileView} />
       )}
+
+      <Text c="#9EA5AD" size={isMobileView ? "1.2rem" : "2rem"}>
+        &quot;Count&quot; Events
+      </Text>
     </Container>
   );
 }

@@ -1,69 +1,66 @@
 "use client";
 import { Text, Stack, Grid, Card, Flex, Box, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+
+const eventCardData = [
+  {
+    name: "Clash of Melodies",
+    description: "A mesmerizing showcase of vocal talent like no other!",
+    img: "/assets/EventCard2.webp",
+  },
+  {
+    name: "Clash of Melodies",
+    description: "A mesmerizing showcase of vocal talent like no other!",
+    img: "/assets/EventCard2.webp",
+  },
+  {
+    name: "Clash of Melodies",
+    description: "A mesmerizing showcase of vocal talent like no other!",
+    img: "/assets/EventCard2.webp",
+  },
+  {
+    name: "Clash of Melodies",
+    description: "A mesmerizing showcase of vocal talent like no other!",
+    img: "/assets/EventCard2.webp",
+  },
+  {
+    name: "Clash of Melodies",
+    description: "A mesmerizing showcase of vocal talent like no other!",
+    img: "/assets/EventCard2.webp",
+  },
+];
+
 export default function EventCards() {
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const eventCardData = [
-    {
-      name: "Event Name",
-      description:
-        "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
-      img: "/assets/EventCard2.webp",
-    },
-    {
-      name: "Event Name",
-      description:
-        "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
-      img: "/assets/EventCard2.webp",
-    },
-    {
-      name: "Event Name",
-      description:
-        "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
-      img: "/assets/EventCard2.webp",
-    },
-    {
-      name: "Event Name",
-      description:
-        "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
-      img: "/assets/EventCard2.webp",
-    },
-    {
-      name: "Event Name",
-      description:
-        "Quidam officiis similique sea ei, vel tollit indoctum efficiendi",
-      img: "/assets/EventCard2.webp",
-    },
-  ];
 
   function CardComp({ Imgprop, makeMobile = false, name, description }) {
     return (
-      <Card radius={0} w={isMobile ? "95%" : "21vw"} p={0}>
-        <Flex
-          p={0}
-          direction={makeMobile ? "row" : "column"}
-          h={makeMobile ? 140 : "39vh"}
-        >
+      <Card radius={0} p={0}>
+        <Flex p={0} direction={makeMobile ? "row" : "column"}>
           <Box>
             <Image
-              w={makeMobile ? 135 : "100%"}
+              w={makeMobile ? 120 : "100%"}
+              h={"100%"}
               style={{ objectPosition: "0% 0%", transition: "0.3s" }}
               alt="eventImage"
               {...Imgprop}
             />
           </Box>
           <Stack
-            p={"12px 32px 24px 32px"}
-            gap={10}
+            p={"12px 24px 32px 24px"}
+            gap={8}
             align="flex-start"
             w={"100%"}
+            style={{
+              border: "2px solid #000",
+            }}
           >
-            <Text fw={500} size={isMobile ? "lg" : "1.4rem"}>
+            <Text fw={500} size={isMobile ? "0.75rem" : "1.25rem"}>
               {name}
             </Text>
             <Text
               c="#676E76"
-              size={isMobile ? "sm" : "1.2rem"}
+              size={isMobile ? "0.75rem" : "1.25rem"}
               style={{ wordBreak: "break-word" }}
             >
               {description}
@@ -78,16 +75,18 @@ export default function EventCards() {
     <Stack
       bg={"#0F0F0F"}
       align="flex-start"
-      pl={isMobile ? "1.5rem" : "5rem"}
-      py={isMobile ? "1rem" : "4rem"}
-      pr={isMobile ? 0 : "9vw"}
+      py={isMobile ? "1rem" : "2rem"}
+      px={isMobile ? "0" : "5.5rem"}
     >
-      <Grid gutter={isMobile ? 30 : 110}>
+      <Grid
+        gutter={isMobile ? "1.875rem" : "1.75rem"}
+        px={isMobile ? "1rem" : 0}
+      >
         {eventCardData.map((event, index) => {
           return (
             <Grid.Col span={isMobile ? 12 : 4} key={index}>
               <CardComp
-                Imgprop={{ h: "13vw", src: event.img }}
+                Imgprop={{ src: event.img }}
                 makeMobile={isMobile}
                 name={event.name}
                 description={event.description}

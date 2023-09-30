@@ -20,6 +20,7 @@ import Link from "next/link";
 
 const commonTextStyles = {
   fontSize: "2rem",
+  fontWeight: 400,
   color: "#F8F8F8",
   whiteSpace: "nowrap",
 };
