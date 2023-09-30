@@ -20,11 +20,12 @@ export default function Footer() {
         align={"center"}
         justify={"center"}
         wrap={"wrap"}
+        bg={"#1E1E1E"}
       >
         <Image
-          src={"/tarangHeading.svg"}
+          src={"/Tarangframe127.svg"}
           alt=""
-          style={{ filter: "brightness(0)" }}
+          // style={{ filter: "brightness(0)" }}
           h={"4rem"}
         />
         <Divider
@@ -32,7 +33,7 @@ export default function Footer() {
           orientation="vertical"
           size={"sm"}
           p={0}
-          color="black"
+          color="white"
           h={350}
         />
 
@@ -74,8 +75,8 @@ export default function Footer() {
             w={300}
           />
           <Stack w={350} justify="center" gap={"xl"}>
-            <Image src={"/map.png"} alt="" radius={"md"} />
-            <Text fz={isMobileView ? 16 : 20} ta={"center"}>
+            <Image src={"/map.webp"} alt="" radius={"md"} />
+            <Text fz={isMobileView ? 16 : 20} ta={"center"} color="#fff">
               52GG+H4G, Airport Rd, PDPM IIITDM Jabalpur Campus, Khamaria,
               Jabalpur, Madhya Pradesh 482005
             </Text>
@@ -102,5 +103,6 @@ const styles = {
   text: {
     textDecoration: "underline",
     fontSize: "20px",
+    color: "#fff",
   },
 };

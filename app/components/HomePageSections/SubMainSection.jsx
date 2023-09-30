@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Flex, Group, Stack, Text, Button } from "@mantine/core";
+import { Box, Flex, Group, Stack, Text, Button, Image } from "@mantine/core";
 import { IconPlayerPlay, IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 
@@ -32,6 +32,13 @@ export default function SubMainSection() {
               type="video/mp4"
             />
           </video>
+          <Image
+            src={"/Group.webp"}
+            alt="Video Ring"
+            style={{
+              ...styles.videoBorder,
+            }}
+          />
           <Group
             align="center"
             justify="center"
@@ -95,7 +102,13 @@ const styles = {
     transform: "translate(-50%, -50%)",
     borderRadius: "0.75rem",
     border: "2px solid #000",
-    background: "#D4DB82",
+    background: "#F7AD1A;",
     cursor: "pointer",
+  },
+  videoBorder: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    zindex: 1,
   },
 };
