@@ -17,6 +17,7 @@ import {
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Footer from "./uiComponents/Footer";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const commonTextStyles = {
   fontSize: "2rem",
@@ -101,6 +102,7 @@ export default function MainAppShell({ children }) {
   const [opened, { toggle, close }] = useDisclosure(false);
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [hovered, sethovered] = useState("");
+  const pathName = usePathname();
 
   const styles = {
     navbar: {
@@ -125,7 +127,13 @@ export default function MainAppShell({ children }) {
         <Stack align="center" w={96} p={20} justify="space-between" h="100vh">
           <Burger color="#FFF" opened={opened} onClick={toggle} />
           <Text style={textStyles}>Tarang 23</Text>
-          <Text style={{ ...textStyles, ...homeTextStyles }}>Home</Text>
+          <Text style={{ ...textStyles, ...homeTextStyles }}>
+            {pathName == "/"
+              ? "Home"
+              : navItems.slice(1).find((el) => pathName.includes(el.link))[
+                  "name"
+                ]}
+          </Text>
         </Stack>
       </AppShell.Navbar>
 

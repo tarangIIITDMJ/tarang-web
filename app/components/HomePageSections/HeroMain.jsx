@@ -1,7 +1,10 @@
 "use client";
-import { Button, Text, Container, Image, Box } from "@mantine/core";
+import { Button, Text, Container, Box } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
+import Image from "next/image";
+import tarangHeading from "@/public/tarangHeading.svg";
+import cssstyles from "@/app/styles/home.module.css";
 
 const HeroMain = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -32,12 +35,14 @@ const HeroMain = () => {
           }}
         >
           <Image
-            src={"/tarangHeading.svg"}
+            src={tarangHeading}
+            className={cssstyles.HeroMaintarangHeadingImg}
             alt="Tarang Heading"
-            w={isMobileView ? 250 : 375}
+            width={375}
           />
           <Text
-            size={isMobileView ? "20px" : "28px"}
+            size="28px"
+            className={cssstyles.HeroMainTarangHeadingText}
             c="white"
             mt={22}
             ta={"center"}
@@ -48,8 +53,9 @@ const HeroMain = () => {
 
           <Button
             color="black"
-            size={isMobileView ? "md" : "lg"}
-            mt={isMobileView ? 20 : 44}
+            size={"lg"}
+            mt={44}
+            className={cssstyles.HeroMainExploreButton}
             rightSection={<IconArrowRight />}
           >
             Explore Now
