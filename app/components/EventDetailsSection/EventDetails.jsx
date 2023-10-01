@@ -22,7 +22,7 @@ const itemArray = items.map((item, index) => (
     key={index}
     underline="false"
     fw="500"
-    c={index == items.length - 1 ? "white" : "#676E76"}
+    c={index == items.length - 1 ? "#fff" : "#676E76"}
   >
     {item.title}
   </Anchor>
@@ -34,6 +34,7 @@ export default function EventDetails() {
     <Image
       src={"/check-badge.svg"}
       style={{ width: isMobileView ? "0.65rem" : "1.2rem", height: "100%" }}
+      alt=""
     />
   );
   return (
@@ -56,7 +57,12 @@ export default function EventDetails() {
             h={isMobileView ? "328px" : "801px"}
             display={isMobileView ? "none" : ""}
           >
-            <Image src={`/Jhankaar.jpeg`} w="100%" style={styles.image} />
+            <Image
+              src={`/Jhankaar.jpeg`}
+              w="100%"
+              style={styles.image}
+              alt=""
+            />
           </Box>
           <Box
             ta="left"
