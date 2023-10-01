@@ -6,7 +6,7 @@ import EventGuidelines from "@/app/components/EventDetailsSection/EventGuideline
 
 export default function Events() {
   return (
-    <Box style={{backgroundColor: "#0F0F0F"}}>
+    <Box style={{ backgroundColor: "#0F0F0F" }}>
       <HeroSection />
       <EventDetails />
       <EventGuidelines />
