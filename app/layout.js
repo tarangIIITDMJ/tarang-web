@@ -1,6 +1,8 @@
 import "./globals.css";
 import "@mantine/core/styles.css";
+import { Notifications } from "@mantine/notifications";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
+import "@mantine/notifications/styles.css";
 
 export const metadata = {
   title: "Tarang'23 ",
@@ -15,7 +17,10 @@ export default function RootLayout({ children }) {
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider>
+          <Notifications position="bottom-right" />
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );

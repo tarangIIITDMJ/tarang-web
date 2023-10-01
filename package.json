@@ -12,6 +12,7 @@
     "@mantine/core": "^7.0.0",
     "@mantine/form": "^7.1.0",
     "@mantine/hooks": "^7.0.0",
+    "@mantine/notifications": "^7.1.0",
     "@react-google-maps/api": "^2.19.2",
     "@tabler/icons-react": "^2.35.0",
     "eslint": "8.50.0",

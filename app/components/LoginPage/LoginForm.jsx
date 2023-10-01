@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useForm } from "@mantine/form";
+import { useForm, isEmail, hasLength } from "@mantine/form";
 import { TextInput, Button, Box, Code, Text } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
@@ -10,10 +10,16 @@ const LoginForm = ({ isMobileView }) => {
 
   const form = useForm({
     initialValues: {
-      eeemail: "",
+      email: "",
       password: "",
     },
-
+    validate: {
+      email: isEmail("Invalid email"),
+      password: hasLength(
+        { min: 8 },
+        "Password should be at least 8 characters long"
+      ),
+    },
     transformValues: (values) => ({
       email: values.email.trim(),
       password: values.password.trim(),
@@ -39,15 +45,15 @@ const LoginForm = ({ isMobileView }) => {
           )}
         >
           <TextInput
+            type="email"
             label="Email"
             placeholder="Enter your email"
-            styles={{
-              input: { border: "1px solid #000", marginTop: 6 },
-            }}
+            styles={{ input: { border: "1px solid #000", marginTop: 6 } }}
             radius={0}
             {...form.getInputProps("email")}
           />
           <TextInput
+            type="password"
             label="Password"
             placeholder="Enter password"
             mt="md"
@@ -65,6 +71,7 @@ const LoginForm = ({ isMobileView }) => {
             Forgot password?
           </Text>
           <Button
+            type="submit"
             color="black"
             size={isMobileView ? "md" : "lg"}
             mt="1.5rem"
