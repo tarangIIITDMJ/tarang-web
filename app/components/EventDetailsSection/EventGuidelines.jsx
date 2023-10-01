@@ -39,8 +39,8 @@ export default function EventGuidelines() {
   ];
   return (
     <Box
-      mx={isMobileView ? "2rem" : "6.75rem"}
-      pb={isMobileView ? "2.3rem" : "11.2rem"}
+      px={isMobileView ? "2rem" : "6.75rem"}
+      pb={isMobileView ? "3rem" : "5rem"}
     >
       <Flex direction="column" mt={isMobileView ? "2rem" : "4.5rem"}>
         <Text c="#fff" size={isMobileView ? "1.5rem" : "2rem"} fw="500">
@@ -55,7 +55,6 @@ export default function EventGuidelines() {
                 key={index}
                 size={isMobileView ? "0.75rem" : "1.125rem"}
                 fw="500"
-                mb="xs"
                 mt="xl"
               >
                 {event.title}:

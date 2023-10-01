@@ -1,21 +1,15 @@
 "use client";
-import {
-  Box,
-  Container,
-  Flex,
-  Image,
-  Text,
-  Badge,
-  Button,
-} from "@mantine/core";
+
+import { Box, Flex, Image, Text, Badge, Button } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { Breadcrumbs, Anchor } from "@mantine/core";
 
 const items = [
-  { title: "Home", href: "#" },
-  { title: "Events", href: "#" },
+  { title: "Home", href: "/" },
+  { title: "Events", href: "/events" },
   { title: "Jhankaar", href: "#" },
 ];
+
 const itemArray = items.map((item, index) => (
   <Anchor
     href={item.href}
@@ -30,6 +24,7 @@ const itemArray = items.map((item, index) => (
 
 export default function EventDetails() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
+
   const icon = (
     <Image
       src={"/check-badge.svg"}
@@ -37,17 +32,18 @@ export default function EventDetails() {
       alt=""
     />
   );
+
   return (
     <Box>
       <Box
-        mt={isMobileView ? "1.5rem" : "4.5rem"}
-        mx={isMobileView ? "1rem" : "6.75rem"}
+        pt={isMobileView ? "1.5rem" : "4.5rem"}
+        px={isMobileView ? "1.5rem" : "6.75rem"}
       >
         <Breadcrumbs separator=">">{itemArray}</Breadcrumbs>
       </Box>
       <Box
-        mt={isMobileView ? "2.5rem" : "4.5rem"}
-        mx={isMobileView ? "1rem" : "6.75rem"}
+        pt={isMobileView ? "2.5rem" : "4.5rem"}
+        px={isMobileView ? "1.5rem" : "6.75rem"}
       >
         <Flex m={0} p={0} w="100%" justify="center" gap="1.5rem">
           <Box
@@ -61,6 +57,7 @@ export default function EventDetails() {
               src={`/Jhankaar.jpeg`}
               w="100%"
               style={styles.image}
+              mb="2rem"
               alt=""
             />
           </Box>
@@ -73,10 +70,10 @@ export default function EventDetails() {
             mr={isMobileView ? "1.5rem" : "0rem"}
             c="white"
           >
-            <Text fw="500" size={isMobileView ? "2rem" : "2.875rem"}>
+            <Text fw="500" size={isMobileView ? "2rem" : "4rem"}>
               Jhankaar
             </Text>
-            <Text size="1.5rem" my="2rem" fw="500">
+            <Text size={isMobileView ? "1.5rem" : "2rem"} my="2rem" fw="500">
               Witness the power of unity in dance!
             </Text>
             <Image
@@ -84,7 +81,6 @@ export default function EventDetails() {
               style={{ objectFit: "contain" }}
               w="100%"
               display={!isMobileView ? "none" : ""}
-              mb="2rem"
               alt=""
             />
             <Flex
@@ -118,7 +114,6 @@ export default function EventDetails() {
               justify="center"
               gap={isMobileView ? "0.5rem" : "1rem"}
               w={isMobileView ? "8.5rem" : "12.75rem"}
-              h={isMobileView ? "4rem" : "6.5rem"}
               c="#F6F7F9"
               my="2rem"
             >
@@ -175,11 +170,11 @@ export default function EventDetails() {
                   </Text>
                 </Flex>
               </Flex>
-              <Flex h={isMobileView ? "0.75rem" : "1.5rem"} align="center">
+              <Flex align="center">
                 <Badge
                   variant="transparent"
                   c="#F6F7F9"
-                  pr={isMobileView ? "1rem" : "2rem"}
+                  pr={isMobileView ? "0.5rem" : "1rem"}
                   pl={0}
                   m={0}
                   w="auto"
@@ -188,16 +183,12 @@ export default function EventDetails() {
                   leftSection={icon}
                   radius="0"
                 >
-                  <span
-                    style={{ marginLeft: isMobileView ? "0.5rem" : "1rem" }}
-                  >
-                    ₹ 40,000 Prize pool
-                  </span>
+                  <span>₹ 40,000 Prize pool</span>
                 </Badge>
                 <Badge
                   variant="transparent"
                   c="#F6F7F9"
-                  pr={isMobileView ? "1rem" : "2rem"}
+                  pr={isMobileView ? "0.5rem" : "1rem"}
                   pl={0}
                   m={0}
                   w="auto"
@@ -206,16 +197,12 @@ export default function EventDetails() {
                   fw="500"
                   radius="0"
                 >
-                  <span
-                    style={{ marginLeft: isMobileView ? "0.5rem" : "1rem" }}
-                  >
-                    word
-                  </span>
+                  <span>word</span>
                 </Badge>
                 <Badge
                   variant="transparent"
                   c="#F6F7F9"
-                  pr={isMobileView ? "1rem" : "2rem"}
+                  pr={isMobileView ? "0.5rem" : "1rem"}
                   pl={0}
                   m={0}
                   w="auto"
@@ -224,11 +211,7 @@ export default function EventDetails() {
                   fw="500"
                   radius="0"
                 >
-                  <span
-                    style={{ marginLeft: isMobileView ? "0.5rem" : "1rem" }}
-                  >
-                    Features
-                  </span>
+                  <span>Features</span>
                 </Badge>
               </Flex>
             </Flex>
