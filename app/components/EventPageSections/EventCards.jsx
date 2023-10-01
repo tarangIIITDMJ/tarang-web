@@ -6,27 +6,27 @@ const eventCardData = [
   {
     name: "Clash of Melodies",
     description: "A mesmerizing showcase of vocal talent like no other!",
-    img: "/assets/EventCard2.webp",
+    img: "/EventCard.webp",
   },
   {
     name: "Clash of Melodies",
     description: "A mesmerizing showcase of vocal talent like no other!",
-    img: "/assets/EventCard2.webp",
+    img: "/EventCard.webp",
   },
   {
     name: "Clash of Melodies",
     description: "A mesmerizing showcase of vocal talent like no other!",
-    img: "/assets/EventCard2.webp",
+    img: "/EventCard.webp",
   },
   {
     name: "Clash of Melodies",
     description: "A mesmerizing showcase of vocal talent like no other!",
-    img: "/assets/EventCard2.webp",
+    img: "/EventCard.webp",
   },
   {
     name: "Clash of Melodies",
     description: "A mesmerizing showcase of vocal talent like no other!",
-    img: "/assets/EventCard2.webp",
+    img: "/EventCard.webp",
   },
 ];
 

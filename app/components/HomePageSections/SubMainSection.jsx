@@ -14,12 +14,21 @@ export default function SubMainSection() {
   const videoRef = useRef(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [rotation, setRotation] = useState(0);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setRotation((current) => current + 1);
     }, 40);
+
+    const video = videoRef.current;
+    if (video) {
+      video.play();
+      setIsVideoPlaying(true);
+    }
+
     return () => clearInterval(interval);
   }, []);
+
   const handlePlayPauseToggle = () => {
     const video = videoRef.current;
     if (video) {

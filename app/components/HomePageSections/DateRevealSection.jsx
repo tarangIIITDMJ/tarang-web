@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
 
-const images = ["/sticker_1.png", "/sticker_2.png", "/sticker_3.png"];
-const hoverImages = ["/sticker_4.png", "/sticker_5.png", "/sticker_6.png"];
+const images = ["/sticker_1.webp", "/sticker_2.webp", "/sticker_3.webp"];
+const hoverImages = ["/sticker_4.webp", "/sticker_5.webp", "/sticker_6.webp"];
 
 export default function DateRevealSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");

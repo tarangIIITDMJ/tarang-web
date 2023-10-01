@@ -14,7 +14,7 @@ import {
 } from "@mantine/core";
 import MainAppShell from "../components/MainAppShell";
 import { useMediaQuery } from "@mantine/hooks";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "@mantine/form";
 import { IconArrowRight } from "@tabler/icons-react";
 
@@ -40,15 +40,16 @@ export default function Signup() {
       degree: "",
       yearOfStudy: "",
     },
-
-    transformValues: (values) => ({}),
   });
+
   const nextStep = () => {
     if (active === 1) form.onSubmit((values) => console.log(values)); // TODO: Add submit functionality
     setActive((current) => (current < 3 ? current + 1 : current));
   };
+
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current));
+
   return (
     <MainAppShell>
       <Flex
@@ -61,7 +62,7 @@ export default function Signup() {
         align="center"
       >
         <Box
-          p={isMobileView ? "1rem" : "4rem"}
+          px={isMobileView ? "1rem" : "4rem"}
           py="2rem"
           w="100%"
           bg="#F6F4C8"
@@ -176,6 +177,7 @@ const StepOne = ({ isMobileView, form }) => {
       </Grid.Col>
       <Grid.Col span={isMobileView ? 12 : 3}>
         <TextInput
+          withAsterisk
           label="Email"
           type="email"
           placeholder="Email"

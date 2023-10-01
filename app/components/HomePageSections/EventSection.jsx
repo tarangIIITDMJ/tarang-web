@@ -50,85 +50,90 @@ export default function EventSection() {
   }
 
   return (
-    <Box
-      bg={"#0F0F0F"}
-      py={isMobile ? "3rem" : "6rem"}
-      px={isMobile ? "1rem" : "6.75rem"}
-    >
-      <Stack gap={"3.5rem"} align="center">
-        <Text size={isMobile ? "2rem" : "4rem"} c="#F2F2F2">
-          Glimmer in the wake escapism
-        </Text>
-        <Grid gutter={20} justify="center">
-          <Grid.Col span={isMobile ? 12 : 6}>
-            <Stack gap={20}>
-              <CardComp
-                Imgprop={{
-                  h: isMobile ? 150 : 300,
-                  src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
-                }}
-              />
-              <Grid>
-                <Grid.Col span={isMobile ? 12 : 6}>
-                  <CardComp
-                    Imgprop={{
-                      h: 193,
-                      src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
-                    }}
-                    makeMobile={isMobile}
-                  />
-                </Grid.Col>
-                <Grid.Col span={isMobile ? 12 : 6}>
-                  <CardComp
-                    Imgprop={{
-                      h: 193,
-                      src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
-                    }}
-                    makeMobile={isMobile}
-                  />
-                </Grid.Col>
-              </Grid>
-            </Stack>
-          </Grid.Col>
-          <Grid.Col span={isMobile ? 12 : 6}>
-            <Flex
-              direction={isMobile ? "column-reverse" : "column"}
-              align={"center"}
-              gap={20}
-            >
-              <Grid>
-                <Grid.Col span={isMobile ? 12 : 6}>
-                  <CardComp
-                    Imgprop={{
-                      h: 193,
-                      src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
-                    }}
-                    makeMobile={isMobile}
-                  />
-                </Grid.Col>
-                <Grid.Col span={isMobile ? 12 : 6}>
-                  <CardComp
-                    Imgprop={{
-                      h: 193,
-                      src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
-                    }}
-                    makeMobile={isMobile}
-                  />
-                </Grid.Col>
-              </Grid>
-              <CardComp
-                Imgprop={{
-                  h: isMobile ? 150 : 300,
-                  src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
-                }}
-              />
-            </Flex>
-          </Grid.Col>
-        </Grid>
-        <Button size="lg" bg="white" c={"black"} radius={0}>
-          More Events
-        </Button>
-      </Stack>
+    <Box>
+      <Box bg={"#2E27EF"} py={"3rem"}>
+        <Image src={"/highlightEvents.webp"} alt="" />
+      </Box>
+      <Box
+        bg={"#0F0F0F"}
+        py={isMobile ? "3rem" : "6rem"}
+        px={isMobile ? "1rem" : "6.75rem"}
+      >
+        <Stack gap={"3.5rem"} align="center">
+          <Text size={isMobile ? "2rem" : "4rem"} c="#F2F2F2">
+            Glimmer in the wake escapism
+          </Text>
+          <Grid gutter={20} justify="center">
+            <Grid.Col span={isMobile ? 12 : 6}>
+              <Stack gap={20}>
+                <CardComp
+                  Imgprop={{
+                    h: isMobile ? 150 : 300,
+                    src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                  }}
+                />
+                <Grid>
+                  <Grid.Col span={isMobile ? 12 : 6}>
+                    <CardComp
+                      Imgprop={{
+                        h: 193,
+                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                      }}
+                      makeMobile={isMobile}
+                    />
+                  </Grid.Col>
+                  <Grid.Col span={isMobile ? 12 : 6}>
+                    <CardComp
+                      Imgprop={{
+                        h: 193,
+                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                      }}
+                      makeMobile={isMobile}
+                    />
+                  </Grid.Col>
+                </Grid>
+              </Stack>
+            </Grid.Col>
+            <Grid.Col span={isMobile ? 12 : 6}>
+              <Flex
+                direction={isMobile ? "column-reverse" : "column"}
+                align={"center"}
+                gap={20}
+              >
+                <Grid>
+                  <Grid.Col span={isMobile ? 12 : 6}>
+                    <CardComp
+                      Imgprop={{
+                        h: 193,
+                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                      }}
+                      makeMobile={isMobile}
+                    />
+                  </Grid.Col>
+                  <Grid.Col span={isMobile ? 12 : 6}>
+                    <CardComp
+                      Imgprop={{
+                        h: 193,
+                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                      }}
+                      makeMobile={isMobile}
+                    />
+                  </Grid.Col>
+                </Grid>
+                <CardComp
+                  Imgprop={{
+                    h: isMobile ? 150 : 300,
+                    src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                  }}
+                />
+              </Flex>
+            </Grid.Col>
+          </Grid>
+          <Button size="lg" bg="white" c={"black"} radius={0}>
+            More Events
+          </Button>
+        </Stack>
+      </Box>
     </Box>
   );
 }

@@ -54,7 +54,7 @@ export default function EventDetails() {
             display={isMobileView ? "none" : ""}
           >
             <Image
-              src={`/Jhankaar.jpeg`}
+              src={`/jhankaar.webp`}
               w="100%"
               style={styles.image}
               mb="2rem"
@@ -77,7 +77,7 @@ export default function EventDetails() {
               Witness the power of unity in dance!
             </Text>
             <Image
-              src={`/Jhankaar.jpeg`}
+              src={`/jhankaar.webp`}
               style={{ objectFit: "contain" }}
               w="100%"
               display={!isMobileView ? "none" : ""}

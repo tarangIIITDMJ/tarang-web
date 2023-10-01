@@ -13,10 +13,7 @@ export default function HeroSection() {
         miw="100%"
         style={styles.container}
       >
-        <BackgroundImage
-          src={`/EventDetailsHeroSection.png`}
-          style={styles.hero}
-        >
+        <BackgroundImage src={`/eventDetailsbg.webp`} style={styles.hero}>
           <Text
             size={isMobileView ? "3.5rem" : "8rem"}
             c="white"
