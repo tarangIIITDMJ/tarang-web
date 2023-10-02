@@ -17,11 +17,45 @@ import { useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
 import { useForm, isNotEmpty, isEmail, hasLength } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
-import { IconArrowRight } from "@tabler/icons-react";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { register } from "../utils/apis";
+import { setCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 
 export default function Signup() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [active, setActive] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const { push } = useRouter();
+  const signUpUser = async (user) => {
+    setLoading(true);
+    try {
+      user = { ...user.personalDetails, ...user.collegeDetails };
+      const res = await register(user);
+      if (res.status === 201) {
+        setCookie("token", res.data.token, {
+          path: "/",
+          maxAge: 30 * 24 * 60 * 60,
+        });
+        notifications.show({
+          title: "Success",
+          message: "Registered successfully",
+          color: "green",
+          autoClose: 2000,
+        });
+
+        setActive(2);
+      }
+    } catch (error) {
+      notifications.show({
+        title: "Error",
+        message: error.response.data.message,
+        color: "red",
+        autoClose: 2000,
+      });
+    }
+    setLoading(false);
+  };
 
   const form = useForm({
     initialValues: {
@@ -75,11 +109,12 @@ export default function Signup() {
       },
     },
 
-    transformValues: (values) => ({ ...values }),
+    transformValues: (values) => {
+      values = { ...values };
+      delete values.personalDetails.confirmPassword;
+      return values;
+    },
   });
-
-  // console.log(form.getTransformedValues());
-
   const nextStep = () => {
     if (active === 0) {
       const validationErrors = form.validateField("personalDetails");
@@ -108,10 +143,14 @@ export default function Signup() {
           autoClose: 3000,
         });
         return;
+      } else {
+        signUpUser(form.getTransformedValues());
       }
     }
 
-    setActive((current) => (current < 3 ? current + 1 : current));
+    if (active === 2) return push("/profile");
+
+    setActive((current) => (current < 1 ? current + 1 : current));
   };
 
   const prevStep = () =>
@@ -153,21 +192,24 @@ export default function Signup() {
               <Stepper.Step
                 label="First step"
                 description="Personal Information"
+                disabled={active !== 0}
               >
                 <StepOne isMobileView={isMobileView} form={form} />
               </Stepper.Step>
               <Stepper.Step
                 label="Second step"
                 description="College Information"
+                disabled={active !== 1}
               >
                 <StepTwo isMobileView={isMobileView} form={form} />
               </Stepper.Step>
-              <Stepper.Step label="Final step" description="Verification">
+              <Stepper.Step
+                label="Final step"
+                description="Confirmation"
+                disabled={active !== 2}
+              >
                 <StepThree isMobileView={isMobileView} />
               </Stepper.Step>
-              <Stepper.Completed>
-                Completed, click back button to get to previous step
-              </Stepper.Completed>
             </Stepper>
             <Group justify="center" mt="3rem">
               <Button
@@ -175,17 +217,20 @@ export default function Signup() {
                 size={isMobileView ? "sm" : "md"}
                 radius={0}
                 onClick={prevStep}
+                leftSection={<IconArrowLeft />}
+                disabled={active > 1}
               >
-                Back
+                Go Back
               </Button>
               <Button
                 onClick={nextStep}
                 color="black"
                 size={isMobileView ? "sm" : "md"}
                 radius={0}
+                loading={loading}
                 rightSection={<IconArrowRight />}
               >
-                Next step
+                {active === 2 ? "Finish" : "Next Step"}
               </Button>
             </Group>
           </form>
@@ -244,7 +289,7 @@ const StepOne = ({ isMobileView, form }) => {
           }}
           radius={0}
           {...form.getInputProps("personalDetails.gender")}
-        ></Select>
+        />
       </Grid.Col>
       <Grid.Col span={isMobileView ? 12 : 3}>
         <TextInput
@@ -350,13 +395,13 @@ const StepTwo = ({ isMobileView, form }) => {
         />
       </Grid.Col>
       <Grid.Col span={isMobileView ? 12 : 6}>
-        <TextInput
+        <Select
           label="Year of Study"
-          type="number"
           placeholder="Your Current Study"
           styles={{
             input: { border: "1px solid #000", marginTop: 6 },
           }}
+          data={["First", "Second", "Third", "Fourth", "Fifth"]}
           radius={0}
           {...form.getInputProps("collegeDetails.yearOfStudy")}
         />
@@ -370,11 +415,12 @@ const StepThree = ({ isMobileView }) => {
     <>
       <Stack justify="center" align="center" p="lg" mt="lg">
         <Text size={"32px"} fw={600}>
-          Verify Your Email
+          Thank you for registering with us!
         </Text>
         <Text w={isMobileView ? "100%" : "50%"} align="center" mt="md">
-          Great news! We have just sent a verification link to your email.
-          Simply click on it to complete the verification process. Thank you!
+          Great news! You are now a part of the largest community driven event
+          in India. We are excited to have you on board and look forward to your
+          participation in the event.
         </Text>
       </Stack>
     </>

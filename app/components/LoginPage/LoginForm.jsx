@@ -1,12 +1,17 @@
 "use client";
-import { useState } from "react";
 import { useForm, isEmail, hasLength } from "@mantine/form";
 import { TextInput, Button, Box, Code, Text } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
+import { setCookie } from "cookies-next";
+import { notifications } from "@mantine/notifications";
 import Link from "next/link";
+import { login } from "@/app/utils/apis";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const LoginForm = ({ isMobileView }) => {
-  const [submittedValues, setSubmittedValues] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { push } = useRouter();
 
   const form = useForm({
     initialValues: {
@@ -25,6 +30,36 @@ const LoginForm = ({ isMobileView }) => {
       password: values.password.trim(),
     }),
   });
+  const handleSubmit = () => {
+    form.onSubmit(async (values) => {
+      setIsLoading(true);
+      try {
+        const res = await login(values.email, values.password);
+        setCookie("token", res.data.token, {
+          path: "/",
+          maxAge: 30 * 24 * 60 * 60,
+        });
+        notifications.show({
+          title: "Success",
+          message: "Logged in successfully",
+          color: "green",
+          autoClose: 2000,
+          onClose: () => {
+            push("/profile");
+          },
+        });
+      } catch (error) {
+        console.log(error);
+        notifications.show({
+          title: "Error",
+          message: "Invalid credentials or server error",
+          color: "red",
+          autoClose: 2000,
+        });
+      }
+      setIsLoading(false);
+    });
+  };
 
   return (
     <>
@@ -39,11 +74,7 @@ const LoginForm = ({ isMobileView }) => {
         <Text size="1.5rem" fw={500} mb="1.5rem">
           Sign In
         </Text>
-        <form
-          onSubmit={form.onSubmit((values) =>
-            setSubmittedValues(JSON.stringify(values, null, 2))
-          )}
-        >
+        <form onSubmit={handleSubmit}>
           <TextInput
             type="email"
             label="Email"
@@ -76,6 +107,7 @@ const LoginForm = ({ isMobileView }) => {
             size={isMobileView ? "md" : "lg"}
             mt="1.5rem"
             mx="auto"
+            loading={isLoading}
             rightSection={<IconArrowRight />}
           >
             Sign in
