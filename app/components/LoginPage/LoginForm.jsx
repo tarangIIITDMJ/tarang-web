@@ -2,7 +2,6 @@
 import { useForm, isEmail, hasLength } from "@mantine/form";
 import { TextInput, Button, Box, Code, Text } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
-import { setCookie } from "cookies-next";
 import { notifications } from "@mantine/notifications";
 import Link from "next/link";
 import { login } from "@/app/utils/apis";
@@ -30,36 +29,6 @@ const LoginForm = ({ isMobileView }) => {
       password: values.password.trim(),
     }),
   });
-  const handleSubmit = () => {
-    form.onSubmit(async (values) => {
-      setIsLoading(true);
-      try {
-        const res = await login(values.email, values.password);
-        setCookie("token", res.data.token, {
-          path: "/",
-          maxAge: 30 * 24 * 60 * 60,
-        });
-        notifications.show({
-          title: "Success",
-          message: "Logged in successfully",
-          color: "green",
-          autoClose: 2000,
-          onClose: () => {
-            push("/profile");
-          },
-        });
-      } catch (error) {
-        console.log(error);
-        notifications.show({
-          title: "Error",
-          message: "Invalid credentials or server error",
-          color: "red",
-          autoClose: 2000,
-        });
-      }
-      setIsLoading(false);
-    });
-  };
 
   return (
     <>
@@ -74,7 +43,32 @@ const LoginForm = ({ isMobileView }) => {
         <Text size="1.5rem" fw={500} mb="1.5rem">
           Sign In
         </Text>
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={form.onSubmit(async (values) => {
+            setIsLoading(true);
+            try {
+              await login(values.email, values.password);
+              notifications.show({
+                title: "Success",
+                message: "Logged in successfully",
+                color: "green",
+                autoClose: 2000,
+                onClose: () => {
+                  push("/profile");
+                },
+              });
+            } catch (error) {
+              console.log(error);
+              notifications.show({
+                title: "Error",
+                message: "Invalid credentials or server error",
+                color: "red",
+                autoClose: 2000,
+              });
+            }
+            setIsLoading(false);
+          })}
+        >
           <TextInput
             type="email"
             label="Email"

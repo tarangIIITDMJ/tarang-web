@@ -1,16 +1,14 @@
 import { useEffect } from "react";
 import { useAuthStore } from "../store/authStore";
-import axios from "axios";
+import { getUser } from "../utils/apis";
 
-const ValidateAuth = () => {
+const ValidateAuth = ({ children }) => {
   const { isAuth, isloading, setIsAuth, setUser, setIsLoading } =
     useAuthStore();
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/auth/me", {
-          withCredentials: true,
-        });
+        const res = await getUser();
         if (res.status === 200) {
           setIsAuth(true);
           setUser(res.data);
@@ -22,6 +20,8 @@ const ValidateAuth = () => {
     };
     checkAuth();
   }, [setIsAuth, setIsLoading, setUser]);
-  return <></>;
+  if (isloading) return <div>Loading...</div>;
+  else if (isAuth) return children;
+  else return <div>Not Authenticated</div>;
 };
 export default ValidateAuth;

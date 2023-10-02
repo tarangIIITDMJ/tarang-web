@@ -19,7 +19,6 @@ import { useForm, isNotEmpty, isEmail, hasLength } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { register } from "../utils/apis";
-import { setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 
 export default function Signup() {
@@ -33,10 +32,6 @@ export default function Signup() {
       user = { ...user.personalDetails, ...user.collegeDetails };
       const res = await register(user);
       if (res.status === 201) {
-        setCookie("token", res.data.token, {
-          path: "/",
-          maxAge: 30 * 24 * 60 * 60,
-        });
         notifications.show({
           title: "Success",
           message: "Registered successfully",
