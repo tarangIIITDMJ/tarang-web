@@ -53,38 +53,40 @@ function createNavItem(isMobileView, item, hovered, sethovered) {
       onMouseEnter={() => sethovered(item.name)}
       onMouseLeave={() => sethovered("")}
     >
-      <Group
-        justify="space-between"
-        align="center"
-        pr={20}
-        style={{ cursor: "pointer" }}
-      >
-        <Text
-          pl={isMobileView ? "2.5rem" : "0"}
-          style={{
-            ...navItemsStyles,
-            fontSize: fontSize,
-          }}
+      <Link href={item.link}>
+        <Group
+          justify="space-between"
+          align="center"
+          pr={20}
+          style={{ cursor: "pointer" }}
         >
-          <Link href={item.link}>{item.name}</Link>
-        </Text>
-        <Transition
-          mounted={hovered == item.name}
-          transition="slide-right"
-          duration={300}
-          timingFunction="ease"
-        >
-          {(styles) => (
-            <div style={styles}>
-              <IconArrowUpRight
-                size={"3.5rem"}
-                stroke={1}
-                style={{ marginBottom: "-0.75rem" }}
-              />
-            </div>
-          )}
-        </Transition>
-      </Group>
+          <Text
+            pl={isMobileView ? "2.5rem" : "0"}
+            style={{
+              ...navItemsStyles,
+              fontSize: fontSize,
+            }}
+          >
+            {item.name}
+          </Text>
+          <Transition
+            mounted={hovered == item.name}
+            transition="slide-right"
+            duration={300}
+            timingFunction="ease"
+          >
+            {(styles) => (
+              <div style={styles}>
+                <IconArrowUpRight
+                  size={"3.5rem"}
+                  stroke={1}
+                  style={{ marginBottom: "-0.75rem" }}
+                />
+              </div>
+            )}
+          </Transition>
+        </Group>
+      </Link>
       <Divider color="#9A9A9A" size={"md"} mt={25} />
     </Box>
   );

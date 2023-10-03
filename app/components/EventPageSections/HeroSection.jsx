@@ -1,25 +1,35 @@
-"use client";
 import { BackgroundImage, Text, Box, Container } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
+import cssStyles from "@/app/styles/events.module.css";
 
 export default function HeroSection() {
-  const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
     <Container
-      h={isMobileView ? "50vh" : "60vh"}
+      h={"60vh"}
       m={0}
       p={0}
       miw="100%"
-      style={styles.container}
+      pos={"relative"}
+      className={cssStyles.HeroSectionContainer}
     >
-      <BackgroundImage src="/EventPageHeroImage2.webp" style={styles.image}>
+      <BackgroundImage
+        src={`/EventPageHeroImage2.webp`}
+        miw={"100%"}
+        h={"100%"}
+        style={{
+          hero: {
+            objectFit: "cover",
+            boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+          },
+        }}
+      >
         <Text
-          size={isMobileView ? "3.5rem" : "8rem"}
+          fz={"8rem"}
           c="white"
           pos="absolute"
           fw={500}
-          bottom={isMobileView ? "2rem" : "3rem"}
-          left={isMobileView ? "2rem" : "5rem"}
+          bottom={"2rem"}
+          left={"5rem"}
+          className={cssStyles.HeroSectionHeading}
         >
           Events
         </Text>
@@ -27,14 +37,3 @@ export default function HeroSection() {
     </Container>
   );
 }
-
-const styles = {
-  container: {
-    position: "relative",
-  },
-  image: {
-    minWidth: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-};

@@ -1,18 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import {
-  Button,
-  Group,
-  Container,
-  ScrollArea,
-  Stack,
-  Text,
-} from "@mantine/core";
+import { Button, Container, ScrollArea, Text, Flex, Chip } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
+import cssStyles from "@/app/styles/events.module.css";
 
 export default function EventCategories() {
-  const [list, setList] = useState([
+  const list = [
     "Art",
     "Bazooka",
     "Drama",
@@ -21,67 +15,74 @@ export default function EventCategories() {
     "Photography",
     "Literature",
     "Others",
-  ]);
+  ];
 
   const [selectedEvents, setSelectedEvents] = useState([]);
   const isMobileView = useMediaQuery("(max-width: 768px)");
-
-  function EventsButtonGroup({ isMobileView }) {
-    return (
-      <Stack>
-        <Group
-          gap={isMobileView ? "sm" : "30"}
-          w={isMobileView ? "fit-content" : "100%"}
-          wrap={"no"}
-          py={isMobileView ? "1rem" : "3rem"}
-        >
-          {list.map((event, index) => {
-            return (
-              <Button
-                key={index}
-                onClick={() => {
-                  if (selectedEvents.includes(event)) {
-                    setSelectedEvents(
-                      selectedEvents.filter((item) => item !== event)
-                    );
-                  } else {
-                    setSelectedEvents([...selectedEvents, event]);
-                  }
-                }}
-                rightSection={selectedEvents.includes(event) ? <IconX /> : ""}
-                bg={selectedEvents.includes(event) ? "white" : "black"}
-                c={selectedEvents.includes(event) ? "black" : "white"}
-                size={isMobileView ? "md" : "lg"}
-                style={{ border: "1px solid white" }}
-                radius="xl"
-                px="1rem"
-              >
-                {event}
-              </Button>
-            );
-          })}
-        </Group>
-      </Stack>
-    );
-  }
 
   return (
     <Container
       pos="relative"
       m={0}
-      pl={isMobileView ? "1rem" : "5.5rem"}
+      pl={"5.5rem"}
       miw="100%"
       bg={"#0F0F0F"}
+      className={cssStyles.EventCategoriesContainer}
     >
-      {isMobileView ? (
-        <ScrollArea py={"1rem"}>
-          <EventsButtonGroup isMobileView={isMobileView} />
-        </ScrollArea>
-      ) : (
-        <EventsButtonGroup isMobileView={isMobileView} />
-      )}
+      <ScrollArea
+        styles={{
+          scrollbar: { background: "transparent" },
+          thumb: { background: "white" },
+        }}
+      >
+        <Flex
+          gap={30}
+          py={"3rem"}
+          className={cssStyles.EventCategoriesButtonsGrp}
+        >
+          <Chip.Group
+            multiple
+            value={selectedEvents}
+            onChange={setSelectedEvents}
+          >
+            {list.map((event, index) => {
+              let selected = selectedEvents.includes(event);
+              return (
+                <Chip
+                  icon={
+                    <IconX size={24} color={selected ? "black" : "white"} />
+                  }
+                  variant="outline"
+                  styles={{
+                    label: {
+                      background: selected ? "white" : "transparent",
+                      color: selected ? "black" : "white",
+                      paddingBlock: "22px",
+                      fontWeight: "600",
+                      gap: 10,
+                      flexDirection: "row-reverse",
+                    },
+                  }}
+                  size="lg"
+                  color="white"
+                  key={index}
+                  value={event}
+                  className={cssStyles.EventCategoriesChips}
+                >
+                  {event}
+                </Chip>
+              );
+            })}
+          </Chip.Group>
+        </Flex>
+      </ScrollArea>
 
-      <Text c="#9EA5AD" size={isMobileView ? "1.2rem" : "2rem"}>
+      <Text
+        c="#9EA5AD"
+        className={cssStyles.EventCategoriesText}
+        mt={10}
+        fz={"2rem"}
+      >
         &quot;Count&quot; Events
       </Text>
     </Container>

@@ -1,6 +1,7 @@
 "use client";
 import { Text, Stack, Grid, Card, Flex, Box, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import cssStyles from "@/app/styles/events.module.css";
 
 const eventCardData = [
   {
@@ -55,7 +56,7 @@ export default function EventCards() {
               border: "2px solid #000",
             }}
           >
-            <Text fw={500} size={isMobile ? "0.75rem" : "1.25rem"}>
+            <Text fw={500} className={cssStyles.EventCardText}>
               {name}
             </Text>
             <Text
@@ -75,8 +76,7 @@ export default function EventCards() {
     <Stack
       bg={"#0F0F0F"}
       align="flex-start"
-      py={isMobile ? "1rem" : "2rem"}
-      px={isMobile ? "0" : "5.5rem"}
+      className={cssStyles.EventCardStack}
     >
       <Grid
         gutter={isMobile ? "1.875rem" : "1.75rem"}

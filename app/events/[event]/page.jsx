@@ -20,7 +20,6 @@ export default function Events({ event }) {
 export async function getStaticPaths() {
   const eventDetails = await getAllEvents();
   const events = eventDetails.data.events;
-
   return {
     paths: events.map((event) => ({
       params: { event: event.slug },

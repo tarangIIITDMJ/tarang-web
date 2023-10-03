@@ -1,5 +1,5 @@
 "use client";
-import { Box, Divider, Flex, Text, List } from "@mantine/core";
+import { Divider, Flex, Text, List } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
 export default function EventGuidelines() {
@@ -38,45 +38,44 @@ export default function EventGuidelines() {
     },
   ];
   return (
-    <Box
+    <Flex
       px={isMobileView ? "2rem" : "6.75rem"}
       pb={isMobileView ? "3rem" : "5rem"}
+      direction="column"
+      mt={isMobileView ? "2rem" : "4.5rem"}
     >
-      <Flex direction="column" mt={isMobileView ? "2rem" : "4.5rem"}>
-        <Text c="#fff" size={isMobileView ? "1.5rem" : "2rem"} fw="500">
-          Guidelines
-        </Text>
-        <Divider mt={isMobileView ? "1rem" : "2rem"} size="1.5px" />
-        {guidelines.map((event, index) => {
-          return (
-            <>
-              <Text
-                c="#fff"
-                key={index}
-                size={isMobileView ? "0.75rem" : "1.125rem"}
-                fw="500"
-                mt="xl"
-              >
-                {event.title}:
-              </Text>
-              <List
-                withPadding
-                c="#9EA5AD"
-                size={isMobileView ? "0.75rem" : "1.125rem"}
-                fw="500"
-              >
-                {event.content.map((item, index) => {
-                  return (
-                    <List.Item key={index} my="xs">
-                      {item}
-                    </List.Item>
-                  );
-                })}
-              </List>
-            </>
-          );
-        })}
-      </Flex>
-    </Box>
+      <Text c="#fff" size={isMobileView ? "1.5rem" : "2rem"} fw="500">
+        Guidelines
+      </Text>
+      <Divider mt={isMobileView ? "1rem" : "2rem"} size="1.5px" />
+      {guidelines.map((event, index) => {
+        return (
+          <div key={index}>
+            <Text
+              c="#fff"
+              size={isMobileView ? "0.75rem" : "1.125rem"}
+              fw="500"
+              mt="xl"
+            >
+              {event.title}:
+            </Text>
+            <List
+              withPadding
+              c="#9EA5AD"
+              size={isMobileView ? "0.75rem" : "1.125rem"}
+              fw="500"
+            >
+              {event.content.map((item, index) => {
+                return (
+                  <List.Item key={index} my="xs">
+                    {item}
+                  </List.Item>
+                );
+              })}
+            </List>
+          </div>
+        );
+      })}
+    </Flex>
   );
 }

@@ -13,7 +13,6 @@
     "@mantine/form": "^7.1.0",
     "@mantine/hooks": "^7.0.0",
     "@mantine/notifications": "^7.1.0",
-    "@react-google-maps/api": "^2.19.2",
     "@tabler/icons-react": "^2.35.0",
     "axios": "^1.5.1",
     "eslint": "8.50.0",
@@ -24,8 +23,8 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "postcss": "^8.4.30",
-    "postcss-preset-mantine": "^1.7.0",
+    "postcss": "^8.4.31",
+    "postcss-preset-mantine": "^1.8.0",
     "postcss-simple-vars": "^7.0.1"
   }
 }
