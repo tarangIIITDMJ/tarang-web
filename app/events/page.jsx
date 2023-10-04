@@ -8,9 +8,14 @@ export default async function Events() {
   const eventDetails = await getAllEvents();
   const events = eventDetails.data.events;
 
+  const event = {
+    name: "Events",
+    images: ["/EventPageHeroImage2.webp"],
+  }
+
   return (
     <MainAppShell>
-      <HeroSection eventBackgroundImage={'/EventPageHeroImage2.webp'} eventName={'Events'}/>
+      <HeroSection event={event}/>
       <EventCategories />
       <EventCards events={events} />
     </MainAppShell>
