@@ -61,7 +61,7 @@ export default function EventSection() {
       >
         <Stack gap={"3.5rem"} align="center">
           <Text size={isMobile ? "2rem" : "4rem"} c="#F2F2F2">
-            Glimmer in the wake escapism
+          Here’s what to expect!
           </Text>
           <Grid gutter={20} justify="center">
             <Grid.Col span={isMobile ? 12 : 6}>
@@ -69,7 +69,7 @@ export default function EventSection() {
                 <CardComp
                   Imgprop={{
                     h: isMobile ? 150 : 300,
-                    src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                    src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448432/the_big_picture_b6y9pq.webp",
                   }}
                 />
                 <Grid>
@@ -77,7 +77,7 @@ export default function EventSection() {
                     <CardComp
                       Imgprop={{
                         h: 193,
-                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                        src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/pixcillance_1_x64mhv.webp",
                       }}
                       makeMobile={isMobile}
                     />
@@ -86,7 +86,7 @@ export default function EventSection() {
                     <CardComp
                       Imgprop={{
                         h: 193,
-                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                        src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448287/pen_it_down_1_erqnku.webp",
                       }}
                       makeMobile={isMobile}
                     />
@@ -105,7 +105,7 @@ export default function EventSection() {
                     <CardComp
                       Imgprop={{
                         h: 193,
-                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                        src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/Theater_wars_1_pbw4ib.webp",
                       }}
                       makeMobile={isMobile}
                     />
@@ -114,7 +114,7 @@ export default function EventSection() {
                     <CardComp
                       Imgprop={{
                         h: 193,
-                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                        src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/Jhankaar_1_sr4l5a.webp",
                       }}
                       makeMobile={isMobile}
                     />
@@ -123,7 +123,7 @@ export default function EventSection() {
                 <CardComp
                   Imgprop={{
                     h: isMobile ? 150 : 300,
-                    src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                    src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448287/Mural-painting_1_h4s6ko.webp",
                   }}
                 />
               </Flex>

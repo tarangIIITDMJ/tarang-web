@@ -53,7 +53,7 @@ export default function SubMainSection() {
         gap={"3rem"}
       >
         <Text hiddenFrom="sm" size={"2.5rem"} ta={"right"} c="#252525">
-          Glimmer in the wake of escapism
+        The Tide is turning!
         </Text>
         <Box
           style={styles.container}
@@ -93,16 +93,14 @@ export default function SubMainSection() {
         <Box>
           <Stack align="flex-start" justify="center" gap={"2.25rem"}>
             <Text visibleFrom="sm" size={"4rem"} c="#252525">
-              Glimmer in the wake of escapism
+            The Tide is turning!
             </Text>
             <Text
               size={isMobileView ? "1rem" : "1.25rem"}
               ta={isMobileView ? "left" : "justify"}
               c="#252525"
             >
-              Quidam officiis similique sea ei, vel tollit indoctum efficiendi
-              ei, at nihil tantas platonem eos. Mazim nemore singulis an ius,
-              nullam ornatus nam ei.
+              Experience the cultural renaissance at Tarang: Central India's grandest fest. Dive into a world of creativity, talent, and epic performances!
             </Text>
             <Button
               color="black"

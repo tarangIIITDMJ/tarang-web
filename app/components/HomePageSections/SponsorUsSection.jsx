@@ -21,8 +21,7 @@ function SponsorUsSection() {
                 Interested about Tarang?
               </Text>
               <Text mt={"2.25rem"} c={"white"} fz={"1.25rem"}>
-                The booklet contains(proceed to explain the content, its use, in
-                2 lines.)
+              Discover Tarang's rich lineup and event details in the booklet.
               </Text>
               <Button
                 rightSection={<IconDownload />}
@@ -59,11 +58,10 @@ function SponsorUsSection() {
                 c={"white"}
                 fz={isMobileView ? "2rem" : "4rem"}
               >
-                Want 2 sponsor Tarang?
+                Here’s how to sponsor us
               </Text>
               <Text mt={"2.25rem"} c={"white"} fz={"1.25rem"}>
-                The booklet contains(proceed to explain the content, its use, in
-                2 lines.)
+              Explore sponsorship opportunities and benefits in the booklet.
               </Text>
               <Button
                 rightSection={<IconDownload />}

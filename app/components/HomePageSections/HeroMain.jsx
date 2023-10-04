@@ -14,8 +14,8 @@ const HeroMain = () => {
         <source
           src={
             isMobileView
-              ? "https://res.cloudinary.com/prajjwalcdn/video/upload/v1696021679/mobile_bg_video_bt9ial.mp4"
-              : "https://res.cloudinary.com/prajjwalcdn/video/upload/v1696021675/dektop_bg_video_jjfbtl.mp4"
+              ? "https://res.cloudinary.com/dxcjzquen/video/upload/v1696364452/mobile_bg_video_uqucru.mp4"
+              : "https://res.cloudinary.com/dxcjzquen/video/upload/v1696364225/desktop_bg_video_asad_hmhmzn.mp4"
           }
           type="video/mp4"
         />
@@ -48,7 +48,7 @@ const HeroMain = () => {
             ta={"center"}
             px={60}
           >
-            Glimmer in the wake of escapism
+            The Tide is turning
           </Text>
 
           <Button
