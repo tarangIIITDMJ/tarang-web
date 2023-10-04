@@ -23,7 +23,9 @@ const itemArray = items.map((item, index) => (
   </Anchor>
 ));
 
-export default function EventDetails(event) {
+
+export default function EventDetails({ event }) {
+
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   const icon = (
@@ -70,49 +72,51 @@ export default function EventDetails(event) {
             m={0}
             p={0}
             w={isMobileView ? "100%" : "auto"}
-            h="auto"
             mr={isMobileView ? "1.5rem" : "0rem"}
             c="white"
           >
+
             <Text fw="500" size={isMobileView ? "2rem" : "5.5vw"} ta="start">
-              Jhankaar
+               {event.name}
             </Text>
             <Text size={isMobileView ? "1.5rem" : "2.5vw"} my="2rem" fw="500" className={cssStyles.EventDetailsContainer}>
-              Witness the power of unity in dance!
+            {event.tagline}
+
             </Text>
             <Image
               src={`/jhankaar.webp`}
               style={{ objectFit: "contain" }}
+
               w="100%"
               pb="1rem"
               display={!isMobileView ? "none" : ""}
               alt=""
             />
             <Text size={isMobileView ? "0.75rem" : "1.125rem"} c="#9EA5AD" fw="500" className={cssStyles.EventDetailsDescription}>
-                {/* {event.description} */} Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse inventore libero distinctio, ipsam necessitatibus voluptates. Culpa nisi autem reprehenderit vitae dolores aliquid! Recusandae fugiat sed temporibus doloribus quas? Quo, labore?
-                At nostrum quas adipisci fuga, sequi, alias, iste pariatur esse libero eligendi quos nulla consequuntur? Adipisci quasi vel delectus laudantium neque inventore possimus amet nemo minima eum, voluptates maxime at?
-                Labore, dolores tempora? Nihil suscipit laborum dolorum voluptates? Natus, saepe accusamus, odit dolor vero asperiores sint quod sit laboriosam nulla molestias, facere qui expedita reprehenderit enim atque ab eius tenetur?
-                Saepe iusto laboriosam facere, esse inventore, explicabo culpa temporibus hic in dolor illo et eaque accusantium voluptatem officia reiciendis nulla, soluta ab qui! At reprehenderit suscipit vitae fuga libero natus.
+            <p>{event.description}</p>
               </Text>
+
             <Flex
               m={0}
               p={0}
               direction="column"
               justify="center"
               gap={isMobileView ? "0.5rem" : "1rem"}
-              w={isMobileView ? "8.5rem" : "12.75rem"}
               c="#F6F7F9"
               my="2rem"
               className={cssStyles.EventDetailsContainer}
             >
               <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Date: 03 November 2023
+                Date: {event.event_date}
               </Text>
               <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Time: 11 AM
+                Time: {event.event_time}
               </Text>
               <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Venue: L105
+                Event Type: {event.event_type}
+              </Text>
+              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
+                Event Category: {event.event_category}
               </Text>
             </Flex>
             <Flex
@@ -133,7 +137,7 @@ export default function EventDetails(event) {
                   fw="600"
                   size={isMobileView ? "2rem" : "4.8vw"}
                 >
-                  ₹ 200
+                  ₹ {event.reg_fees}
                 </Text>
                 <Flex
                   direction="column"
@@ -148,7 +152,7 @@ export default function EventDetails(event) {
                     fw="500"
                     size={isMobileView ? "0.75rem" : "1.24vw"}
                   >
-                    Registration Fee
+                    Registration Fee (Per Head)
                   </Text>
                   <Text
                     c="#9EA5AD"
@@ -217,6 +221,7 @@ export default function EventDetails(event) {
               mb={isMobileView ? "2rem" : "0rem"}
               fw="600"
               className={cssStyles.EventDetailsContainer}
+              disabled
             >
               Register Now
             </Button>

@@ -35,3 +35,9 @@ export const getUser = () => {
 export const getAllEvents = () => {
   return axios.get("https://tarang-backend.onrender.com/api/events");
 };
+
+export const getEvent = (eventSlug) => {
+  return axios.get(
+    `https://tarang-backend.onrender.com/api/events/${eventSlug}`
+  );
+};
