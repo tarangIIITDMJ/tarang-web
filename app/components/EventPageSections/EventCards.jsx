@@ -34,7 +34,6 @@ export default function EventCards({ events }) {
                 size={isMobile ? "0.85rem" : "1.25rem"}
                 fw={500}
                 className={cssStyles.EventCardText}
-                lineClamp={1}
               >
                 {event.name}
               </Text>

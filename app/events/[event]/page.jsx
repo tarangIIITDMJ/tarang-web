@@ -14,7 +14,7 @@ export default async function Events({ params: { event } }) {
       <Box style={{ backgroundColor: "#0F0F0F" }}>
         <HeroSection event={eventData} />
         <EventDetails event={eventData} />
-        <EventGuidelines />
+        <EventGuidelines event={eventData} />
       </Box>
     </MainAppShell>
   );

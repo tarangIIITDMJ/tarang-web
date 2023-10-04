@@ -66,11 +66,10 @@ export default function EventDetails({ event }) {
             m={0}
             p={0}
             w={isMobileView ? "100%" : "auto"}
-            h="auto"
             mr={isMobileView ? "1.5rem" : "0rem"}
             c="white"
           >
-            <Text fw="500" size={isMobileView ? "2rem" : "4rem"} lineClamp={1}>
+            <Text fw="500" size={isMobileView ? "2rem" : "4rem"}>
               {event.name}
             </Text>
             <Text size={isMobileView ? "1.5rem" : "2rem"} my="2rem" fw="500">
@@ -79,7 +78,6 @@ export default function EventDetails({ event }) {
             <Image
               src={`/jhankaar.webp`}
               style={{ objectFit: "contain" }}
-              w="100%"
               display={!isMobileView ? "none" : ""}
               alt=""
             />
@@ -92,20 +90,7 @@ export default function EventDetails({ event }) {
               h="auto"
               c="#9EA5AD"
             >
-              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                This group dance competition that pits diverse dance groups
-                against each other in a battle of rhythm and creativity.
-              </Text>
-              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Dance enthusiasts from various backgrounds and styles, including
-                Bollywood, hip hop, jazz, and more, come together to showcase
-                their talent and passion on one vibrant stage.
-              </Text>
-              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                It's a celebration of movement, music, and the infectious energy
-                that dance brings, promising an unforgettable experience for
-                both participants and spectators.
-              </Text>
+              <p>{event.description}</p>
             </Flex>
             <Flex
               m={0}

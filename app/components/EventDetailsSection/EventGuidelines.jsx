@@ -2,23 +2,17 @@
 import { Divider, Flex, Text, List } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
-export default function EventGuidelines() {
+export default function EventGuidelines({ event }) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
+  console.log(event);
   const guidelines = [
     {
-      title: "Criteria",
-      content: [
-        "Only group performances are allowed and all members should be equally involved throughout the performance",
-        "Minimum participants : 8 members",
-      ],
+      title: "Instructions",
+      content: event.instructions.map((instruction) => instruction),
     },
     {
-      title: "Registration eligibility",
-      content: [
-        "Fill Registration google form (within deadline)",
-        "Registration fees: 200/- (per head)",
-        "All the participant members must have their registration card/institute card.",
-      ],
+      title: "Prize Pool",
+      content: [],
     },
     {
       title: "Dance style and duration",
