@@ -22,7 +22,7 @@ const itemArray = items.map((item, index) => (
   </Anchor>
 ));
 
-export default function EventDetails() {
+export default function EventDetails({ event }) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   const icon = (
@@ -70,11 +70,11 @@ export default function EventDetails() {
             mr={isMobileView ? "1.5rem" : "0rem"}
             c="white"
           >
-            <Text fw="500" size={isMobileView ? "2rem" : "4rem"}>
-              Jhankaar
+            <Text fw="500" size={isMobileView ? "2rem" : "4rem"} lineClamp={1}>
+              {event.name}
             </Text>
             <Text size={isMobileView ? "1.5rem" : "2rem"} my="2rem" fw="500">
-              Witness the power of unity in dance!
+              {event.tagline}
             </Text>
             <Image
               src={`/jhankaar.webp`}
@@ -113,18 +113,20 @@ export default function EventDetails() {
               direction="column"
               justify="center"
               gap={isMobileView ? "0.5rem" : "1rem"}
-              w={isMobileView ? "8.5rem" : "12.75rem"}
               c="#F6F7F9"
               my="2rem"
             >
               <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Date: 03 November 2023
+                Date: {event.event_date}
               </Text>
               <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Time: 11 AM
+                Time: {event.event_time}
               </Text>
               <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Venue: L105
+                Event Type: {event.event_type}
+              </Text>
+              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
+                Event Category: {event.event_category}
               </Text>
             </Flex>
             <Flex
@@ -144,7 +146,7 @@ export default function EventDetails() {
                   fw="600"
                   size={isMobileView ? "2rem" : "4rem"}
                 >
-                  ₹ 200
+                  ₹ {event.reg_fees}
                 </Text>
                 <Flex
                   direction="column"
@@ -159,7 +161,7 @@ export default function EventDetails() {
                     fw="500"
                     size={isMobileView ? "0.75rem" : "1.125rem"}
                   >
-                    Registration Fee
+                    Registration Fee (Per Head)
                   </Text>
                   <Text
                     c="#9EA5AD"
@@ -227,6 +229,7 @@ export default function EventDetails() {
               mt="2rem"
               mb={isMobileView ? "2rem" : "0rem"}
               fw="600"
+              disabled
             >
               Register Now
             </Button>
