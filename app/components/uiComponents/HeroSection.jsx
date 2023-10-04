@@ -1,7 +1,8 @@
 import { BackgroundImage, Text, Box, Container } from "@mantine/core";
 import cssStyles from "@/app/styles/events.module.css";
 
-export default function HeroSection() {
+export default function HeroSection({eventName,eventBackgroundImage}) {
+
   return (
     <Box>
       <Container
@@ -13,7 +14,7 @@ export default function HeroSection() {
         className={cssStyles.HeroSectionContainer}
       >
         <BackgroundImage
-          src={`/eventDetailsbg.webp`}
+          src={eventBackgroundImage}
           miw={"100%"}
           h={"100%"}
           style={{
@@ -32,7 +33,7 @@ export default function HeroSection() {
             left={"5rem"}
             className={cssStyles.HeroSectionHeading}
           >
-            Jhankaar
+            {eventName}
           </Text>
         </BackgroundImage>
       </Container>

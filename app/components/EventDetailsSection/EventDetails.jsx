@@ -2,6 +2,7 @@
 
 import { Box, Flex, Image, Text, Badge, Button } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import cssStyles from "@/app/styles/events.module.css";
 import { Breadcrumbs, Anchor } from "@mantine/core";
 
 const items = [
@@ -22,7 +23,7 @@ const itemArray = items.map((item, index) => (
   </Anchor>
 ));
 
-export default function EventDetails() {
+export default function EventDetails(event) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   const icon = (
@@ -37,28 +38,31 @@ export default function EventDetails() {
     <Box>
       <Box
         pt={isMobileView ? "1.5rem" : "4.5rem"}
-        px={isMobileView ? "1.5rem" : "6.75rem"}
+        px={isMobileView ? "1.5rem" : "4rem"}
+        className={cssStyles.EventDetails}
       >
         <Breadcrumbs separator=">">{itemArray}</Breadcrumbs>
       </Box>
       <Box
         pt={isMobileView ? "2.5rem" : "4.5rem"}
-        px={isMobileView ? "1.5rem" : "6.75rem"}
+        px={isMobileView ? "1.5rem" : "4rem"}
+        className={cssStyles.EventDetails}
       >
         <Flex m={0} p={0} w="100%" justify="center" gap="1.5rem">
           <Box
             m={0}
             p={0}
             w="100%"
-            h={isMobileView ? "328px" : "801px"}
             display={isMobileView ? "none" : ""}
           >
             <Image
               src={`/jhankaar.webp`}
               w="100%"
+              miw="26rem"
               style={styles.image}
               mb="2rem"
               alt=""
+              className={cssStyles.EventDetailsImage}
             />
           </Box>
           <Box
@@ -70,43 +74,26 @@ export default function EventDetails() {
             mr={isMobileView ? "1.5rem" : "0rem"}
             c="white"
           >
-            <Text fw="500" size={isMobileView ? "2rem" : "4rem"}>
+            <Text fw="500" size={isMobileView ? "2rem" : "5.5vw"} ta="start">
               Jhankaar
             </Text>
-            <Text size={isMobileView ? "1.5rem" : "2rem"} my="2rem" fw="500">
+            <Text size={isMobileView ? "1.5rem" : "2.5vw"} my="2rem" fw="500" className={cssStyles.EventDetailsContainer}>
               Witness the power of unity in dance!
             </Text>
             <Image
               src={`/jhankaar.webp`}
               style={{ objectFit: "contain" }}
               w="100%"
+              pb="1rem"
               display={!isMobileView ? "none" : ""}
               alt=""
             />
-            <Flex
-              m={0}
-              p={0}
-              direction="column"
-              justify="space-between"
-              gap={isMobileView ? "sm" : "xl"}
-              h="auto"
-              c="#9EA5AD"
-            >
-              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                This group dance competition that pits diverse dance groups
-                against each other in a battle of rhythm and creativity.
+            <Text size={isMobileView ? "0.75rem" : "1.125rem"} c="#9EA5AD" fw="500" className={cssStyles.EventDetailsDescription}>
+                {/* {event.description} */} Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse inventore libero distinctio, ipsam necessitatibus voluptates. Culpa nisi autem reprehenderit vitae dolores aliquid! Recusandae fugiat sed temporibus doloribus quas? Quo, labore?
+                At nostrum quas adipisci fuga, sequi, alias, iste pariatur esse libero eligendi quos nulla consequuntur? Adipisci quasi vel delectus laudantium neque inventore possimus amet nemo minima eum, voluptates maxime at?
+                Labore, dolores tempora? Nihil suscipit laborum dolorum voluptates? Natus, saepe accusamus, odit dolor vero asperiores sint quod sit laboriosam nulla molestias, facere qui expedita reprehenderit enim atque ab eius tenetur?
+                Saepe iusto laboriosam facere, esse inventore, explicabo culpa temporibus hic in dolor illo et eaque accusantium voluptatem officia reiciendis nulla, soluta ab qui! At reprehenderit suscipit vitae fuga libero natus.
               </Text>
-              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Dance enthusiasts from various backgrounds and styles, including
-                Bollywood, hip hop, jazz, and more, come together to showcase
-                their talent and passion on one vibrant stage.
-              </Text>
-              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                It's a celebration of movement, music, and the infectious energy
-                that dance brings, promising an unforgettable experience for
-                both participants and spectators.
-              </Text>
-            </Flex>
             <Flex
               m={0}
               p={0}
@@ -116,6 +103,7 @@ export default function EventDetails() {
               w={isMobileView ? "8.5rem" : "12.75rem"}
               c="#F6F7F9"
               my="2rem"
+              className={cssStyles.EventDetailsContainer}
             >
               <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
                 Date: 03 November 2023
@@ -134,6 +122,7 @@ export default function EventDetails() {
               gap={isMobileView ? "1rem" : "2rem"}
               w="auto"
               style={styles.card}
+              
             >
               <Flex
                 gap={isMobileView ? "0.5rem" : "1rem"}
@@ -142,7 +131,7 @@ export default function EventDetails() {
                 <Text
                   c="#F6F7F9"
                   fw="600"
-                  size={isMobileView ? "2rem" : "4rem"}
+                  size={isMobileView ? "2rem" : "4.8vw"}
                 >
                   ₹ 200
                 </Text>
@@ -157,20 +146,20 @@ export default function EventDetails() {
                   <Text
                     c="#FAFAFA"
                     fw="500"
-                    size={isMobileView ? "0.75rem" : "1.125rem"}
+                    size={isMobileView ? "0.75rem" : "1.24vw"}
                   >
                     Registration Fee
                   </Text>
                   <Text
                     c="#9EA5AD"
                     fw="500"
-                    size={isMobileView ? "0.75rem" : "1.125rem"}
+                    size={isMobileView ? "0.75rem" : "1.24vw"}
                   >
                     Free Entry with purchase
                   </Text>
                 </Flex>
               </Flex>
-              <Flex align="center">
+              <Flex align="center" >
                 <Badge
                   variant="transparent"
                   c="#F6F7F9"
@@ -178,7 +167,7 @@ export default function EventDetails() {
                   pl={0}
                   m={0}
                   w="auto"
-                  size={isMobileView ? "0.5625rem" : "0.8725rem"}
+                  size={isMobileView ? "0.5625rem" : "1vw"}
                   fw="500"
                   leftSection={icon}
                   radius="0"
@@ -193,7 +182,7 @@ export default function EventDetails() {
                   m={0}
                   w="auto"
                   leftSection={icon}
-                  size={isMobileView ? "0.5625rem" : "0.8725rem"}
+                  size={isMobileView ? "0.5625rem" : "1vw"}
                   fw="500"
                   radius="0"
                 >
@@ -207,7 +196,7 @@ export default function EventDetails() {
                   m={0}
                   w="auto"
                   leftSection={icon}
-                  size={isMobileView ? "0.5625rem" : "0.8725rem"}
+                  size={isMobileView ? "0.5625rem" : "1vw"}
                   fw="500"
                   radius="0"
                 >
@@ -227,6 +216,7 @@ export default function EventDetails() {
               mt="2rem"
               mb={isMobileView ? "2rem" : "0rem"}
               fw="600"
+              className={cssStyles.EventDetailsContainer}
             >
               Register Now
             </Button>
@@ -239,7 +229,6 @@ export default function EventDetails() {
 
 const styles = {
   image: {
-    minWidth: "100%",
     height: "100%",
     objectFit: "cover",
   },

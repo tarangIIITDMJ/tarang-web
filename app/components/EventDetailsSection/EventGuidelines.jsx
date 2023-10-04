@@ -39,7 +39,7 @@ export default function EventGuidelines() {
   ];
   return (
     <Flex
-      px={isMobileView ? "2rem" : "6.75rem"}
+      px={isMobileView ? "2rem" : "4rem"}
       pb={isMobileView ? "3rem" : "5rem"}
       direction="column"
       mt={isMobileView ? "2rem" : "4.5rem"}
@@ -67,7 +67,7 @@ export default function EventGuidelines() {
             >
               {event.content.map((item, index) => {
                 return (
-                  <List.Item key={index} my="xs">
+                  <List.Item key={index} my="xs" lh="1.3">
                     {item}
                   </List.Item>
                 );

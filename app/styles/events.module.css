@@ -34,3 +34,24 @@
         font-size: 0.85rem !important;
     }
   }
+
+  @media (max-width: $mantine-breakpoint-lg) {
+    .EventDetails {
+        padding-inline: 2rem !important;
+    }
+  }
+
+  @media (max-width: $mantine-breakpoint-md) {
+    .EventDetails {
+        padding-inline: 1rem !important;
+    }
+    .EventDetailsDescription {
+        font-size: 0.8rem !important;
+    }
+    .EventDetailsContainer{
+        margin-block: 1rem !important;
+    }
+    .EventDetailsImage{
+        min-width: 18rem !important;
+    }
+  }
