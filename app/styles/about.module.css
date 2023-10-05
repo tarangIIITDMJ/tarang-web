@@ -1,0 +1,38 @@
+@media (max-width: $mantine-breakpoint-xs) {
+  /* Hero Section */
+  .HeroSectionContainer {
+    height: 50vh !important;
+  }
+  .HeroSectionHeading {
+    bottom: 2rem !important;
+    left: 2rem !important;
+    font-size: 3.5rem !important;
+  }
+
+  /* Content Section */
+  .ContentSectionContainer {
+    padding: 3rem 2rem !important;
+  }
+  .ContentSectionTitle {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  .ContentSectionText {
+    font-size: 1rem !important;
+  }
+
+  /* Past Tarang Section */
+  .PastTarangSectionContainer {
+    padding: 3rem 0rem !important;
+  }
+  .PastTarangSectionSubContainer {
+    gap: 2rem !important;
+  }
+  .PastTarangSectionTitle {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  .PastTarangSectionText {
+    font-size: 0.75rem !important;
+  }
+}

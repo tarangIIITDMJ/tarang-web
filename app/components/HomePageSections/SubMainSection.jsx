@@ -69,7 +69,7 @@ export default function SubMainSection() {
           </video>
           <Image
             src={"/Group.webp"}
-            alt="Video Ring"
+            alt=""
             pos="absolute"
             style={{
               transform: `rotate(${rotation}deg)`,
