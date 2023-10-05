@@ -98,7 +98,7 @@ export default function MainAppShell({ children }) {
     { name: "Events", link: "/events" },
     { name: "Gallery", link: "/" },
     { name: "Contact", link: "/" },
-    { name: "FAQ", link: "/" },
+    { name: "FAQ", link: "/faqs" },
   ];
 
   const [opened, { toggle, close }] = useDisclosure(false);
