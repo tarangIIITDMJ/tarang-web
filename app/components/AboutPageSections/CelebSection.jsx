@@ -35,7 +35,7 @@ const CelebSection = () => {
           to this day!
         </Text>
       </Stack>
-      <Image src={"/aboutSectionImg(2).jpg"} alt="" />
+      <Image src={"/aboutSectionImg(2).webp"} alt="" />
     </Flex>
   );
 };

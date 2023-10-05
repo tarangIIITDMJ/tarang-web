@@ -28,7 +28,7 @@ const SubMainSection = () => {
           w={isMobileView ? "20.5rem" : "32rem"}
           h={isMobileView ? "20.5rem" : "32rem"}
         >
-          <Image src={"/aboutSectionImg(1).png"} alt="" style={styles.img} />
+          <Image src={"/aboutSectionImg(1).webp"} alt="" style={styles.img} />
         </Box>
         <Box>
           <Stack

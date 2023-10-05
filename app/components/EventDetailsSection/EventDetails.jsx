@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Flex, Image, Text, Badge, Button } from "@mantine/core";
+import { Box, Flex, Image, Text, Badge, Button, Stack } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { Breadcrumbs, Anchor } from "@mantine/core";
 
@@ -9,6 +9,20 @@ const items = [
   { title: "Events", href: "/events" },
   { title: "Jhankaar", href: "#" },
 ];
+
+const styles = {
+  image: {
+    minWidth: "100%",
+    height: "100%",
+    objectFit: "cover",
+  },
+  card: {
+    borderRadius: "16px",
+    border: "1.5px solid rgba(255, 255, 255, 0.76)",
+    background:
+      "linear-gradient(98deg, rgba(46, 39, 239, 0.35) -61.16%, rgba(46, 39, 239, 0.00) 178.71%)",
+  },
+};
 
 const itemArray = items.map((item, index) => (
   <Anchor
@@ -36,86 +50,66 @@ export default function EventDetails({ event }) {
   return (
     <Box>
       <Box
-        pt={isMobileView ? "1.5rem" : "4.5rem"}
+        py={isMobileView ? "1.5rem" : "4.5rem"}
         px={isMobileView ? "1.5rem" : "6.75rem"}
       >
         <Breadcrumbs separator=">">{itemArray}</Breadcrumbs>
       </Box>
       <Box
-        pt={isMobileView ? "2.5rem" : "4.5rem"}
-        px={isMobileView ? "1.5rem" : "6.75rem"}
+        pl={isMobileView ? "0rem" : "6.75rem"}
+        pr={isMobileView ? "1.5rem" : "6.75rem"}
       >
-        <Flex w="100%" justify="space-between" gap="1.5rem">
+        <Flex
+          w="100%"
+          justify={isMobileView ? "center" : "space-between"}
+          gap="1.5rem"
+        >
           <Box>
             <Image
               src={`/jhankaar.webp`}
               style={styles.image}
-              display={isMobileView ? "none" : ""}
+              visibleFrom="sm"
               mb="2rem"
               w={isMobileView ? "100%" : "34.5rem"}
               alt=""
             />
           </Box>
-          <Box>
+          <Stack gap={"2rem"}>
             <Text fw="500" c="#fff" size={isMobileView ? "2rem" : "4rem"}>
               {event.name}
             </Text>
-            <Text
-              c="#fff"
-              size={isMobileView ? "1.5rem" : "2rem"}
-              my="2rem"
-              fw="500"
-            >
+            <Text c="#fff" size={isMobileView ? "1.5rem" : "2rem"} fw="500">
               {event.tagline}
             </Text>
-            {<Image
+            <Image
               src={`/jhankaar.webp`}
               style={{ objectFit: "contain" }}
-              display={isMobileView ? "" : "none"}
+              hiddenFrom="sm"
               alt=""
-              mb={isMobileView? "1rem": "0rem"}
-            />}
-            <Flex
-              direction="column"
-              justify="space-between"
-              gap={isMobileView ? "sm" : "xl"}
-              h="auto"
-              c="#9EA5AD"
-            >
-              <Text
-                size={isMobileView ? "1rem" : "1.125rem"}
-              >
-                {event.description}
-              </Text>
-            </Flex>
-            <Flex
-              m={0}
-              p={0}
-              direction="column"
-              justify="center"
-              gap={isMobileView ? "0.5rem" : "1rem"}
-              c="#F6F7F9"
-              my="2rem"
-            >
-              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Date: {event.event_date}
-              </Text>
-              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Time: {event.event_time}
-              </Text>
-              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Event Type: {event.event_type}
-              </Text>
-              <Text size={isMobileView ? "0.75rem" : "1.125rem"} fw="500">
-                Event Category: {event.event_category}
-              </Text>
-            </Flex>
-            <Flex
-              direction="column"
-              h="auto"
+            />
+            <Text c="#9EA5AD" size={isMobileView ? "1rem" : "1.125rem"}>
+              {event.description}
+            </Text>
+            <Stack justify="center" gap={isMobileView ? "0.5rem" : "1rem"}>
+              {[
+                { label: "Date", value: event.event_date },
+                { label: "Time", value: event.event_time },
+                { label: "Event Type", value: event.event_type },
+                { label: "Event Category", value: event.event_category },
+              ].map((item, index) => (
+                <Text
+                  key={index}
+                  size={isMobileView ? "0.75rem" : "1.125rem"}
+                  c="#F6F7F9"
+                  fw="500"
+                >
+                  {item.label}: {item.value}
+                </Text>
+              ))}
+            </Stack>
+            <Stack
               p={isMobileView ? "1rem" : "2rem"}
               gap={isMobileView ? "1rem" : "2rem"}
-              w="auto"
               style={styles.card}
             >
               <Flex
@@ -129,8 +123,7 @@ export default function EventDetails({ event }) {
                 >
                   ₹ {event.reg_fees}
                 </Text>
-                <Flex
-                  direction="column"
+                <Stack
                   justify="center"
                   gap={isMobileView ? "0.25rem" : "0.5rem"}
                 >
@@ -148,89 +141,46 @@ export default function EventDetails({ event }) {
                   >
                     Free Entry with purchase
                   </Text>
-                </Flex>
+                </Stack>
               </Flex>
               <Flex align="center">
-                <Badge
-                  variant="transparent"
-                  c="#F6F7F9"
-                  pr={isMobileView ? "0.5rem" : "1rem"}
-                  pl={0}
-                  m={0}
-                  w="auto"
-                  h="fit-content"
-                  size={isMobileView ? "0.5625rem" : "0.8725rem"}
-                  fw="500"
-                  leftSection={icon}
-                  radius="0"
-                >
-                  <span>₹ {event.prize_pool} Prize Pool</span>
-                </Badge>
-                <Badge
-                  variant="transparent"
-                  c="#F6F7F9"
-                  pr={isMobileView ? "0.5rem" : "1rem"}
-                  pl={0}
-                  m={0}
-                  w="auto"
-                  h="fit-content"
-                  leftSection={icon}
-                  size={isMobileView ? "0.5625rem" : "0.8725rem"}
-                  fw="500"
-                  // radius="0"
-                >
-                  <span>{event.event_type}</span>
-                </Badge>
-                <Badge
-                  variant="transparent"
-                  c="#F6F7F9"
-                  pr={isMobileView ? "0.5rem" : "1rem"}
-                  pl={0}
-                  m={0}
-                  w="auto"
-                  h="fit-content"
-                  leftSection={icon}
-                  size={isMobileView ? "0.5625rem" : "0.8725rem"}
-                  fw="500"
-                  radius="0"
-                >
-                  <span>{event.event_category}</span>
-                </Badge>
+                {[
+                  { label: `₹ ${event.prize_pool} Prize Pool` },
+                  { label: event.event_type },
+                  { label: event.event_category },
+                ].map((item, index) => (
+                  <Badge
+                    key={index}
+                    variant="transparent"
+                    c="#F6F7F9"
+                    pr={isMobileView ? "0.5rem" : "1rem"}
+                    pl={0}
+                    h="fit-content"
+                    leftSection={icon}
+                    size={isMobileView ? "0.5625rem" : "0.8725rem"}
+                    fw="500"
+                  >
+                    <span>{item.label}</span>
+                  </Badge>
+                ))}
               </Flex>
-            </Flex>
+            </Stack>
             <Button
               size={isMobileView ? "0.75rem" : "1.125rem"}
               h="auto"
               bg="white"
               c="black"
-              radius={0}
               w="100%"
               px={isMobileView ? "1.25rem" : "1.625rem"}
               py={isMobileView ? "0.75rem" : "1.125rem"}
-              mt="2rem"
-              mb={isMobileView ? "2rem" : "0rem"}
               fw="600"
               disabled
             >
               Register Now
             </Button>
-          </Box>
+          </Stack>
         </Flex>
       </Box>
     </Box>
   );
 }
-
-const styles = {
-  image: {
-    minWidth: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-  card: {
-    borderRadius: "16px",
-    border: "1.5px solid rgba(255, 255, 255, 0.76)",
-    background:
-      "linear-gradient(98deg, rgba(46, 39, 239, 0.35) -61.16%, rgba(46, 39, 239, 0.00) 178.71%)",
-  },
-};

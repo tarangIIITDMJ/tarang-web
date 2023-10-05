@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Button, Container, ScrollArea, Text, Flex, Chip } from "@mantine/core";
+import { Container, ScrollArea, Text, Flex, Chip } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import cssStyles from "@/app/styles/events.module.css";
@@ -18,7 +18,6 @@ export default function EventCategories() {
   ];
 
   const [selectedEvents, setSelectedEvents] = useState([]);
-  const isMobileView = useMediaQuery("(max-width: 768px)");
 
   return (
     <Container
