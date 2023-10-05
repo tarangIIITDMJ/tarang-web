@@ -161,7 +161,6 @@ export default function MainAppShell({ children }) {
           />
         </Center>
       </AppShell.Header>
-
       <AppShell.Main>
         <Drawer
           opened={opened}

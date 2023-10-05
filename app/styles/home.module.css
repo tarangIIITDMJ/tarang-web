@@ -17,6 +17,9 @@
     font-size: var(--mantine-font-size-xs);
   }
 
+  .HeroMainButtonFlex {
+    gap: var(--mantine-spacing-sm) !important;
+  }
   /* Sponsor Section */
   /* ... */
 }
