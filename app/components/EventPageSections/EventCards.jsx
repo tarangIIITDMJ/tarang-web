@@ -22,7 +22,7 @@ export default function EventCards({ events }) {
               />
             </Box>
             <Stack
-              p={"12px 24px 32px 24px"}
+              p={"12px 24px 20px 24px"}
               gap={8}
               align="flex-start"
               w={"100%"}
@@ -39,7 +39,7 @@ export default function EventCards({ events }) {
               </Text>
               <Text
                 c="#676E76"
-                size={isMobile ? "0.75rem" : "1.25rem"}
+                size="sm"
                 style={{
                   wordBreak: "break-word",
                 }}

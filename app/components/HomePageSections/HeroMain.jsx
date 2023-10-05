@@ -1,13 +1,5 @@
 "use client";
-import {
-  Button,
-  Text,
-  Container,
-  Box,
-  Flex,
-  Stack,
-  Group,
-} from "@mantine/core";
+import { Button, Text, Container, Box, Flex } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import Image from "next/image";
@@ -59,7 +51,7 @@ const HeroMain = () => {
           >
             The Tide is turning
           </Text>
-          <Flex columnGap={isMobileView ? "sm" : "xl"}>
+          <Flex columnGap={"xl"} className={cssstyles.HeroMainButtonFlex}>
             <Button
               bg="#FFC900"
               c="black"

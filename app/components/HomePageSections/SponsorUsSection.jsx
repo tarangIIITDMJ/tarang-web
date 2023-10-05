@@ -9,14 +9,14 @@ function SponsorUsSection() {
 
   return (
     <Container m={0} p={0} miw={"100%"}>
-      <Grid gutter={0} columns={isMobileView ? 1 : 2}>
+      <Grid gutter={0} columns={isMobileView ? 1 : 2} style={style.borderBox}>
         <Grid.Col
           bg="#FE73E7"
           order={isMobileView ? 2 : ""}
           span={1}
-          style={{ border: "1px solid black" }}
           py={isMobileView ? "4rem" : "4.5rem"}
           px={isMobileView ? "0" : "3rem"}
+          style={style.borderBox}
         >
           <Stack justify={"center"} align={"center"} h={"100%"}>
             <Container>
@@ -44,10 +44,18 @@ function SponsorUsSection() {
             </Container>
           </Stack>
         </Grid.Col>
-        <Grid.Col span={1} order={isMobileView ? 3 : ""}>
+        <Grid.Col
+          style={style.borderBox}
+          span={1}
+          order={isMobileView ? 3 : ""}
+        >
           <Image h={"100%"} src={"/MobileFrame.webp"} alt="" />
         </Grid.Col>
-        <Grid.Col order={isMobileView ? 1 : ""} span={1}>
+        <Grid.Col
+          style={style.borderBox}
+          order={isMobileView ? 1 : ""}
+          span={1}
+        >
           <Image
             h={"100%"}
             style={{
@@ -61,9 +69,9 @@ function SponsorUsSection() {
           bg="#2E75FF"
           order={isMobileView ? 4 : ""}
           span={1}
-          style={{ border: "1px solid black" }}
           py={isMobileView ? "4rem" : "4.5rem"}
           px={isMobileView ? "0" : "3rem"}
+          style={style.borderBox}
         >
           <Stack justify={"center"} align={"center"} h={"100%"}>
             <Container>
@@ -95,5 +103,11 @@ function SponsorUsSection() {
     </Container>
   );
 }
+
+const style = {
+  borderBox: {
+    border: "1px solid black",
+  },
+};
 
 export default SponsorUsSection;
