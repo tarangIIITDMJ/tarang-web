@@ -73,13 +73,12 @@ const ImageAccordion = ({ isMobileView }) => {
 function GalleryView() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
-    <Container maw="100%">
+    <Container maw="100%" bg="#FFF4E2">
       <Box p={isMobileView ? "3rem" : "4rem"}>
         <Group justify="center" align="center">
           <Text
+            ta="center"
             fz={isMobileView ? "2rem" : "3rem"}
-            px={"2.5rem"}
-            py={"0.75rem"}
             style={{
               borderRadius: "4rem",
             }}

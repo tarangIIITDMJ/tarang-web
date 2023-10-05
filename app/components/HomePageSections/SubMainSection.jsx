@@ -43,9 +43,10 @@ export default function SubMainSection() {
 
   return (
     <Box
-      bg="#D0EB4C"
+      bg="#FFC900"
       px={isMobileView ? "1rem" : "6.25rem"}
       py={isMobileView ? "4rem" : "6rem"}
+      style={{ border: "2px solid black" }}
     >
       <Flex
         direction={isMobileView ? "column" : "row"}
@@ -53,7 +54,7 @@ export default function SubMainSection() {
         gap={"3rem"}
       >
         <Text hiddenFrom="sm" size={"2.5rem"} ta={"right"} c="#252525">
-        The Tide is turning!
+          The Tide is turning!
         </Text>
         <Box
           style={styles.container}
@@ -93,14 +94,16 @@ export default function SubMainSection() {
         <Box>
           <Stack align="flex-start" justify="center" gap={"2.25rem"}>
             <Text visibleFrom="sm" size={"4rem"} c="#252525">
-            The Tide is turning!
+              The Tide is turning!
             </Text>
             <Text
               size={isMobileView ? "1rem" : "1.25rem"}
               ta={isMobileView ? "left" : "justify"}
               c="#252525"
             >
-              Experience the cultural renaissance at Tarang: Central India's grandest fest. Dive into a world of creativity, talent, and epic performances!
+              Experience the cultural renaissance at Tarang: Central India's
+              grandest fest. Dive into a world of creativity, talent, and epic
+              performances!
             </Text>
             <Button
               color="black"

@@ -13,7 +13,10 @@ export default function HeroSection() {
       miw="100%"
       style={styles.container}
     >
-      <BackgroundImage src={`/aboutbg.webp`} style={styles.image}>
+      <BackgroundImage
+        src={`https://res.cloudinary.com/prajjwalcdn/image/upload/v1696502907/about-header_wjneka.png`}
+        style={styles.image}
+      >
         <Text
           size={isMobileView ? "3.5rem" : "8rem"}
           c="white"

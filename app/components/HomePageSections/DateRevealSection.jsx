@@ -30,7 +30,7 @@ export default function DateRevealSection() {
           fw={500}
           ta={"center"}
         >
-          3rd, 4th and 5th November
+          Discover the days
         </Text>
         <Group pos="relative" px={isMobileView ? "1rem" : "0rem"}>
           {images.map((src, index) => (

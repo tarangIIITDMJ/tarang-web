@@ -8,20 +8,25 @@ function SponsorUsSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   return (
-    <Container m={0} pt={60} p={0} miw={"100%"}>
+    <Container m={0} p={0} miw={"100%"}>
       <Grid gutter={0} columns={isMobileView ? 1 : 2}>
-        <Grid.Col bg="black" order={isMobileView ? 2 : ""} span={1}>
+        <Grid.Col
+          bg="#FE73E7"
+          order={isMobileView ? 2 : ""}
+          span={1}
+          style={{ border: "2px solid black" }}
+        >
           <Flex justify={"center"} align={"center"} h={"100%"}>
             <Container my={"2rem"}>
               <Text
                 style={{ lineHeight: isMobileView ? "2rem" : "4rem" }}
-                c={"white"}
                 fz={isMobileView ? "2rem" : "4rem"}
+                c="#1a1d1f"
               >
                 Interested about Tarang?
               </Text>
-              <Text mt={"2.25rem"} c={"white"} fz={"1.25rem"}>
-              Discover Tarang's rich lineup and event details in the booklet.
+              <Text c="#1a1d1f" mt={"2.25rem"} fz={"1.25rem"}>
+                Discover Tarang's rich lineup and event details in the booklet.
               </Text>
               <Button
                 rightSection={<IconDownload />}
@@ -50,18 +55,23 @@ function SponsorUsSection() {
             alt=""
           />
         </Grid.Col>
-        <Grid.Col bg="black" order={isMobileView ? 4 : ""} span={1}>
+        <Grid.Col
+          bg="#2E75FF"
+          order={isMobileView ? 4 : ""}
+          span={1}
+          style={{ border: "2px solid black" }}
+        >
           <Flex justify={"center"} align={"center"} h={"100%"}>
             <Container my={"2rem"}>
               <Text
                 style={{ lineHeight: isMobileView ? "2rem" : "4rem" }}
-                c={"white"}
+                c="#1a1d1f"
                 fz={isMobileView ? "2rem" : "4rem"}
               >
                 Here’s how to sponsor us
               </Text>
-              <Text mt={"2.25rem"} c={"white"} fz={"1.25rem"}>
-              Explore sponsorship opportunities and benefits in the booklet.
+              <Text mt={"2.25rem"} c="#1a1d1f" fz={"1.25rem"}>
+                Explore sponsorship opportunities and benefits in the booklet.
               </Text>
               <Button
                 rightSection={<IconDownload />}

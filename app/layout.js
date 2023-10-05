@@ -14,6 +14,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=general-sans@500&display=swap"
+          rel="stylesheet"
+        />
         <ColorSchemeScript />
       </head>
       <body>
