@@ -146,7 +146,7 @@ export default function EventDetails({ event }) {
                     fw="500"
                     size={isMobileView ? "0.75rem" : "1.125rem"}
                   >
-                    Registration Fee
+                    Registration Fee (Per Head)
                   </Text>
                   <Text
                     c="#9EA5AD"
@@ -170,7 +170,7 @@ export default function EventDetails({ event }) {
                   leftSection={icon}
                   radius="0"
                 >
-                  <span>{event.prize_pool}/- Prize Pool</span>
+                  <span>₹ 40,000 Prize pool</span>
                 </Badge>
                 <Badge
                   variant="transparent"
@@ -184,7 +184,7 @@ export default function EventDetails({ event }) {
                   fw="500"
                   radius="0"
                 >
-                  <span>{event.event_type}</span>
+                  <span>word</span>
                 </Badge>
                 <Badge
                   variant="transparent"
@@ -198,7 +198,7 @@ export default function EventDetails({ event }) {
                   fw="500"
                   radius="0"
                 >
-                  <span>{event.event_category}</span>
+                  <span>Features</span>
                 </Badge>
               </Flex>
             </Flex>
