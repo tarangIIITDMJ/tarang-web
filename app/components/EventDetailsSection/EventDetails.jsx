@@ -4,23 +4,27 @@ import { Box, Flex, Image, Text, Badge, Button } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { Breadcrumbs, Anchor } from "@mantine/core";
 
-const items = [
-  { title: "Home", href: "/" },
-  { title: "Events", href: "/events" },
-  { title: "Jhankaar", href: "#" },
-];
+const items = (name) => {
+  return [
+    { title: "Home", href: "/" },
+    { title: "Events", href: "/events" },
+    { title: name, href: "#" },
+  ];
+};
 
-const itemArray = items.map((item, index) => (
-  <Anchor
-    href={item.href}
-    key={index}
-    underline="false"
-    fw="500"
-    c={index == items.length - 1 ? "#fff" : "#676E76"}
-  >
-    {item.title}
-  </Anchor>
-));
+const itemArray = (name) => {
+  return items(name).map((item, index) => (
+    <Anchor
+      href={item.href}
+      key={index}
+      underline="false"
+      fw="500"
+      c={index == items.length - 1 ? "#fff" : "#676E76"}
+    >
+      {item.title}
+    </Anchor>
+  ));
+};
 
 export default function EventDetails({ event }) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -39,7 +43,7 @@ export default function EventDetails({ event }) {
         pt={isMobileView ? "1.5rem" : "4.5rem"}
         px={isMobileView ? "1.5rem" : "6.75rem"}
       >
-        <Breadcrumbs separator=">">{itemArray}</Breadcrumbs>
+        <Breadcrumbs separator=">">{itemArray(event.name)}</Breadcrumbs>
       </Box>
       <Box
         pt={isMobileView ? "2.5rem" : "4.5rem"}
@@ -68,13 +72,15 @@ export default function EventDetails({ event }) {
             >
               {event.tagline}
             </Text>
-            {<Image
-              src={`/jhankaar.webp`}
-              style={{ objectFit: "contain" }}
-              display={isMobileView ? "" : "none"}
-              alt=""
-              mb={isMobileView? "1rem": "0rem"}
-            />}
+            {
+              <Image
+                src={`/jhankaar.webp`}
+                style={{ objectFit: "contain" }}
+                display={isMobileView ? "" : "none"}
+                alt=""
+                mb={isMobileView ? "1rem" : "0rem"}
+              />
+            }
             <Flex
               direction="column"
               justify="space-between"
@@ -82,9 +88,7 @@ export default function EventDetails({ event }) {
               h="auto"
               c="#9EA5AD"
             >
-              <Text
-                size={isMobileView ? "1rem" : "1.125rem"}
-              >
+              <Text size={isMobileView ? "1rem" : "1.125rem"}>
                 {event.description}
               </Text>
             </Flex>

@@ -15,6 +15,7 @@ export default function SubMainSection() {
   const videoRef = useRef(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [rotation, setRotation] = useState(0);
+  const [rotationPaused, setRotationPaused] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,6 +39,7 @@ export default function SubMainSection() {
       } else {
         video.play();
       }
+      setRotationPaused(rotation);
       setIsVideoPlaying(!isVideoPlaying);
     }
   };
@@ -73,7 +75,9 @@ export default function SubMainSection() {
             alt="Video Ring"
             pos="absolute"
             style={{
-              transform: `rotate(${rotation}deg)`,
+              transform: isVideoPlaying
+                ? `rotate(${rotation}deg)`
+                : `rotate(${rotationPaused}deg)`,
               transition: "transform 0.3s ease",
             }}
           />
@@ -112,7 +116,6 @@ export default function SubMainSection() {
               mt={isMobileView ? "1rem" : "1.5rem"}
               rightSection={<IconArrowRight />}
               style={isMobileView ? { display: "block", margin: "0 auto" } : {}}
-              
             >
               <Link href={"/about"}>Read More</Link>
             </Button>
