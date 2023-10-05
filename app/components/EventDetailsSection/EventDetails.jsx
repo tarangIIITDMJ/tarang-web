@@ -45,34 +45,26 @@ export default function EventDetails({ event }) {
         pt={isMobileView ? "2.5rem" : "4.5rem"}
         px={isMobileView ? "1.5rem" : "6.75rem"}
       >
-        <Flex m={0} p={0} w="100%" justify="center" gap="1.5rem">
-          <Box
-            m={0}
-            p={0}
-            w="100%"
-            h={isMobileView ? "328px" : "801px"}
-            display={isMobileView ? "none" : ""}
-          >
+        <Flex w="100%" justify="space-between" gap="1.5rem">
+          <Box>
             <Image
               src={`/jhankaar.webp`}
-              w="100%"
               style={styles.image}
+              display={isMobileView ? "none" : ""}
               mb="2rem"
               alt=""
             />
           </Box>
-          <Box
-            ta="left"
-            m={0}
-            p={0}
-            w={isMobileView ? "100%" : "auto"}
-            mr={isMobileView ? "1.5rem" : "0rem"}
-            c="white"
-          >
-            <Text fw="500" size={isMobileView ? "2rem" : "4rem"}>
+          <Box>
+            <Text fw="500" c="#fff" size={isMobileView ? "2rem" : "4rem"}>
               {event.name}
             </Text>
-            <Text size={isMobileView ? "1.5rem" : "2rem"} my="2rem" fw="500">
+            <Text
+              c="#fff"
+              size={isMobileView ? "1.5rem" : "2rem"}
+              my="2rem"
+              fw="500"
+            >
               {event.tagline}
             </Text>
             <Image
@@ -82,8 +74,6 @@ export default function EventDetails({ event }) {
               alt=""
             />
             <Flex
-              m={0}
-              p={0}
               direction="column"
               justify="space-between"
               gap={isMobileView ? "sm" : "xl"}
@@ -136,17 +126,14 @@ export default function EventDetails({ event }) {
                 <Flex
                   direction="column"
                   justify="center"
-                  w="auto"
                   gap={isMobileView ? "0.25rem" : "0.5rem"}
-                  m={0}
-                  p={0}
                 >
                   <Text
                     c="#FAFAFA"
                     fw="500"
                     size={isMobileView ? "0.75rem" : "1.125rem"}
                   >
-                    Registration Fee (Per Head)
+                    Registration Fee
                   </Text>
                   <Text
                     c="#9EA5AD"
@@ -170,7 +157,7 @@ export default function EventDetails({ event }) {
                   leftSection={icon}
                   radius="0"
                 >
-                  <span>₹ 40,000 Prize pool</span>
+                  <span>{event.prize_pool}/- Prize Pool</span>
                 </Badge>
                 <Badge
                   variant="transparent"
@@ -184,7 +171,7 @@ export default function EventDetails({ event }) {
                   fw="500"
                   radius="0"
                 >
-                  <span>word</span>
+                  <span>{event.event_type}</span>
                 </Badge>
                 <Badge
                   variant="transparent"
@@ -198,7 +185,7 @@ export default function EventDetails({ event }) {
                   fw="500"
                   radius="0"
                 >
-                  <span>Features</span>
+                  <span>{event.event_category}</span>
                 </Badge>
               </Flex>
             </Flex>
