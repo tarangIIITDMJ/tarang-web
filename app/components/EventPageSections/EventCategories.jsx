@@ -36,7 +36,7 @@ export default function EventCategories() {
         }}
       >
         <Flex
-          gap={30}
+          gap={15}
           py={"3rem"}
           className={cssStyles.EventCategoriesButtonsGrp}
         >

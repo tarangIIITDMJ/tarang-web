@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Box, Flex, Group, Stack, Text, Button, Image } from "@mantine/core";
+import Link from "next/link";
 import {
   IconPlayerPlay,
   IconPlayerPause,
@@ -97,7 +98,7 @@ export default function SubMainSection() {
               The Tide is turning!
             </Text>
             <Text
-              size={isMobileView ? "1rem" : "1.25rem"}
+              size={isMobileView ? "1rem" : "1.125rem"}
               ta={isMobileView ? "left" : "justify"}
               c="#252525"
             >
@@ -111,8 +112,9 @@ export default function SubMainSection() {
               mt={isMobileView ? "1rem" : "1.5rem"}
               rightSection={<IconArrowRight />}
               style={isMobileView ? { display: "block", margin: "0 auto" } : {}}
+              
             >
-              Read More
+              <Link href={"/about"}>Read More</Link>
             </Button>
           </Stack>
         </Box>

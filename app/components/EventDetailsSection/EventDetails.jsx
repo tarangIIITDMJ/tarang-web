@@ -52,6 +52,7 @@ export default function EventDetails({ event }) {
               style={styles.image}
               display={isMobileView ? "none" : ""}
               mb="2rem"
+              w={isMobileView ? "100%" : "34.5rem"}
               alt=""
             />
           </Box>
@@ -67,12 +68,13 @@ export default function EventDetails({ event }) {
             >
               {event.tagline}
             </Text>
-            <Image
+            {<Image
               src={`/jhankaar.webp`}
               style={{ objectFit: "contain" }}
-              display={!isMobileView ? "none" : ""}
+              display={isMobileView ? "" : "none"}
               alt=""
-            />
+              mb={isMobileView? "1rem": "0rem"}
+            />}
             <Flex
               direction="column"
               justify="space-between"
@@ -80,7 +82,11 @@ export default function EventDetails({ event }) {
               h="auto"
               c="#9EA5AD"
             >
-              <p>{event.description}</p>
+              <Text
+                size={isMobileView ? "1rem" : "1.125rem"}
+              >
+                {event.description}
+              </Text>
             </Flex>
             <Flex
               m={0}
@@ -152,12 +158,13 @@ export default function EventDetails({ event }) {
                   pl={0}
                   m={0}
                   w="auto"
+                  h="fit-content"
                   size={isMobileView ? "0.5625rem" : "0.8725rem"}
                   fw="500"
                   leftSection={icon}
                   radius="0"
                 >
-                  <span>{event.prize_pool}/- Prize Pool</span>
+                  <span>₹ {event.prize_pool} Prize Pool</span>
                 </Badge>
                 <Badge
                   variant="transparent"
@@ -166,10 +173,11 @@ export default function EventDetails({ event }) {
                   pl={0}
                   m={0}
                   w="auto"
+                  h="fit-content"
                   leftSection={icon}
                   size={isMobileView ? "0.5625rem" : "0.8725rem"}
                   fw="500"
-                  radius="0"
+                  // radius="0"
                 >
                   <span>{event.event_type}</span>
                 </Badge>
@@ -180,6 +188,7 @@ export default function EventDetails({ event }) {
                   pl={0}
                   m={0}
                   w="auto"
+                  h="fit-content"
                   leftSection={icon}
                   size={isMobileView ? "0.5625rem" : "0.8725rem"}
                   fw="500"

@@ -12,7 +12,7 @@ export default function ContentSection() {
           <Text c={"#555"} size={isMobileView ? "3rem" : "4rem"} fw={500}>
             Vibe tarang lmfaooo
           </Text>
-          <Text c={"#252525"} size={isMobileView ? "1rem" : "1.25rem"} lh={1.2}>
+          <Text c={"#252525"} size={isMobileView ? "1rem" : "1.125rem"} lh={1.2}>
             TARANG, IIITDM Jabalpur's very own cultural fest, the largest in
             Central India, reemerges after 5 years! Strap in, for an epic
             revival! Tarang has been met with unending fervour since 2007,
