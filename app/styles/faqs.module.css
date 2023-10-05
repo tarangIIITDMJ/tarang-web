@@ -1,0 +1,20 @@
+/* Accordion.Item */
+.item {
+  background-color: transparent;
+  border-bottom: 2px solid white;
+}
+
+/* chevron icon */
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* chevron container */
+.chevron {
+  width: 2rem;
+  margin-right: 2rem;
+  &[data-rotate] {
+    transform: rotate(90deg);
+  }
+}
