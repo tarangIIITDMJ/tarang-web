@@ -13,11 +13,11 @@ import { IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 
 const galleryImages = [
-  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845772/GalleryImage1_ugrcm8.webp",
-  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845771/GalleryImage2_g27kpb.webp",
-  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845772/GalleryImage3_wurhne.webp",
-  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845771/GalleryImage4_gferzi.webp",
-  "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695845772/GalleryImage5_gq2if8.webp",
+  "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365168/GalleryImage1_1_txilwo.webp",
+  "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365167/GalleryImage2_1_a8p9vh.webp",
+  "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365167/GalleryImage3_1_qtzjjh.webp",
+  "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365167/GalleryImage5_1_kilgqt.webp",
+  "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365167/GalleryImage4_1_lqmh4m.webp",
 ];
 
 const ImageAccordion = ({ isMobileView }) => {
@@ -73,19 +73,17 @@ const ImageAccordion = ({ isMobileView }) => {
 function GalleryView() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
-    <Container maw="100%">
+    <Container maw="100%" bg="#FFF4E2">
       <Box p={isMobileView ? "3rem" : "4rem"}>
         <Group justify="center" align="center">
           <Text
+            ta="center"
             fz={isMobileView ? "2rem" : "3rem"}
-            bg={"#D0EB4C"}
-            px={"2.5rem"}
-            py={"0.75rem"}
             style={{
               borderRadius: "4rem",
             }}
           >
-            Gallery
+            A peek into our pompous past
           </Text>
         </Group>
       </Box>

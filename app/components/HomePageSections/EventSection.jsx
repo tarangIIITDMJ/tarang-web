@@ -10,11 +10,12 @@ import {
   Text,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import Link from "next/link";
 
 export default function EventSection() {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-  function CardComp({ Imgprop, makeMobile = false }) {
+  function CardComp({ data, makeMobile = false }) {
     return (
       <Card radius={0} w={"100%"} p={0}>
         <Flex
@@ -27,7 +28,7 @@ export default function EventSection() {
               w={makeMobile ? 120 : "100%"}
               style={{ objectPosition: "0% 0%", transition: "0.3s" }}
               alt=""
-              {...Imgprop}
+              {...data.imgData}
             />
           </Box>
           <Stack
@@ -37,11 +38,11 @@ export default function EventSection() {
             w={"100%"}
           >
             <Text fw={500} size="lg">
-              Event name
+              {data.title ?? "Title"}
             </Text>
 
             <Text c="#676E76" size="sm" style={{ wordBreak: "break-word" }}>
-              Quidam officiis similique sea ei, vel tollit indoctum efficiendi
+              {data.desc ?? "Description"}
             </Text>
           </Stack>
         </Flex>
@@ -51,7 +52,7 @@ export default function EventSection() {
 
   return (
     <Box>
-      <Box bg={"#2E27EF"} py={"3rem"}>
+      <Box bg={"#2E75FF"} py={"3rem"}>
         <Image src={"/highlightEvents.webp"} alt="" />
       </Box>
       <Box
@@ -61,32 +62,44 @@ export default function EventSection() {
       >
         <Stack gap={"3.5rem"} align="center">
           <Text size={isMobile ? "2rem" : "4rem"} c="#F2F2F2">
-            Glimmer in the wake escapism
+            Here’s what to expect!
           </Text>
           <Grid gutter={20} justify="center">
             <Grid.Col span={isMobile ? 12 : 6}>
               <Stack gap={20}>
                 <CardComp
-                  Imgprop={{
-                    h: isMobile ? 150 : 300,
-                    src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                  data={{
+                    title: "The Big Picture",
+                    desc: "Unleash your artistic flair with The Big Picture's canvas creativity and conquer the Photoshop Battle for graphic design supremacy!",
+                    imgData: {
+                      h: isMobile ? 150 : 300,
+                      src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448432/the_big_picture_b6y9pq.webp",
+                    },
                   }}
                 />
                 <Grid>
                   <Grid.Col span={isMobile ? 12 : 6}>
                     <CardComp
-                      Imgprop={{
-                        h: 193,
-                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                      data={{
+                        title: "Picxellence",
+                        desc: "Embark on a journey where creativity and precision conver...",
+                        imgData: {
+                          h: 193,
+                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/pixcillance_1_x64mhv.webp",
+                        },
                       }}
                       makeMobile={isMobile}
                     />
                   </Grid.Col>
                   <Grid.Col span={isMobile ? 12 : 6}>
                     <CardComp
-                      Imgprop={{
-                        h: 193,
-                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                      data={{
+                        title: "Pen It Down",
+                        desc: "An online-only event where participants are given the space...",
+                        imgData: {
+                          h: 193,
+                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448287/pen_it_down_1_erqnku.webp",
+                        },
                       }}
                       makeMobile={isMobile}
                     />
@@ -103,34 +116,46 @@ export default function EventSection() {
                 <Grid>
                   <Grid.Col span={isMobile ? 12 : 6}>
                     <CardComp
-                      Imgprop={{
-                        h: 193,
-                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                      data={{
+                        title: "Theater Wars",
+                        desc: "your chance to set the stage ablaze in a glorious stage-act competition!",
+                        imgData: {
+                          h: 193,
+                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/Theater_wars_1_pbw4ib.webp",
+                        },
                       }}
                       makeMobile={isMobile}
                     />
                   </Grid.Col>
                   <Grid.Col span={isMobile ? 12 : 6}>
                     <CardComp
-                      Imgprop={{
-                        h: 193,
-                        src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                      data={{
+                        title: "Jhankaar",
+                        desc: "Unleash your dance crew's energy and creativity in JHANKAAR...",
+                        imgData: {
+                          h: 193,
+                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/Jhankaar_1_sr4l5a.webp",
+                        },
                       }}
                       makeMobile={isMobile}
                     />
                   </Grid.Col>
                 </Grid>
                 <CardComp
-                  Imgprop={{
-                    h: isMobile ? 150 : 300,
-                    src: "https://res.cloudinary.com/prajjwalcdn/image/upload/v1695846130/eventImg1_cingra.webp",
+                  data={{
+                    title: "Mural Painting",
+                    desc: "Express your creativity through art with our Mural Painting competition or get hands-on with Bamboo furniture crafting and Pottery at our Creative Workshop!",
+                    imgData: {
+                      h: isMobile ? 150 : 300,
+                      src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448287/Mural-painting_1_h4s6ko.webp",
+                    },
                   }}
                 />
               </Flex>
             </Grid.Col>
           </Grid>
           <Button size="lg" bg="white" c={"black"} radius={0}>
-            More Events
+            <Link href="/events">More Events</Link>
           </Button>
         </Stack>
       </Box>

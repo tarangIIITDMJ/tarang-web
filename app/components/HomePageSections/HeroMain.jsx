@@ -1,10 +1,19 @@
 "use client";
-import { Button, Text, Container, Box } from "@mantine/core";
+import {
+  Button,
+  Text,
+  Container,
+  Box,
+  Flex,
+  Stack,
+  Group,
+} from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import Image from "next/image";
 import tarangHeading from "@/public/tarangHeading.svg";
 import cssstyles from "@/app/styles/home.module.css";
+import Link from "next/link";
 
 const HeroMain = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -14,8 +23,8 @@ const HeroMain = () => {
         <source
           src={
             isMobileView
-              ? "https://res.cloudinary.com/prajjwalcdn/video/upload/v1696021679/mobile_bg_video_bt9ial.mp4"
-              : "https://res.cloudinary.com/prajjwalcdn/video/upload/v1696021675/dektop_bg_video_jjfbtl.mp4"
+              ? "https://res.cloudinary.com/dxcjzquen/video/upload/v1696364452/mobile_bg_video_uqucru.mp4"
+              : "https://res.cloudinary.com/dxcjzquen/video/upload/v1696364225/desktop_bg_video_asad_hmhmzn.mp4"
           }
           type="video/mp4"
         />
@@ -48,18 +57,33 @@ const HeroMain = () => {
             ta={"center"}
             px={60}
           >
-            Glimmer in the wake of escapism
+            The Tide is turning
           </Text>
-
-          <Button
-            color="black"
-            size={"lg"}
-            mt={44}
-            className={cssstyles.HeroMainExploreButton}
-            rightSection={<IconArrowRight />}
-          >
-            Explore Now
-          </Button>
+          <Flex columnGap={isMobileView ? "sm" : "xl"}>
+            <Button
+              bg="#FFC900"
+              c="black"
+              radius={0}
+              size={isMobileView ? "sm" : "lg"}
+              mt={44}
+              disabled // TODO: Remove this when registration opens
+              className={cssstyles.HeroMainExploreButton}
+              rightSection={<IconArrowRight />}
+            >
+              Register Now
+            </Button>
+            <Button
+              color="transparent"
+              size={isMobileView ? "sm" : "lg"}
+              radius={0}
+              mt={44}
+              className={cssstyles.HeroMainExploreButton}
+              style={{ border: "2px solid white" }}
+              rightSection={<IconArrowRight />}
+            >
+              <Link href="/events">Explore Events</Link>
+            </Button>
+          </Flex>
         </Container>
       </Box>
     </Container>

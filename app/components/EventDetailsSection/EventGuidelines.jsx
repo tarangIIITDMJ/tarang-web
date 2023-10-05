@@ -11,24 +11,28 @@ export default function EventGuidelines({ event }) {
       content: event.instructions.map((instruction) => instruction),
     },
     {
-      title: "Prize Pool",
-      content: [],
+      title: "Participation Type",
+      content: ['You can participate as "' + event.event_type + '".'],
     },
     {
-      title: "Dance style and duration",
+      title: "Participation Criteria",
       content: [
-        "All forms of dance are allowed.",
-        "Duration: 7 to 9 minutes",
-        "Penalized points for exceeding time limits.",
+        "Minimum " +
+          event.min_participants +
+          " and Maximum " +
+          event.max_participants +
+          " participants are required to participate in this event.",
       ],
     },
     {
       title: "Coordinators",
-      content: ["Rakshit Goel (8941842574)", "Priyank Bhaskar (6232997288)"],
+      content: event.coordinators.map(
+        (coordinator) => coordinator.name + " (+91 " + coordinator.pno + ")"
+      ),
     },
     {
       title: "Prize pool",
-      content: ["40,000/-"],
+      content: [`Prize pool of ₹${event.prize_pool} to be won.`],
     },
   ];
   return (
