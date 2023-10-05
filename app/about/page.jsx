@@ -7,7 +7,7 @@ import ContentSection from "../components/AboutPageSections/ContentSection";
 export default function EventPage() {
   const event = {
     name: 'About',
-    images: ['/aboutbg.webp'],
+    images: ['https://res.cloudinary.com/prajjwalcdn/image/upload/v1696502907/about-header_wjneka.png'],
   }
   return (
     <MainAppShell>
