@@ -98,7 +98,7 @@ export default function MainAppShell({ children }) {
     { name: "Events", link: "/events" },
     { name: "Gallery", link: "/" },
     { name: "Contact", link: "/" },
-    { name: "FAQ", link: "/" },
+    { name: "FAQ", link: "/faqs" },
   ];
 
   const [opened, { toggle, close }] = useDisclosure(false);
@@ -128,7 +128,9 @@ export default function MainAppShell({ children }) {
       <AppShell.Navbar style={styles.navbar}>
         <Stack align="center" w={96} p={20} justify="space-between" h="100vh">
           <Burger color="#FFF" opened={opened} onClick={toggle} />
-          <Text style={textStyles}><Link href={"/"}>Tarang 23</Link></Text>
+          <Text style={textStyles}>
+            <Link href={"/"}>Tarang 23</Link>
+          </Text>
           <Text style={{ ...textStyles, ...homeTextStyles }}>
             {pathName == "/"
               ? "Home"
@@ -189,7 +191,7 @@ export default function MainAppShell({ children }) {
             }}
           >
             {navItems.map((item, index) => (
-              <Box style={{ width: "100%" }} key={item.name}>
+              <Box onClick={toggle} style={{ width: "100%" }} key={item.name}>
                 {createNavItem(isMobileView, item, hovered, sethovered)}
               </Box>
             ))}

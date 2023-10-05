@@ -24,17 +24,19 @@ const styles = {
   },
 };
 
-const itemArray = items.map((item, index) => (
-  <Anchor
-    href={item.href}
-    key={index}
-    underline="false"
-    fw="500"
-    c={index == items.length - 1 ? "#fff" : "#676E76"}
-  >
-    {item.title}
-  </Anchor>
-));
+const itemArray = (name) => {
+  return items(name).map((item, index) => (
+    <Anchor
+      href={item.href}
+      key={index}
+      underline="false"
+      fw="500"
+      c={index == items.length - 1 ? "#fff" : "#676E76"}
+    >
+      {item.title}
+    </Anchor>
+  ));
+};
 
 export default function EventDetails({ event }) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -53,7 +55,7 @@ export default function EventDetails({ event }) {
         py={isMobileView ? "1.5rem" : "4.5rem"}
         px={isMobileView ? "1.5rem" : "6.75rem"}
       >
-        <Breadcrumbs separator=">">{itemArray}</Breadcrumbs>
+        <Breadcrumbs separator=">">{itemArray(event.name)}</Breadcrumbs>
       </Box>
       <Box
         pl={isMobileView ? "0rem" : "6.75rem"}
