@@ -4,7 +4,6 @@ import { useMediaQuery } from "@mantine/hooks";
 
 export default function EventGuidelines({ event }) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
-  console.log(event);
   const guidelines = [
     {
       title: "Instructions",
@@ -53,7 +52,7 @@ export default function EventGuidelines({ event }) {
               c="#fff"
               size={isMobileView ? "0.75rem" : "1.125rem"}
               fw="500"
-              mt="xl"
+              my="lg"
             >
               {event.title}:
             </Text>
@@ -62,11 +61,12 @@ export default function EventGuidelines({ event }) {
               c="#9EA5AD"
               size={isMobileView ? "0.75rem" : "1.125rem"}
               fw="500"
+              spacing="xs"
             >
               {event.content.map((item, index) => {
                 return (
-                  <List.Item key={index} my="xs">
-                    {item}
+                  <List.Item key={index}>
+                    <Text>{item}</Text>
                   </List.Item>
                 );
               })}

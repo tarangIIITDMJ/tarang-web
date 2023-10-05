@@ -128,7 +128,7 @@ export default function MainAppShell({ children }) {
       <AppShell.Navbar style={styles.navbar}>
         <Stack align="center" w={96} p={20} justify="space-between" h="100vh">
           <Burger color="#FFF" opened={opened} onClick={toggle} />
-          <Text style={textStyles}>Tarang 23</Text>
+          <Text style={textStyles}><Link href={"/"}>Tarang 23</Link></Text>
           <Text style={{ ...textStyles, ...homeTextStyles }}>
             {pathName == "/"
               ? "Home"

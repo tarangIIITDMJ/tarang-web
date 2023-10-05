@@ -64,7 +64,7 @@ const HeroMain = () => {
               bg="#FFC900"
               c="black"
               radius={0}
-              size={isMobileView ? "sm" : "lg"}
+              size={"lg"}
               mt={44}
               disabled // TODO: Remove this when registration opens
               className={cssstyles.HeroMainExploreButton}
@@ -74,7 +74,7 @@ const HeroMain = () => {
             </Button>
             <Button
               color="transparent"
-              size={isMobileView ? "sm" : "lg"}
+              size={"lg"}
               radius={0}
               mt={44}
               className={cssstyles.HeroMainExploreButton}

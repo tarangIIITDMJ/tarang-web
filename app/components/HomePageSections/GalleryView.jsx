@@ -98,6 +98,7 @@ function GalleryView() {
           bg="white"
           c={"black"}
           radius={0}
+          disabled
         >
           View more
         </Button>
