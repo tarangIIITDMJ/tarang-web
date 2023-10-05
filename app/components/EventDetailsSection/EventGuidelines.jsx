@@ -1,10 +1,9 @@
 "use client";
-import { Divider, Flex, Text, List } from "@mantine/core";
+import { Divider, Stack, Text, List, Box } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
 export default function EventGuidelines({ event }) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
-  console.log(event);
   const guidelines = [
     {
       title: "Instructions",
@@ -17,11 +16,8 @@ export default function EventGuidelines({ event }) {
     {
       title: "Participation Criteria",
       content: [
-        "Minimum " +
-          event.min_participants +
-          " and Maximum " +
-          event.max_participants +
-          " participants are required to participate in this event.",
+        `A minimum of ${event.min_participants} and a maximum of 
+        ${event.max_participants} participants are required to participate in this event.`,
       ],
     },
     {
@@ -31,49 +27,46 @@ export default function EventGuidelines({ event }) {
       ),
     },
     {
-      title: "Prize pool",
-      content: [`Prize pool of ₹${event.prize_pool} to be won.`],
+      title: "Prize Pool",
+      content: [`There is a prize pool of ₹${event.prize_pool} to be won.`],
     },
   ];
+
   return (
-    <Flex
+    <Stack
       px={isMobileView ? "2rem" : "6.75rem"}
-      pb={isMobileView ? "3rem" : "5rem"}
-      direction="column"
-      mt={isMobileView ? "2rem" : "4.5rem"}
+      py={isMobileView ? "2rem" : "4.5rem"}
     >
       <Text c="#fff" size={isMobileView ? "1.5rem" : "2rem"} fw="500">
         Guidelines
       </Text>
       <Divider mt={isMobileView ? "1rem" : "2rem"} size="1.5px" />
+
       {guidelines.map((event, index) => {
         return (
-          <div key={index}>
+          <Box key={index}>
             <Text
               c="#fff"
               size={isMobileView ? "0.75rem" : "1.125rem"}
               fw="500"
-              mt="xl"
+              my="lg"
             >
               {event.title}:
             </Text>
-            <List
-              withPadding
-              c="#9EA5AD"
-              size={isMobileView ? "0.75rem" : "1.125rem"}
-              fw="500"
-            >
+            <List withPadding c="#9EA5AD" spacing="xs">
               {event.content.map((item, index) => {
                 return (
-                  <List.Item key={index} my="xs">
-                    {item}
+                  <List.Item key={index}>
+                    <Text fz={isMobileView ? "0.75rem" : "1.125rem"}>
+                      {item}
+                    </Text>
                   </List.Item>
                 );
               })}
             </List>
-          </div>
+          </Box>
         );
       })}
-    </Flex>
+    </Stack>
   );
 }

@@ -1,5 +1,5 @@
 "use client";
-import { Button, Container, Flex, Grid, Image, Text } from "@mantine/core";
+import { Button, Container, Grid, Image, Stack, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconDownload } from "@tabler/icons-react";
 import React from "react";
@@ -14,10 +14,12 @@ function SponsorUsSection() {
           bg="#FE73E7"
           order={isMobileView ? 2 : ""}
           span={1}
-          style={{ border: "2px solid black" }}
+          style={{ border: "1px solid black" }}
+          py={isMobileView ? "4rem" : "4.5rem"}
+          px={isMobileView ? "0" : "3rem"}
         >
-          <Flex justify={"center"} align={"center"} h={"100%"}>
-            <Container my={"2rem"}>
+          <Stack justify={"center"} align={"center"} h={"100%"}>
+            <Container>
               <Text
                 style={{ lineHeight: isMobileView ? "2rem" : "4rem" }}
                 fz={isMobileView ? "2rem" : "4rem"}
@@ -40,7 +42,7 @@ function SponsorUsSection() {
                 Download PDF
               </Button>
             </Container>
-          </Flex>
+          </Stack>
         </Grid.Col>
         <Grid.Col span={1} order={isMobileView ? 3 : ""}>
           <Image h={"100%"} src={"/MobileFrame.webp"} alt="" />
@@ -59,16 +61,18 @@ function SponsorUsSection() {
           bg="#2E75FF"
           order={isMobileView ? 4 : ""}
           span={1}
-          style={{ border: "2px solid black" }}
+          style={{ border: "1px solid black" }}
+          py={isMobileView ? "4rem" : "4.5rem"}
+          px={isMobileView ? "0" : "3rem"}
         >
-          <Flex justify={"center"} align={"center"} h={"100%"}>
-            <Container my={"2rem"}>
+          <Stack justify={"center"} align={"center"} h={"100%"}>
+            <Container>
               <Text
                 style={{ lineHeight: isMobileView ? "2rem" : "4rem" }}
                 c="#1a1d1f"
                 fz={isMobileView ? "2rem" : "4rem"}
               >
-                Here’s how to sponsor us
+                Here&apos;s how to sponsor us
               </Text>
               <Text mt={"2.25rem"} c="#1a1d1f" fz={"1.25rem"}>
                 Explore sponsorship opportunities and benefits in the booklet.
@@ -85,7 +89,7 @@ function SponsorUsSection() {
                 Download Sponsor PDF
               </Button>
             </Container>
-          </Flex>
+          </Stack>
         </Grid.Col>
       </Grid>
     </Container>

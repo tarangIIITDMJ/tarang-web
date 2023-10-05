@@ -11,9 +11,10 @@
   }
   .HeroMainExploreButton {
     margin-top: 20px !important;
-    height: var(--button-height-md);
-    padding: 0 var(--button-padding-x-md);
-    font-size: var(--mantine-font-size-md);
+    height: var(--button-height-sm);
+    width: var(--button-width-xs);
+    padding: 0 var(--button-padding-x-xs);
+    font-size: var(--mantine-font-size-xs);
   }
 
   /* Sponsor Section */
