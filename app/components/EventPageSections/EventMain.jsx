@@ -13,6 +13,7 @@ export default function EventMain({ events }) {
         selectedEvents={selectedEvents}
         setSelectedEvents={setSelectedEvents}
         eventList={list}
+        events={events}
       />
       <EventCards selectedEvents={selectedEvents} events={events} />
     </>

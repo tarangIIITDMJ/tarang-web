@@ -48,13 +48,15 @@ const ContactFormSection = () => {
       gap="3rem"
     >
       <Stack maw={isMobileView ? "100%" : "45%"}>
-        <Image
-          src="/map(2).svg"
-          alt=""
-          pos="relative"
-          w="100%"
-          style={{ cursor: "pointer" }}
-        />
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3174.631325012539!2d80.02390068793628!3d23.17681212828739!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981a94397365dd3%3A0x5f9aeb812c2678c9!2sIIITDM%20Jabalpur!5e0!3m2!1sen!2sin!4v1696615484249!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style={{ border: 0, borderRadius: "8px" }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
         <Stack gap={isMobileView ? "1.5rem" : "2rem"}>
           <Text c="#E5E7EA" fz={isMobileView ? "0.75rem" : "1.125rem"}>
             52GG+H4G, Airport Rd, PDPM IIITDM Jabalpur Campus, Khamaria,

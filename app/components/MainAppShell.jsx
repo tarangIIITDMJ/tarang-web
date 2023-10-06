@@ -97,7 +97,7 @@ export default function MainAppShell({ children }) {
     { name: "About", link: "/about" },
     { name: "Events", link: "/events" },
     { name: "Gallery", link: "/" },
-    { name: "Contact", link: "/" },
+    { name: "Contact", link: "/contact-us" },
     { name: "FAQ", link: "/faqs" },
   ];
 
