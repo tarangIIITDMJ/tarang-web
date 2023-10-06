@@ -5,18 +5,11 @@ import { IconX } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import cssStyles from "@/app/styles/events.module.css";
 
-export default function EventCategories({ selectedEvents, setSelectedEvents }) {
-  const list = [
-    "Drama",
-    "Dance",
-    "Bazooka",
-    "Art",
-    "Music",
-    "Photography",
-    "Literature",
-    "Others",
-  ];
-
+export default function EventCategories({
+  selectedEvents,
+  eventList: list,
+  setSelectedEvents,
+}) {
   return (
     <Container
       pos="relative"
