@@ -9,6 +9,7 @@ export default function EventCategories({
   selectedEvents,
   eventList: list,
   setSelectedEvents,
+  events,
 }) {
   return (
     <Container
@@ -73,7 +74,10 @@ export default function EventCategories({
         mt={10}
         fz={"2rem"}
       >
-        &quot;Count&quot; Events
+        Events (
+        {events.filter((el) => selectedEvents.includes(el.event_category))
+          .length || events.length}
+        )
       </Text>
     </Container>
   );

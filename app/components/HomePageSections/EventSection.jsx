@@ -65,7 +65,7 @@ export default function EventSection() {
       >
         <Stack gap={"3.5rem"} align="center">
           <Text size={isMobile ? "2rem" : "4rem"} c="#F2F2F2">
-            Here’s what to expect!
+            Here&apos;s what to expect!
           </Text>
           <Grid gutter={20} justify="center" align="stretch">
             <Grid.Col span={isMobile ? 12 : 6}>
@@ -85,7 +85,7 @@ export default function EventSection() {
                     <CardComp
                       data={{
                         title: "Picxellence",
-                        desc: "Embark on a journey where creativity and precision conver...",
+                        desc: "Where Pixels Meet Excellence.",
                         imgData: {
                           h: 193,
                           src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/pixcillance_1_x64mhv.webp",
@@ -98,7 +98,7 @@ export default function EventSection() {
                     <CardComp
                       data={{
                         title: "Pen It Down",
-                        desc: "An online-only event where participants are given the space...",
+                        desc: "An online-only event where participants are given the space to unleash their creativity through written material (storyline) based on topics given by the organizers.",
                         imgData: {
                           h: 193,
                           src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448287/pen_it_down_1_erqnku.webp",
@@ -134,7 +134,7 @@ export default function EventSection() {
                     <CardComp
                       data={{
                         title: "Jhankaar",
-                        desc: "Unleash your dance crew's energy and creativity in JHANKAAR...",
+                        desc: "Unleash your dance crew's energy and creativity in JHANKAAR, the ultimate group dance competition with a chance to win from a generous prize pool!",
                         imgData: {
                           h: 193,
                           src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/Jhankaar_1_sr4l5a.webp",
