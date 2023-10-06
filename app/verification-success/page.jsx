@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
-import { veryfyEmail } from "../utils/apis";
+import { verifyEmail } from "../utils/apis";
+import { useSearchParams } from "next/navigation";
 
 function VerificationSuccess() {
   const searchParams = useSearchParams();
@@ -8,7 +9,7 @@ function VerificationSuccess() {
   useEffect(() => {
     const verifyEmailHandler = async () => {
       try {
-        const response = await veryfyEmail(code);
+        const response = await verifyEmail(code);
         if (response.status === 200) {
           console.log(response.data);
         }
@@ -20,7 +21,7 @@ function VerificationSuccess() {
       verifyEmailHandler();
     }
   }, [code]);
-  return <div>page</div>;
+  return <div>User Verified!!</div>;
 }
 
 export default VerificationSuccess;
