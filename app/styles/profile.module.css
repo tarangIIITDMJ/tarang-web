@@ -1,0 +1,35 @@
+.tab {
+    position: relative;
+    border: none;
+  
+    &:first-of-type {
+        background: transparent;
+        border: none;
+        margin-bottom: 10px;
+    }
+  
+    &:last-of-type {
+      border-radius: 0 rem(4px) rem(4px) 0;
+      background: transparent;
+      margin-bottom: 10px;
+    }
+  
+    & + & {
+        background: transparent;
+        border: none;
+        margin-bottom: 10px;
+     
+    }
+  
+    &[data-active] {
+      z-index: 1;
+      color: #ED3C71 !important;
+      border-bottom: 2px solid #ED3C71;
+    }
+  }
+  .list::before {
+    border: 0;
+  }
+  .list{
+    border-bottom:1px solid #383F45 !important ;
+  }
