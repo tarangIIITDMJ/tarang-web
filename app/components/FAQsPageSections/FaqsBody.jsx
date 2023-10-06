@@ -22,7 +22,13 @@ export default function FaqsBody({ faqsData }) {
   ));
 
   return (
-    <BackgroundImage src={backgroundImage}>
+    <BackgroundImage
+      src={backgroundImage}
+      pb="4rem"
+      style={{
+        backgroundAttachment: "fixed",
+      }}
+    >
       <Stack gap={isMobile ? "3rem" : "4rem"}>
         <Text
           c={"white"}
