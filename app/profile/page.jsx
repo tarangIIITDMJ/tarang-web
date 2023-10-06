@@ -9,14 +9,13 @@ export default function Profile() {
   const { user } = useAuthStore();
   return (
     <MainAppShell>
-      {/* <ValidateAuth> */}
-      {/* {<div>{JSON.stringify(user)}</div>} */}
-      <Flex mih={"100vh"} px={60} py={30} bg={"black"} gap={24}>
-        <LeftProfileCard />
-        <ProfileDashboard />
-      </Flex>
-
-      {/* </ValidateAuth> */}
+      <ValidateAuth>
+        {/* {<div>{JSON.stringify(user)}</div>} */}
+        <Flex mih={"100vh"} px={60} py={30} bg={"black"} gap={24}>
+          <LeftProfileCard />
+          <ProfileDashboard />
+        </Flex>
+      </ValidateAuth>
     </MainAppShell>
   );
 }
