@@ -11,6 +11,7 @@ const CelebSection = () => {
       p={0}
       direction={isMobileView ? "column" : "row"}
       justify="space-between"
+      style={{ border: "3px solid #000" }}
     >
       <Stack
         gap={isMobileView ? "2rem" : "3rem"}

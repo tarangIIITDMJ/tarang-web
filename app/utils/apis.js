@@ -25,6 +25,9 @@ export const register = (userDetails) => {
   );
 };
 
+export const verifyEmail = (token) => {
+  return axios.put(`https://tarang-backend.onrender.com/api/verify/${token}`);
+};
 export const getUser = () => {
   return axios.get("https://tarang-backend.onrender.com/api/user", {
     withCredentials: true,

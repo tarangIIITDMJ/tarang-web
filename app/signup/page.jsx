@@ -20,6 +20,8 @@ import { notifications } from "@mantine/notifications";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { register } from "../utils/apis";
 import { useRouter } from "next/navigation";
+import { useAuthStore } from "../store/authStore";
+import Loader from "../components/Loader";
 
 export default function Signup() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -150,89 +152,95 @@ export default function Signup() {
 
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current));
-
-  return (
-    <MainAppShell>
-      <Flex
-        h={isMobileView ? "100%" : "100vh"}
-        bg="#D0EB4C"
-        miw="100%"
-        m={0}
-        justify="center"
-        p={isMobileView ? "1rem" : "4rem"}
-        align="center"
-      >
-        <Box
-          px={isMobileView ? "1rem" : "4rem"}
-          py="2rem"
-          w="100%"
-          bg="#F6F4C8"
-          my={isMobileView ? 120 : ""}
-          style={{ border: "2px solid #000" }}
+  const { isAuth, isloading, user } = useAuthStore();
+  const router = useRouter();
+  if (isloading) return <Loader />;
+  else if (isAuth && user.verifyToken == "*") return router.push("/profile");
+  else if (isAuth && user.verifyToken != "*")
+    return router.push("/verify-email");
+  else
+    return (
+      <MainAppShell>
+        <Flex
+          h={isMobileView ? "100%" : "100vh"}
+          bg="#D0EB4C"
+          miw="100%"
+          m={0}
+          justify="center"
+          p={isMobileView ? "1rem" : "4rem"}
+          align="center"
         >
-          <Text size="1.5rem" fw={500} mb="3rem">
-            Sign Up
-          </Text>
-          <form>
-            <Stepper
-              active={active}
-              onStepClick={setActive}
-              color="#ED3C71"
-              px="0.5rem"
-              mx="auto"
-              my="1rem"
-              orientation={isMobileView ? "vertical" : "horizontal"}
-              allowNextStepsSelect={false}
-            >
-              <Stepper.Step
-                label="First step"
-                description="Personal Information"
-                disabled={active !== 0}
+          <Box
+            px={isMobileView ? "1rem" : "4rem"}
+            py="2rem"
+            w="100%"
+            bg="#F6F4C8"
+            my={isMobileView ? 120 : ""}
+            style={{ border: "2px solid #000" }}
+          >
+            <Text size="1.5rem" fw={500} mb="3rem">
+              Sign Up
+            </Text>
+            <form>
+              <Stepper
+                active={active}
+                onStepClick={setActive}
+                color="#ED3C71"
+                px="0.5rem"
+                mx="auto"
+                my="1rem"
+                orientation={isMobileView ? "vertical" : "horizontal"}
+                allowNextStepsSelect={false}
               >
-                <StepOne isMobileView={isMobileView} form={form} />
-              </Stepper.Step>
-              <Stepper.Step
-                label="Second step"
-                description="College Information"
-                disabled={active !== 1}
-              >
-                <StepTwo isMobileView={isMobileView} form={form} />
-              </Stepper.Step>
-              <Stepper.Step
-                label="Final step"
-                description="Confirmation"
-                disabled={active !== 2}
-              >
-                <StepThree isMobileView={isMobileView} />
-              </Stepper.Step>
-            </Stepper>
-            <Group justify="center" mt="3rem">
-              <Button
-                variant="default"
-                size={isMobileView ? "sm" : "md"}
-                radius={0}
-                onClick={prevStep}
-                leftSection={<IconArrowLeft />}
-                disabled={active > 1}
-              >
-                Go Back
-              </Button>
-              <Button
-                onClick={nextStep}
-                color="black"
-                size={isMobileView ? "sm" : "md"}
-                radius={0}
-                loading={loading}
-                rightSection={<IconArrowRight />}
-              >
-                {active === 2 ? "Finish" : "Next Step"}
-              </Button>
-            </Group>
-          </form>
-        </Box>
-      </Flex>
-    </MainAppShell>
-  );
+                <Stepper.Step
+                  label="First step"
+                  description="Personal Information"
+                  disabled={active !== 0}
+                >
+                  <StepOne isMobileView={isMobileView} form={form} />
+                </Stepper.Step>
+                <Stepper.Step
+                  label="Second step"
+                  description="College Information"
+                  disabled={active !== 1}
+                >
+                  <StepTwo isMobileView={isMobileView} form={form} />
+                </Stepper.Step>
+                <Stepper.Step
+                  label="Final step"
+                  description="Confirmation"
+                  disabled={active !== 2}
+                >
+                  <StepThree isMobileView={isMobileView} />
+                </Stepper.Step>
+              </Stepper>
+              <Group justify="center" mt="3rem">
+                <Button
+                  variant="default"
+                  size={isMobileView ? "sm" : "md"}
+                  radius={0}
+                  onClick={prevStep}
+                  leftSection={<IconArrowLeft />}
+                  disabled={active > 1}
+                >
+                  Go Back
+                </Button>
+                <Button
+                  onClick={nextStep}
+                  color="black"
+                  size={isMobileView ? "sm" : "md"}
+                  radius={0}
+                  loading={loading}
+                  rightSection={<IconArrowRight />}
+                >
+                  {active === 2 ? "Finish" : "Next Step"}
+                </Button>
+              </Group>
+            </form>
+          </Box>
+        </Flex>
+      </MainAppShell>
+    );
 }
 
 const StepOne = ({ isMobileView, form }) => {

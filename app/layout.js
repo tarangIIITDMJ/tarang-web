@@ -4,6 +4,7 @@ import { Notifications } from "@mantine/notifications";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import "@mantine/notifications/styles.css";
 import Script from "next/script";
+import { CheckUser } from "./components/CheckUser";
 
 export const metadata = {
   title: "Tarang'23 ",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         <ColorSchemeScript />
       </head>
       <body>
+        <CheckUser />
         <MantineProvider>
           <Notifications position="bottom-right" />
           {children}

@@ -1,7 +1,7 @@
 import { BackgroundImage, Text, Box, Container } from "@mantine/core";
-import cssStyles from "@/app/styles/events.module.css";
+import cssStyles from "@/app/styles/contact.module.css";
 
-export default function HeroSection({ event }) {
+export default function HeroSection() {
   return (
     <Box>
       <Container
@@ -13,7 +13,7 @@ export default function HeroSection({ event }) {
         className={cssStyles.HeroSectionContainer}
       >
         <BackgroundImage
-          src={`/eventDetailsbg.webp`}
+          src={`/jhankaar.webp`}
           miw={"100%"}
           h={"100%"}
           style={{
@@ -33,7 +33,7 @@ export default function HeroSection({ event }) {
             lineClamp={1}
             className={cssStyles.HeroSectionHeading}
           >
-            {event.name}
+            Contact Us
           </Text>
         </BackgroundImage>
       </Container>

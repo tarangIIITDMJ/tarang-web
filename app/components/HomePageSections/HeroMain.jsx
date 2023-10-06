@@ -64,17 +64,19 @@ const HeroMain = () => {
             >
               Register Now
             </Button>
-            <Button
-              color="transparent"
-              size={"lg"}
-              radius={0}
-              mt={44}
-              className={cssstyles.HeroMainExploreButton}
-              style={{ border: "2px solid white" }}
-              rightSection={<IconArrowRight />}
-            >
-              <Link href="/events">Explore Events</Link>
-            </Button>
+            <Link href="/events">
+              <Button
+                color="transparent"
+                size={"lg"}
+                radius={0}
+                mt={44}
+                className={cssstyles.HeroMainExploreButton}
+                style={{ border: "2px solid white" }}
+                rightSection={<IconArrowRight />}
+              >
+                Explore Events
+              </Button>
+            </Link>
           </Flex>
         </Container>
       </Box>

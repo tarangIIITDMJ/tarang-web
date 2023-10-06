@@ -83,7 +83,15 @@ export default function Footer() {
             gap={"xl"}
             px={isMobileView ? "3rem" : "0"}
           >
-            <Image src={"/map.webp"} alt="" radius={"md"} />
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3174.631325012539!2d80.02390068793628!3d23.17681212828739!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981a94397365dd3%3A0x5f9aeb812c2678c9!2sIIITDM%20Jabalpur!5e0!3m2!1sen!2sin!4v1696615484249!5m2!1sen!2sin"
+              // width="350"
+              // height="132"
+              style={{ border: 0, borderRadius: "8px" }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
             <Text
               fz={isMobileView ? 12 : 18}
               ta={isMobileView ? "center" : "left"}
