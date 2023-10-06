@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Box, Flex, Group, Stack, Text, Button, Image } from "@mantine/core";
+import Link from "next/link";
 import {
   IconPlayerPlay,
   IconPlayerPause,
@@ -14,6 +15,7 @@ export default function SubMainSection() {
   const videoRef = useRef(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [rotation, setRotation] = useState(0);
+  const [rotationPaused, setRotationPaused] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,6 +39,7 @@ export default function SubMainSection() {
       } else {
         video.play();
       }
+      setRotationPaused(rotation);
       setIsVideoPlaying(!isVideoPlaying);
     }
   };
@@ -69,10 +72,12 @@ export default function SubMainSection() {
           </video>
           <Image
             src={"/Group.webp"}
-            alt="Video Ring"
+            alt=""
             pos="absolute"
             style={{
-              transform: `rotate(${rotation}deg)`,
+              transform: isVideoPlaying
+                ? `rotate(${rotation}deg)`
+                : `rotate(${rotationPaused}deg)`,
               transition: "transform 0.3s ease",
             }}
           />
@@ -97,7 +102,7 @@ export default function SubMainSection() {
               The Tide is turning!
             </Text>
             <Text
-              size={isMobileView ? "1rem" : "1.25rem"}
+              size={isMobileView ? "1rem" : "1.125rem"}
               ta={isMobileView ? "left" : "justify"}
               c="#252525"
             >
@@ -112,7 +117,7 @@ export default function SubMainSection() {
               rightSection={<IconArrowRight />}
               style={isMobileView ? { display: "block", margin: "0 auto" } : {}}
             >
-              Read More
+              <Link href={"/about"}>Read More</Link>
             </Button>
           </Stack>
         </Box>

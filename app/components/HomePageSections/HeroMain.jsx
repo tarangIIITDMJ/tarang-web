@@ -1,13 +1,5 @@
 "use client";
-import {
-  Button,
-  Text,
-  Container,
-  Box,
-  Flex,
-  Stack,
-  Group,
-} from "@mantine/core";
+import { Button, Text, Container, Box, Flex } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import Image from "next/image";
@@ -59,12 +51,12 @@ const HeroMain = () => {
           >
             The Tide is turning
           </Text>
-          <Flex columnGap={isMobileView ? "sm" : "xl"}>
+          <Flex columnGap={"xl"} className={cssstyles.HeroMainButtonFlex}>
             <Button
               bg="#FFC900"
               c="black"
               radius={0}
-              size={isMobileView ? "sm" : "lg"}
+              size={"lg"}
               mt={44}
               disabled // TODO: Remove this when registration opens
               className={cssstyles.HeroMainExploreButton}
@@ -72,17 +64,19 @@ const HeroMain = () => {
             >
               Register Now
             </Button>
-            <Button
-              color="transparent"
-              size={isMobileView ? "sm" : "lg"}
-              radius={0}
-              mt={44}
-              className={cssstyles.HeroMainExploreButton}
-              style={{ border: "2px solid white" }}
-              rightSection={<IconArrowRight />}
-            >
-              <Link href="/events">Explore Events</Link>
-            </Button>
+            <Link href="/events">
+              <Button
+                color="transparent"
+                size={"lg"}
+                radius={0}
+                mt={44}
+                className={cssstyles.HeroMainExploreButton}
+                style={{ border: "2px solid white" }}
+                rightSection={<IconArrowRight />}
+              >
+                Explore Events
+              </Button>
+            </Link>
           </Flex>
         </Container>
       </Box>

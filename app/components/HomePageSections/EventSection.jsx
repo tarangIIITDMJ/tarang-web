@@ -10,6 +10,7 @@ import {
   Text,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function EventSection() {
@@ -17,22 +18,17 @@ export default function EventSection() {
 
   function CardComp({ data, makeMobile = false }) {
     return (
-      <Card radius={0} w={"100%"} p={0}>
+      <Card radius={0} w={"100%"} p={0} h={"100%"}>
         <Flex
           p={0}
           direction={makeMobile ? "row" : "column"}
-          h={makeMobile ? 120 : "max-content"}
+          h={makeMobile ? 128 : "max-content"}
         >
           <Box>
-            <Image
-              w={makeMobile ? 120 : "100%"}
-              style={{ objectPosition: "0% 0%", transition: "0.3s" }}
-              alt=""
-              {...data.imgData}
-            />
+            <Image w={makeMobile ? 120 : "100%"} alt="" {...data.imgData} />
           </Box>
           <Stack
-            p={"12px 32px 24px 32px"}
+            p={isMobile ? "12px 24px 24px 24px" : "12px 32px 24px 32px"}
             gap={5}
             align="flex-start"
             w={"100%"}
@@ -41,7 +37,14 @@ export default function EventSection() {
               {data.title ?? "Title"}
             </Text>
 
-            <Text c="#676E76" size="sm" style={{ wordBreak: "break-word" }}>
+            <Text
+              c="#676E76"
+              size="sm"
+              style={{
+                wordBreak: "break-word",
+              }}
+              lineClamp={3}
+            >
               {data.desc ?? "Description"}
             </Text>
           </Stack>
@@ -64,7 +67,7 @@ export default function EventSection() {
           <Text size={isMobile ? "2rem" : "4rem"} c="#F2F2F2">
             Here’s what to expect!
           </Text>
-          <Grid gutter={20} justify="center">
+          <Grid gutter={20} justify="center" align="stretch">
             <Grid.Col span={isMobile ? 12 : 6}>
               <Stack gap={20}>
                 <CardComp
@@ -154,9 +157,17 @@ export default function EventSection() {
               </Flex>
             </Grid.Col>
           </Grid>
-          <Button size="lg" bg="white" c={"black"} radius={0}>
-            <Link href="/events">More Events</Link>
-          </Button>
+          <Link href="/events">
+            <Button
+              rightSection={<IconArrowRight />}
+              size="lg"
+              bg="white"
+              c={"black"}
+              radius={0}
+            >
+              More Events
+            </Button>
+          </Link>
         </Stack>
       </Box>
     </Box>

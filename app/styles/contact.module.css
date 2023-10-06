@@ -1,0 +1,11 @@
+@media (max-width: $mantine-breakpoint-xs) {
+  /* Hero Section */
+  .HeroSectionContainer {
+    height: 50vh !important;
+  }
+  .HeroSectionHeading {
+    bottom: 2rem !important;
+    left: 2rem !important;
+    font-size: 3.5rem !important;
+  }
+}

@@ -1,8 +1,10 @@
-"use client";
-
 import MainAppShell from "../components/MainAppShell";
 import HeroSection from "../components//uiComponents/HeroSection";
 import ContentSection from "../components/AboutPageSections/ContentSection";
+import AboutTarangSection from "../components/AboutPageSections/AboutTarangSection";
+import SubMainSection from "../components/AboutPageSections/SubMainSection";
+import PastTarangSection from "../components/AboutPageSections/PastTarangSection";
+import CelebSection from "../components/AboutPageSections/CelebSection";
 
 export default function EventPage() {
   const event = {
@@ -13,6 +15,10 @@ export default function EventPage() {
     <MainAppShell>
       <HeroSection event={event}/>
       <ContentSection />
+      <AboutTarangSection />
+      <SubMainSection />
+      <PastTarangSection />
+      <CelebSection />
     </MainAppShell>
   );
 }

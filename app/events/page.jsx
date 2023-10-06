@@ -1,8 +1,7 @@
 import MainAppShell from "@/app/components/MainAppShell";
-import HeroSection from "@/app/components/uiComponents/HeroSection";
-import EventCategories from "@/app/components/EventPageSections/EventCategories";
-import EventCards from "@/app/components/EventPageSections/EventCards";
+import HeroSection from "@/app/components/EventPageSections/HeroSection";
 import { getAllEvents } from "../utils/apis";
+import EventMain from "../components/EventPageSections/EventMain";
 
 export default async function Events() {
   const eventDetails = await getAllEvents();
@@ -15,9 +14,8 @@ export default async function Events() {
 
   return (
     <MainAppShell>
-      <HeroSection event={event}/>
-      <EventCategories />
-      <EventCards events={events} />
+      <HeroSection />
+      <EventMain events={events} />
     </MainAppShell>
   );
 }

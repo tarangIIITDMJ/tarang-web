@@ -242,3 +242,4 @@ const styles = {
       "linear-gradient(98deg, rgba(46, 39, 239, 0.35) -61.16%, rgba(46, 39, 239, 0.00) 178.71%)",
   },
 };
+
