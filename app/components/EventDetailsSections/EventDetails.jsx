@@ -70,7 +70,7 @@ export default function EventDetails({ event }) {
         >
           <Box>
             <Image
-              src={`/jhankaar.webp`}
+              src={event.images.mainDesktop}
               style={styles.image}
               visibleFrom="sm"
               mb="2rem"
@@ -86,7 +86,7 @@ export default function EventDetails({ event }) {
               {event.tagline}
             </Text>
             <Image
-              src={`/jhankaar.webp`}
+              src={event.images.mainPhone}
               style={{ objectFit: "contain" }}
               hiddenFrom="sm"
               alt=""
