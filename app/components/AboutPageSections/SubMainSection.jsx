@@ -11,13 +11,21 @@ const styles = {
     height: "100%",
     borderRadius: "50%",
     objectFit: "cover",
+    border: "3px solid #000",
   },
 };
 
 const SubMainSection = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
-    <Box bg={"#FFC900"} px={isMobileView ? "2rem" : "5rem"} py={"4rem"}>
+    <Box
+      bg={"#FFC900"}
+      px={isMobileView ? "2rem" : "5rem"}
+      py={"4rem"}
+      style={{
+        border: "3px solid #000",
+      }}
+    >
       <Flex
         direction={isMobileView ? "column" : "row"}
         align={"center"}
