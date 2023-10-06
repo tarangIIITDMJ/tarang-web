@@ -2,20 +2,26 @@
 import { Text, Stack, Grid, Card, Flex, Box, Image } from "@mantine/core";
 import cssStyles from "@/app/styles/events.module.css";
 import Link from "next/link";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function EventCards({ selectedEvents, events }) {
   function CardComp({ event }) {
+    const isMobileView = useMediaQuery("(max-width: 768px)");
+
     return (
       <Link href={`/events/${event.slug}`}>
         <Card radius={0} p={0}>
           <Flex p={0} direction={"column"} className={cssStyles.EventCardsFlex}>
             <Box>
               <Image
-                src={"./EventCard.webp"}
-                w={"100%"}
-                h={"100%"}
-                style={{ objectPosition: "0% 0%", transition: "0.3s" }}
-                alt="eventImage"
+                src={event.images.mainPhone}
+                h={isMobileView ? "100%" : 350}
+                style={{
+                  objectPosition: "0% 0%",
+                  transition: "0.3s",
+                  aspectRatio: "1/1",
+                }}
+                alt={event.name}
                 className={cssStyles.EventCardsImage}
               />
             </Box>

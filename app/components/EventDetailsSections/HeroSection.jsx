@@ -17,16 +17,29 @@ export default function HeroSection({ event }) {
         className={cssStyles.HeroSectionContainer}
       >
         <BackgroundImage
-          src={isMobileView ? event.images.headerPhone : event.images.headerDesktop}
+          src={
+            isMobileView ? event.images.headerPhone : event.images.headerDesktop
+          }
           miw={"100%"}
           h={"100%"}
           style={{
             hero: {
               objectFit: "cover",
               boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+              position: "relative",
             },
           }}
         >
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: "rgba(0, 0, 0, 0.75)",
+            }}
+          />
           <Text
             fz={"8rem"}
             c="white"
