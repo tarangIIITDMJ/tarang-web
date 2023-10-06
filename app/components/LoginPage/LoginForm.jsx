@@ -1,6 +1,6 @@
 "use client";
 import { useForm, isEmail, hasLength } from "@mantine/form";
-import { TextInput, Button, Box, Code, Text } from "@mantine/core";
+import { TextInput, Button, Box, Text } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import { notifications } from "@mantine/notifications";
 import Link from "next/link";
