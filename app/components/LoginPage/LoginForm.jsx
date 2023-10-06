@@ -7,10 +7,12 @@ import Link from "next/link";
 import { login } from "@/app/utils/apis";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/app/store/authStore";
 
 const LoginForm = ({ isMobileView }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { push } = useRouter();
+  const { setIsAuth, setUser } = useAuthStore();
 
   const form = useForm({
     initialValues: {
@@ -47,7 +49,9 @@ const LoginForm = ({ isMobileView }) => {
           onSubmit={form.onSubmit(async (values) => {
             setIsLoading(true);
             try {
-              await login(values.email, values.password);
+              const result = await login(values.email, values.password);
+              setIsAuth(true);
+              setUser(result.data.user);
               notifications.show({
                 title: "Success",
                 message: "Logged in successfully",
