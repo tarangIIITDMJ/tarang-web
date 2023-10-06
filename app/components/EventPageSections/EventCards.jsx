@@ -11,7 +11,7 @@ export default function EventCards({ selectedEvents, events }) {
           <Flex p={0} direction={"column"} className={cssStyles.EventCardsFlex}>
             <Box>
               <Image
-                src={"/EventCard.webp"}
+                src={"./EventCard.webp"}
                 w={"100%"}
                 h={"100%"}
                 style={{ objectPosition: "0% 0%", transition: "0.3s" }}

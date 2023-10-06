@@ -1,7 +1,11 @@
+"use client";
 import { BackgroundImage, Text, Box, Container } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import cssStyles from "@/app/styles/events.module.css";
 
 export default function HeroSection({ event }) {
+  const isMobileView = useMediaQuery("(max-width: 768px)");
+
   return (
     <Box>
       <Container
@@ -13,7 +17,7 @@ export default function HeroSection({ event }) {
         className={cssStyles.HeroSectionContainer}
       >
         <BackgroundImage
-          src={`/eventDetailsbg.webp`}
+          src={isMobileView ? event.images.headerPhone : event.images.headerDesktop}
           miw={"100%"}
           h={"100%"}
           style={{
