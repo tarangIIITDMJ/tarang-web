@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
           href="https://api.fontshare.com/v2/css?f[]=general-sans@500&display=swap"
           rel="stylesheet"
         />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-RVLBWQNHRQ" />
         <Script id="google-analytics">
           {`
           window.dataLayer = window.dataLayer || [];
