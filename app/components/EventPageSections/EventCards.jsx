@@ -25,7 +25,7 @@ export default function EventCards({ selectedEvents, events }) {
               align="flex-start"
               w={"100%"}
               style={{
-                border: "2px solid #000",
+                border: "1px solid #000",
               }}
             >
               <Text size={"lg"} fw={500} className={cssStyles.EventCardText}>
