@@ -37,7 +37,14 @@ export default function EventSection() {
               {data.title ?? "Title"}
             </Text>
 
-            <Text c="#676E76" size="sm" lineClamp={3}>
+            <Text
+              c="#676E76"
+              size="sm"
+              style={{
+                wordBreak: "break-word",
+              }}
+              lineClamp={3}
+            >
               {data.desc ?? "Description"}
             </Text>
           </Stack>

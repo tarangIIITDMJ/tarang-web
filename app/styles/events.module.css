@@ -20,16 +20,24 @@
     gap: var(--mantine-spacing-sm) !important;
     padding: 1.5rem 0 !important;
   }
-  .EventCategoriesChips {
-    font-size: var(--mantine-font-size-xs) !important;
+
+  .EventCategoriesChips label {
+    padding: 0.85rem !important;
+    font-size: var(--mantine-font-size-sm) !important;
   }
 
   /* Event Cards  */
   .EventCardStack {
-    padding-block: 1rem !important ;
-    padding-inline: 0;
+    padding: 1rem !important ;
   }
-  .EventCardText {
-    line-height: 0.8rem !important;
+  .EventCardsFlex {
+    flex-direction: row !important;
+  }
+  .EventCardsImage {
+    width: 120px !important;
+  }
+  .EventCardsGridCol {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
   }
 }

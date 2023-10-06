@@ -5,19 +5,17 @@ import { IconX } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import cssStyles from "@/app/styles/events.module.css";
 
-export default function EventCategories() {
+export default function EventCategories({ selectedEvents, setSelectedEvents }) {
   const list = [
-    "Art",
-    "Bazooka",
     "Drama",
     "Dance",
+    "Bazooka",
+    "Art",
     "Music",
     "Photography",
     "Literature",
     "Others",
   ];
-
-  const [selectedEvents, setSelectedEvents] = useState([]);
 
   return (
     <Container
@@ -30,7 +28,7 @@ export default function EventCategories() {
     >
       <ScrollArea
         styles={{
-          scrollbar: { background: "transparent" },
+          scrollbar: { background: "transparent", height: 8 },
           thumb: { background: "white" },
         }}
       >
@@ -49,7 +47,7 @@ export default function EventCategories() {
               return (
                 <Chip
                   icon={
-                    <IconX size={24} color={selected ? "black" : "white"} />
+                    <IconX size={22} color={selected ? "black" : "white"} />
                   }
                   variant="outline"
                   styles={{
