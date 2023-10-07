@@ -53,7 +53,7 @@ const HeroMain = () => {
           </Text>
           <Flex columnGap={"xl"} className={cssstyles.HeroMainButtonFlex}>
             <Button
-              bg="#FFC900"
+              bg="#999999"
               c="black"
               radius={0}
               size={"lg"}
