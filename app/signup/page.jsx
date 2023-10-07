@@ -14,7 +14,7 @@ import {
 } from "@mantine/core";
 import MainAppShell from "../components/MainAppShell";
 import { useMediaQuery } from "@mantine/hooks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm, isNotEmpty, isEmail, hasLength } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
@@ -27,7 +27,15 @@ export default function Signup() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [active, setActive] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [signupUser, setSignupUser] = useState(null);
   const { push } = useRouter();
+  const { setIsAuth, setUser } = useAuthStore();
+  useEffect(() => {
+    if (signupUser) {
+      setIsAuth(true);
+      setUser(signupUser);
+    }
+  }, [signupUser, setIsAuth, setUser]);
   const signUpUser = async (user) => {
     setLoading(true);
     try {
@@ -40,7 +48,7 @@ export default function Signup() {
           color: "green",
           autoClose: 2000,
         });
-
+        setSignupUser(res.data.user);
         setActive(2);
       }
     } catch (error) {
