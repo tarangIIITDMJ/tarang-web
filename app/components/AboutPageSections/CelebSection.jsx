@@ -14,12 +14,16 @@ const CelebSection = () => {
       style={{ border: "3px solid #000" }}
     >
       <Stack
-        gap={isMobileView ? "2rem" : "3rem"}
+        gap={isMobileView ? "1.5rem" : "3rem"}
         bg={"#FFF4E2"}
         py={isMobileView ? "2rem" : "4rem"}
-        px={isMobileView ? "0.5rem" : "2rem"}
+        px={"2rem"}
       >
-        <Text c={"#000"} fz={isMobileView ? "2rem" : "3rem"}>
+        <Text
+          c={"#000"}
+          fz={isMobileView ? "2rem" : "3rem"}
+          lh={isMobileView ? 1.2 : ""}
+        >
           Star-Studded Spectacle
         </Text>
         <Text c={"#000"} fz={isMobileView ? "0.75rem" : "1.125rem"}>

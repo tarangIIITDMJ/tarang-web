@@ -23,6 +23,8 @@ const galleryImages = [
 const ImageAccordion = ({ isMobileView }) => {
   const initialWidth = "13.75rem";
   const hoverWidth = "20.75rem";
+  const initialHeight = "28.125rem";
+  const hoverHeight = "30rem"; 
   return (
     <Group
       mt="4"
@@ -36,15 +38,17 @@ const ImageAccordion = ({ isMobileView }) => {
           key={index}
           style={{
             width: initialWidth,
-            height: "28.125rem",
+            height: initialHeight,
             overflow: "hidden",
             transition: "width 0.5s",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.width = hoverWidth;
+            e.currentTarget.style.height = hoverHeight;
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.width = initialWidth;
+            e.currentTarget.style.height = initialHeight;
           }}
         >
           <Image
@@ -73,7 +77,14 @@ const ImageAccordion = ({ isMobileView }) => {
 function GalleryView() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
-    <Container maw="100%" bg="#FFF4E2">
+    <Container
+      maw="100%"
+      bg="#FFF4E2"
+      style={{
+        border: "3px solid black",
+        borderBottomWidth: "1.5px",
+      }}
+    >
       <Box p={isMobileView ? "3rem" : "4rem"}>
         <Group justify="center" align="center">
           <Text

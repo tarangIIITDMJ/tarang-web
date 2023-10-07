@@ -6,32 +6,44 @@ import {
   Flex,
   Grid,
   Image,
+  Paper,
   Stack,
   Text,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
+import cssStyles from "@/app/styles/home.module.css";
 
 export default function EventSection() {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   function CardComp({ data, makeMobile = false }) {
     return (
-      <Card radius={0} w={"100%"} p={0} h={"100%"}>
+      <Paper bg={"transparent"} h={"100%"} radius={0} p={0}>
         <Flex
           p={0}
           direction={makeMobile ? "row" : "column"}
           h={makeMobile ? 128 : "max-content"}
+          className={cssStyles.EventCardsFlex}
+          justify={"space-between"}
         >
-          <Box>
-            <Image w={makeMobile ? 120 : "100%"} alt="" {...data.imgData} />
+          <Box style={{ overflow: "hidden" }} w={makeMobile ? "35%" : "100%"}>
+            <Image
+              w={"100%"}
+              alt=""
+              {...data.imgData}
+              className={cssStyles.EventCardsImage}
+            />
           </Box>
           <Stack
             p={isMobile ? "12px 24px 24px 24px" : "12px 32px 24px 32px"}
             gap={5}
             align="flex-start"
-            w={"100%"}
+            h={"130"}
+            w={makeMobile ? "65%" : "100%"}
+            className={cssStyles.EventCardsStack}
+            bg={"white"}
           >
             <Text fw={500} size="lg">
               {data.title ?? "Title"}
@@ -49,7 +61,7 @@ export default function EventSection() {
             </Text>
           </Stack>
         </Flex>
-      </Card>
+      </Paper>
     );
   }
 

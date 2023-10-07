@@ -1,10 +1,12 @@
 "use client";
+
 import MainAppShell from "../components/MainAppShell";
+import LeftProfileCard from "../components/ProfilePageSections/LeftProfileCard";
+import ProfileDashboard from "../components/ProfilePageSections/ProfileDashboard";
 import { useAuthStore } from "../store/authStore";
 import ValidateAuth from "../components/ValidateAuth";
-import LeftProfileCard from "../components/ProfilePageSections/LeftProfileCard";
 import { Flex } from "@mantine/core";
-import ProfileDashboard from "../components/ProfilePageSections/ProfileDashboard";
+
 export default function Profile() {
   const { user } = useAuthStore();
   return (

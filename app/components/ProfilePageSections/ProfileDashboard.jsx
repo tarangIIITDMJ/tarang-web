@@ -1,14 +1,5 @@
 "use client";
-import {
-  Divider,
-  Flex,
-  Group,
-  Paper,
-  ScrollArea,
-  Stack,
-  Tabs,
-  Text,
-} from "@mantine/core";
+import { Divider, Group, Paper, Stack, Tabs, Text } from "@mantine/core";
 import React, { useState } from "react";
 import classes from "@/app/styles/profile.module.css";
 
