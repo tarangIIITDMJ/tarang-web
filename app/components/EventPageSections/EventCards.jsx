@@ -15,9 +15,9 @@ export default function EventCards({ selectedEvents, events }) {
             <Box>
               <Image
                 src={event.images.mainPhone}
-                h={isMobileView ? "100%" : 350}
+                h={isMobileView ? "100%" : 300}
                 style={{
-                  objectPosition: "0% 0%",
+                  objectPosition: "50% 20%",
                   transition: "0.3s",
                   aspectRatio: "1/1",
                 }}

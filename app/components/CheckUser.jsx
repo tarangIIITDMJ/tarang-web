@@ -12,7 +12,7 @@ export const CheckUser = () => {
         const res = await getUser();
         if (res.status === 200) {
           setIsAuth(true);
-          setUser(res.data);
+          setUser(res.data.user);
           setIsLoading(false);
         }
       } catch (error) {
