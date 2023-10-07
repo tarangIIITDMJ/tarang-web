@@ -52,11 +52,11 @@ export default function Footer() {
           h={350}
         />
 
-        <Group justify="center" gap={isMobileView ? 63 : 73}>
+        <Group justify="center" gap={63}>
           <Flex
             direction={isMobileView ? "row" : "column"}
             gap={"1.5rem"}
-            w={isMobileView ? 350 : 100}
+            w={isMobileView ? 350 : 110}
             justify={"center"}
           >
             <Stack gap={"1.5rem"}>
@@ -66,8 +66,8 @@ export default function Footer() {
             </Stack>
             <Stack gap={"1.5rem"}>
               {renderLink("#", "Gallery")}
-              {renderLink("#", "Contact us")}
-              {renderLink("#", "FAQ")}
+              {renderLink("/contact-us", "Contact us")}
+              {renderLink("/faqs", "FAQ")}
             </Stack>
           </Flex>
           <Divider
