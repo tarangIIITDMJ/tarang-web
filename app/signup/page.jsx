@@ -145,7 +145,7 @@ export default function Signup() {
       }
     }
 
-    if (active === 2) return push("/profile");
+    if (active === 2) return push("/verify-email");
 
     setActive((current) => (current < 1 ? current + 1 : current));
   };

@@ -58,7 +58,9 @@ const LoginForm = ({ isMobileView }) => {
                 color: "green",
                 autoClose: 2000,
                 onClose: () => {
-                  push("/profile");
+                  setTimeout(() => {
+                    push("/profile");
+                  }, 2500);
                 },
               });
             } catch (error) {
