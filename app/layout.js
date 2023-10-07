@@ -16,6 +16,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta
+          name="google-site-verification"
+          content="vH4kpPkgNkgfthIW8BTVQKuSutW2pyH26eK1JsXLmdI"
+        />
         <link
           href="https://api.fontshare.com/v2/css?f[]=general-sans@500&display=swap"
           rel="stylesheet"

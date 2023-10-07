@@ -44,7 +44,7 @@ const SubMainSection = () => {
             justify="center"
             gap={isMobileView ? "1.5rem" : "3rem"}
           >
-            <Text size={isMobileView ? "2.5rem" : "4rem"} c="#000">
+            <Text size={isMobileView ? "2rem" : "4rem"} c="#000">
               A Display of Dedication
             </Text>
             <Text

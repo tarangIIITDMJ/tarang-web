@@ -9,7 +9,14 @@ function SponsorUsSection() {
 
   return (
     <Container m={0} p={0} miw={"100%"}>
-      <Grid gutter={0} columns={isMobileView ? 1 : 2} style={style.borderBox}>
+      <Grid
+        gutter={0}
+        columns={isMobileView ? 1 : 2}
+        style={{
+          border: "3px solid black",
+          borderTopWidth: "1.5px",
+        }}
+      >
         <Grid.Col
           bg="#FE73E7"
           order={isMobileView ? 2 : ""}
@@ -27,7 +34,11 @@ function SponsorUsSection() {
               >
                 Interested about Tarang?
               </Text>
-              <Text c="#1a1d1f" mt={"2.25rem"} fz={"1.25rem"}>
+              <Text
+                c="#1a1d1f"
+                mt={"2.25rem"}
+                fz={isMobileView ? "1.125rem" : "1.25rem"}
+              >
                 Discover Tarang's rich lineup and event details in the booklet.
               </Text>
               <Button
@@ -82,7 +93,11 @@ function SponsorUsSection() {
               >
                 Here&apos;s how to sponsor us
               </Text>
-              <Text mt={"2.25rem"} c="#1a1d1f" fz={"1.25rem"}>
+              <Text
+                mt={"2.25rem"}
+                c="#1a1d1f"
+                fz={isMobileView ? "1.125rem" : "1.25rem"}
+              >
                 Explore sponsorship opportunities and benefits in the booklet.
               </Text>
               <Button

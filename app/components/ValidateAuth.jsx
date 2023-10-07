@@ -10,7 +10,10 @@ const ValidateAuth = ({ children }) => {
   else if (!isAuth) return router.push("/login");
   else if (isAuth && user.verifyToken != "*") {
     if (pathname == "/verify-email") return children;
-    return router.push("/verify-email");
-  } else return children;
+    else return router.push("/verify-email");
+  } else if (isAuth && user.verifyToken == "*") {
+    if (pathname == "/verify-email") return router.push("/profile");
+    else return children;
+  }
 };
 export default ValidateAuth;
