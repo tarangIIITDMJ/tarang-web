@@ -1,3 +1,8 @@
+.EventCardsImage, .EventCardsStack {
+  transition: 0.3s !important;
+  transform-origin: bottom;
+}
+
 @media (max-width: $mantine-breakpoint-xs) {
   /* Hero Section */
   .HeroSectionContainer {
@@ -40,4 +45,17 @@
     flex-basis: 100% !important;
     max-width: 100% !important;
   }
+}
+@media (min-width: $mantine-breakpoint-xs) {
+  /* Event Cards  */
+  .EventCardsFlex:hover {
+    .EventCardsImage{
+      transform: scale(1.05);
+    }
+    .EventCardsStack {  
+      transform: translateY(-8px);
+      box-shadow: #65c8dcca 0px 1px 1px,#65c8dcca 0px 1px 16px;
+    }
+  }
+
 }
