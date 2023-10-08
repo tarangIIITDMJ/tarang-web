@@ -2,6 +2,7 @@
 import { Button, Container, Grid, Image, Stack, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconDownload } from "@tabler/icons-react";
+import Link from "next/link";
 import React from "react";
 
 function SponsorUsSection() {
@@ -41,17 +42,19 @@ function SponsorUsSection() {
               >
                 Discover Tarang's rich lineup and event details in the booklet.
               </Text>
-              <Button
-                rightSection={<IconDownload />}
-                mt={"3rem"}
-                size="lg"
-                style={{ border: "2px solid black" }}
-                bg="white"
-                c={"black"}
-                radius={0}
-              >
-                Download PDF
-              </Button>
+              <Link href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696742894/Sponsor-Tarang_ug1cet.pdf" target="_blank" download="Sponsor Tarang">
+                <Button
+                  rightSection={<IconDownload />}
+                  mt={"3rem"}
+                  size="lg"
+                  style={{ border: "2px solid black" }}
+                  bg="white"
+                  c={"black"}
+                  radius={0}
+                >
+                  Download PDF
+                </Button>
+                </Link>
             </Container>
           </Stack>
         </Grid.Col>
@@ -100,17 +103,19 @@ function SponsorUsSection() {
               >
                 Explore sponsorship opportunities and benefits in the booklet.
               </Text>
-              <Button
-                rightSection={<IconDownload />}
-                mt={"3rem"}
-                size="lg"
-                style={{ border: "2px solid black" }}
-                bg="white"
-                c={"black"}
-                radius={0}
-              >
-                Download Sponsor PDF
-              </Button>
+              <Link href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696742894/Sponsor-Tarang_ug1cet.pdf" target="_blank" download="Sponsor Tarang">
+                <Button
+                  rightSection={<IconDownload />}
+                  mt={"3rem"}
+                  size="lg"
+                  style={{ border: "2px solid black" }}
+                  bg="white"
+                  c={"black"}
+                  radius={0}
+                >
+                  Download Sponsor PDF
+                </Button>
+                </Link>
             </Container>
           </Stack>
         </Grid.Col>
