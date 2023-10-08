@@ -1,11 +1,10 @@
 @media (max-width: $mantine-breakpoint-xs) {
   /* Hero Main */
-
   .HeroMaintarangHeadingImg {
     width: 250px;
   }
   .HeroMainTarangHeadingText {
-    font-size: 20px !important;
+    font-size: 18px !important;
     margin-top: -5px !important;
     line-height: 20px;
   }
@@ -20,24 +19,22 @@
   .HeroMainButtonFlex {
     gap: var(--mantine-spacing-sm) !important;
   }
-  /* Sponsor Section */
-  /* ... */
 }
 
-.EventCardsImage, .EventCardsStack {
+.EventCardsImage,
+.EventCardsStack {
   transition: 0.3s !important;
   transform-origin: bottom;
 }
 @media (min-width: $mantine-breakpoint-xs) {
   /* Event Cards  */
   .EventCardsFlex:hover {
-    .EventCardsImage{
+    .EventCardsImage {
       transform: scale(1.05);
     }
-    .EventCardsStack {  
+    .EventCardsStack {
       transform: translateY(-8px);
-      box-shadow: #65c8dcca 0px 1px 1px,#65c8dcca 0px 1px 16px;
+      box-shadow: #65c8dcca 0px 1px 1px, #65c8dcca 0px 1px 16px;
     }
   }
 }
-

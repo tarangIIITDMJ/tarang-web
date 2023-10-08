@@ -56,7 +56,7 @@ export default function Footer() {
           <Flex
             direction={isMobileView ? "row" : "column"}
             gap={"1.5rem"}
-            w={isMobileView ? 350 : 110}
+            w={isMobileView ? 380 : 110}
             justify={"center"}
           >
             <Stack gap={"1.5rem"}>

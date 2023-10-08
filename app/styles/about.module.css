@@ -14,16 +14,16 @@
     padding: 3rem 2rem !important;
   }
   .ContentSectionTitle {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
     line-height: 1.2 !important;
   }
   .ContentSectionText {
-    font-size: 1rem !important;
+    font-size: 0.75rem !important;
   }
 
   /* Past Tarang Section */
   .PastTarangSectionContainer {
-    padding: 3rem 0rem !important;
+    padding: 3rem 2rem !important;
   }
   .PastTarangSectionSubContainer {
     gap: 2rem !important;

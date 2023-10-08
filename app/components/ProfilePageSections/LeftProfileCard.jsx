@@ -3,6 +3,7 @@ import { IconLogout, IconUserCircle } from "@tabler/icons-react";
 import Image from "next/image";
 import React from "react";
 import ProfileStar from "@/public/ProfileStar.svg";
+
 export default function LeftProfileCard() {
   return (
     <Card bg={"#D0EB4C"} miw={"18rem"} w={"18rem"} p={0} radius={0}>

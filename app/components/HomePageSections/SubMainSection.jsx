@@ -49,14 +49,14 @@ export default function SubMainSection() {
       bg="#FFC900"
       px={isMobileView ? "1rem" : "6.25rem"}
       py={isMobileView ? "4rem" : "6rem"}
-      style={{ border: "2px solid black" }}
+      style={{ border: "3px solid black" }}
     >
       <Flex
         direction={isMobileView ? "column" : "row"}
         align="center"
         gap={"3rem"}
       >
-        <Text hiddenFrom="sm" size={"2.5rem"} ta={"right"} c="#252525">
+        <Text hiddenFrom="sm" size={"2.5rem"} ta={"center"} c="#252525">
           The Tide is turning!
         </Text>
         <Box
@@ -102,7 +102,7 @@ export default function SubMainSection() {
               The Tide is turning!
             </Text>
             <Text
-              size={isMobileView ? "1rem" : "1.125rem"}
+              size={isMobileView ? "1.125rem" : "1.25rem"}
               ta={isMobileView ? "left" : "justify"}
               c="#252525"
             >
