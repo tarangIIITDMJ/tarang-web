@@ -5,6 +5,8 @@ import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import "@mantine/notifications/styles.css";
 import Script from "next/script";
 import { CheckUser } from "./components/CheckUser";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export const metadata = {
   title: "Tarang'23 ",
@@ -16,6 +18,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta
+          name="google-site-verification"
+          content="vH4kpPkgNkgfthIW8BTVQKuSutW2pyH26eK1JsXLmdI"
+        />
         <link
           href="https://api.fontshare.com/v2/css?f[]=general-sans@500&display=swap"
           rel="stylesheet"
@@ -35,7 +41,7 @@ export default function RootLayout({ children }) {
         <CheckUser />
         <MantineProvider>
           <Notifications position="bottom-right" />
-          {children}
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         </MantineProvider>
       </body>
     </html>

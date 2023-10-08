@@ -1,0 +1,7 @@
+@media (max-width: $mantine-breakpoint-xs) {
+    .loader {
+        width: 250px !important;
+        height: 150px !important;
+    }
+  }
+  
