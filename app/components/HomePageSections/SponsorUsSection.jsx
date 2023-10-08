@@ -42,7 +42,7 @@ function SponsorUsSection() {
               >
                 Discover Tarang's rich lineup and event details in the booklet.
               </Text>
-              <Link href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696742894/Sponsor-Tarang_ug1cet.pdf" target="_blank" download="Sponsor Tarang">
+              <Link href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696759577/Tarang_23_Event_Brochure_hnbhi1.pdf" target="_blank" download="Sponsor Tarang">
                 <Button
                   rightSection={<IconDownload />}
                   mt={"3rem"}
@@ -103,7 +103,7 @@ function SponsorUsSection() {
               >
                 Explore sponsorship opportunities and benefits in the booklet.
               </Text>
-              <Link href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696742894/Sponsor-Tarang_ug1cet.pdf" target="_blank" download="Sponsor Tarang">
+              <Link href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696742894/Sponsor-Tarang.pdf" target="_blank" download="Sponsor Tarang" rel="noreferrer">
                 <Button
                   rightSection={<IconDownload />}
                   mt={"3rem"}
