@@ -9,7 +9,7 @@ export default function NotFound() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   return (
-    <Box style={styles.container}>
+    <Box  style={styles.container}>
       <Flex  
        align={'center'}
        direction={'column'} 
@@ -27,10 +27,10 @@ export default function NotFound() {
           />
         </Box>
         <Flex  direction={'column'}    align={'center'}>
-          <Text lh={isMobileView?'2rem':'2.5rem'} fw={"500"} color={'#FFFFFF'} ta={"center"} size={isMobileView ? '1.5rem' : '2rem'} pb={isMobileView?"1rem":"2rem"}>
+          <Text px={isMobileView ? '1rem' : '0'} lh={isMobileView?'2rem':'2.5rem'} fw={"500"} color={'#FFFFFF'} ta={"center"} size={isMobileView ? '1.5rem' : '2rem'} pb={isMobileView?"1rem":"2rem"}>
             Oops, We can't seem <br/> to find the page you are looking for.
           </Text>
-          <Text fw={"600"} color={'#B4B4B4'} ta={isMobileView ? "center" : ""}  size="md" pb={isMobileView?"3rem":"3.5rem"}>
+          <Text px={isMobileView ? '1rem' : '0'} fw={"600"} color={'#B4B4B4'} ta={isMobileView ? "center" : ""}  size="md" pb={isMobileView?"3rem":"3.5rem"}>
             The page you are looking for might have been removed, had its name changed, or is temporarily unavailable
           </Text>
           <Link href="/">

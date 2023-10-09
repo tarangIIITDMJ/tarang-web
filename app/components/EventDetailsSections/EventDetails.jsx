@@ -172,7 +172,7 @@ export default function EventDetails({ event }) {
             <Button
               size={isMobileView ? "0.75rem" : "1.125rem"}
               h="auto"
-              bg="white"
+              bg="#999999"
               c="black"
               w="100%"
               px={isMobileView ? "1.25rem" : "1.625rem"}
