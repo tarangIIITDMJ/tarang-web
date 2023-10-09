@@ -66,7 +66,7 @@ export default function SubMainSection() {
         >
           <video loop muted style={styles.video} ref={videoRef}>
             <source
-              src="https://res.cloudinary.com/prajjwalcdn/video/upload/v1696021679/mobile_bg_video_bt9ial.mp4"
+              src="https://res.cloudinary.com/dxcjzquen/video/upload/v1696364452/mobile_bg_video_uqucru.mp4"
               type="video/mp4"
             />
           </video>

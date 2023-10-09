@@ -13,8 +13,9 @@ import {
   Group,
   Transition,
   Center,
+  Button,
 } from "@mantine/core";
-import { IconArrowUpRight } from "@tabler/icons-react";
+import { IconArrowUpRight, IconUserCircle } from "@tabler/icons-react";
 import Footer from "./uiComponents/Footer";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -197,6 +198,33 @@ export default function MainAppShell({ children }) {
           </Stack>
         </Drawer>
         {children}
+        <Box visibleFrom="sm" pos="absolute" left="85vw" top="20px">
+          <Button
+            size="lg"
+            color="#D0EB4C"
+            leftSection={
+              <IconUserCircle size={32} strokeWidth={1} color="black" />
+            }
+            style={{ fontSize: "1.125rem", fontWeight: 500 }}
+            c="#000"
+            py="0.3125rem"
+            radius="2.5rem"
+          >
+            Vansh Mittal
+          </Button>
+        </Box>
+        <Box
+          hiddenFrom="sm"
+          pos="absolute"
+          top={48}
+          right={16}
+          bg={"#D0EB4C"}
+          h={48}
+          w={48}
+          style={{ borderRadius: "50%" }}
+        >
+          <IconUserCircle size={48} strokeWidth={1} color="black" />
+        </Box>
         <Footer />
       </AppShell.Main>
     </AppShell>

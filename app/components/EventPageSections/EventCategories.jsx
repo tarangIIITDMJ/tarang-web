@@ -48,7 +48,7 @@ export default function EventCategories({
                     label: {
                       background: selected ? "white" : "transparent",
                       color: selected ? "black" : "white",
-                      paddingBlock: "22px",
+                      paddingBlock: "24px",
                       fontWeight: "600",
                       gap: 10,
                       flexDirection: "row-reverse",

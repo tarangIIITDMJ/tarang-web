@@ -6,7 +6,7 @@ import SubMainSection from "../components/AboutPageSections/SubMainSection";
 import PastTarangSection from "../components/AboutPageSections/PastTarangSection";
 import CelebSection from "../components/AboutPageSections/CelebSection";
 
-export default function EventPage() {
+export default function AboutPage() {
   return (
     <MainAppShell>
       <HeroSection />
