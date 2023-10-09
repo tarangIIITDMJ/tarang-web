@@ -1,7 +1,7 @@
 "use client";
 import {Text, Flex, Box , Button} from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import NotFoundImage from "@/public/NotFoundImage.svg";
+import NotFoundImage from "@/public/NotfoundImage.svg";
 import Link from "next/link";
 import Image from "next/image";
 
