@@ -69,18 +69,18 @@ const ContactFormSection = () => {
                 fz={isMobileView ? "1rem" : "1.5rem"}
                 lh={isMobileView ? "1.2rem" : "2rem"}
               >
-                +1 (432) 568-98-01
+                Chandra Haas +91 9959761151
               </Text>
               <Text
                 c="#E5E7EA"
                 fz={isMobileView ? "1rem" : "1.5rem"}
                 lh={isMobileView ? "1.2rem" : "2rem"}
               >
-                +1 (432) 568-98-01
+                Priyanka +91 8887150087
               </Text>
             </Box>
             <Text c="#E5E7EA" fz={isMobileView ? "0.75rem" : "1.125rem"}>
-              info@gmail.com
+              tarang@iiitdmj.ac.in
             </Text>
           </Stack>
         </Stack>

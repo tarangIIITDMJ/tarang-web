@@ -6,11 +6,28 @@ import cssStyles from "@/app/styles/contact.module.css";
 
 const eventsData = [
   {
-    eventName: "Event Name",
-    person1Name: "Aditya Raj",
-    person1Number: "+1 (432) 568-98-01",
-    person2Name: "Swastik Bhowmik",
-    person2Number: "+1 (432) 568-98-01",
+    eventName: "Malang",
+    person1Name: "Ashish Chaudhary",
+    person1Number: "9991689805",
+    person2Name: "Bhavika Sehgal",
+    person2Number: "8726788999",
+  },
+  {
+    eventName: "Nukkad: Ek Goonj",
+    person1Name: "Uday Shakya",
+    person1Number: "7017474241",
+    person2Name: "Shivansh Shukla",
+    person2Number: "7895043346",
+  },
+  {
+    eventName: "ArtLabs",
+    person1Name: "Uday Shakya",
+    person1Number: "7017474241",
+  },
+  {
+    eventName: "Shutter Stories",
+    person1Name: "Pulivarthi Mahesh",
+    person1Number: "9392816922",
   },
   // Add more event data here
 ];
@@ -59,48 +76,16 @@ const ContactDetails = () => {
       </Text>
 
       <Grid pt={isMobileView ? "2rem" : "4.5rem"}>
-        {eventsData.map((event, index) => (
+        {eventsData.slice(0, 2).map((event, index) => (
           <Grid.Col key={index} span={{ base: 12, md: 6, lg: 4 }}>
-            <EventContact makeMobile={isMobileView} {...event} />
-          </Grid.Col>
-        ))}
-        {eventsData.map((event, index) => (
-          <Grid.Col
-            key={index + eventsData.length}
-            span={{ base: 12, md: 6, lg: 4 }}
-          >
-            <EventContact makeMobile={isMobileView} {...event} />
-          </Grid.Col>
-        ))}
-        {eventsData.map((event, index) => (
-          <Grid.Col
-            key={index + 2 * eventsData.length}
-            span={{ base: 12, md: 6, lg: 4 }}
-          >
             <EventContact makeMobile={isMobileView} {...event} />
           </Grid.Col>
         ))}
       </Grid>
 
       <Grid pt={isMobileView ? "1rem" : "3.5rem"}>
-        {eventsData.map((event, index) => (
+        {eventsData.slice(2, 4).map((event, index) => (
           <Grid.Col key={index} span={{ base: 12, md: 6, lg: 4 }}>
-            <EventContact makeMobile={isMobileView} {...event} />
-          </Grid.Col>
-        ))}
-        {eventsData.map((event, index) => (
-          <Grid.Col
-            key={index + eventsData.length}
-            span={{ base: 12, md: 6, lg: 4 }}
-          >
-            <EventContact makeMobile={isMobileView} {...event} />
-          </Grid.Col>
-        ))}
-        {eventsData.map((event, index) => (
-          <Grid.Col
-            key={index + 2 * eventsData.length}
-            span={{ base: 12, md: 6, lg: 4 }}
-          >
             <EventContact makeMobile={isMobileView} {...event} />
           </Grid.Col>
         ))}

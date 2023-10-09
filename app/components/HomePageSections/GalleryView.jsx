@@ -23,8 +23,9 @@ const galleryImages = [
 const ImageAccordion = ({ isMobileView }) => {
   const initialWidth = "13.75rem";
   const hoverWidth = "20.75rem";
-  const initialHeight = "28.125rem";
+  const initialHeight = "28.125rem";	
   const hoverHeight = "30rem"; 
+  
   return (
     <Group
       mt="4"
@@ -32,6 +33,7 @@ const ImageAccordion = ({ isMobileView }) => {
       wrap={"no"}
       w={isMobileView ? "fit-content" : "100%"}
       justify="center"
+      h={480}
     >
       {galleryImages.map((Img, index) => (
         <Box
@@ -40,7 +42,7 @@ const ImageAccordion = ({ isMobileView }) => {
             width: initialWidth,
             height: initialHeight,
             overflow: "hidden",
-            transition: "width 0.5s",
+            transition: "width 0.5s, height 0.5s",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.width = hoverWidth;
