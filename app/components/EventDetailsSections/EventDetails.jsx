@@ -177,7 +177,7 @@ export default function EventDetails({ event }) {
                     leftSection={icon}
                     style={{ textTransform: "none" }} 
                   >
-                      <Text lh={isMobileView ? "1rem" : "1.5rem"}  fw="500"  size={isMobileView ? "0.625rem" : "1rem"} ml={isMobileView ? "0rem" : "0.5rem"} >Get access to every event, workshop, and pro nights.</Text>
+                      <Text lh={isMobileView ? "1rem" : "1.5rem"}  fw="500"  size={isMobileView ? "0.6rem" : "1rem"} ml={isMobileView ? "0rem" : "0.5rem"} >Get access to every event, workshop, and pro nights.</Text>
                   </Badge>
                   <Badge
                     variant="transparent"
@@ -187,7 +187,7 @@ export default function EventDetails({ event }) {
                     leftSection={icon}
                     style={{ textTransform: "none" }} 
                   > 
-                      <Text lh={isMobileView ? "1rem" : "1.5rem"}  fw="500"  size={isMobileView ? "0.625rem" : "1rem"} ml={isMobileView ? "0rem" : "0.5rem"} >All this for just <b>₹2000!</b></Text>
+                      <Text lh={isMobileView ? "1rem" : "1.5rem"}  fw="500"  size={isMobileView ? "0.6rem" : "1rem"} ml={isMobileView ? "0rem" : "0.5rem"} >All this for just <b>₹2000!</b></Text>
                   </Badge>
               </Stack>
             </Stack>
