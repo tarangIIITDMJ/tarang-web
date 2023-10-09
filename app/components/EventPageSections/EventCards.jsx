@@ -3,6 +3,7 @@ import { Text, Stack, Grid, Flex, Box, Image, Paper } from "@mantine/core";
 import cssStyles from "@/app/styles/events.module.css";
 import Link from "next/link";
 import { useMediaQuery } from "@mantine/hooks";
+import { IconArrowRight } from "@tabler/icons-react";
 
 export default function EventCards({ selectedEvents, events }) {
   function CardComp({ event }) {
@@ -10,12 +11,22 @@ export default function EventCards({ selectedEvents, events }) {
 
     return (
       <Link href={`/events/${event.slug}`}>
-        <Paper radius={0} p={0} bg={"transparent"} miw={"400px"}>
-          <Flex p={0} direction={"column"} className={cssStyles.EventCardsFlex}>
-            <Box style={{ overflow: "hidden" }}>
+        <Paper radius={0} p={0} bg={"transparent"}>
+          <Flex
+            justify={"space-between"}
+            p={0}
+            direction={"column"}
+            className={cssStyles.EventCardsFlex}
+          >
+            <Box
+              style={{ overflow: "hidden" }}
+              w={"100%"}
+              className={cssStyles.EventCardsBox}
+            >
               <Image
                 src={event.images.mainPhone}
-                h={isMobileView ? "100%" : 300}
+                h={300}
+                w={"100%"}
                 style={{
                   objectPosition: "50% 20%",
                   transition: "0.3s",
@@ -36,7 +47,12 @@ export default function EventCards({ selectedEvents, events }) {
               className={cssStyles.EventCardsStack}
               bg={"white"}
             >
-              <Text size={"lg"} fw={500} className={cssStyles.EventCardText}>
+              <Text
+                size={"lg"}
+                fw={500}
+                lineClamp={1}
+                className={cssStyles.EventCardText}
+              >
                 {event.name}
               </Text>
               <Text
@@ -45,10 +61,17 @@ export default function EventCards({ selectedEvents, events }) {
                 style={{
                   wordBreak: "break-word",
                 }}
-                lineClamp={3}
+                lineClamp={2}
                 className={cssStyles.EventCardText}
               >
                 {event.description}
+              </Text>
+              <Text
+                variant="gradient"
+                size="sm"
+                gradient={{ from: "blue", to: "cyan", deg: 90 }}
+              >
+                Read more
               </Text>
             </Stack>
           </Flex>
