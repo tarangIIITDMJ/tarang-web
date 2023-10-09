@@ -3,6 +3,9 @@
 import { Box, Flex, Image, Text, Badge, Button, Stack } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { Breadcrumbs, Anchor } from "@mantine/core";
+import {useState} from 'react';
+import Link from "next/link";
+
 
 const items = (name) => {
   return [
@@ -22,7 +25,8 @@ const styles = {
     borderRadius: "16px",
     border: "1.5px solid rgba(255, 255, 255, 0.76)",
     background:
-      "linear-gradient(98deg, rgba(46, 39, 239, 0.35) -61.16%, rgba(46, 39, 239, 0.00) 178.71%)",
+      "#D9F800",
+      color:"black"
   },
 };
 
@@ -42,11 +46,13 @@ const itemArray = (name) => {
 
 export default function EventDetails({ event }) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
+  const [hasTarangPass, setHasTarangPass] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
 
   const icon = (
     <Image
       src={"/check-badge.svg"}
-      style={{ width: isMobileView ? "0.65rem" : "1.2rem", height: "100%" }}
+      style={{ width: isMobileView ? "0.85rem" : "1.2rem", height:  isMobileView ? "0.85rem" : "1.2rem"}}
       alt=""
     />
   );
@@ -111,77 +117,105 @@ export default function EventDetails({ event }) {
                 </Text>
               ))}
             </Stack>
+            {hasTarangPass ? <>
+        <Flex
+        style={{borderRadius:"5px"}}
+          bg={"#303030"}
+          h="auto"
+          w="100%"
+          px={isMobileView ? "1.25rem" : "1.625rem"}
+          py={isMobileView ? "0.5rem" : "1.125rem"}
+        >
+          <Image
+          mt={isMobileView?"0.4rem":"0.3rem"}
+          mr={"md"}
+            src={"/alert-circle.svg"}
+            style={{ width: isMobileView ? "1.5rem" : "1rem", height: isMobileView ? "1.5rem" : "1rem"}}
+            alt=""
+          />
+          <Text color={"#FFFFFF"} lh={isMobileView ? "1.2rem" : "1.5rem"} size={isMobileView ? "0.85rem" : "1.125rem"} fw={"400"} >
+            You already have the Tarang pass! Register for this event now!
+          </Text>
+        </Flex>
+        </>
+      : <>
             <Stack
-              p={isMobileView ? "1rem" : "2rem"}
-              gap={isMobileView ? "1rem" : "2rem"}
+              p={isMobileView ? "0.7rem" : "1.5rem"}
+              gap={isMobileView ? "1rem" : "1rem"}
               style={styles.card}
             >
               <Flex
-                gap={isMobileView ? "0.5rem" : "1rem"}
-                direction={isMobileView ? "column" : "row"}
+                gap={isMobileView ? "1rem" : "1rem"}
+                justify={"space-between"}
+                align={"center"}
               >
                 <Text
-                  c="#F6F7F9"
-                  fw="600"
-                  size={isMobileView ? "2rem" : "4rem"}
+                lh={isMobileView ? "1.5rem" : "2.5rem"}
+                  fw={"500"}
+                  size={isMobileView ? "1.2rem" : "2rem"}
                 >
-                  ₹ {event.reg_fees}
+                  Experience it all with the Tarang Pass!
                 </Text>
-                <Stack
-                  justify="center"
-                  gap={isMobileView ? "0.25rem" : "0.5rem"}
+                <Link
+                href="#"
                 >
-                  <Text
-                    c="#FAFAFA"
-                    fw="500"
-                    size={isMobileView ? "0.75rem" : "1.125rem"}
-                  >
-                    Registration Fee
-                  </Text>
-                  <Text
-                    c="#9EA5AD"
-                    fw="500"
-                    size={isMobileView ? "0.75rem" : "1.125rem"}
-                  >
-                    Free Entry with purchase
-                  </Text>
-                </Stack>
+                    <Image
+                        mt={isMobileView?"0.2rem":"0.2rem"}
+                         mr={"0.85rem"}
+                        src={"/LearnMore.svg"}
+                        style={{ width: isMobileView ? "3rem" : "5rem", height: isMobileView ? "3rem" : "5rem"}}
+                        alt=""
+                    />
+                </Link>
               </Flex>
-              <Flex align="center">
-                {[
-                  { label: `₹ ${event.prize_pool} Prize Pool` },
-                  { label: event.event_type },
-                  { label: event.event_category },
-                ].map((item, index) => (
+              <Stack align="flex-start"  gap={"0.5rem"}>
                   <Badge
-                    key={index}
                     variant="transparent"
-                    c="#F6F7F9"
-                    pr={isMobileView ? "0.5rem" : "1rem"}
-                    pl={0}
+                    c={"black"}
+                    pl={"0rem"}
                     h="fit-content"
                     leftSection={icon}
-                    size={isMobileView ? "0.5625rem" : "0.8725rem"}
-                    fw="500"
+                    style={{ textTransform: "none" }} 
                   >
-                    <span>{item.label}</span>
+                      <Text lh={isMobileView ? "1rem" : "1.5rem"}  fw="600"  size={isMobileView ? "0.625rem" : "1rem"} ml={isMobileView ? "0rem" : "0.5rem"} >Get access to every event, workshop, and pro nights.</Text>
                   </Badge>
-                ))}
-              </Flex>
+                  <Badge
+                    variant="transparent"
+                    c={"black"}
+                    pl={"0rem"}
+                    h="fit-content"
+                    leftSection={icon}
+                    style={{ textTransform: "none" }} 
+                  > 
+                      <Text lh={isMobileView ? "1rem" : "1.5rem"}  fw="500"  size={isMobileView ? "0.625rem" : "1rem"} ml={isMobileView ? "0rem" : "0.5rem"} >All this for just <b>₹2000!</b></Text>
+                  </Badge>
+              </Stack>
             </Stack>
+      </>}
             <Button
-              size={isMobileView ? "0.75rem" : "1.125rem"}
               h="auto"
               bg="#999999"
               c="black"
               w="100%"
-              px={isMobileView ? "1.25rem" : "1.625rem"}
-              py={isMobileView ? "0.75rem" : "1.125rem"}
-              fw="600"
+              py={isMobileView ? "0.75rem" : "1rem"}
               disabled
             >
-              Register Now
+              {
+                isRegistered ?
+                <>
+                 <Text fw={"700"} size={isMobileView ? "0.85rem" : "1.25rem"} >Go to Dashboard </Text> 
+                 <Image
+                src={"/arrow-up-right.svg"}
+                ml={"0.5rem"}
+                style={{ width: isMobileView ? "1.35rem" : "2rem", height: isMobileView ? "1.35rem" : "2rem"}}
+                alt=""
+                  />
+               </>
+            : 
+            <Text fw={"700"} size={isMobileView ? "0.85rem" : "1.35rem"}  lh={isMobileView?"1.5rem":"2.5rem"}>Register now</Text>
+              }
             </Button>
+            <Text mt={'-1.5rem'} size={isMobileView?"0.75rem":""} ta={"center"} c={"#BDBDBD"}>Save to your Dashboard, pay with Tarang Pass</Text>
           </Stack>
         </Flex>
       </Box>
