@@ -70,6 +70,7 @@ export default function EventCards({ selectedEvents, events }) {
                 variant="gradient"
                 size="sm"
                 gradient={{ from: "blue", to: "cyan", deg: 90 }}
+                hiddenFrom="sm"
               >
                 Read more
               </Text>
