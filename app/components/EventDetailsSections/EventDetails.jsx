@@ -177,7 +177,7 @@ export default function EventDetails({ event }) {
                     leftSection={icon}
                     style={{ textTransform: "none" }} 
                   >
-                      <Text lh={isMobileView ? "1rem" : "1.5rem"}  fw="600"  size={isMobileView ? "0.625rem" : "1rem"} ml={isMobileView ? "0rem" : "0.5rem"} >Get access to every event, workshop, and pro nights.</Text>
+                      <Text lh={isMobileView ? "1rem" : "1.5rem"}  fw="500"  size={isMobileView ? "0.625rem" : "1rem"} ml={isMobileView ? "0rem" : "0.5rem"} >Get access to every event, workshop, and pro nights.</Text>
                   </Badge>
                   <Badge
                     variant="transparent"
