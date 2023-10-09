@@ -23,8 +23,9 @@ const galleryImages = [
 const ImageAccordion = ({ isMobileView }) => {
   const initialWidth = "13.75rem";
   const hoverWidth = "20.75rem";
-  const initialHeight = "28.125rem";
-  const hoverHeight = "30rem";
+  const initialHeight = "28.125rem";	
+  const hoverHeight = "30rem"; 
+  
   return (
     <Group
       mt="4"
