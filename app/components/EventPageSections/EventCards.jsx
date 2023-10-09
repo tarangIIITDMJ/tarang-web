@@ -1,14 +1,5 @@
 "use client";
-import {
-  Text,
-  Stack,
-  Grid,
-  Card,
-  Flex,
-  Box,
-  Image,
-  Paper,
-} from "@mantine/core";
+import { Text, Stack, Grid, Flex, Box, Image, Paper } from "@mantine/core";
 import cssStyles from "@/app/styles/events.module.css";
 import Link from "next/link";
 import { useMediaQuery } from "@mantine/hooks";
@@ -19,7 +10,7 @@ export default function EventCards({ selectedEvents, events }) {
 
     return (
       <Link href={`/events/${event.slug}`}>
-        <Paper radius={0} p={0} bg={"transparent"}>
+        <Paper radius={0} p={0} bg={"transparent"} miw={"400px"}>
           <Flex p={0} direction={"column"} className={cssStyles.EventCardsFlex}>
             <Box style={{ overflow: "hidden" }}>
               <Image
@@ -40,7 +31,7 @@ export default function EventCards({ selectedEvents, events }) {
               align="flex-start"
               w={"100%"}
               style={{
-                border: "1px solid #000",
+                border: "2px solid #000",
               }}
               className={cssStyles.EventCardsStack}
               bg={"white"}
@@ -70,7 +61,8 @@ export default function EventCards({ selectedEvents, events }) {
     <Stack
       bg={"#0F0F0F"}
       align="flex-start"
-      py={"1rem"}
+      pt={"1rem"}
+      pb={"4rem"}
       px={"5.5rem"}
       className={cssStyles.EventCardStack}
     >

@@ -67,7 +67,11 @@ export default function EventSection() {
 
   return (
     <Box>
-      <Box bg={"#2E75FF"} py={"3rem"}>
+      <Box
+        bg={"#2E75FF"}
+        py={"3rem"}
+        style={{ border: "3px solid black", borderTopWidth: "0px" }}
+      >
         <Image src={"/highlightEvents.webp"} alt="" />
       </Box>
       <Box

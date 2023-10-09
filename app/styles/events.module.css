@@ -1,4 +1,6 @@
-.EventCardsImage, .EventCardsStack {
+.EventCardsImage,
+.EventCardsStack {
+  border: 1px solid #000;
   transition: 0.3s !important;
   transform-origin: bottom;
 }
@@ -16,7 +18,7 @@
 
   /* Event Categories  */
   .EventCategoriesContainer {
-    padding-left: 1rem !important;
+    padding-left: 2rem !important;
   }
   .EventCategoriesText {
     font-size: 1.2rem !important;
@@ -33,7 +35,7 @@
 
   /* Event Cards  */
   .EventCardStack {
-    padding: 1rem !important ;
+    padding: 2rem !important;
   }
   .EventCardsFlex {
     flex-direction: row !important;
@@ -49,13 +51,12 @@
 @media (min-width: $mantine-breakpoint-xs) {
   /* Event Cards  */
   .EventCardsFlex:hover {
-    .EventCardsImage{
+    .EventCardsImage {
       transform: scale(1.05);
     }
-    .EventCardsStack {  
+    .EventCardsStack {
       transform: translateY(-8px);
-      box-shadow: #65c8dcca 0px 1px 1px,#65c8dcca 0px 1px 16px;
+      box-shadow: #65c8dcca 0px 1px 1px, #65c8dcca 0px 1px 16px;
     }
   }
-
 }
