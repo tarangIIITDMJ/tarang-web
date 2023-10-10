@@ -25,7 +25,7 @@ const images = [
   },
   {
     src: "/galleryViewImages/galleryView5.webp",
-    alt: "macOS Mojave Dark Mode Setting",
+    alt: "macOS Mojave Dark Mode ",
   },
   {
     src: "/galleryViewImages/galleryView4.webp",
