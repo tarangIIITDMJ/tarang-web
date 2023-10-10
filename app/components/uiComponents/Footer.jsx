@@ -65,7 +65,7 @@ export default function Footer() {
               {renderLink("/events", "Events")}
             </Stack>
             <Stack gap={"1.5rem"}>
-              {renderLink("#", "Gallery")}
+              {renderLink("/gallery", "Gallery")}
               {renderLink("/contact-us", "Contact us")}
               {renderLink("/faqs", "FAQ")}
             </Stack>

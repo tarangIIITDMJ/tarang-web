@@ -11,6 +11,7 @@ import {
 } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
+import Link from "next/link";
 
 const galleryImages = [
   "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365168/GalleryImage1_1_txilwo.webp",
@@ -23,9 +24,9 @@ const galleryImages = [
 const ImageAccordion = ({ isMobileView }) => {
   const initialWidth = "13.75rem";
   const hoverWidth = "20.75rem";
-  const initialHeight = "28.125rem";	
-  const hoverHeight = "30rem"; 
-  
+  const initialHeight = "28.125rem";
+  const hoverHeight = "30rem";
+
   return (
     <Group
       mt="4"
@@ -104,17 +105,19 @@ function GalleryView() {
         <ImageAccordion isMobileView={isMobileView} />
       </ScrollArea>
       <Center p={"4rem"}>
-        <Button
-          rightSection={<IconArrowRight />}
-          size="lg"
-          style={{ border: "2px solid black" }}
-          bg="white"
-          c={"black"}
-          radius={0}
-          disabled
-        >
-          View more
-        </Button>
+        <Link href="/gallery">
+          <Button
+            rightSection={<IconArrowRight />}
+            size="lg"
+            style={{ border: "2px solid black" }}
+            bg="white"
+            c={"black"}
+            radius={0}
+            disabled
+          >
+            View more
+          </Button>
+        </Link>
       </Center>
     </Container>
   );
