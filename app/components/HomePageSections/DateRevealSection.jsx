@@ -1,12 +1,19 @@
 "use client";
 
-import { Box, Group, Stack, Text } from "@mantine/core";
-import Image from "next/image";
+import { Box, Group, Stack, Text, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
 
-const images = ["/sticker_1.webp", "/sticker_2.webp", "/sticker_3.webp"];
-const hoverImages = ["/sticker_4.webp", "/sticker_5.webp", "/sticker_6.webp"];
+const images = [
+  "dateSectionImages/sticker_1.svg",
+  "dateSectionImages/sticker_2.svg",
+  "dateSectionImages/sticker_3.svg",
+];
+const hoverImages = [
+  "dateSectionImages/sticker_4.svg",
+  "dateSectionImages/sticker_5.svg",
+  "dateSectionImages/sticker_6.svg",
+];
 
 export default function DateRevealSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -34,7 +41,7 @@ export default function DateRevealSection() {
         </Text>
         <Group pos="relative" px={isMobileView ? "1rem" : "0rem"}>
           {images.map((src, index) => (
-            <div
+            <Box
               key={index}
               onMouseEnter={() => handleImageHover(index)}
               onMouseLeave={handleImageLeave}
@@ -58,7 +65,7 @@ export default function DateRevealSection() {
                   transition: "transform 0.6s ease",
                 }}
               />
-            </div>
+            </Box>
           ))}
         </Group>
       </Stack>

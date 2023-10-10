@@ -1,0 +1,23 @@
+@media (max-width: $mantine-breakpoint-xs) {
+  /* Hero Section */
+  .sg {
+    --sg-cols: 1 !important;
+  }
+  .BgImage {
+    background-position: 27% !important;
+  }
+  .HeroSectionHeading {
+    /* bottom: 2rem !important; */
+
+    margin-top: 6rem !important;
+    padding-left: 1rem !important;
+    /* left: 2rem !important; */
+    font-size: 3.5rem !important;
+  }
+  .HeadingLine {
+    font-size: 1.5rem !important;
+    padding: 1rem !important;
+    padding-block: 3rem !important;
+    text-align: left !important;
+  }
+}

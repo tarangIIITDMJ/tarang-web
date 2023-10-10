@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Container, ScrollArea, Text, Flex, Chip } from "@mantine/core";
+import { Container, ScrollArea, Text, Flex, Chip, Space } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import cssStyles from "@/app/styles/events.module.css";
@@ -11,6 +11,7 @@ export default function EventCategories({
   setSelectedEvents,
   events,
 }) {
+  const isMobile = useMediaQuery("(max-width:768px)");
   return (
     <Container
       pos="relative"
@@ -20,7 +21,13 @@ export default function EventCategories({
       bg={"#0F0F0F"}
       className={cssStyles.EventCategoriesContainer}
     >
+      <Space h={"md"} />
       <ScrollArea
+        style={{
+          borderRadius: "10px",
+          boxShadow: isMobile ? "inset -20px 0 20px -20px #4f4f4f" : "none",
+        }}
+        type={isMobile ? "never" : "hover"}
         styles={{
           scrollbar: { background: "transparent", height: 8 },
           thumb: { background: "white" },
@@ -28,7 +35,7 @@ export default function EventCategories({
       >
         <Flex
           gap={15}
-          py={"3rem"}
+          py={"2rem"}
           className={cssStyles.EventCategoriesButtonsGrp}
         >
           <Chip.Group
@@ -48,7 +55,7 @@ export default function EventCategories({
                     label: {
                       background: selected ? "white" : "transparent",
                       color: selected ? "black" : "white",
-                      paddingBlock: "22px",
+                      paddingBlock: "24px",
                       fontWeight: "600",
                       gap: 10,
                       flexDirection: "row-reverse",

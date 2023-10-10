@@ -3,6 +3,9 @@
 import { Box, Flex, Image, Text, Badge, Button, Stack } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { Breadcrumbs, Anchor } from "@mantine/core";
+import { useState } from "react";
+import Link from "next/link";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 const items = (name) => {
   return [
@@ -21,8 +24,8 @@ const styles = {
   card: {
     borderRadius: "16px",
     border: "1.5px solid rgba(255, 255, 255, 0.76)",
-    background:
-      "linear-gradient(98deg, rgba(46, 39, 239, 0.35) -61.16%, rgba(46, 39, 239, 0.00) 178.71%)",
+    background: "#D9F800",
+    color: "black",
   },
 };
 
@@ -42,11 +45,16 @@ const itemArray = (name) => {
 
 export default function EventDetails({ event }) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
+  const [hasTarangPass, setHasTarangPass] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
 
   const icon = (
     <Image
-      src={"/check-badge.svg"}
-      style={{ width: isMobileView ? "0.65rem" : "1.2rem", height: "100%" }}
+      src={"eventDetailsPageImages/check-badge.svg"}
+      style={{
+        width: isMobileView ? "0.85rem" : "1.2rem",
+        height: isMobileView ? "0.85rem" : "1.2rem",
+      }}
       alt=""
     />
   );
@@ -91,14 +99,17 @@ export default function EventDetails({ event }) {
               hiddenFrom="sm"
               alt=""
             />
-            <Text c="#9EA5AD" size={isMobileView ? "1rem" : "1.125rem"}>
+            <Text
+              c="#9EA5AD"
+              lh="1.5rem"
+              size={isMobileView ? "1rem" : "1.125rem"}
+            >
               {event.description}
             </Text>
             <Stack justify="center" gap={isMobileView ? "0.5rem" : "1rem"}>
               {[
                 { label: "Date", value: event.event_date },
                 { label: "Time", value: event.event_time },
-                { label: "Event Type", value: event.event_type },
                 { label: "Event Category", value: event.event_category },
               ].map((item, index) => (
                 <Text
@@ -107,81 +118,131 @@ export default function EventDetails({ event }) {
                   c="#F6F7F9"
                   fw="500"
                 >
-                  {item.label}: {item.value}
+                  {item.label}:
+                  {item.value !== "" ? ` ${item.value}` : " To be decided"}
                 </Text>
               ))}
             </Stack>
-            <Stack
-              p={isMobileView ? "1rem" : "2rem"}
-              gap={isMobileView ? "1rem" : "2rem"}
-              style={styles.card}
-            >
-              <Flex
-                gap={isMobileView ? "0.5rem" : "1rem"}
-                direction={isMobileView ? "column" : "row"}
+            {hasTarangPass ? (
+              <>
+                <Flex
+                  style={{ borderRadius: "5px" }}
+                  bg={"#303030"}
+                  h="auto"
+                  w="100%"
+                  px={isMobileView ? "1.25rem" : "1.625rem"}
+                  py={isMobileView ? "0.5rem" : "1.125rem"}
+                >
+                  <Image
+                    mt={isMobileView ? "0.4rem" : "0.3rem"}
+                    mr={"md"}
+                    src={"eventDetailsPageImages/alert-circle.svg"}
+                    w={isMobileView ? "1.5rem" : "1rem"}
+                    h={isMobileView ? "1.5rem" : "1rem"}
+                    alt=""
+                  />
+                  <Text
+                    c="#FFF"
+                    lh={isMobileView ? "1.2rem" : "1.5rem"}
+                    size={isMobileView ? "0.85rem" : "1.125rem"}
+                    fw={400}
+                  >
+                    You already have the Tarang pass! Register for this event
+                    now!
+                  </Text>
+                </Flex>
+              </>
+            ) : (
+              <Stack
+                p={isMobileView ? "0.7rem" : "1.5rem"}
+                gap="1rem"
+                style={styles.card}
               >
-                <Text
-                  c="#F6F7F9"
-                  fw="600"
-                  size={isMobileView ? "2rem" : "4rem"}
-                >
-                  ₹ {event.reg_fees}
-                </Text>
-                <Stack
-                  justify="center"
-                  gap={isMobileView ? "0.25rem" : "0.5rem"}
-                >
+                <Flex gap="1rem" justify="space-between" align="center">
                   <Text
-                    c="#FAFAFA"
-                    fw="500"
-                    size={isMobileView ? "0.75rem" : "1.125rem"}
+                    lh={isMobileView ? "1.5rem" : "2.5rem"}
+                    fw={500}
+                    size={isMobileView ? "1.2rem" : "2rem"}
                   >
-                    Registration Fee
+                    Experience it all with the Tarang Pass!
                   </Text>
-                  <Text
-                    c="#9EA5AD"
-                    fw="500"
-                    size={isMobileView ? "0.75rem" : "1.125rem"}
-                  >
-                    Free Entry with purchase
-                  </Text>
+                  <Link href="#">
+                    <Image
+                      mt={"0.2rem"}
+                      mr={"0.85rem"}
+                      src={"eventDetailsPageImages/LearnMore.svg"}
+                      w={isMobileView ? "3rem" : "5rem"}
+                      h={isMobileView ? "3rem" : "5rem"}
+                      alt=""
+                    />
+                  </Link>
+                </Flex>
+                <Stack align="flex-start" gap={"0.5rem"}>
+                  {[
+                    "Get access to every event, workshop, and pro nights.",
+                    "All this for just ₹2000!",
+                  ].map((text, index) => (
+                    <Badge
+                      variant="transparent"
+                      c={"black"}
+                      pl={"0rem"}
+                      h="fit-content"
+                      leftSection={icon}
+                      style={{ textTransform: "none" }}
+                      key={index}
+                    >
+                      <Text
+                        lh={isMobileView ? "1rem" : "1.5rem"}
+                        fw="500"
+                        size={isMobileView ? "0.6rem" : "1rem"}
+                        ml={isMobileView ? "0rem" : "0.5rem"}
+                      >
+                        {text}
+                      </Text>
+                    </Badge>
+                  ))}
                 </Stack>
-              </Flex>
-              <Flex align="center">
-                {[
-                  { label: `₹ ${event.prize_pool} Prize Pool` },
-                  { label: event.event_type },
-                  { label: event.event_category },
-                ].map((item, index) => (
-                  <Badge
-                    key={index}
-                    variant="transparent"
-                    c="#F6F7F9"
-                    pr={isMobileView ? "0.5rem" : "1rem"}
-                    pl={0}
-                    h="fit-content"
-                    leftSection={icon}
-                    size={isMobileView ? "0.5625rem" : "0.8725rem"}
-                    fw="500"
-                  >
-                    <span>{item.label}</span>
-                  </Badge>
-                ))}
-              </Flex>
-            </Stack>
+              </Stack>
+            )}
             <Button
-              size={isMobileView ? "0.75rem" : "1.125rem"}
               h="auto"
               bg="#999999"
               c="black"
               w="100%"
-              px={isMobileView ? "1.25rem" : "1.625rem"}
-              py={isMobileView ? "0.75rem" : "1.125rem"}
-              fw="600"
+              py={isMobileView ? "0.75rem" : "1rem"}
               disabled
             >
-              Register Now
+              {isRegistered ? (
+                <>
+                  <Text fw={"700"} size={isMobileView ? "0.85rem" : "1.25rem"}>
+                    Go to Dashboard{" "}
+                  </Text>
+                  <Box ml="0.5rem">
+                    <IconArrowUpRight
+                      size={32}
+                      strokeWidth={2}
+                      color={"black"}
+                    />
+                  </Box>
+                </>
+              ) : (
+                <Text
+                  fw={"700"}
+                  size={isMobileView ? "0.85rem" : "1.35rem"}
+                  lh={isMobileView ? "1.5rem" : "2.5rem"}
+                >
+                  Register now
+                </Text>
+              )}
             </Button>
+            <Text
+              mt={"-1.5rem"}
+              size={isMobileView ? "0.75rem" : ""}
+              ta="center"
+              c="#BDBDBD"
+            >
+              Save to your Dashboard, pay with Tarang Pass
+            </Text>
           </Stack>
         </Flex>
       </Box>

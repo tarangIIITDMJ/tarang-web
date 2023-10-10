@@ -21,62 +21,79 @@ export default function EventSection() {
   function CardComp({ data, makeMobile = false }) {
     return (
       <Paper bg={"transparent"} h={"100%"} radius={0} p={0}>
-        <Flex
-          p={0}
-          direction={makeMobile ? "row" : "column"}
-          h={makeMobile ? 128 : "max-content"}
-          className={cssStyles.EventCardsFlex}
-          justify={"space-between"}
-        >
-          <Box style={{ overflow: "hidden" }} w={makeMobile ? "35%" : "100%"}>
-            <Image
-              w={"100%"}
-              alt=""
-              {...data.imgData}
-              className={cssStyles.EventCardsImage}
-            />
-          </Box>
-          <Stack
-            p={isMobile ? "12px 24px 24px 24px" : "12px 32px 24px 32px"}
-            gap={5}
-            align="flex-start"
-            h={"130"}
-            w={makeMobile ? "65%" : "100%"}
-            className={cssStyles.EventCardsStack}
-            bg={"white"}
+        <Link href={data.link}>
+          <Flex
+            p={0}
+            direction={makeMobile ? "row" : "column"}
+            h={makeMobile ? 128 : "max-content"}
+            className={cssStyles.EventCardsFlex}
+            justify={"space-between"}
           >
-            <Text fw={500} size="lg">
-              {data.title ?? "Title"}
-            </Text>
-
-            <Text
-              c="#676E76"
-              size="sm"
+            <Box style={{ overflow: "hidden" }} w={makeMobile ? "35%" : "100%"}>
+              <Image
+                w={"100%"}
+                alt=""
+                {...data.imgData}
+                className={cssStyles.EventCardsImage}
+              />
+            </Box>
+            <Stack
+              p={isMobile ? "12px 24px 12px 24px" : "12px 32px 24px 32px"}
+              gap={5}
+              align="flex-start"
+              h={"130"}
+              w={makeMobile ? "65%" : "100%"}
               style={{
-                wordBreak: "break-word",
+                border: isMobile ? "1px solid #000" : "3px solid #000",
               }}
-              lineClamp={3}
+              bg={"white"}
+              className={cssStyles.EventCardsStack}
             >
-              {data.desc ?? "Description"}
-            </Text>
-          </Stack>
-        </Flex>
+              <Text fw={500} size="lg">
+                {data.title ?? "Title"}
+              </Text>
+
+              <Text
+                c="#676E76"
+                size="sm"
+                style={{
+                  wordBreak: "break-word",
+                }}
+                lineClamp={isMobile ? 2 : 3}
+              >
+                {data.desc ?? "Description"}
+              </Text>
+              <Text
+                variant="gradient"
+                size="sm"
+                gradient={{ from: "blue", to: "cyan", deg: 90 }}
+                hiddenFrom="sm"
+              >
+                Read more
+              </Text>
+            </Stack>
+          </Flex>
+        </Link>
       </Paper>
     );
   }
 
   return (
     <Box>
-      <Box bg={"#2E75FF"} py={"3rem"}>
-        <Image src={"/highlightEvents.webp"} alt="" />
+      <Box
+        bg={"#6421F4"}
+        py={"3rem"}
+        style={{ border: "3px solid black", borderTopWidth: "0px" }}
+      >
+        <Image src={"homePageImages/highlightEvents.webp"} alt="" />
       </Box>
       <Box
-        bg={"#0F0F0F"}
+        bg={"#D0EB4C"}
         py={isMobile ? "3rem" : "6rem"}
         px={isMobile ? "1rem" : "6.75rem"}
       >
         <Stack gap={"3.5rem"} align="center">
-          <Text size={isMobile ? "2rem" : "4rem"} c="#F2F2F2">
+          <Text size={isMobile ? "2rem" : "4rem"} c="#24292E">
             Here&apos;s what to expect!
           </Text>
           <Grid gutter={20} justify="center" align="stretch">
@@ -84,12 +101,13 @@ export default function EventSection() {
               <Stack gap={20}>
                 <CardComp
                   data={{
-                    title: "The Big Picture",
+                    title: "Artful Alteration",
                     desc: "Unleash your artistic flair with The Big Picture's canvas creativity and conquer the Photoshop Battle for graphic design supremacy!",
                     imgData: {
                       h: isMobile ? 150 : 300,
                       src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448432/the_big_picture_b6y9pq.webp",
                     },
+                    link: "#",
                   }}
                 />
                 <Grid>
@@ -102,6 +120,7 @@ export default function EventSection() {
                           h: 193,
                           src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/pixcillance_1_x64mhv.webp",
                         },
+                        link: "/events/pixcellence",
                       }}
                       makeMobile={isMobile}
                     />
@@ -115,6 +134,7 @@ export default function EventSection() {
                           h: 193,
                           src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448287/pen_it_down_1_erqnku.webp",
                         },
+                        link: "/events/pen-it-down",
                       }}
                       makeMobile={isMobile}
                     />
@@ -138,6 +158,7 @@ export default function EventSection() {
                           h: 193,
                           src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/Theater_wars_1_pbw4ib.webp",
                         },
+                        link: "/events/theatre-wars",
                       }}
                       makeMobile={isMobile}
                     />
@@ -151,6 +172,7 @@ export default function EventSection() {
                           h: 193,
                           src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/Jhankaar_1_sr4l5a.webp",
                         },
+                        link: "/events/jhankaar",
                       }}
                       makeMobile={isMobile}
                     />
@@ -158,12 +180,13 @@ export default function EventSection() {
                 </Grid>
                 <CardComp
                   data={{
-                    title: "Mural Painting",
+                    title: "Off the wall",
                     desc: "Express your creativity through art with our Mural Painting competition or get hands-on with Bamboo furniture crafting and Pottery at our Creative Workshop!",
                     imgData: {
                       h: isMobile ? 150 : 300,
                       src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448287/Mural-painting_1_h4s6ko.webp",
                     },
+                    link: "/events/off-the-wall",
                   }}
                 />
               </Flex>
@@ -176,6 +199,7 @@ export default function EventSection() {
               bg="white"
               c={"black"}
               radius={0}
+              style={{ border: "3px solid black" }}
             >
               More Events
             </Button>

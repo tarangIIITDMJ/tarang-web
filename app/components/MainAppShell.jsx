@@ -13,11 +13,13 @@ import {
   Group,
   Transition,
   Center,
+  Button,
 } from "@mantine/core";
-import { IconArrowUpRight } from "@tabler/icons-react";
+import { IconArrowUpRight, IconUserCircle } from "@tabler/icons-react";
 import Footer from "./uiComponents/Footer";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAuthStore } from "../store/authStore";
 
 const commonTextStyles = {
   fontSize: "2rem",
@@ -96,7 +98,7 @@ export default function MainAppShell({ children }) {
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
     { name: "Events", link: "/events" },
-    { name: "Gallery", link: "/" },
+    { name: "Gallery", link: "/gallery" },
     { name: "Contact", link: "/contact-us" },
     { name: "FAQ", link: "/faqs" },
   ];
@@ -104,6 +106,7 @@ export default function MainAppShell({ children }) {
   const [opened, { toggle, close }] = useDisclosure(false);
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [hovered, sethovered] = useState("");
+  const { isAuth } = useAuthStore();
   const pathName = usePathname();
 
   const styles = {
@@ -132,11 +135,12 @@ export default function MainAppShell({ children }) {
             <Link href={"/"}>Tarang 23</Link>
           </Text>
           <Text style={{ ...textStyles, ...homeTextStyles }}>
-            {pathName == "/"
+            {pathName === "/"
               ? "Home"
-              : navItems.slice(1).find((el) => pathName.includes(el.link))[
-                  "name"
-                ]}
+              : (
+                  navItems.slice(1).find((el) => pathName.includes(el.link)) ||
+                  {}
+                ).name}
           </Text>
         </Stack>
       </AppShell.Navbar>
@@ -197,6 +201,39 @@ export default function MainAppShell({ children }) {
           </Stack>
         </Drawer>
         {children}
+        {pathName !== "/login" &&
+          pathName !== "/profile" &&
+          pathName !== "/signup" && (
+            <Box visibleFrom="sm" pos="absolute" left="85vw" top="20px">
+              <Link href={isAuth ? "/profile" : "/login"}>
+                <Button
+                  size="lg"
+                  color="#D0EB4C"
+                  leftSection={
+                    <IconUserCircle size={32} strokeWidth={1} color="black" />
+                  }
+                  style={{ fontSize: "1.125rem", fontWeight: 500 }}
+                  c="#000"
+                  py="0.3125rem"
+                  radius="2.5rem"
+                >
+                  {isAuth ? "Dashboard" : "Login"}
+                </Button>
+              </Link>
+            </Box>
+          )}
+        <Box
+          hiddenFrom="sm"
+          pos="absolute"
+          top={48}
+          right={16}
+          bg={"#D0EB4C"}
+          h={48}
+          w={48}
+          style={{ borderRadius: "50%" }}
+        >
+          <IconUserCircle size={48} strokeWidth={1} color="black" />
+        </Box>
         <Footer />
       </AppShell.Main>
     </AppShell>

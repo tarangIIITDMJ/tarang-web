@@ -32,3 +32,44 @@
 .list {
   border-bottom: 1px solid #383f45 !important ;
 }
+
+/* ---------------------------------------------------------------------------- */
+.paperCardFlex {
+  border-radius: 18px ;
+}
+
+@media (max-width: $mantine-breakpoint-xs) {
+  .text {
+    font-size: 14px !important;
+  }
+  .MainFlex {
+    padding: 0 !important;
+    flex-direction: column !important;
+  }
+  .leftCard{
+    width: 100% !important;
+    padding-top: 4.5rem !important;
+  }
+  .profileFlex{
+    flex-direction: row !important;
+  }
+  .paperCardFlex {
+    flex-direction: row !important;
+    padding: 16px 28px !important;
+    gap: 16px !important;
+  }
+  .profileStar {
+    width: 58px !important;
+    height: 58px !important;
+  }
+  .profileCardFlexStack {
+    gap: 0px !important;
+    align-items: flex-start;
+  }
+  .logoutButton {
+    height: var(--button-height-lg) !important;
+    font-size: var(--button-font-size-lg) !important;
+    padding-inline: var(--button-padding-x-md) !important;
+  }
+}
+
