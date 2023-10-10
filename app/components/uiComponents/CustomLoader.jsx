@@ -19,7 +19,7 @@ export default function CustomLoader() {
         autoplay
         loop
         src="https://lottie.host/58f5963f-1305-4aee-8eb2-8c12f9d04d0f/J19tFG0sNN.json"
-        style={{ height: "300px", width: "300px" }}
+        style={{ height: "600px", width: "600px" }}
         className={loadingStyles.loaderPlayer}
       >
         <Controls visible={false} />
