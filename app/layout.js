@@ -40,8 +40,8 @@ export default function RootLayout({ children }) {
         <CheckUser />
         <MantineProvider>
           <Notifications position="bottom-right" />
-          <PreLoader>{children}</PreLoader>
-          {/* {children} */}
+          <PreLoader />
+          {children}
         </MantineProvider>
       </body>
     </html>

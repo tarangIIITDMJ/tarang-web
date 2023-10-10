@@ -8,7 +8,6 @@ import cssstyles from "@/app/styles/home.module.css";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Loading from "@/app/loading";
-import CustomLoader from "../uiComponents/CustomLoader";
 
 const HeroMain = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -43,7 +42,7 @@ const HeroMain = () => {
           type="video/mp4"
         />
       </video>
-      {!videoLoaded && <CustomLoader />}
+      {!videoLoaded && <Loading />}
 
       <Box style={styles.videoOverlay}>
         <Container

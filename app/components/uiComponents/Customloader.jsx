@@ -1,8 +1,10 @@
-import { Flex } from "@mantine/core";
-import loadingStyles from "@/app/styles/loading.module.css";
+"use client";
 import { Controls, Player } from "@lottiefiles/react-lottie-player";
+import { Flex } from "@mantine/core";
+import React from "react";
+import loadingStyles from "@/app/styles/loading.module.css";
 
-export default function CustomLoader() {
+export default function Customloader() {
   return (
     <Flex
       h={"100vh"}
@@ -18,7 +20,7 @@ export default function CustomLoader() {
       <Player
         autoplay
         loop
-        src="https://lottie.host/58f5963f-1305-4aee-8eb2-8c12f9d04d0f/J19tFG0sNN.json"
+        src="/loaderAnimation.json"
         style={{ height: "600px", width: "600px" }}
         className={loadingStyles.loaderPlayer}
       >
