@@ -1,3 +1,4 @@
+"use client";
 import { Button, Center, TextInput } from "@mantine/core";
 import ValidateAuth from "../components/ValidateAuth";
 
