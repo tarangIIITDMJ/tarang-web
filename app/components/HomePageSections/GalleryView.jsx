@@ -45,6 +45,10 @@ const ImageAccordion = ({ isMobileView }) => {
             overflow: "hidden",
             transition: "width 0.5s, height 0.5s",
           }}
+          onTouchStart={(e) => {
+            e.currentTarget.style.width = hoverWidth;
+            e.currentTarget.style.height = hoverHeight;
+          }}
           onMouseEnter={(e) => {
             e.currentTarget.style.width = hoverWidth;
             e.currentTarget.style.height = hoverHeight;
