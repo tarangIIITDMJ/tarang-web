@@ -133,11 +133,12 @@ export default function MainAppShell({ children }) {
             <Link href={"/"}>Tarang 23</Link>
           </Text>
           <Text style={{ ...textStyles, ...homeTextStyles }}>
-            {pathName == "/"
+            {pathName === "/"
               ? "Home"
-              : navItems.slice(1).find((el) => pathName.includes(el.link))[
-                  "name"
-                ]}
+              : (
+                  navItems.slice(1).find((el) => pathName.includes(el.link)) ||
+                  {}
+                ).name}
           </Text>
         </Stack>
       </AppShell.Navbar>

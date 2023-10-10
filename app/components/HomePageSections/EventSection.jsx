@@ -43,8 +43,11 @@ export default function EventSection() {
               align="flex-start"
               h={"130"}
               w={makeMobile ? "65%" : "100%"}
-              className={cssStyles.EventCardsStack}
+              style={{
+                border: isMobile ? "1px solid #000" : "3px solid #000",
+              }}
               bg={"white"}
+              className={cssStyles.EventCardsStack}
             >
               <Text fw={500} size="lg">
                 {data.title ?? "Title"}
@@ -78,19 +81,19 @@ export default function EventSection() {
   return (
     <Box>
       <Box
-        bg={"#2E75FF"}
+        bg={"#6421F4"}
         py={"3rem"}
         style={{ border: "3px solid black", borderTopWidth: "0px" }}
       >
-        <Image src={"/highlightEvents.webp"} alt="" />
+        <Image src={"homePageImages/highlightEvents.webp"} alt="" />
       </Box>
       <Box
-        bg={"#0F0F0F"}
+        bg={"#D0EB4C"}
         py={isMobile ? "3rem" : "6rem"}
         px={isMobile ? "1rem" : "6.75rem"}
       >
         <Stack gap={"3.5rem"} align="center">
-          <Text size={isMobile ? "2rem" : "4rem"} c="#F2F2F2">
+          <Text size={isMobile ? "2rem" : "4rem"} c="#24292E">
             Here&apos;s what to expect!
           </Text>
           <Grid gutter={20} justify="center" align="stretch">
@@ -196,6 +199,7 @@ export default function EventSection() {
               bg="white"
               c={"black"}
               radius={0}
+              style={{ border: "3px solid black" }}
             >
               More Events
             </Button>
