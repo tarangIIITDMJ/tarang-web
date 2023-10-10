@@ -12,4 +12,4 @@ const Admin = () => {
   );
 };
 
-export default page;
+export default Admin;
