@@ -13,7 +13,7 @@ export default function HeroSection() {
         className={cssStyles.HeroSectionContainer}
       >
         <BackgroundImage
-          src={`/jhankaar.webp`}
+          src={`/bgImageContactPage.webp`}
           miw={"100%"}
           h={"100%"}
           style={{

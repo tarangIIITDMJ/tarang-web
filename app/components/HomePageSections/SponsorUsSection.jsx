@@ -19,7 +19,7 @@ function SponsorUsSection() {
         }}
       >
         <Grid.Col
-          bg="#FE73E7"
+          bg="#ED3C71"
           order={isMobileView ? 2 : ""}
           span={1}
           py={isMobileView ? "4rem" : "4.5rem"}
@@ -31,30 +31,34 @@ function SponsorUsSection() {
               <Text
                 style={{ lineHeight: isMobileView ? "2rem" : "4rem" }}
                 fz={isMobileView ? "2rem" : "4rem"}
-                c="#1a1d1f"
+                c="#FFF"
               >
                 Interested about Tarang?
               </Text>
               <Text
-                c="#1a1d1f"
+                c="#FFF"
                 mt={"2.25rem"}
                 fz={isMobileView ? "1.125rem" : "1.25rem"}
               >
                 Discover Tarang's rich lineup and event details in the booklet.
               </Text>
-              <Link href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696759577/Tarang_23_Event_Brochure_hnbhi1.pdf" target="_blank" download="Sponsor Tarang">
+              <Link
+                href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696759577/Tarang_23_Event_Brochure_hnbhi1.pdf"
+                target="_blank"
+                download="Sponsor Tarang"
+              >
                 <Button
                   rightSection={<IconDownload />}
                   mt={"3rem"}
                   size="lg"
                   style={{ border: "2px solid black" }}
-                  bg="white"
-                  c={"black"}
+                  bg="black"
+                  c={"white"}
                   radius={0}
                 >
                   Download PDF
                 </Button>
-                </Link>
+              </Link>
             </Container>
           </Stack>
         </Grid.Col>
@@ -63,7 +67,7 @@ function SponsorUsSection() {
           span={1}
           order={isMobileView ? 3 : ""}
         >
-          <Image h={"100%"} src={"/MobileFrame.webp"} alt="" />
+          <Image h={"100%"} src={"homePageImages/MobileFrame.webp"} alt="" />
         </Grid.Col>
         <Grid.Col
           style={style.borderBox}
@@ -75,12 +79,12 @@ function SponsorUsSection() {
             style={{
               transform: "scaleX(-1)",
             }}
-            src={"/MobileFrame.webp"}
+            src={"homePageImages/MobileFrame.webp"}
             alt=""
           />
         </Grid.Col>
         <Grid.Col
-          bg="#2E75FF"
+          bg="#6421F4"
           order={isMobileView ? 4 : ""}
           span={1}
           py={isMobileView ? "4rem" : "4.5rem"}
@@ -91,31 +95,36 @@ function SponsorUsSection() {
             <Container>
               <Text
                 style={{ lineHeight: isMobileView ? "2rem" : "4rem" }}
-                c="#1a1d1f"
+                c="#FFF"
                 fz={isMobileView ? "2rem" : "4rem"}
               >
                 Here&apos;s how to sponsor us
               </Text>
               <Text
                 mt={"2.25rem"}
-                c="#1a1d1f"
+                c="#FFF"
                 fz={isMobileView ? "1.125rem" : "1.25rem"}
               >
                 Explore sponsorship opportunities and benefits in the booklet.
               </Text>
-              <Link href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696742894/Sponsor-Tarang.pdf" target="_blank" download="Sponsor Tarang" rel="noreferrer">
+              <Link
+                href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696742894/Sponsor-Tarang.pdf"
+                target="_blank"
+                download="Sponsor Tarang"
+                rel="noreferrer"
+              >
                 <Button
                   rightSection={<IconDownload />}
                   mt={"3rem"}
                   size="lg"
                   style={{ border: "2px solid black" }}
-                  bg="white"
-                  c={"black"}
+                  bg="black"
+                  c={"white"}
                   radius={0}
                 >
                   Download Sponsor PDF
                 </Button>
-                </Link>
+              </Link>
             </Container>
           </Stack>
         </Grid.Col>

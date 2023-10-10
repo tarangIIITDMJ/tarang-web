@@ -6,12 +6,33 @@ import Image from "next/image";
 import tarangHeading from "@/public/tarangHeading.svg";
 import cssstyles from "@/app/styles/home.module.css";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import Loading from "@/app/loading";
 
 const HeroMain = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
+  const [videoLoaded, setvideoLoaded] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current.readyState == 4) {
+      setvideoLoaded(true);
+    }
+  }, [videoRef.current]);
+
   return (
     <Container h="100vh" m={0} bg="blue" miw="100%" style={styles.container}>
-      <video loop muted autoPlay style={styles.video}>
+      <video
+        preload="none"
+        ref={videoRef}
+        onCanPlay={() => {
+          setvideoLoaded(true);
+        }}
+        loop
+        muted
+        autoPlay
+        style={styles.video}
+      >
         <source
           src={
             isMobileView
@@ -21,6 +42,8 @@ const HeroMain = () => {
           type="video/mp4"
         />
       </video>
+      {!videoLoaded && <Loading />}
+
       <Box style={styles.videoOverlay}>
         <Container
           h="100%"

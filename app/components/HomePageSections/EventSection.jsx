@@ -20,8 +20,8 @@ export default function EventSection() {
 
   function CardComp({ data, makeMobile = false }) {
     return (
-      <Link href={data.link}>
-        <Paper bg={"transparent"} h={"100%"} radius={0} p={0}>
+      <Paper bg={"transparent"} h={"100%"} radius={0} p={0}>
+        <Link href={data.link}>
           <Flex
             p={0}
             direction={makeMobile ? "row" : "column"}
@@ -38,13 +38,16 @@ export default function EventSection() {
               />
             </Box>
             <Stack
-              p={isMobile ? "12px 24px 24px 24px" : "12px 32px 24px 32px"}
+              p={isMobile ? "12px 24px 12px 24px" : "12px 32px 24px 32px"}
               gap={5}
               align="flex-start"
               h={"130"}
               w={makeMobile ? "65%" : "100%"}
-              className={cssStyles.EventCardsStack}
+              style={{
+                border: isMobile ? "1px solid #000" : "3px solid #000",
+              }}
               bg={"white"}
+              className={cssStyles.EventCardsStack}
             >
               <Text fw={500} size="lg">
                 {data.title ?? "Title"}
@@ -56,33 +59,41 @@ export default function EventSection() {
                 style={{
                   wordBreak: "break-word",
                 }}
-                lineClamp={3}
+                lineClamp={isMobile ? 2 : 3}
               >
                 {data.desc ?? "Description"}
               </Text>
+              <Text
+                variant="gradient"
+                size="sm"
+                gradient={{ from: "blue", to: "cyan", deg: 90 }}
+                hiddenFrom="sm"
+              >
+                Read more
+              </Text>
             </Stack>
           </Flex>
-        </Paper>
-      </Link>
+        </Link>
+      </Paper>
     );
   }
 
   return (
     <Box>
       <Box
-        bg={"#2E75FF"}
+        bg={"#6421F4"}
         py={"3rem"}
         style={{ border: "3px solid black", borderTopWidth: "0px" }}
       >
-        <Image src={"/highlightEvents.webp"} alt="" />
+        <Image src={"homePageImages/highlightEvents.webp"} alt="" />
       </Box>
       <Box
-        bg={"#0F0F0F"}
+        bg={"#D0EB4C"}
         py={isMobile ? "3rem" : "6rem"}
         px={isMobile ? "1rem" : "6.75rem"}
       >
         <Stack gap={"3.5rem"} align="center">
-          <Text size={isMobile ? "2rem" : "4rem"} c="#F2F2F2">
+          <Text size={isMobile ? "2rem" : "4rem"} c="#24292E">
             Here&apos;s what to expect!
           </Text>
           <Grid gutter={20} justify="center" align="stretch">
@@ -96,7 +107,7 @@ export default function EventSection() {
                       h: isMobile ? 150 : 300,
                       src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448432/the_big_picture_b6y9pq.webp",
                     },
-                    link: "/events/artful-alteration",
+                    link: "#",
                   }}
                 />
                 <Grid>
@@ -109,7 +120,7 @@ export default function EventSection() {
                           h: 193,
                           src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/pixcillance_1_x64mhv.webp",
                         },
-                        link: "/events/picxellence",
+                        link: "/events/pixcellence",
                       }}
                       makeMobile={isMobile}
                     />
@@ -188,6 +199,7 @@ export default function EventSection() {
               bg="white"
               c={"black"}
               radius={0}
+              style={{ border: "3px solid black" }}
             >
               More Events
             </Button>

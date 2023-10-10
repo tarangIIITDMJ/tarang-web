@@ -4,8 +4,16 @@ import { Box, Group, Stack, Text, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
 
-const images = ["/sticker_1.webp", "/sticker_2.webp", "/sticker_3.webp"];
-const hoverImages = ["/sticker_4.webp", "/sticker_5.webp", "/sticker_6.webp"];
+const images = [
+  "dateSectionImages/sticker_1.svg",
+  "dateSectionImages/sticker_2.svg",
+  "dateSectionImages/sticker_3.svg",
+];
+const hoverImages = [
+  "dateSectionImages/sticker_4.svg",
+  "dateSectionImages/sticker_5.svg",
+  "dateSectionImages/sticker_6.svg",
+];
 
 export default function DateRevealSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");

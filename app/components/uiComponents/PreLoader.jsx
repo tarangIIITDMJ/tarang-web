@@ -1,17 +1,18 @@
 "use client";
-import Loading from "@/app/loading";
 import React, { useEffect, useState } from "react";
+import Customloader from "./Customloader";
 
-export default function PreLoader({ children }) {
+export default function PreLoader() {
   const [isVisible, setIsVisible] = useState(true);
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setIsVisible(false);
-    }, 3800);
+    }, 3000);
 
     return () => {
       clearTimeout(timeoutId);
     };
   }, []);
-  return <>{isVisible ? <Loading /> : children}</>;
+
+  return <>{isVisible && <Customloader />}</>;
 }

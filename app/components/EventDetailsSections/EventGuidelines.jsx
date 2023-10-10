@@ -14,13 +14,6 @@ export default function EventGuidelines({ event }) {
       content: ['You can participate as "' + event.event_type + '".'],
     },
     {
-      title: "Participation Criteria",
-      content: [
-        `A minimum of ${event.min_participants} and a maximum of 
-        ${event.max_participants} participants are required to participate in this event.`,
-      ],
-    },
-    {
       title: "Coordinators",
       content: event.coordinators.map(
         (coordinator) => coordinator.name + " (+91 " + coordinator.pno + ")"
