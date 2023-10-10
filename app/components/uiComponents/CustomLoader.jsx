@@ -1,7 +1,6 @@
 import { Flex } from "@mantine/core";
-import Image from "next/image";
-import loader from "@/public/loader.gif";
 import loadingStyles from "@/app/styles/loading.module.css";
+import { Controls, Player } from "@lottiefiles/react-lottie-player";
 
 export default function CustomLoader() {
   return (
@@ -16,12 +15,15 @@ export default function CustomLoader() {
       top={0}
       style={{ zIndex: 999 }}
     >
-      <Image
-        className={loadingStyles.loader}
-        priority
-        src={loader}
-        alt="loader"
-      />
+      <Player
+        autoplay
+        loop
+        src="https://lottie.host/58f5963f-1305-4aee-8eb2-8c12f9d04d0f/J19tFG0sNN.json"
+        style={{ height: "300px", width: "300px" }}
+        className={loadingStyles.loaderPlayer}
+      >
+        <Controls visible={false} />
+      </Player>
     </Flex>
   );
 }
