@@ -1,15 +1,7 @@
 import { Box, Group, Stack, Text } from "@mantine/core";
 
 const AboutTarangSection = () => (
-  <Box
-    bg="#FFF4E2"
-    py="4rem"
-    px="5rem"
-    style={{
-      border: "3px solid #000",
-      borderBottomWidth: "0px",
-    }}
-  >
+  <Box bg="#D0EB4C" py="4rem" px="5rem" style={{ border: "3px solid #000" }}>
     <Group align="center" justify="space-around" gap="2rem">
       {[
         { number: "2007", text: "Since 2007" },

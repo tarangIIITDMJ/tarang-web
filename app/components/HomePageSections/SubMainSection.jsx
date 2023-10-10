@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Box, Flex, Group, Stack, Text, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 

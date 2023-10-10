@@ -2,7 +2,6 @@
 import {
   Box,
   Button,
-  Card,
   Flex,
   Grid,
   Image,
@@ -85,7 +84,14 @@ export default function EventSection() {
         py={"3rem"}
         style={{ border: "3px solid black", borderTopWidth: "0px" }}
       >
-        <Image src={"homePageImages/highlightEvents.webp"} alt="" />
+        {isMobile ? (
+          <Image
+            src={"homePageImages/highlightEventsBannerMobile.svg"}
+            alt=""
+          />
+        ) : (
+          <Image src={"homePageImages/highlightEventsBanner.svg"} alt="" />
+        )}
       </Box>
       <Box
         bg={"#D0EB4C"}

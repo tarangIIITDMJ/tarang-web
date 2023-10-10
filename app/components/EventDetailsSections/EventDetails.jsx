@@ -50,7 +50,7 @@ export default function EventDetails({ event }) {
 
   const icon = (
     <Image
-      src={"eventDetailsPageImages/check-badge.svg"}
+      src={"/eventDetailsPageImages/check-badge.svg"}
       style={{
         width: isMobileView ? "0.85rem" : "1.2rem",
         height: isMobileView ? "0.85rem" : "1.2rem",
@@ -136,7 +136,7 @@ export default function EventDetails({ event }) {
                   <Image
                     mt={isMobileView ? "0.4rem" : "0.3rem"}
                     mr={"md"}
-                    src={"eventDetailsPageImages/alert-circle.svg"}
+                    src={"/eventDetailsPageImages/alert-circle.svg"}
                     w={isMobileView ? "1.5rem" : "1rem"}
                     h={isMobileView ? "1.5rem" : "1rem"}
                     alt=""
@@ -170,7 +170,7 @@ export default function EventDetails({ event }) {
                     <Image
                       mt={"0.2rem"}
                       mr={"0.85rem"}
-                      src={"eventDetailsPageImages/LearnMore.svg"}
+                      src={"/eventDetailsPageImages/LearnMore.svg"}
                       w={isMobileView ? "3rem" : "5rem"}
                       h={isMobileView ? "3rem" : "5rem"}
                       alt=""
