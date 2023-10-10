@@ -12,7 +12,7 @@ export default function HeroSection() {
       className={cssStyles.HeroSectionContainer}
     >
       <BackgroundImage
-        src={`/EventPageHeroImage2.webp`}
+        src={`/eventPageBgImage.webp`}
         miw={"100%"}
         h={"100%"}
         style={{

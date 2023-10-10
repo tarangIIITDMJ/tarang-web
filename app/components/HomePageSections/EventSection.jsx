@@ -40,7 +40,7 @@ export default function EventSection() {
               p={isMobile ? "12px 24px 12px 24px" : "12px 32px 24px 32px"}
               gap={5}
               align="flex-start"
-              h={"130"}
+              h={isMobile ? "auto" : "130"}
               w={makeMobile ? "65%" : "100%"}
               style={{
                 border: isMobile ? "1px solid #000" : "3px solid #000",
