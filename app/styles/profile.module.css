@@ -73,3 +73,43 @@
   }
 }
 
+/* ProfileEventCard.css */
+
+/* ---------------------------------------------------------------------------- */
+
+.profileAddEventButton{
+  background-color: transparent;
+  color:black;
+  font-weight:700;
+}
+
+.profileEventCardButton{
+  background-color: transparent;
+  color:black;
+  font-weight:650;
+}
+
+.profileEventCardButton:hover{
+  background-color: transparent;
+  color:#F34141;
+  font-weight:650;
+}
+
+.eventCardBadge1{
+  color:#CD3636 ;
+  border:1px solid #CD3636;
+  text-transform:none;
+  font-weight:600;
+}
+
+.eventCardBadge2{
+  color:#2F9461;
+  border:1px solid #2F9461;
+  text-transform:none;
+  font-weight:600;
+}
+
+.cardHovered{
+  border: 2px solid #0000000D;
+}
+

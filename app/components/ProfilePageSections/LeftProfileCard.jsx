@@ -15,7 +15,7 @@ import ProfileStar from "@/public/ProfileStar.svg";
 import profileCSS from "@/app/styles/profile.module.css";
 import { useMediaQuery } from "@mantine/hooks";
 
-export default function LeftProfileCard() {
+export default function LeftProfileCard({user}) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   function StarPaper({ pc }) {
@@ -83,9 +83,9 @@ export default function LeftProfileCard() {
           >
             <IconUserCircle color="#ED3C71" size={96} stroke={1} />
             <Stack gap={0}>
-              <Text fz={32}>Hi Aditya !</Text>
+              <Text fz={32}>Hi {user.fname}!</Text>
               <Text fz={18} c={"#454C52"}>
-                Tarang ID: xxx xxx
+                Tarang ID:  {user.tarang_id}
               </Text>
               {!isMobile && (
                 <Divider
