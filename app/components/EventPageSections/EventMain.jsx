@@ -15,6 +15,7 @@ export default function EventMain({ events }) {
         eventList={list}
         events={events}
       />
+
       <EventCards selectedEvents={selectedEvents} events={events} />
     </>
   );

@@ -180,7 +180,7 @@ export default function EventDetails({ event }) {
           </Button>
         </Group>
         <Group py={5} mt={10}>
-          <Text c="#676E76">
+          <Text c="#676E76" fz="0.75rem">
             Note: Ensure Each Team Member Presents a Tarang Pass for Entry
           </Text>
         </Group>
@@ -368,7 +368,7 @@ export default function EventDetails({ event }) {
               }
               <Text
                 mt={"-1.5rem"}
-                size={isMobileView ? "0.75rem" : ""}
+                size={isMobileView ? "0.75rem" : "1rem"}
                 ta="center"
                 c="#BDBDBD"
               >

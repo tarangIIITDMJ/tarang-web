@@ -60,12 +60,10 @@
 @media (min-width: $mantine-breakpoint-xs) {
   /* Event Cards  */
   .EventCardsFlex:hover {
-    .EventCardsImage {
-      transform: scale(1.05);
-    }
-    .EventCardsStack {
-      transform: translateY(-8px);
-      box-shadow: #65c8dcca 0px 1px 1px, #65c8dcca 0px 1px 16px;
-    }
+    box-shadow: 8px 8px 0px 0px #000;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.01);
+    /* .EventCardsImage { */
+    /* } */
   }
 }

@@ -12,6 +12,7 @@ export default function EventCategories({
   events,
 }) {
   const isMobile = useMediaQuery("(max-width:768px)");
+  console.log(selectedEvents);
   return (
     <Container
       pos="relative"
@@ -25,7 +26,7 @@ export default function EventCategories({
       <ScrollArea
         style={{
           borderRadius: "10px",
-          boxShadow: isMobile ? "inset -20px 0 20px -20px #4f4f4f" : "none",
+          boxShadow: isMobile ? "inset -20px 0 20px -20px #7f7f7f" : "none",
         }}
         type={isMobile ? "never" : "hover"}
         styles={{
@@ -56,7 +57,7 @@ export default function EventCategories({
                       paddingBlock: "24px",
                       fontWeight: "600",
                       gap: 10,
-                      border: "1px solid #000",
+                      border: "2px solid #000",
                       flexDirection: "row-reverse",
                     },
                   }}
@@ -78,12 +79,12 @@ export default function EventCategories({
         c="#24292E"
         className={cssStyles.EventCategoriesText}
         mt={10}
-        fz={"2rem"}
+        fz={"1.5rem"}
       >
-        Events (
         {events.filter((el) => selectedEvents.includes(el.event_category))
-          .length || events.length}
-        )
+          .length || events.length}{" "}
+        Events in{" "}
+        {selectedEvents.length != 0 ? selectedEvents.join(", ") : "Total"}
       </Text>
     </Container>
   );
