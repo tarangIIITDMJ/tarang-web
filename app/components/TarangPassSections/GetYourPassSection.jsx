@@ -47,7 +47,7 @@ const GetYourPassSection = () => {
             fw={500}
             lh={isMobileView ? "1.8rem" : "2.4rem"}
           >
-            All this for just ₹2000!
+            All this for just ₹1999!
           </Text>
           <Button
             size={isMobileView ? "sm" : "lg"}

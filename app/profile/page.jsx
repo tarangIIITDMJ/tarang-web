@@ -22,7 +22,7 @@ export default function Profile() {
           gap={24}
           className={profileCSS.MainFlex}
         >
-          <LeftProfileCard />
+          <LeftProfileCard user />
           <ProfileDashboard />
         </Flex>
       </ValidateAuth>

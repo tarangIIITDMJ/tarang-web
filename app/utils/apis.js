@@ -44,3 +44,16 @@ export const getEvent = (eventSlug) => {
     `https://tarang-backend.onrender.com/api/events/${eventSlug}`
   );
 };
+
+export const registerEvent = (eventSlug, teamName) => {
+  return axios.post(
+    `https://tarang-backend.onrender.com/api/events/register`,
+    {
+      slug: eventSlug,
+      teamName,
+    },
+    {
+      withCredentials: true,
+    }
+  );
+};
