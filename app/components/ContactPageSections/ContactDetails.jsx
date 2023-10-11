@@ -4,7 +4,7 @@ import { Box, Text, Grid, Stack } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import cssStyles from "@/app/styles/contact.module.css";
 
-const eventsData = [
+const contactData_1 = [
   {
     eventName: "Malang",
     person1Name: "Ashish Chaudhary",
@@ -24,12 +24,14 @@ const eventsData = [
     person1Name: "Uday Shakya",
     person1Number: "7017474241",
   },
+];
+
+const contactData_2 = [
   {
     eventName: "Shutter Stories",
     person1Name: "Pulivarthi Mahesh",
     person1Number: "9392816922",
   },
-  // Add more event data here
 ];
 
 const EventContact = ({
@@ -50,10 +52,12 @@ const EventContact = ({
           {person1Name} -{" "}
           <span className={cssStyles.boldText}>{person1Number}</span>
         </Text>
-        <Text c="#E5E7EA" fz={makeMobile ? "1rem" : "1.125rem"} lh={"1.5rem"}>
-          {person2Name} -{" "}
-          <span className={cssStyles.boldText}>{person2Number}</span>
-        </Text>
+        {person2Name && person2Number && (
+          <Text c="#E5E7EA" fz={makeMobile ? "1rem" : "1.125rem"} lh={"1.5rem"}>
+            {person2Name} -{" "}
+            <span className={cssStyles.boldText}>{person2Number}</span>
+          </Text>
+        )}
       </Box>
     </Stack>
   );
@@ -76,7 +80,7 @@ const ContactDetails = () => {
       </Text>
 
       <Grid pt={isMobileView ? "2rem" : "4.5rem"}>
-        {eventsData.slice(0, 2).map((event, index) => (
+        {contactData_1.map((event, index) => (
           <Grid.Col key={index} span={{ base: 12, md: 6, lg: 4 }}>
             <EventContact makeMobile={isMobileView} {...event} />
           </Grid.Col>
@@ -84,7 +88,7 @@ const ContactDetails = () => {
       </Grid>
 
       <Grid pt={isMobileView ? "1rem" : "3.5rem"}>
-        {eventsData.slice(2, 4).map((event, index) => (
+        {contactData_2.map((event, index) => (
           <Grid.Col key={index} span={{ base: 12, md: 6, lg: 4 }}>
             <EventContact makeMobile={isMobileView} {...event} />
           </Grid.Col>

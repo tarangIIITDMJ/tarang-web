@@ -18,7 +18,7 @@ export default function EventCategories({
       m={0}
       pl={"5.5rem"}
       miw="100%"
-      bg={"#0F0F0F"}
+      bg={"#EFDEE3"}
       className={cssStyles.EventCategoriesContainer}
     >
       <Space h={"md"} />
@@ -30,7 +30,7 @@ export default function EventCategories({
         type={isMobile ? "never" : "hover"}
         styles={{
           scrollbar: { background: "transparent", height: 8 },
-          thumb: { background: "white" },
+          thumb: { background: "black" },
         }}
       >
         <Flex
@@ -47,17 +47,16 @@ export default function EventCategories({
               let selected = selectedEvents.includes(event);
               return (
                 <Chip
-                  icon={
-                    <IconX size={22} color={selected ? "black" : "white"} />
-                  }
+                  icon={<IconX size={22} color={"white"} />}
                   variant="outline"
                   styles={{
                     label: {
-                      background: selected ? "white" : "transparent",
-                      color: selected ? "black" : "white",
+                      background: selected ? "black" : "transparent",
+                      color: selected ? "white" : "black",
                       paddingBlock: "24px",
                       fontWeight: "600",
                       gap: 10,
+                      border: "1px solid #000",
                       flexDirection: "row-reverse",
                     },
                   }}
@@ -76,7 +75,7 @@ export default function EventCategories({
       </ScrollArea>
 
       <Text
-        c="#9EA5AD"
+        c="#24292E"
         className={cssStyles.EventCategoriesText}
         mt={10}
         fz={"2rem"}

@@ -1,14 +1,9 @@
-"use client";
 import { Text, Stack, Grid, Flex, Box, Image, Paper } from "@mantine/core";
 import cssStyles from "@/app/styles/events.module.css";
 import Link from "next/link";
-import { useMediaQuery } from "@mantine/hooks";
-import { IconArrowRight } from "@tabler/icons-react";
 
 export default function EventCards({ selectedEvents, events }) {
   function CardComp({ event }) {
-    const isMobileView = useMediaQuery("(max-width: 768px)");
-
     return (
       <Link href={`/events/${event.slug}`}>
         <Paper radius={0} p={0} bg={"transparent"}>
@@ -42,7 +37,7 @@ export default function EventCards({ selectedEvents, events }) {
               align="flex-start"
               w={"100%"}
               style={{
-                border: "2px solid #000",
+                border: "3px solid #000",
               }}
               className={cssStyles.EventCardsStack}
               bg={"white"}
@@ -83,7 +78,7 @@ export default function EventCards({ selectedEvents, events }) {
 
   return (
     <Stack
-      bg={"#0F0F0F"}
+      bg={"#EFDEE3"}
       align="flex-start"
       pt={"1rem"}
       pb={"4rem"}
