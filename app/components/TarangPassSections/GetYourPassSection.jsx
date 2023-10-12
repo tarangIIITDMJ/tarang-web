@@ -75,18 +75,20 @@ const GetYourPassSection = () => {
               </Button>
             </Link>
           ) : (
-            <Button
-              size={isMobileView ? "sm" : "lg"}
-              color="#000"
-              rightSection={<IconArrowUpRight />}
-              h="auto"
-              px={isMobileView ? "1.25rem" : "1.625rem"}
-              py={isMobileView ? "0.75rem" : "1.125rem"}
-              radius={0}
-              mt={isMobileView ? "1.5rem" : "3rem"}
-            >
-              Get Your Tarang Pass
-            </Button>
+            <Link href="/login">
+              <Button
+                size={isMobileView ? "sm" : "lg"}
+                color="#000"
+                rightSection={<IconArrowUpRight />}
+                h="auto"
+                px={isMobileView ? "1.25rem" : "1.625rem"}
+                py={isMobileView ? "0.75rem" : "1.125rem"}
+                radius={0}
+                mt={isMobileView ? "1.5rem" : "3rem"}
+              >
+                Get Your Tarang Pass
+              </Button>
+            </Link>
           )}
         </Stack>
       </Container>
