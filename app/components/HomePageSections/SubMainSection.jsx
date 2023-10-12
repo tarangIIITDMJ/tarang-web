@@ -3,6 +3,7 @@
 import { Box, Flex, Group, Stack, Text, Image, Button } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconArrowRight } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function SubMainSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -72,17 +73,19 @@ export default function SubMainSection() {
                 </Stack>
               ))}
             </Group>
-            <Button
-              size={isMobileView ? "sm" : "lg"}
-              rightSection={<IconArrowRight />}
-              px={isMobileView ? "1.25rem" : "1.125rem"}
-              py={isMobileView ? "0.75rem" : "1.125rem"}
-              color="#000"
-              h="auto"
-              radius={0}
-            >
-              Read More
-            </Button>
+            <Link href="/about">
+              <Button
+                size={isMobileView ? "sm" : "lg"}
+                rightSection={<IconArrowRight />}
+                px={isMobileView ? "1.25rem" : "1.125rem"}
+                py={isMobileView ? "0.75rem" : "1.125rem"}
+                color="#000"
+                h="auto"
+                radius={0}
+              >
+                Read More
+              </Button>
+            </Link>
           </Stack>
         </Box>
       </Flex>

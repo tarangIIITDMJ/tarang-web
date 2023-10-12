@@ -69,3 +69,9 @@ export const removeRegisteredEvent = (eventSlug) => {
     }
   );
 };
+
+export const logout = () => {
+  return axios.get("https://tarang-backend.onrender.com/api/logout", {
+    withCredentials: true,
+  });
+};
