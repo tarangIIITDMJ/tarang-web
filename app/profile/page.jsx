@@ -18,12 +18,12 @@ export default function Profile() {
           mih={"100vh"}
           px={60}
           py={30}
-          bg={"black"}
+          bg={"#F6F4C8"} 
           gap={24}
           className={profileCSS.MainFlex}
         >
-          <LeftProfileCard user />
-          <ProfileDashboard />
+          <LeftProfileCard  user={user} />
+          <ProfileDashboard user={user} />
         </Flex>
       </ValidateAuth>
     </MainAppShell>
