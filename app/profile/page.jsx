@@ -14,7 +14,7 @@ export default function Profile() {
     <ValidateAuth>
       <MainAppShell>
         <Flex
-          h={"100vh"}
+          mih={"100vh"}
           px={60}
           py={30}
           bg={"#F6F4C8"}
@@ -22,9 +22,7 @@ export default function Profile() {
           className={profileCSS.MainFlex}
         >
           <LeftProfileCard user={user} />
-          <ScrollArea>
-            <ProfileDashboard user={user} />
-          </ScrollArea>
+          <ProfileDashboard user={user} />
         </Flex>
       </MainAppShell>
     </ValidateAuth>
