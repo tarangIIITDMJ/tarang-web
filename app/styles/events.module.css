@@ -59,11 +59,15 @@
 }
 @media (min-width: $mantine-breakpoint-xs) {
   /* Event Cards  */
+  .EventCardsFlex {
+    transition: all 0.3s ease-in-out;
+  }
   .EventCardsFlex:hover {
     box-shadow: 8px 8px 0px 0px #000;
-    transition: all 0.3s ease-in-out;
-    transform: scale(1.01);
-    /* .EventCardsImage { */
-    /* } */
+    transform: translateY(-8px);
+    .EventCardsImage {
+      transform: scale(1.05);
+      box-shadow: 16px 16px 0px 0px #000;
+    }
   }
 }

@@ -60,11 +60,9 @@ export const registerEvent = (eventSlug, teamName) => {
 
 export const removeRegisteredEvent = (eventSlug) => {
   return axios.delete(
-    "https://tarang-backend.onrender.com/api/events/remove/",
+    `http://localhost:5000/api/events/remove`,
     {
-      data: {
-        slug: eventSlug,
-      },
+      slug: eventSlug,
     },
     {
       withCredentials: true,

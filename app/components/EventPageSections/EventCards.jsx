@@ -85,7 +85,7 @@ export default function EventCards({ selectedEvents, events }) {
       px={"5.5rem"}
       className={cssStyles.EventCardStack}
     >
-      <Grid gutter={"1.75rem"} px={0}>
+      <Grid gutter={"1.75rem"} px={0} pr={"1rem"}>
         {selectedEvents.length == 0
           ? events.map((event, index) => {
               return (

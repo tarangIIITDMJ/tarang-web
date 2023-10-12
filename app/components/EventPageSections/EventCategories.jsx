@@ -84,7 +84,15 @@ export default function EventCategories({
         {events.filter((el) => selectedEvents.includes(el.event_category))
           .length || events.length}{" "}
         Events in{" "}
-        {selectedEvents.length != 0 ? selectedEvents.join(", ") : "Total"}
+        {selectedEvents.length !== 0
+          ? selectedEvents
+              .map((eventCategory, index) =>
+                index === selectedEvents.length - 1
+                  ? `and ${eventCategory}`
+                  : eventCategory
+              )
+              .join(", ")
+          : "Total"}
       </Text>
     </Container>
   );
