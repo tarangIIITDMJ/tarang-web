@@ -9,6 +9,8 @@ import {
   Button,
   Flex,
   Badge,
+  Alert,
+  ScrollArea,
 } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import classes from "@/app/styles/profile.module.css";
@@ -18,9 +20,14 @@ import {
   IconArrowUpRight,
   IconPlus,
   IconAlertCircleFilled,
+  IconInfoCircle,
+  IconDiscountCheck,
+  IconDiscountCheckFilled,
+  IconArrowRight,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import Loader from "@/app/components/Loader/index";
+import { useMediaQuery } from "@mantine/hooks";
 
 async function fetchEventDetails(eventSlug) {
   try {
@@ -36,6 +43,7 @@ export default function ProfileDashboard({ user }) {
   const [activeTab, setActiveTab] = useState("first");
   const [eventDetails, setEventDetails] = useState([]);
   const [eventsLoader, setEventsLoader] = useState(false);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const icon = <IconAlertCircleFilled color="#CD3636" size={25} />;
 
@@ -65,7 +73,7 @@ export default function ProfileDashboard({ user }) {
     <>
       <Paper
         style={{ border: "1px solid #383F45" }}
-        w={"100%"}
+        m={isMobile ? "2px" : ""}
         bg={"transparent"}
         radius={0}
         py={40}
@@ -92,47 +100,73 @@ export default function ProfileDashboard({ user }) {
                 Payment History
               </Tabs.Tab>
             </Tabs.List>
-
+            {console.log(user)}
             <Tabs.Panel value="first">
-              {user.hasPaid ? (
-                <></>
-              ) : (
-                <Flex
-                  my={"2rem"}
-                  p={"0.875rem"}
-                  w={"100%"}
-                  bg={"#F34141"}
-                  c={"#FFFFFF"}
-                  gap={"1rem"}
-                  align={"center"}
-                  className={classes.completePaymentFlex}
+              {user.paymentVerified ? (
+                <Alert
+                  mt={"md"}
+                  variant="filled"
+                  color="green"
+                  // title="Payment done and verified"
                 >
-                  <Flex>
-                    <span style={{ paddingBottom: "2rem" }}>{icon}</span>
-                    <Text
-                      lineClamp={5}
-                      lh={"1rem"}
-                      px={"0.5rem"}
-                      size={"1.2rem"}
-                    >
+                  <Flex className={classes.completePaymentFlex}>
+                    <IconDiscountCheckFilled />
+                    <Text fz={"1.125rem"} px={"8px"}>
+                      Congratulations! Your Tarang Pass payment has been
+                      verified. You're all set to enjoy all selected events. Get
+                      ready for a fantastic Tarang experience!
+                    </Text>
+                  </Flex>
+                </Alert>
+              ) : user.paymentFormFilled ? (
+                <Alert
+                  mt={"md"}
+                  variant="filled"
+                  color="yellow"
+                  // title="verification pending"
+                  icon={<IconInfoCircle />}
+                >
+                  <Flex className={classes.completePaymentFlex}>
+                    <Text fz={"1.125rem"} px={"5px"}>
+                      Payment complete! We're verifying it now. Verification
+                      usually takes [estimated timeframe]. For any assistance or
+                      questions, reach us via WhatsApp. Your Tarang experience
+                      awaits!
+                    </Text>
+                  </Flex>
+                  <Group pt={"md"}>
+                    <Text fw={600}>Contact Us on WhatsApp </Text>
+                    <IconArrowRight />
+                  </Group>
+                </Alert>
+              ) : (
+                <Alert
+                  mt={"md"}
+                  variant="filled"
+                  color="red"
+                  // title="Payment not done yet"
+                  icon={<IconInfoCircle />}
+                >
+                  <Flex className={classes.completePaymentFlex}>
+                    <Text fz={"1.125rem"} px={"5px"}>
                       You've added events to your dashboard, but your Tarang
                       Pass payment is pending. Secure your spot for all selected
                       events now to avoid missing out!
                     </Text>
+                    <Link href="/tarang-pass">
+                      <Button
+                        radius={0}
+                        bg={"#FFFFFF"}
+                        size="xl"
+                        c={"black"}
+                        style={{ fontWeight: "650", fontSize: "1.125rem" }}
+                        rightSection={<IconArrowUpRight />}
+                      >
+                        Complete Payment
+                      </Button>
+                    </Link>
                   </Flex>
-                  <Link href="/tarang-pass">
-                    <Button
-                      radius={0}
-                      bg={"#FFFFFF"}
-                      size="xl"
-                      c={"black"}
-                      style={{ fontWeight: "650", fontSize: "1.125rem" }}
-                      rightSection={<IconArrowUpRight />}
-                    >
-                      Complete Payment
-                    </Button>
-                  </Link>
-                </Flex>
+                </Alert>
               )}
               <Flex justify={"space-between"} align={"center"}>
                 <Text
@@ -158,13 +192,28 @@ export default function ProfileDashboard({ user }) {
                 <Loader />
               ) : (
                 <>
-                  {eventDetails.map((event, index) => (
-                    <ProfileEventCard
-                      key={index}
-                      hasPaid={user.hasPaid}
-                      event={event}
-                    />
-                  ))}
+                  <ScrollArea h={"50vh"}>
+                    {eventDetails.length ? (
+                      eventDetails.map((event, index) => (
+                        <ProfileEventCard
+                          key={index}
+                          hasPaid={user.hasPaid}
+                          event={event}
+                        />
+                      ))
+                    ) : (
+                      <Alert
+                        variant="light"
+                        color="yellow"
+                        title="No Event Registered"
+                        icon={<IconInfoCircle />}
+                      >
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. At officiis, quae tempore necessitatibus placeat
+                        saepe.
+                      </Alert>
+                    )}
+                  </ScrollArea>
                 </>
               )}
             </Tabs.Panel>
