@@ -11,21 +11,20 @@ import profileCSS from "@/app/styles/profile.module.css";
 export default function Profile() {
   const { user } = useAuthStore();
   return (
-    <MainAppShell>
-      <ValidateAuth>
-        {/* {<div>{JSON.stringify(user)}</div>} */}
+    <ValidateAuth>
+      <MainAppShell>
         <Flex
           mih={"100vh"}
           px={60}
           py={30}
-          bg={"#F6F4C8"} 
+          bg={"#F6F4C8"}
           gap={24}
           className={profileCSS.MainFlex}
         >
-          <LeftProfileCard  user={user} />
+          <LeftProfileCard user={user} />
           <ProfileDashboard user={user} />
         </Flex>
-      </ValidateAuth>
-    </MainAppShell>
+      </MainAppShell>
+    </ValidateAuth>
   );
 }
