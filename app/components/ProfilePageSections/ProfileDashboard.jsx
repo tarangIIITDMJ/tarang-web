@@ -100,7 +100,6 @@ export default function ProfileDashboard({ user }) {
                 Payment History
               </Tabs.Tab>
             </Tabs.List>
-            {console.log(user)}
             <Tabs.Panel value="first">
               {user.paymentVerified ? (
                 <Alert
@@ -208,9 +207,7 @@ export default function ProfileDashboard({ user }) {
                         title="No Event Registered"
                         icon={<IconInfoCircle />}
                       >
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. At officiis, quae tempore necessitatibus placeat
-                        saepe.
+                        You haven't added any events so far.
                       </Alert>
                     )}
                   </ScrollArea>
