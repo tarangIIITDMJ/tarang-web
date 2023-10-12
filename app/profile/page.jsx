@@ -5,7 +5,7 @@ import LeftProfileCard from "../components/ProfilePageSections/LeftProfileCard";
 import ProfileDashboard from "../components/ProfilePageSections/ProfileDashboard";
 import { useAuthStore } from "../store/authStore";
 import ValidateAuth from "../components/ValidateAuth";
-import { Flex } from "@mantine/core";
+import { Flex, ScrollArea } from "@mantine/core";
 import profileCSS from "@/app/styles/profile.module.css";
 
 export default function Profile() {

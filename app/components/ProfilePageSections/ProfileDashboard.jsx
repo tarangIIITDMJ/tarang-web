@@ -48,6 +48,19 @@ export default function ProfileDashboard({ user }) {
       }
     );
   }, [user.events]);
+
+  function UserDetails({ heading, value }) {
+    return (
+      <Group gap={64} className={classes.userDetailsGroup} align="flex-start">
+        <Text fz={18} className={classes.userDetailsHeading}>
+          {heading}:
+        </Text>
+        <Text className={classes.userDetailsValue} fz={18}>
+          {value}
+        </Text>
+      </Group>
+    );
+  }
   return (
     <>
       <Paper
@@ -58,7 +71,7 @@ export default function ProfileDashboard({ user }) {
         py={40}
         // visibleFrom="sm"
       >
-        <Stack h={"100%"} px={32}>
+        <Stack h={"100%"} px={32} className={classes.DashboardStack}>
           <Text fz={48}>Dashboard</Text>
           <Tabs
             value={activeTab}
@@ -89,17 +102,24 @@ export default function ProfileDashboard({ user }) {
                   p={"0.875rem"}
                   w={"100%"}
                   bg={"#F34141"}
-                  h={"5.75rem"}
                   c={"#FFFFFF"}
                   gap={"1rem"}
                   align={"center"}
+                  className={classes.completePaymentFlex}
                 >
-                  <span style={{ paddingBottom: "2rem" }}>{icon}</span>
-                  <Text lh={"1rem"} px={"0.5rem"} size={"1.2rem"}>
-                    You've added events to your dashboard, but your Tarang Pass
-                    payment is pending. Secure your spot for all selected events
-                    now to avoid missing out!
-                  </Text>
+                  <Flex>
+                    <span style={{ paddingBottom: "2rem" }}>{icon}</span>
+                    <Text
+                      lineClamp={5}
+                      lh={"1rem"}
+                      px={"0.5rem"}
+                      size={"1.2rem"}
+                    >
+                      You've added events to your dashboard, but your Tarang
+                      Pass payment is pending. Secure your spot for all selected
+                      events now to avoid missing out!
+                    </Text>
+                  </Flex>
                   <Link href="/tarang-pass">
                     <Button
                       radius={0}
@@ -149,66 +169,46 @@ export default function ProfileDashboard({ user }) {
               )}
             </Tabs.Panel>
 
-            <Tabs.Panel miw={500} value="second">
-              <Stack p={32} w={"100%"} gap={10}>
+            <Tabs.Panel value="second">
+              <Stack
+                p={32}
+                className={classes.PersonalDetailsStack}
+                w={"100%"}
+                gap={10}
+              >
                 <Text fz={32}>Personal Details</Text>
                 <Divider w={"90%"} />
-                <Group gap={64}>
-                  <Text fz={18} w={200}>
-                    Name:
-                  </Text>
-                  <Text fz={18}>
-                    {user.fname} {user.lname}
-                  </Text>
-                </Group>
-                <Group gap={64}>
-                  <Text fz={18} w={200}>
-                    Age:
-                  </Text>
-                  <Text fz={18}>{user.age} yrs</Text>
-                </Group>
-                <Group gap={64}>
-                  <Text fz={18} w={200}>
-                    Contact:
-                  </Text>
-                  <Text fz={18}>{user.phone}</Text>
-                </Group>
-                <Group gap={64}>
-                  <Text fz={18} w={200}>
-                    E-mail:
-                  </Text>
-                  <Text fz={18}>{user.email}</Text>
-                </Group>
+
+                <UserDetails
+                  heading={"Name"}
+                  value={user.fname + " " + user.lname}
+                />
+                <UserDetails heading={"Age"} value={user.age} />
+                <UserDetails heading={"Contact"} value={user.phone} />
+                <UserDetails heading={"E-mail"} value={user.email} />
               </Stack>
-              <Stack p={32} w={"100%"} gap={10}>
+
+              <Stack
+                p={32}
+                w={"100%"}
+                gap={10}
+                className={classes.PersonalDetailsStack}
+              >
                 <Text fz={32}>College Details</Text>
                 <Divider w={"90%"} />
-                <Group gap={64}>
-                  <Text fz={18} w={200}>
-                    Your College/Institute:
-                  </Text>
-                  <Text fz={18}>{user.college}</Text>
-                </Group>
-                <Group gap={64}>
-                  <Text fz={18} w={200}>
-                    Address:
-                  </Text>
-                  <Text fz={18}>
-                    {user.district}, {user.state}
-                  </Text>
-                </Group>
-                <Group gap={64}>
-                  <Text fz={18} w={200}>
-                    Degree:
-                  </Text>
-                  <Text fz={18}>{user.degree}</Text>
-                </Group>
-                <Group gap={64}>
-                  <Text fz={18} w={200}>
-                    Year of Study:
-                  </Text>
-                  <Text fz={18}>{user.yearOfStudy}</Text>
-                </Group>
+                <UserDetails
+                  heading={"College/Institute"}
+                  value={user.college}
+                />
+                <UserDetails
+                  heading={"Address"}
+                  value={user.district + " " + user.state}
+                />
+                <UserDetails heading={"Degree"} value={user.degree} />
+                <UserDetails
+                  heading={"Year of Study"}
+                  value={user.yearOfStudy}
+                />
               </Stack>
             </Tabs.Panel>
 
@@ -216,66 +216,6 @@ export default function ProfileDashboard({ user }) {
           </Tabs>
         </Stack>
       </Paper>
-
-      {/* <Paper w={"100%"} bg={"transparent"} radius={0} p={15} hiddenFrom="sm">
-        <Stack gap={32}>
-          <Text fz={32}>Dashboard</Text>
-          <Text fz={18} c={"#ED3C71"}>
-            My Profile
-          </Text>
-          <Stack
-            py={32}
-            px={16}
-            gap={32}
-            style={{ border: "1px solid #383F45" }}
-          >
-            <Stack gap={8}>
-              <Text fz={24}>Personal Details</Text>
-              <Divider c={"#9EA5AD"} />
-              <Group justify="space-between">
-                <Text fz={16}>Name:</Text>
-                <Text fz={16}>
-                  {user.fname} {user.lname}
-                </Text>
-              </Group>
-              <Group justify="space-between">
-                <Text fz={16}>Age:</Text>
-                <Text fz={16}>{user.age} yrs</Text>
-              </Group>
-              <Group justify="space-between">
-                <Text fz={16}>Contact:</Text>
-                <Text fz={16}>{user.phone}</Text>
-              </Group>
-              <Group justify="space-between">
-                <Text fz={16}>E-mail:</Text>
-                <Text fz={16}>{user.email}</Text>
-              </Group>
-            </Stack>
-            <Stack gap={8}>
-              <Text fz={24}>College Details</Text>
-              <Divider c={"#9EA5AD"} />
-              <Group justify="space-between">
-                <Text fz={16}>Your College/Institute:</Text>
-                <Text fz={16}>{user.college}</Text>
-              </Group>
-              <Group justify="space-between">
-                <Text fz={16}>Address:</Text>
-                <Text fz={16}>
-                  {user.district}, {user.state}
-                </Text>
-              </Group>
-              <Group justify="space-between">
-                <Text fz={16}>Degree:</Text>
-                <Text fz={16}>{user.degree}</Text>
-              </Group>
-              <Group justify="space-between">
-                <Text fz={16}>Year:</Text>
-                <Text fz={16}>{user.yearOfStudy}</Text>
-              </Group>
-            </Stack>
-          </Stack>
-        </Stack>
-      </Paper> */}
     </>
   );
 }

@@ -1,7 +1,8 @@
 "use client";
 
-import { Box, Flex, Group, Stack, Text, Image } from "@mantine/core";
+import { Box, Flex, Group, Stack, Text, Image, Button } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import { IconArrowRight } from "@tabler/icons-react";
 
 export default function SubMainSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -30,7 +31,7 @@ export default function SubMainSection() {
           <Stack
             align="flex-start"
             justify="center"
-            gap={isMobileView ? "1.5rem" : "3rem"}
+            gap={isMobileView ? "1.5rem" : "2rem"}
           >
             <Text size={isMobileView ? "2rem" : "4rem"} c="#000">
               A Display of Dedication
@@ -71,6 +72,17 @@ export default function SubMainSection() {
                 </Stack>
               ))}
             </Group>
+            <Button
+              size={isMobileView ? "sm" : "lg"}
+              rightSection={<IconArrowRight />}
+              px={isMobileView ? "1.25rem" : "1.125rem"}
+              py={isMobileView ? "0.75rem" : "1.125rem"}
+              color="#000"
+              h="auto"
+              radius={0}
+            >
+              Read More
+            </Button>
           </Stack>
         </Box>
       </Flex>

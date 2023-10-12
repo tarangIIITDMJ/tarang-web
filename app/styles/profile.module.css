@@ -1,7 +1,7 @@
 .tab {
   position: relative;
   border: none;
-
+  
   &:first-of-type {
     background: transparent;
     border: none;
@@ -39,6 +39,31 @@
 }
 
 @media (max-width: $mantine-breakpoint-xs) {
+  .PersonalDetailsStack {
+    padding: 12px 0px !important;
+    
+  }
+  .userDetailsGroup {
+    gap: 20px !important;
+  }
+  .userDetailsHeading {
+    width: 130px !important;
+  }
+  .userDetailsValue {
+    width: 150px !important;
+    word-break: break-all;
+  }
+  .completePaymentFlex{
+    flex-direction: column;
+    width: 100% !important;
+  }
+  .tab {
+    font-size: 0.93rem !important;
+  padding-inline: 10px !important;
+  }
+  .DashboardStack{
+    padding-inline: 16px !important;
+  }
   .text {
     font-size: 14px !important;
   }

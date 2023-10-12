@@ -108,7 +108,7 @@ export default function ProfileEventCard({ event, hasPaid }) {
                 color="#FAC7C7"
                 className={profileCSS.eventCardBadge1}
               >
-                Purchase Tarang Pass
+                Purchase Tarang Card
               </Badge>
             )}
           </Flex>

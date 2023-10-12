@@ -11,25 +11,6 @@ import {
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
-const styles = {
-  container: {
-    flexShrink: 0,
-  },
-  img: {
-    width: "100%",
-    height: "100%",
-    borderRadius: "50%",
-    objectFit: "cover",
-  },
-  flexContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    gap: "3rem",
-  },
-};
-
 const SubMainSection = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 

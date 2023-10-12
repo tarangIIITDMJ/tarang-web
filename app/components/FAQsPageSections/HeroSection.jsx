@@ -1,5 +1,5 @@
-import { BackgroundImage, Text, Box, Container } from "@mantine/core";
-import cssStyles from "@/app/styles/events.module.css";
+import { BackgroundImage, Text, Container } from "@mantine/core";
+import cssStyles from "@/app/styles/faqs.module.css";
 
 export default function HeroSection() {
   return (
@@ -31,7 +31,7 @@ export default function HeroSection() {
           left={"5rem"}
           className={cssStyles.HeroSectionHeading}
         >
-          Events
+          FAQs
         </Text>
       </BackgroundImage>
     </Container>
