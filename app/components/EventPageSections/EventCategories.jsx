@@ -12,14 +12,14 @@ export default function EventCategories({
   events,
 }) {
   const isMobile = useMediaQuery("(max-width:768px)");
-  console.log(selectedEvents);
+
   return (
     <Container
       pos="relative"
       m={0}
-      pl={"5.5rem"}
+      pl="5.5rem"
       miw="100%"
-      bg={"#EFDEE3"}
+      bg="#EFDEE3"
       className={cssStyles.EventCategoriesContainer}
     >
       <Space h={"md"} />
@@ -28,11 +28,7 @@ export default function EventCategories({
           borderRadius: "10px",
           boxShadow: isMobile ? "inset -20px 0 20px -20px #7f7f7f" : "none",
         }}
-        type={isMobile ? "never" : "hover"}
-        styles={{
-          scrollbar: { background: "transparent", height: 8 },
-          thumb: { background: "black" },
-        }}
+        type={"never"}
       >
         <Flex
           gap={15}

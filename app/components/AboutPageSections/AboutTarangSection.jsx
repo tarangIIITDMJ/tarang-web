@@ -6,7 +6,7 @@ const AboutTarangSection = () => (
       {[
         { number: "2007", text: "Since 2007" },
         { number: "100+", text: "Over 100+ participating colleges" },
-        { number: "8000", text: "Footfall of over 8000" },
+        { number: "4500+", text: "Footfall of over 8000" },
         { number: "30+", text: "30+ events" },
       ].map((item) => (
         <Stack key={item.number} align="center">
