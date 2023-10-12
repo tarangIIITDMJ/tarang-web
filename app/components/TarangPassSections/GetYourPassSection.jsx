@@ -38,7 +38,7 @@ const GetYourPassSection = () => {
             lh={isMobileView ? "2.4rem" : "4.2rem"}
           >
             Join the Epic Revival. Get
-            {!isMobileView && <br />} Your Tarang Pass{" "}
+            {!isMobileView && <br />} Your Tarang Card{" "}
             <span style={{ color: "#2E27EF" }}>Today!</span>
           </Text>
           <Text
@@ -59,7 +59,7 @@ const GetYourPassSection = () => {
             radius={0}
             mt={isMobileView ? "1.5rem" : "3rem"}
           >
-            Get Your Tarang Pass
+            Get Your Tarang Card
           </Button>
         </Stack>
       </Container>

@@ -181,7 +181,7 @@ export default function EventDetails({ event }) {
         </Group>
         <Group py={5} mt={10}>
           <Text c="#676E76" fz="0.75rem">
-            Note: Ensure Each Team Member Presents a Tarang Pass for Entry
+            Note: Ensure Each Team Member Presents a Tarang Card for Entry
           </Text>
         </Group>
       </Modal>
@@ -272,7 +272,7 @@ export default function EventDetails({ event }) {
                       size={isMobileView ? "0.85rem" : "1.125rem"}
                       fw={400}
                     >
-                      You already have the Tarang pass! Register for this event
+                      You already have the Tarang card! Register for this event
                       now!
                     </Text>
                   </Flex>
@@ -289,7 +289,7 @@ export default function EventDetails({ event }) {
                       fw={500}
                       size={isMobileView ? "1.2rem" : "2rem"}
                     >
-                      Experience it all with the Tarang Pass!
+                      Experience it all with the Tarang Card!
                     </Text>
                     <Link href="/tarang-pass">
                       <Image
@@ -372,7 +372,7 @@ export default function EventDetails({ event }) {
                 ta="center"
                 c="#BDBDBD"
               >
-                Save to your Dashboard, pay with Tarang Pass
+                Save to your Dashboard, pay with Tarang Card
               </Text>
             </Stack>
           </Flex>

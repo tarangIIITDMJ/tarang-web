@@ -41,7 +41,7 @@ const HeroSection = () => {
           >
             Unleash the magic of Tarang, Central India's premier
             {!isMobileView && <br />} cultural fest, with the all-inclusive
-            Tarang Pass.
+            Tarang Card.
           </Text>
           <Image src={headingImageSrc} alt="" />
         </Stack>
@@ -62,7 +62,7 @@ const HeroSection = () => {
           >
             For just ₹1999, enjoy three unforgettable days of non-stop
             entertainment, workshops, and pro nights. With seamless access to
-            every event, the Tarang Pass makes your festival experience
+            every event, the Tarang Card makes your festival experience
             effortless and extraordinary.
           </Text>
           {!isMobileView && <DateRevealSection />}

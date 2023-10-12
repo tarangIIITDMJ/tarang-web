@@ -24,7 +24,7 @@ function SubMainSection() {
         style={{ borderRadius: "2.5rem" }}
       >
         <Text c="#FFF" fz="4rem" lh="5.5rem" fw={500}>
-          Tarang pass, hover-tilt-interactive card will be here.
+          Tarang Card, hover-tilt-interactive card will be here.
         </Text>
       </Center>
       <Flex justify="space-around" align="center" gap="3rem">
@@ -59,7 +59,7 @@ function SubMainSection() {
                   </Text>
                   <Text c="#CED2D6" fz={smallFontSize}>
                     {number === 1
-                      ? `With the Tarang Pass, you pay once and enjoy everything! No more fumbling for change or missing out on 
+                      ? `With the Tarang Card, you pay once and enjoy everything! No more fumbling for change or missing out on 
                         exciting events – this pass is your golden ticket to an 
                         epic Tarang adventure.`
                       : number === 2
