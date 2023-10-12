@@ -5,7 +5,7 @@ import LeftProfileCard from "../components/ProfilePageSections/LeftProfileCard";
 import ProfileDashboard from "../components/ProfilePageSections/ProfileDashboard";
 import { useAuthStore } from "../store/authStore";
 import ValidateAuth from "../components/ValidateAuth";
-import { Flex } from "@mantine/core";
+import { Flex, ScrollArea } from "@mantine/core";
 import profileCSS from "@/app/styles/profile.module.css";
 
 export default function Profile() {
@@ -14,7 +14,7 @@ export default function Profile() {
     <ValidateAuth>
       <MainAppShell>
         <Flex
-          mih={"100vh"}
+          h={"100vh"}
           px={60}
           py={30}
           bg={"#F6F4C8"}
@@ -22,7 +22,9 @@ export default function Profile() {
           className={profileCSS.MainFlex}
         >
           <LeftProfileCard user={user} />
-          <ProfileDashboard user={user} />
+          <ScrollArea>
+            <ProfileDashboard user={user} />
+          </ScrollArea>
         </Flex>
       </MainAppShell>
     </ValidateAuth>
