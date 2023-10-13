@@ -7,9 +7,24 @@ import { useAuthStore } from "../store/authStore";
 import ValidateAuth from "../components/ValidateAuth";
 import { Flex, ScrollArea } from "@mantine/core";
 import profileCSS from "@/app/styles/profile.module.css";
+import { useEffect } from "react";
+import { getUser } from "../utils/apis";
 
 export default function Profile() {
-  const { user } = useAuthStore();
+  const { user, setUser, setIsLoading } = useAuthStore();
+  useEffect(() => {
+    async function fetchUser() {
+      setIsLoading(true);
+      try {
+        const response = await getUser();
+        setUser(response.data.user);
+      } catch (error) {
+        console.log(error);
+      }
+      setIsLoading(false);
+    }
+    fetchUser();
+  }, [setIsLoading, setUser]);
   return (
     <ValidateAuth>
       <MainAppShell>
