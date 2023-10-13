@@ -71,7 +71,12 @@ export default function LeftProfileCard({ user }) {
             className={profileCSS.profileCardFlexStack}
           >
             <Text fz={24}>Refer a friend</Text>
-            <Text className={profileCSS.text} ta={isMobile?"":"center"} fz={18} c={"#383F45"}>
+            <Text
+              className={profileCSS.text}
+              ta={isMobile ? "" : "center"}
+              fz={18}
+              c={"#383F45"}
+            >
               Refer a friend or a group and unlock exciting offers for both of
               you!
             </Text>
@@ -108,7 +113,7 @@ export default function LeftProfileCard({ user }) {
             className={profileCSS.profileFlex}
           >
             <IconUserCircle color="#ED3C71" size={96} stroke={1} />
-            <Stack gap={0}>
+            <Stack gap={0} ta="center">
               <Text fz={32}>Hi {user.fname}!</Text>
               <Text fz={18} c={"#454C52"}>
                 Tarang ID: {user.tarang_id}

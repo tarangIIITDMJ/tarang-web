@@ -128,7 +128,7 @@ export default function ProfileDashboard({ user }) {
                   <Flex className={classes.completePaymentFlex}>
                     <Text fz={"1.125rem"} px={"5px"}>
                       Payment complete! We're verifying it now. Verification
-                      usually takes [estimated timeframe]. For any assistance or
+                      usually takes within 12 hours. For any assistance or
                       questions, reach us via WhatsApp. Your Tarang experience
                       awaits!
                     </Text>
@@ -160,6 +160,7 @@ export default function ProfileDashboard({ user }) {
                         c={"black"}
                         style={{ fontWeight: "650", fontSize: "1.125rem" }}
                         rightSection={<IconArrowUpRight />}
+                        fullWidth={isMobile ? true : false}
                       >
                         Complete Payment
                       </Button>
