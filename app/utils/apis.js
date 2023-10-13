@@ -44,3 +44,15 @@ export const getEvent = (eventSlug) => {
     `https://tarang-backend.onrender.com/api/events/${eventSlug}`
   );
 };
+
+export const verifyPayment = (tarangID) => {
+  return axios.put(
+    `http://localhost:5000/api/admin/verify`,
+    {
+      tarangID,
+    },
+    {
+      withCredentials: true,
+    }
+  );
+};
