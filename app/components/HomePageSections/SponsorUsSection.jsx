@@ -135,7 +135,7 @@ function SponsorUsSection() {
 
 const style = {
   borderBox: {
-    border: "1.5px solid black",
+    border: "1px solid black",
   },
 };
 

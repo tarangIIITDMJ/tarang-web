@@ -11,12 +11,9 @@ import {
 } from "@mantine/core";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
-import Link from "next/link";
-import { useAuthStore } from "@/app/store/authStore";
 
 const GetYourPassSection = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
-  const { user, isAuth } = useAuthStore();
 
   return (
     <Box
@@ -38,11 +35,10 @@ const GetYourPassSection = () => {
             ta="center"
             fz={isMobileView ? "2rem" : "4rem"}
             fw={500}
-            mt={20}
             lh={isMobileView ? "2.4rem" : "4.2rem"}
           >
             Join the Epic Revival. Get
-            {!isMobileView && <br />} Your Tarang Card{" "}
+            {!isMobileView && <br />} Your Tarang Pass{" "}
             <span style={{ color: "#2E27EF" }}>Today!</span>
           </Text>
           <Text
@@ -51,46 +47,20 @@ const GetYourPassSection = () => {
             fw={500}
             lh={isMobileView ? "1.8rem" : "2.4rem"}
           >
-            All this for just ₹1999!
+            All this for just ₹2000!
           </Text>
-          {isAuth ? (
-            <Link
-              target="_blank"
-              href={`https://docs.google.com/forms/d/e/1FAIpQLSd7Bs0uQayl1GSOaB_dwZFYtpRBAO67iehIgOC88eOD-lhOFA/viewform?usp=pp_url&entry.275844225=${
-                user.fname + " " + user.lname
-              }&entry.1392576540=${user.tarang_id}&entry.272288439=${
-                user.email
-              }&entry.610706180=${user.phone}`}
-            >
-              <Button
-                size={isMobileView ? "sm" : "lg"}
-                color="#000"
-                rightSection={<IconArrowUpRight />}
-                h="auto"
-                px={isMobileView ? "1.25rem" : "1.625rem"}
-                py={isMobileView ? "0.75rem" : "1.125rem"}
-                radius={0}
-                mt={isMobileView ? "1.5rem" : "3rem"}
-              >
-                Get Your Tarang Card
-              </Button>
-            </Link>
-          ) : (
-            <Link href="/login">
-              <Button
-                size={isMobileView ? "sm" : "lg"}
-                color="#000"
-                rightSection={<IconArrowUpRight />}
-                h="auto"
-                px={isMobileView ? "1.25rem" : "1.625rem"}
-                py={isMobileView ? "0.75rem" : "1.125rem"}
-                radius={0}
-                mt={isMobileView ? "1.5rem" : "3rem"}
-              >
-                Get Your Tarang Card
-              </Button>
-            </Link>
-          )}
+          <Button
+            size={isMobileView ? "sm" : "lg"}
+            color="#000"
+            rightSection={<IconArrowUpRight />}
+            h="auto"
+            px={isMobileView ? "1.25rem" : "1.625rem"}
+            py={isMobileView ? "0.75rem" : "1.125rem"}
+            radius={0}
+            mt={isMobileView ? "1.5rem" : "3rem"}
+          >
+            Get Your Tarang Pass
+          </Button>
         </Stack>
       </Container>
     </Box>

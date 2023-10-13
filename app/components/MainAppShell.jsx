@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import {
   AppShell,
@@ -107,20 +107,6 @@ export default function MainAppShell({ children }) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [hovered, sethovered] = useState("");
   const { isAuth } = useAuthStore();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentPosition = window.pageYOffset;
-      setIsScrolled(currentPosition > scrollPosition);
-      setScrollPosition(currentPosition);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollPosition]);
   const pathName = usePathname();
 
   const styles = {
@@ -218,59 +204,38 @@ export default function MainAppShell({ children }) {
         {pathName !== "/login" &&
           pathName !== "/profile" &&
           pathName !== "/signup" && (
-            <ScrollVisibleBox isScrolled={isScrolled} isAuth={isAuth} />
+            <Box visibleFrom="sm" pos="absolute" left="85vw" top="20px">
+              <Link href={isAuth ? "/profile" : "/login"}>
+                <Button
+                  size="lg"
+                  color="#D0EB4C"
+                  leftSection={
+                    <IconUserCircle size={32} strokeWidth={1} color="black" />
+                  }
+                  style={{ fontSize: "1.125rem", fontWeight: 500 }}
+                  c="#000"
+                  py="0.3125rem"
+                  radius="2.5rem"
+                >
+                  {isAuth ? "Dashboard" : "Login"}
+                </Button>
+              </Link>
+            </Box>
           )}
-        <Link href={isAuth ? "/profile" : "/login"}>
-          <Box
-            hiddenFrom="sm"
-            pos="fixed"
-            top={48}
-            right={16}
-            bg={"#D0EB4C"}
-            h={48}
-            w={48}
-            style={{ borderRadius: "50%" }}
-          >
-            <IconUserCircle size={48} strokeWidth={1} color="black" />
-          </Box>
-        </Link>
+        <Box
+          hiddenFrom="sm"
+          pos="absolute"
+          top={48}
+          right={16}
+          bg={"#D0EB4C"}
+          h={48}
+          w={48}
+          style={{ borderRadius: "50%" }}
+        >
+          <IconUserCircle size={48} strokeWidth={1} color="black" />
+        </Box>
         <Footer />
       </AppShell.Main>
     </AppShell>
-  );
-}
-
-function ScrollVisibleBox({ isScrolled, isAuth }) {
-  return (
-    <Box
-      visibleFrom="sm"
-      pos="fixed"
-      left="85vw"
-      top="20px"
-      style={{
-        opacity: isScrolled ? 0 : 1,
-        transition: "opacity 0.3s ease-in-out",
-      }}
-    >
-      <Link href={isAuth ? "/profile" : "/login"}>
-        <Button
-          size="lg"
-          color="#D0EB4C"
-          leftSection={
-            <IconUserCircle size={32} strokeWidth={1} color="black" />
-          }
-          style={{
-            fontSize: "1.125rem",
-            fontWeight: 500,
-            border: "2px solid black",
-          }}
-          c="#000"
-          py="0.3125rem"
-          radius="2.5rem"
-        >
-          {isAuth ? "Dashboard" : "Login"}
-        </Button>
-      </Link>
-    </Box>
   );
 }
