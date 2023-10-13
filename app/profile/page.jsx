@@ -5,27 +5,41 @@ import LeftProfileCard from "../components/ProfilePageSections/LeftProfileCard";
 import ProfileDashboard from "../components/ProfilePageSections/ProfileDashboard";
 import { useAuthStore } from "../store/authStore";
 import ValidateAuth from "../components/ValidateAuth";
-import { Flex } from "@mantine/core";
+import { Flex, ScrollArea } from "@mantine/core";
 import profileCSS from "@/app/styles/profile.module.css";
+import { useEffect } from "react";
+import { getUser } from "../utils/apis";
 
 export default function Profile() {
-  const { user } = useAuthStore();
+  const { user, setUser, setIsLoading } = useAuthStore();
+  useEffect(() => {
+    async function fetchUser() {
+      setIsLoading(true);
+      try {
+        const response = await getUser();
+        setUser(response.data.user);
+      } catch (error) {
+        console.log(error);
+      }
+      setIsLoading(false);
+    }
+    fetchUser();
+  }, [setIsLoading, setUser]);
   return (
-    <MainAppShell>
-      <ValidateAuth>
-        {/* {<div>{JSON.stringify(user)}</div>} */}
+    <ValidateAuth>
+      <MainAppShell>
         <Flex
           mih={"100vh"}
           px={60}
           py={30}
-          bg={"black"}
+          bg={"#F6F4C8"}
           gap={24}
           className={profileCSS.MainFlex}
         >
-          <LeftProfileCard />
-          <ProfileDashboard />
+          <LeftProfileCard user={user} />
+          <ProfileDashboard user={user} />
         </Flex>
-      </ValidateAuth>
-    </MainAppShell>
+      </MainAppShell>
+    </ValidateAuth>
   );
 }

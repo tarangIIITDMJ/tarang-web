@@ -2,7 +2,7 @@ import { Box, Stack, Text } from "@mantine/core";
 import cssStyles from "@/app/styles/about.module.css";
 
 const ContentSection = () => (
-  <Box bg="#0F0F0F">
+  <Box bg="#EFDEE3">
     <Stack
       gap="1.5rem"
       py={"3rem"}
@@ -10,7 +10,7 @@ const ContentSection = () => (
       className={cssStyles.ContentSectionContainer}
     >
       <Text
-        c="#FAFAFA"
+        c="#000"
         size="4rem"
         fw={500}
         className={cssStyles.ContentSectionTitle}
@@ -18,7 +18,7 @@ const ContentSection = () => (
         The Tide is turning!
       </Text>
       <Text
-        c="#CED2D6"
+        c="#24292E"
         size="1.25rem"
         lh={1.2}
         className={cssStyles.ContentSectionText}
@@ -27,7 +27,7 @@ const ContentSection = () => (
         India, reemerges after 5 years! Strap in, for an epic revival!
       </Text>
       <Text
-        c="#CED2D6"
+        c="#24292E"
         size="1.25rem"
         lh={1.2}
         className={cssStyles.ContentSectionText}
@@ -42,7 +42,7 @@ const ContentSection = () => (
         where they come from!
       </Text>
       <Text
-        c="#CED2D6"
+        c="#24292E"
         size="1.25rem"
         lh={1.2}
         className={cssStyles.ContentSectionText}

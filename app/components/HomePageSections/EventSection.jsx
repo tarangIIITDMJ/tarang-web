@@ -2,7 +2,6 @@
 import {
   Box,
   Button,
-  Card,
   Flex,
   Grid,
   Image,
@@ -20,7 +19,7 @@ export default function EventSection() {
 
   function CardComp({ data, makeMobile = false }) {
     return (
-      <Paper bg={"transparent"} h={"100%"} radius={0} p={0}>
+      <Paper bg={"transparent"} h={"100%"} radius={0} p={isMobile ? 0 : 6}>
         <Link href={data.link}>
           <Flex
             p={0}
@@ -41,7 +40,7 @@ export default function EventSection() {
               p={isMobile ? "12px 24px 12px 24px" : "12px 32px 24px 32px"}
               gap={5}
               align="flex-start"
-              h={"130"}
+              h={isMobile ? "auto" : "130"}
               w={makeMobile ? "65%" : "100%"}
               style={{
                 border: isMobile ? "1px solid #000" : "3px solid #000",
@@ -85,7 +84,14 @@ export default function EventSection() {
         py={"3rem"}
         style={{ border: "3px solid black", borderTopWidth: "0px" }}
       >
-        <Image src={"homePageImages/highlightEvents.webp"} alt="" />
+        {isMobile ? (
+          <Image
+            src={"homePageImages/highlightEventsBannerMobile.svg"}
+            alt=""
+          />
+        ) : (
+          <Image src={"homePageImages/highlightEventsBanner.svg"} alt="" />
+        )}
       </Box>
       <Box
         bg={"#D0EB4C"}
@@ -102,12 +108,12 @@ export default function EventSection() {
                 <CardComp
                   data={{
                     title: "Artful Alteration",
-                    desc: "Unleash your artistic flair with The Big Picture's canvas creativity and conquer the Photoshop Battle for graphic design supremacy!",
+                    desc: "Got the mad skills with brush and paints? Get ready for an electrifying three-hour challenge! Gather your dream team to create an unparalleled masterpiece.",
                     imgData: {
                       h: isMobile ? 150 : 300,
                       src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448432/the_big_picture_b6y9pq.webp",
                     },
-                    link: "#",
+                    link: "/events/artful-alteration",
                   }}
                 />
                 <Grid>
@@ -181,7 +187,7 @@ export default function EventSection() {
                 <CardComp
                   data={{
                     title: "Off the wall",
-                    desc: "Express your creativity through art with our Mural Painting competition or get hands-on with Bamboo furniture crafting and Pottery at our Creative Workshop!",
+                    desc: 'With the theme of "Fantasy", this event is sure to be one to look out for. Unleash your inner creativity and make sure our unsuspecting judges are in for a wild ride!',
                     imgData: {
                       h: isMobile ? 150 : 300,
                       src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448287/Mural-painting_1_h4s6ko.webp",

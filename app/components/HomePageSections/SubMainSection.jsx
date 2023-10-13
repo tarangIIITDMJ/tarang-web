@@ -1,11 +1,22 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Box, Flex, Group, Stack, Text, Image } from "@mantine/core";
+import { Box, Flex, Group, Stack, Text, Image, Button } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import { IconArrowRight } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function SubMainSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
+  const [rotation, setRotation] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotation((current) => current + 1);
+    }, 40);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Box
@@ -19,19 +30,32 @@ export default function SubMainSection() {
         align="center"
         gap={"3rem"}
       >
-        <Box>
+        <Box pos="relative">
           <Image
-            src={"homePageImages/tarangCircleBgImage.svg"}
+            src={"homePageImages/tarangCircle.svg"}
             alt=""
+            style={{
+              transform: `rotate(${rotation}deg)`,
+              transition: "transform 0.3s ease",
+            }}
             w={isMobileView ? "20.5rem" : "32rem"}
             h={isMobileView ? "20.5rem" : "32rem"}
+          />
+          <Image
+            pos="absolute"
+            top={isMobileView ? 5 : 8}
+            left={isMobileView ? 4 : 60}
+            w={isMobileView ? "19.8rem" : "24.6rem"}
+            h={isMobileView ? "auto" : "30.5rem"}
+            src={"homePageImages/tide.svg"}
+            alt=""
           />
         </Box>
         <Box>
           <Stack
             align="flex-start"
             justify="center"
-            gap={isMobileView ? "1.5rem" : "3rem"}
+            gap={isMobileView ? "1.5rem" : "2rem"}
           >
             <Text size={isMobileView ? "2rem" : "4rem"} c="#000">
               A Display of Dedication
@@ -72,6 +96,19 @@ export default function SubMainSection() {
                 </Stack>
               ))}
             </Group>
+            <Link href="/about">
+              <Button
+                size={isMobileView ? "sm" : "lg"}
+                rightSection={<IconArrowRight />}
+                px={isMobileView ? "1.25rem" : "1.125rem"}
+                py={isMobileView ? "0.75rem" : "1.125rem"}
+                color="#000"
+                h="auto"
+                radius={0}
+              >
+                Read More
+              </Button>
+            </Link>
           </Stack>
         </Box>
       </Flex>

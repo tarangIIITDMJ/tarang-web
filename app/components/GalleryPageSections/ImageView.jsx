@@ -7,6 +7,7 @@ import {
   Image,
   Pagination,
   SimpleGrid,
+  Stack,
   Text,
 } from "@mantine/core";
 import { IconArrowLeft, IconArrowRight, IconX } from "@tabler/icons-react";
@@ -17,56 +18,73 @@ import cssStyles from "@/app/styles/gallery.module.css";
 const images = [
   {
     src: "/galleryViewImages/galleryView7.webp",
-    alt: "Android 9.0 Dark Mode Setting",
   },
   {
     src: "/galleryViewImages/galleryView6.webp",
-    alt: "Android 9.0 Dark Mode Setting",
   },
   {
     src: "/galleryViewImages/galleryView5.webp",
-    alt: "macOS Mojave Dark Mode ",
   },
   {
     src: "/galleryViewImages/galleryView4.webp",
-    alt: "Windows 10 Dark Mode Setting",
   },
   {
     src: "/galleryViewImages/galleryView2.webp",
-    alt: "macOS Mojave Dark Mode Setting",
   },
   {
     src: "/galleryViewImages/galleryView3.webp",
-    alt: "Android 9.0 Dark Mode Setting",
   },
   {
     src: "/galleryViewImages/galleryView1.webp",
-    alt: "Windows 10 Dark Mode Setting",
+  },
+  {
+    src: "/galleryViewImages/galleryView6.webp",
+  },
+  {
+    src: "/galleryViewImages/galleryView7.webp",
   },
 ];
+
+const ImageGridCol = ({ row, setCurrentIndex, setOpen }) => {
+  const imagesPerRow = Math.ceil(images.length / 3);
+  const start = row * imagesPerRow;
+  const end = Math.min(start + imagesPerRow, images.length);
+
+  return (
+    <div>
+      <Stack>
+        {images.slice(start, end).map((image, index) => (
+          <Image
+            key={index}
+            src={image.src}
+            onClick={() => {
+              setOpen(true);
+              setCurrentIndex(index + start);
+            }}
+          />
+        ))}
+      </Stack>
+    </div>
+  );
+};
 
 const ImagesGrid = ({ setCurrentIndex, setOpen }) => {
   return (
     <Center>
       <SimpleGrid className={cssStyles.sg} w={"70%"} cols={3} gap={0}>
-        {images.map((image, index) => {
-          return (
-            <div span={4} key={index}>
-              <Image
-                src={image.src}
-                onClick={() => {
-                  setOpen(true);
-                  setCurrentIndex(index);
-                }}
-              />
-            </div>
-          );
-        })}
+        {[0, 1, 2].map((row) => (
+          <ImageGridCol
+            key={row}
+            images={images}
+            row={row}
+            setCurrentIndex={setCurrentIndex}
+            setOpen={setOpen}
+          />
+        ))}
       </SimpleGrid>
     </Center>
   );
 };
-
 export default function ImageView() {
   const [currentImageIndex, setCurrentIndex] = useState(0);
   const [activePage, setPage] = useState(1);
