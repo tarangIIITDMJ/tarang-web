@@ -8,14 +8,15 @@ import SponsorUsSection from "./components/HomePageSections/SponsorUsSection";
 import DateRevealSection from "./components/HomePageSections/DateRevealSection";
 
 export default function Home() {
+  const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
     <MainAppShell>
       <HeroMain />
       {/* <SponsorSection /> */}
-      <DateRevealSection />
-      <SubMainSection />
-      <EventSection />
-      <GalleryView />
+      <DateRevealSection isMobileView={isMobileView} />
+      <SubMainSection isMobileView={isMobileView} />
+      <EventSection isMobileView={isMobileView} />
+      <GalleryView isMobileView={isMobileView} />
       <SponsorUsSection />
     </MainAppShell>
   );

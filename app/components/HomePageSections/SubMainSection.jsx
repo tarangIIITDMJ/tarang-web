@@ -6,8 +6,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 
-export default function SubMainSection() {
-  const isMobileView = useMediaQuery("(max-width: 768px)");
+export default function SubMainSection({ isMobileView }) {
   const [rotation, setRotation] = useState(0);
 
   useEffect(() => {

@@ -81,8 +81,7 @@ const ImageAccordion = ({ isMobileView }) => {
   );
 };
 
-function GalleryView() {
-  const isMobileView = useMediaQuery("(max-width: 768px)");
+function GalleryView({ isMobileView }) {
   return (
     <Container
       maw="100%"

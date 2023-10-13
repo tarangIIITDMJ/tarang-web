@@ -15,9 +15,7 @@ const hoverImages = [
   "dateSectionImages/sticker_6.svg",
 ];
 
-export default function DateRevealSection() {
-  const isMobileView = useMediaQuery("(max-width: 768px)");
-
+export default function DateRevealSection({ isMobileView }) {
   const [hoveredIndex, setHoveredIndex] = useState(-1);
 
   const handleImageHover = (index) => {
