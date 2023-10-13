@@ -37,9 +37,7 @@ export default function HeroSection({ event }) {
               left: 0,
               width: "100%",
               height: "100%",
-              borderBottom: "3px solid #000000",
-              background:
-                "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%)",
+              background: "rgba(0, 0, 0, 0.25)",
             }}
           />
           <Text

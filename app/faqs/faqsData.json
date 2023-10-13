@@ -12,45 +12,50 @@
     {
       "qno": 3,
       "question": "How do I participate in fest activities?",
-      "answer": "Registration for the various events will be available through the TARANG website."
+      "answer": "Registration for the various events will be available through the TARANG website (link) via Paytm Insider. Participants must register for each event individually."
     },
     {
       "qno": 4,
+      "question": "Will there be a refund if we wish to cancel after registration?",
+      "answer": "Yes, there will be refunds available until [date]. // No, refunds will not be available post registration."
+    },
+    {
+      "qno": 5,
       "question": "Will accommodation facilities be available during the fest?",
       "answer": "Yes, limited accommodation will be available on a first-come, first-served basis."
     },
     {
-      "qno": 5,
+      "qno": 6,
       "question": "Are there any accommodations for individuals with disabilities?",
       "answer": "Yes, necessary accommodations will be made for individuals with disabilities."
     },
     {
-      "qno": 6,
+      "qno": 7,
       "question": "What date will accommodations be available until?",
       "answer": "Accommodations will be available until the 5th of November, or the last day of TARANG fest."
     },
     {
-      "qno": 7,
+      "qno": 8,
       "question": "What is the events schedule?",
-      "answer": "The events schedule will be available on the TARANG website one week before the fest."
+      "answer": "The events schedule will be available on the TARANG website (link) one week before the fest."
     },
     {
-      "qno": 8,
+      "qno": 9,
       "question": "Is there registration fees for events?",
       "answer": "Registration fees for each event will be displayed on the TARANG website, as well as on the brochure."
     },
     {
-      "qno": 9,
+      "qno": 10,
       "question": "Will parking facilities be available for the duration of the fest?",
       "answer": "Yes, limited parking facilities will be available on campus."
     },
     {
-      "qno": 10,
+      "qno": 11,
       "question": "Is there early bird access for the teams?",
-      "answer": "Yes, early bird access will be available for teams. Stay on the lookout!"
+      "answer": "Yes, early bird access will be available for teams. Stay on the lookout! // No, early bird access will not be available for events."
     },
     {
-      "qno": 11,
+      "qno": 12,
       "question": "How will we manage food once we reach the event venue?",
       "answer": "Food stalls and canteens will be set up all across the campus during the period of the fest for your enjoyment."
     }

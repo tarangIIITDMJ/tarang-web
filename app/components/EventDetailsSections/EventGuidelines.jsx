@@ -33,7 +33,7 @@ export default function EventGuidelines({ event }) {
       <Text c="#fff" size={isMobileView ? "1.5rem" : "2rem"} fw="500">
         Guidelines
       </Text>
-      <Divider mt={"0.5rem"} size="1.5px" />
+      <Divider mt={isMobileView ? "1rem" : "2rem"} size="1.5px" />
 
       {guidelines.map((event, index) => {
         return (
@@ -42,7 +42,7 @@ export default function EventGuidelines({ event }) {
               c="#fff"
               size={isMobileView ? "0.75rem" : "1.125rem"}
               fw="500"
-              my="md"
+              my="lg"
             >
               {event.title}:
             </Text>
