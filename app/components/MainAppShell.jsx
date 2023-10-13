@@ -109,6 +109,7 @@ export default function MainAppShell({ children }) {
   const { isAuth } = useAuthStore();
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentPosition = window.pageYOffset;
@@ -219,23 +220,26 @@ export default function MainAppShell({ children }) {
           pathName !== "/signup" && (
             <ScrollVisibleBox isScrolled={isScrolled} isAuth={isAuth} />
           )}
-        <Box
-          hiddenFrom="sm"
-          pos="fixed"
-          top={48}
-          right={16}
-          bg={"#D0EB4C"}
-          h={48}
-          w={48}
-          style={{ borderRadius: "50%" }}
-        >
-          <IconUserCircle size={48} strokeWidth={1} color="black" />
-        </Box>
+        <Link href={isAuth ? "/profile" : "/login"}>
+          <Box
+            hiddenFrom="sm"
+            pos="fixed"
+            top={48}
+            right={16}
+            bg={"#D0EB4C"}
+            h={48}
+            w={48}
+            style={{ borderRadius: "50%" }}
+          >
+            <IconUserCircle size={48} strokeWidth={1} color="black" />
+          </Box>
+        </Link>
         <Footer />
       </AppShell.Main>
     </AppShell>
   );
 }
+
 function ScrollVisibleBox({ isScrolled, isAuth }) {
   return (
     <Box
