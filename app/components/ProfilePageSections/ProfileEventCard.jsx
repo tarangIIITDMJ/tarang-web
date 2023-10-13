@@ -63,7 +63,6 @@ export default function ProfileEventCard({ event, hasPaid }) {
         }`}
         my="md"
         p="sm"
-        h={"95"}
         style={{
           overflow: "hidden",
           width: "100%",
@@ -82,7 +81,7 @@ export default function ProfileEventCard({ event, hasPaid }) {
           aspectRatio={1}
         />
         <Stack w={"70%"}>
-          <Flex>
+          <Flex direction={isMobileView ? "column" : "row"}>
             <Text size="lg" style={{ fontWeight: "625", width: "10rem" }}>
               {event.name.toUpperCase()}
             </Text>
@@ -101,9 +100,9 @@ export default function ProfileEventCard({ event, hasPaid }) {
             ) : (
               <Badge
                 leftSection={icon1}
-                p={"0.85rem"}
+                p={isMobileView?"0.5rem":"0.85rem"}
                 lh={"1.5rem"}
-                size={"0.95rem"}
+                size={isMobileView?"0.6rem":"0.95rem"}
                 radius={5}
                 color="#FAC7C7"
                 className={profileCSS.eventCardBadge1}
@@ -121,7 +120,8 @@ export default function ProfileEventCard({ event, hasPaid }) {
             {event.event_date}, {event.event_time}
           </Text>
         </Stack>
-        {removeBtnVisibility ? (
+        {isMobileView && <IconTrash onClick={open} size={20} />}
+        {removeBtnVisibility && !isMobileView ? (
           <Button
             pl={"2rem"}
             onMouseEnter={() => setCardBorder(true)}

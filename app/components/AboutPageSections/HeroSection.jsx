@@ -11,17 +11,7 @@ export default function HeroSection() {
       pos={"relative"}
       className={cssStyles.HeroSectionContainer}
     >
-      <BackgroundImage
-        src={`https://res.cloudinary.com/prajjwalcdn/image/upload/v1696502907/about-header_wjneka.png`}
-        miw={"100%"}
-        h={"100%"}
-        style={{
-          hero: {
-            objectFit: "cover",
-            boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-          },
-        }}
-      >
+      <BackgroundImage src={"/bgImage.jpg"} miw={"100%"} h={"100%"}>
         <Text
           fz={"8rem"}
           c="white"

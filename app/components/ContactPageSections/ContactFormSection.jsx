@@ -3,7 +3,6 @@
 import {
   Flex,
   Stack,
-  Image,
   Text,
   TextInput,
   Textarea,
@@ -22,11 +21,11 @@ const ContactFormSection = () => {
     input: {
       border: "2px solid #9EA5AD",
       marginTop: 6,
-      background: "#FFF",
-      color: "#24292E",
+      background: "#24292E",
+      color: "#E5E7EA",
     },
     label: {
-      color: "#24292E",
+      color: "#E5E7EA",
       fontSize: isMobileView ? "0.75rem" : "1.125rem",
     },
   };
@@ -41,12 +40,12 @@ const ContactFormSection = () => {
 
   return (
     <Box
-      bg="#EFDEE3"
+      bg="#24292E"
       px={isMobileView ? "2rem" : "5rem"}
       py={isMobileView ? "2rem" : "4.5rem"}
     >
       <Text
-        c="#24292E"
+        c="#FFF"
         fz={isMobileView ? "2rem" : "4rem"}
         lh={isMobileView ? "2rem" : "4rem"}
         mb={isMobileView ? "2rem" : "3rem"}
@@ -65,28 +64,28 @@ const ContactFormSection = () => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
           <Stack gap={isMobileView ? "1.5rem" : "2rem"}>
-            <Text c="#24292E" fz={isMobileView ? "0.75rem" : "1.125rem"}>
+            <Text c="#E5E7EA" fz={isMobileView ? "0.75rem" : "1.125rem"}>
               52GG+H4G, Airport Rd, PDPM IIITDM Jabalpur Campus, Khamaria,
               Jabalpur, Madhya Pradesh 482005
             </Text>
             <Stack gap={isMobileView ? "1rem" : "1.5rem"}>
               <Box>
                 <Text
-                  c="#24292E"
+                  c="#E5E7EA"
                   fz={isMobileView ? "1rem" : "1.5rem"}
                   lh={isMobileView ? "1.2rem" : "2rem"}
                 >
                   Chandra Haas +91 9959761151
                 </Text>
                 <Text
-                  c="#24292E"
+                  c="#E5E7EA"
                   fz={isMobileView ? "1rem" : "1.5rem"}
                   lh={isMobileView ? "1.2rem" : "2rem"}
                 >
                   Priyanka +91 8887150087
                 </Text>
               </Box>
-              <Text c="#24292E" fz={isMobileView ? "0.75rem" : "1.125rem"}>
+              <Text c="#E5E7EA" fz={isMobileView ? "0.75rem" : "1.125rem"}>
                 tarang@iiitdmj.ac.in
               </Text>
             </Stack>
@@ -97,10 +96,10 @@ const ContactFormSection = () => {
           h="100%"
           py={isMobileView ? "2rem" : "4.5rem"}
           px={isMobileView ? "2rem" : "4rem"}
-          style={{ border: "2px solid #24292E" }}
+          style={{ border: "2px solid #9EA5AD" }}
         >
           <Text
-            c="#24292E"
+            c="#E5E7EA"
             size={isMobileView ? "1.5rem" : "2rem"}
             fw={500}
             mb="1.5rem"
@@ -140,7 +139,7 @@ const ContactFormSection = () => {
             <Group pt="2rem" justify="center">
               <Button
                 size={isMobileView ? "sm" : "lg"}
-                color="#000"
+                color="#0047FF"
                 leftSection={<IconMail />}
                 h="auto"
                 px={isMobileView ? "0.5rem" : "1.125rem"}
