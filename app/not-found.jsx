@@ -7,20 +7,20 @@ export default function NotFound() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   return (
-    <Flex bg="#1E1E1E" mih="100vh" justify="center" align="center">
-      <Stack align={"center"}>
+  
+      <Stack gap={isMobileView ? "2rem" : "4rem"} bg="#1E1E1E" mih="100vh" justify="center" align={"center"}>
         <Box
           w={isMobileView ? "20rem" : "55rem"}
-          h={isMobileView ? "15rem" : "30rem"}
-          mb={"-5rem"}
+          h={isMobileView ? "10rem" : "25rem"}
+          mt={isMobileView ? "0rem" : "-5rem"}
         >
-          <Image src={"/notfoundImage.svg"} alt="" />
+          <Image src={"/notfoundImage.svg"} alt="404" px={isMobileView && "0.5rem"} />
         </Box>
-        <Stack align={"center"} gap="2rem" px={isMobileView && "1.5rem"}>
+        <Stack align={"center"} gap={isMobileView && "0.75rem"} px={isMobileView && "1.5rem"}>
           <Text
             c="#FFF"
             ta={"center"}
-            fz={isMobileView ? "1.75rem" : "2.625rem"}
+            fz={isMobileView ? "1.35rem" : "2.625rem"}
             lh={isMobileView ? "2rem" : "3.25rem"}
             fw={500}
           >
@@ -30,7 +30,7 @@ export default function NotFound() {
             c="#B4B4B4"
             fw={600}
             ta="center"
-            fz={isMobileView ? "0.75rem" : "1.125rem"}
+            fz={isMobileView ? "0.85rem" : "1.125rem"}
           >
             The page you are looking for might have been removed, had its name
             changed, or is temporarily unavailable
@@ -42,12 +42,12 @@ export default function NotFound() {
               radius={0}
               size={isMobileView ? "md" : "lg"}
               fw={600}
+              mt={"1rem" }
             >
               Back to homepage
             </Button>
           </Link>
         </Stack>
       </Stack>
-    </Flex>
   );
 }

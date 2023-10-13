@@ -13,7 +13,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { removeRegisteredEvent } from "@/app/utils/apis";
 import { notifications } from "@mantine/notifications";
 
-export default function ProfileEventCard({ event, hasPaid }) {
+export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
   const [removeBtnVisibility, setRemoveBtnVisibility] = useState(false);
   const [cardBorder, setCardBorder] = useState(false);
   const [opened, { open, close }] = useDisclosure(false);
@@ -29,6 +29,7 @@ export default function ProfileEventCard({ event, hasPaid }) {
           message: "Event removed successfully",
           autoClose: 2000,
         });
+        onEventRemoved(event.slug);
       }
       setLoading(false);
       close();

@@ -47,6 +47,14 @@ export default function ProfileDashboard({ user }) {
 
   const icon = <IconAlertCircleFilled color="#CD3636" size={25} />;
 
+  const handleEventRemoved = (removedEventSlug) => {
+    setEventsLoader(true);
+    const updatedEvents = eventDetails.filter((event) => event.slug !== removedEventSlug);
+    setEventDetails(updatedEvents);
+    setEventsLoader(false);
+  };
+
+
   useEffect(() => {
     setEventsLoader(true);
     Promise.all(user.events.map((event) => fetchEventDetails(event.slug))).then(
@@ -55,15 +63,15 @@ export default function ProfileDashboard({ user }) {
         setEventsLoader(false);
       }
     );
-  }, [user.events]);
+  }, [user.events],[]);
 
   function UserDetails({ heading, value }) {
     return (
-      <Group gap={64} className={classes.userDetailsGroup} align="flex-start">
-        <Text fz={18} className={classes.userDetailsHeading}>
+      <Group  align="flex-start">
+        <Text c={"#454C52"} w={isMobile?"7rem":"9rem"} fz={isMobile?15:18} >
           {heading}:
         </Text>
-        <Text className={classes.userDetailsValue} fz={18}>
+        <Text  fz={isMobile?15:18} >
           {value}
         </Text>
       </Group>
@@ -74,13 +82,14 @@ export default function ProfileDashboard({ user }) {
       <Paper
         style={{ border: "1px solid #383F45" }}
         m={isMobile ? "2px" : ""}
+        w={"100%"}
         bg={"transparent"}
         radius={0}
         py={40}
         // visibleFrom="sm"
       >
         <Stack h={"100%"} px={32} className={classes.DashboardStack}>
-          <Text fz={48}>Dashboard</Text>
+          <Text fz={isMobile?35:48}>Dashboard</Text>
           <Tabs
             value={activeTab}
             fw={600}
@@ -104,13 +113,14 @@ export default function ProfileDashboard({ user }) {
               {user.paymentVerified ? (
                 <Alert
                   mt={"md"}
+                  mb={"xl"}
                   variant="filled"
                   color="green"
                   // title="Payment done and verified"
                 >
-                  <Flex className={classes.completePaymentFlex}>
+                  <Flex align={"center"} gap={"0.5rem"} className={classes.completePaymentFlex}>
                     <IconDiscountCheckFilled />
-                    <Text fz={"1.125rem"} px={"8px"}>
+                    <Text lh={"1.35rem"} fz={isMobile?"1rem":"1.125rem"} pb={"1rem"} px={"8px"}>
                       Congratulations! Your Tarang Pass payment has been
                       verified. You're all set to enjoy all selected events. Get
                       ready for a fantastic Tarang experience!
@@ -120,13 +130,14 @@ export default function ProfileDashboard({ user }) {
               ) : user.paymentFormFilled ? (
                 <Alert
                   mt={"md"}
+                  mb={"xl"}
                   variant="filled"
                   color="yellow"
                   // title="verification pending"
                   icon={<IconInfoCircle />}
                 >
                   <Flex className={classes.completePaymentFlex}>
-                    <Text fz={"1.125rem"} px={"5px"}>
+                    <Text lh={"1.35rem"} fz={isMobile?"1rem":"1.125rem"} pb={"1rem"} px={"5px"}>
                       Payment complete! We're verifying it now. Verification
                       usually takes [estimated timeframe]. For any assistance or
                       questions, reach us via WhatsApp. Your Tarang experience
@@ -140,14 +151,15 @@ export default function ProfileDashboard({ user }) {
                 </Alert>
               ) : (
                 <Alert
+                  mb={"xl"}
                   mt={"md"}
                   variant="filled"
                   color="red"
                   // title="Payment not done yet"
                   icon={<IconInfoCircle />}
                 >
-                  <Flex className={classes.completePaymentFlex}>
-                    <Text fz={"1.125rem"} px={"5px"}>
+                  <Flex align={"flex-start"}  className={classes.completePaymentFlex}>
+                    <Text lh={"1.35rem"} fz={isMobile?"1rem":"1.125rem"} pb={"1rem"} px={"5px"}>
                       You've added events to your dashboard, but your Tarang
                       Pass payment is pending. Secure your spot for all selected
                       events now to avoid missing out!
@@ -156,9 +168,9 @@ export default function ProfileDashboard({ user }) {
                       <Button
                         radius={0}
                         bg={"#FFFFFF"}
-                        size="xl"
+                        size={isMobile?"sm":"xl"}
                         c={"black"}
-                        style={{ fontWeight: "650", fontSize: "1.125rem" }}
+                        style={{ fontWeight: "650" }}
                         rightSection={<IconArrowUpRight />}
                       >
                         Complete Payment
@@ -178,6 +190,7 @@ export default function ProfileDashboard({ user }) {
                 <Link href="/events">
                   {" "}
                   <Button
+                  mr={"-1rem"}
                     className={classes.profileAddEventButton}
                     size="md"
                     variant="filled"
@@ -198,6 +211,7 @@ export default function ProfileDashboard({ user }) {
                           key={index}
                           hasPaid={user.hasPaid}
                           event={event}
+                            onEventRemoved={handleEventRemoved}
                         />
                       ))
                     ) : (
@@ -222,7 +236,7 @@ export default function ProfileDashboard({ user }) {
                 w={"100%"}
                 gap={10}
               >
-                <Text fz={32}>Personal Details</Text>
+                <Text fz={isMobile?25:32}>Personal Details</Text>
                 <Divider w={"90%"} />
 
                 <UserDetails
@@ -240,7 +254,7 @@ export default function ProfileDashboard({ user }) {
                 gap={10}
                 className={classes.PersonalDetailsStack}
               >
-                <Text fz={32}>College Details</Text>
+                <Text fz={isMobile?25:32}>College Details</Text>
                 <Divider w={"90%"} />
                 <UserDetails
                   heading={"College/Institute"}

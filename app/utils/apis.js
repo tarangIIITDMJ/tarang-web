@@ -58,17 +58,17 @@ export const registerEvent = (eventSlug, teamName) => {
   );
 };
 
+
 export const removeRegisteredEvent = (eventSlug) => {
   return axios.delete(
     `https://tarang-backend.onrender.com/api/events/remove`,
     {
-      slug: eventSlug,
-    },
-    {
+      data: { slug: eventSlug }, 
       withCredentials: true,
     }
   );
 };
+
 
 export const logout = () => {
   return axios.get("https://tarang-backend.onrender.com/api/logout", {
