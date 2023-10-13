@@ -6,6 +6,7 @@ import EventSection from "./components/HomePageSections/EventSection";
 import GalleryView from "./components/HomePageSections/GalleryView";
 import SponsorUsSection from "./components/HomePageSections/SponsorUsSection";
 import DateRevealSection from "./components/HomePageSections/DateRevealSection";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function Home() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
