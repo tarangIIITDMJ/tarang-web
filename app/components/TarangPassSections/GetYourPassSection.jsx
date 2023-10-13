@@ -38,6 +38,7 @@ const GetYourPassSection = () => {
             ta="center"
             fz={isMobileView ? "2rem" : "4rem"}
             fw={500}
+            mt={20}
             lh={isMobileView ? "2.4rem" : "4.2rem"}
           >
             Join the Epic Revival. Get
@@ -71,7 +72,7 @@ const GetYourPassSection = () => {
                 radius={0}
                 mt={isMobileView ? "1.5rem" : "3rem"}
               >
-                Get Your Tarang Pass
+                Get Your Tarang Card
               </Button>
             </Link>
           ) : (
@@ -86,7 +87,7 @@ const GetYourPassSection = () => {
                 radius={0}
                 mt={isMobileView ? "1.5rem" : "3rem"}
               >
-                Get Your Tarang Pass
+                Get Your Tarang Card
               </Button>
             </Link>
           )}

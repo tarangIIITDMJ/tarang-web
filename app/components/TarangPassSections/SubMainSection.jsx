@@ -42,11 +42,11 @@ function SubMainSection() {
         />
       </Group>
       <Flex justify="space-around" align="center" gap="3rem">
-        <Stack gap="2.5rem" visibleFrom="sm">
+        <Stack gap="2.5rem" visibleFrom="sm" align="center">
           <Text c="#FFF" fz="3.5rem" fw={600} lh="-0.125rem">
             What's in it for you:
           </Text>
-          <Image src="/bgImage.svg" alt="" />
+          <Image src="/bgImage.svg" alt="" w="16rem" />
         </Stack>
         <Stack maw={isMobileView ? "100%" : "50%"}>
           <Text

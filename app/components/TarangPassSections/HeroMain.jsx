@@ -16,7 +16,6 @@ import SubMainSection from "./SubMainSection";
 import Link from "next/link";
 import { useMediaQuery } from "@mantine/hooks";
 import { useAuthStore } from "@/app/store/authStore";
-
 const HeroSection = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const { user, isAuth } = useAuthStore();
@@ -27,9 +26,8 @@ const HeroSection = () => {
 
   return (
     <BackgroundImage
-      src={`https://res.cloudinary.com/dxcjzquen/image/upload/v1696865384/wubchn2ldtcr2iuaz9os.png`}
+      src={isMobileView ? "tarang-card-bg-mob.jpg" : "tarang-card-bg-web.jpg"}
       miw="100%"
-      bg={"#1E1E1E"}
     >
       <Box
         pt={isMobileView ? "7rem" : "6rem"}
@@ -59,8 +57,8 @@ const HeroSection = () => {
           <Text
             c="#FFF"
             fz={isMobileView ? "1rem" : "1.5rem"}
-            fw={500}
-            ta="justify"
+            fw={400}
+            ta="left"
             lh={isMobileView ? "1.2rem" : "1.8rem"}
             maw={isMobileView ? "100%" : "50%"}
           >
@@ -91,7 +89,7 @@ const HeroSection = () => {
               radius={0}
               mt={isMobileView ? "1.5rem" : "2rem"}
             >
-              Get Your Tarang Pass
+              Get Your Tarang Card
             </Button>
           </Link>
         ) : (
@@ -107,7 +105,7 @@ const HeroSection = () => {
               radius={0}
               mt={isMobileView ? "1.5rem" : "2rem"}
             >
-              Get Your Tarang Pass
+              Get Your Tarang Card
             </Button>
           </Link>
         )}

@@ -8,7 +8,7 @@ function VerifyEmailPage() {
 
   return (
     <ValidateAuth>
-      <Flex justify="center" align="center" h="100vh" bg="#FFC900">
+      <Flex justify="center" align="center" h="100vh" bg="#D0EB4C">
         <Stack
           justify="center"
           align="center"

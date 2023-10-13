@@ -58,20 +58,27 @@ export const registerEvent = (eventSlug, teamName) => {
   );
 };
 
-
 export const removeRegisteredEvent = (eventSlug) => {
-  return axios.delete(
-    `https://tarang-backend.onrender.com/api/events/remove`,
-    {
-      data: { slug: eventSlug }, 
-      withCredentials: true,
-    }
-  );
+  return axios.delete(`https://tarang-backend.onrender.com/api/events/remove`, {
+    data: { slug: eventSlug },
+    withCredentials: true,
+  });
 };
-
 
 export const logout = () => {
   return axios.get("https://tarang-backend.onrender.com/api/logout", {
     withCredentials: true,
   });
+};
+
+export const verifyPayment = (tarangID) => {
+  return axios.put(
+    `https://tarang-backend.onrender.com/api/admin/verify`,
+    {
+      tarangID,
+    },
+    {
+      withCredentials: true,
+    }
+  );
 };
