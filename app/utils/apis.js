@@ -82,3 +82,40 @@ export const verifyPayment = (tarangID) => {
     }
   );
 };
+
+export const rejectPayment = (tarangID, comments) => {
+  return axios.put(
+    `https://tarang-backend.onrender.com/api/admin/reject`,
+    {
+      tarangID,
+      rejectionReason: comments,
+    },
+    {
+      withCredentials: true,
+    }
+  );
+};
+
+export const getUnverifiedUsers = () => {
+  return axios.get(`https://tarang-backend.onrender.com/api/admin/unverified`, {
+    withCredentials: true,
+  });
+};
+
+export const getRejectedUsers = () => {
+  return axios.get(`https://tarang-backend.onrender.com/api/admin/rejected`, {
+    withCredentials: true,
+  });
+};
+
+export const updateRejection = (tarangID) => {
+  return axios.put(
+    `https://tarang-backend.onrender.com/api/admin/updateRejection`,
+    {
+      tarangID,
+    },
+    {
+      withCredentials: true,
+    }
+  );
+};
