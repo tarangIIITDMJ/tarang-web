@@ -1,4 +1,7 @@
-import { Box, Flex, Stack, Text, Image, Divider, Center } from "@mantine/core";
+"use client";
+import React, { useEffect, useRef } from "react";
+import { Box, Flex, Stack, Text, Image, Divider, Group } from "@mantine/core";
+import VanillaTilt from "vanilla-tilt";
 import { useMediaQuery } from "@mantine/hooks";
 
 function SubMainSection() {
@@ -6,33 +9,44 @@ function SubMainSection() {
   const fontSize = isMobileView ? "1rem" : "2rem";
   const smallFontSize = isMobileView ? "0.75rem" : "1.125rem";
 
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    if (imageRef.current) {
+      VanillaTilt.init(imageRef.current, {
+        max: 8,
+        speed: 100,
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        glare: true,
+        "max-glare": 1,
+      });
+    }
+  }, []);
+
   return (
     <Box
       px={isMobileView ? "2rem" : "5rem"}
       pb={isMobileView ? "2rem" : "5rem"}
       py={isMobileView && "3rem"}
     >
-      <Center
-        visibleFrom="sm"
-        bg="linear-gradient(100deg, rgba(208, 235, 76, 0.33) -13.04%, 
-        rgba(208, 235, 76, 0.71) 17.6%, rgba(208, 235, 76, 0.76) 47.38%, 
-        rgba(208, 235, 76, 0.64) 73.26%, rgba(208, 235, 76, 0.21) 112.42%)"
-        h="22rem"
-        mb="8rem"
-        px={"13.625rem"}
-        py={"5rem"}
-        style={{ borderRadius: "2.5rem" }}
-      >
-        <Text c="#FFF" fz="4rem" lh="5.5rem" fw={500}>
-          Tarang pass, hover-tilt-interactive card will be here.
-        </Text>
-      </Center>
+      <Group justify="center">
+        <Image
+          ref={imageRef}
+          src="/tarangCard.svg"
+          alt=""
+          w={isMobileView ? "20rem" : "100rem"}
+          style={{
+            marginBottom: isMobileView ? "4rem" : "8rem",
+            cursor: "pointer",
+          }}
+        />
+      </Group>
       <Flex justify="space-around" align="center" gap="3rem">
-        <Stack gap="2.5rem" visibleFrom="sm">
+        <Stack gap="2.5rem" visibleFrom="sm" align="center">
           <Text c="#FFF" fz="3.5rem" fw={600} lh="-0.125rem">
             What's in it for you:
           </Text>
-          <Image src="/bgImage.svg" alt="" />
+          <Image src="/bgImage.svg" alt="" w="16rem" />
         </Stack>
         <Stack maw={isMobileView ? "100%" : "50%"}>
           <Text
@@ -59,7 +73,7 @@ function SubMainSection() {
                   </Text>
                   <Text c="#CED2D6" fz={smallFontSize}>
                     {number === 1
-                      ? `With the Tarang Pass, you pay once and enjoy everything! No more fumbling for change or missing out on 
+                      ? `With the Tarang Card, you pay once and enjoy everything! No more fumbling for change or missing out on 
                         exciting events – this pass is your golden ticket to an 
                         epic Tarang adventure.`
                       : number === 2

@@ -10,8 +10,8 @@ import {
   Box,
 } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
-import { useMediaQuery } from "@mantine/hooks";
 import Link from "next/link";
+import cssStyles from "@/app/styles/home.module.css";
 
 const galleryImages = [
   "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365168/GalleryImage1_1_txilwo.webp",
@@ -21,7 +21,7 @@ const galleryImages = [
   "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365167/GalleryImage4_1_lqmh4m.webp",
 ];
 
-const ImageAccordion = ({ isMobileView }) => {
+const ImageAccordion = () => {
   const initialWidth = "13.75rem";
   const hoverWidth = "20.75rem";
   const initialHeight = "28.125rem";
@@ -32,7 +32,8 @@ const ImageAccordion = ({ isMobileView }) => {
       mt="4"
       gap={"0"}
       wrap={"no"}
-      w={isMobileView ? "fit-content" : "100%"}
+      className={cssStyles.GalleryViewGroup}
+      w={"100%"}
       justify="center"
       h={480}
     >
@@ -82,7 +83,6 @@ const ImageAccordion = ({ isMobileView }) => {
 };
 
 function GalleryView() {
-  const isMobileView = useMediaQuery("(max-width: 768px)");
   return (
     <Container
       maw="100%"
@@ -92,21 +92,22 @@ function GalleryView() {
         borderBottomWidth: "1.5px",
       }}
     >
-      <Box p={isMobileView ? "3rem" : "4rem"}>
+      <Box className={cssStyles.GalleryViewBox} p={"4rem"}>
         <Group justify="center" align="center">
           <Text
             ta="center"
-            fz={isMobileView ? "2rem" : "3rem"}
+            fz={"3rem"}
             style={{
               borderRadius: "4rem",
             }}
+            className={cssStyles.GalleryViewHeading}
           >
             A peek into our pompous past
           </Text>
         </Group>
       </Box>
-      <ScrollArea mr={isMobileView ? "-20px" : ""}>
-        <ImageAccordion isMobileView={isMobileView} />
+      <ScrollArea className={cssStyles.GalleryScrollAr}>
+        <ImageAccordion />
       </ScrollArea>
       <Center p={"4rem"}>
         <Link href="/gallery">

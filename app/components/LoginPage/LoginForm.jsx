@@ -56,11 +56,9 @@ const LoginForm = ({ isMobileView }) => {
                 title: "Success",
                 message: "Logged in successfully",
                 color: "green",
-                autoClose: 2000,
+                autoClose: 3000,
                 onClose: () => {
-                  setTimeout(() => {
-                    push("/profile");
-                  }, 2500);
+                  push("/profile");
                 },
               });
             } catch (error) {
@@ -108,6 +106,7 @@ const LoginForm = ({ isMobileView }) => {
             mt="1.5rem"
             mx="auto"
             loading={isLoading}
+            fullWidth
             rightSection={<IconArrowRight />}
           >
             Sign in

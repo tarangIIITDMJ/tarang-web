@@ -5,12 +5,13 @@ import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import "@mantine/notifications/styles.css";
 import Script from "next/script";
 import { CheckUser } from "./components/CheckUser";
-import PreLoader from "./components/uiComponents/PreLoader";
+import Loading from "./loading";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Tarang'23 ",
   description:
-    "This is the Premier Cultural fest of IIIT Jabalpur organized for the students by the students.",
+    "Premier Cultural fest of IIIT Jabalpur organized for the students by the students.",
 };
 
 export default function RootLayout({ children }) {
@@ -40,8 +41,7 @@ export default function RootLayout({ children }) {
         <CheckUser />
         <MantineProvider>
           <Notifications position="bottom-right" />
-          <PreLoader />
-          {children}
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         </MantineProvider>
       </body>
     </html>
