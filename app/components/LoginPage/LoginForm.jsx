@@ -62,7 +62,6 @@ const LoginForm = ({ isMobileView }) => {
                 },
               });
             } catch (error) {
-              console.log(error);
               notifications.show({
                 title: "Error",
                 message: "Invalid credentials or server error",

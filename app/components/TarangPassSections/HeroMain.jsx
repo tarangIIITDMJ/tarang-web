@@ -93,6 +93,7 @@ const HeroSection = () => {
               py={isMobileView ? "0.75rem" : "1.125rem"}
               radius={0}
               mt={isMobileView ? "1.5rem" : "2rem"}
+              lh={1.2}
             >
               Get Your Tarang Card
             </Button>
@@ -109,6 +110,7 @@ const HeroSection = () => {
               py={isMobileView ? "0.75rem" : "1.125rem"}
               radius={0}
               mt={isMobileView ? "1.5rem" : "2rem"}
+              lh={1.2}
             >
               Get Your Tarang Card
             </Button>
