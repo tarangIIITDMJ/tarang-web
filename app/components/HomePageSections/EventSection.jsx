@@ -9,15 +9,23 @@ import {
   Stack,
   Text,
 } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 import cssStyles from "@/app/styles/home.module.css";
+import { useMediaQuery } from "@mantine/hooks";
 
-export default function EventSection({ isMobileView }) {
+export default function EventSection() {
+  const isMobileView = useMediaQuery("(max-width: 768px)");
+
   function CardComp({ data, makeMobile = false }) {
     return (
-      <Paper bg={"transparent"} h={"100%"} radius={0} p={isMobileView ? 0 : 6}>
+      <Paper
+        className={cssStyles.EventSectionPaper}
+        bg={"transparent"}
+        h={"100%"}
+        radius={0}
+        p={6}
+      >
         <Link href={data.link}>
           <Flex
             p={0}
@@ -35,13 +43,13 @@ export default function EventSection({ isMobileView }) {
               />
             </Box>
             <Stack
-              p={isMobileView ? "12px 24px 12px 24px" : "12px 32px 24px 32px"}
+              p={"12px 32px 24px 32px"}
               gap={5}
               align="flex-start"
-              h={isMobileView ? "auto" : "130"}
+              h={130}
               w={makeMobile ? "65%" : "100%"}
               style={{
-                border: isMobileView ? "1px solid #000" : "3px solid #000",
+                border: "3px solid #000",
               }}
               bg={"white"}
               className={cssStyles.EventCardsStack}
@@ -56,7 +64,8 @@ export default function EventSection({ isMobileView }) {
                 style={{
                   wordBreak: "break-word",
                 }}
-                lineClamp={isMobileView ? 2 : 3}
+                lineClamp={3}
+                className={cssStyles.EventCardDesc}
               >
                 {data.desc ?? "Description"}
               </Text>
@@ -93,11 +102,16 @@ export default function EventSection({ isMobileView }) {
       </Box>
       <Box
         bg={"#D0EB4C"}
-        py={isMobileView ? "3rem" : "6rem"}
-        px={isMobileView ? "1rem" : "6.75rem"}
+        className={cssStyles.EventSectionBox}
+        py={"6rem"}
+        px={"6.75rem"}
       >
         <Stack gap={"3.5rem"} align="center">
-          <Text size={isMobileView ? "2rem" : "4rem"} c="#24292E">
+          <Text
+            className={cssStyles.EventSectionBoxText}
+            size={"4rem"}
+            c="#24292E"
+          >
             Here&apos;s what to expect!
           </Text>
           <Grid gutter={20} justify="center" align="stretch">
@@ -115,7 +129,7 @@ export default function EventSection({ isMobileView }) {
                   }}
                 />
                 <Grid>
-                  <Grid.Col span={isMobileView ? 12 : 6}>
+                  <Grid.Col className={cssStyles.EventGridCol} span={6}>
                     <CardComp
                       data={{
                         title: "Picxellence",
@@ -129,7 +143,7 @@ export default function EventSection({ isMobileView }) {
                       makeMobile={isMobileView}
                     />
                   </Grid.Col>
-                  <Grid.Col span={isMobileView ? 12 : 6}>
+                  <Grid.Col className={cssStyles.EventGridCol} span={6}>
                     <CardComp
                       data={{
                         title: "Pen It Down",
@@ -146,14 +160,15 @@ export default function EventSection({ isMobileView }) {
                 </Grid>
               </Stack>
             </Grid.Col>
-            <Grid.Col span={isMobileView ? 12 : 6}>
+            <Grid.Col className={cssStyles.EventGridCol} span={6}>
               <Flex
-                direction={isMobileView ? "column-reverse" : "column"}
+                className={cssStyles.EventSectionFlex}
+                direction={"column"}
                 align={"center"}
                 gap={20}
               >
                 <Grid>
-                  <Grid.Col span={isMobileView ? 12 : 6}>
+                  <Grid.Col className={cssStyles.EventGridCol} span={6}>
                     <CardComp
                       data={{
                         title: "Theater Wars",
@@ -167,7 +182,7 @@ export default function EventSection({ isMobileView }) {
                       makeMobile={isMobileView}
                     />
                   </Grid.Col>
-                  <Grid.Col span={isMobileView ? 12 : 6}>
+                  <Grid.Col className={cssStyles.EventGridCol} span={6}>
                     <CardComp
                       data={{
                         title: "Jhankaar",
