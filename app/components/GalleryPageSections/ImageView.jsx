@@ -57,6 +57,7 @@ const ImageGridCol = ({ row, setCurrentIndex, setOpen }) => {
           <Image
             key={index}
             src={image.src}
+            alt=""
             onClick={() => {
               setOpen(true);
               setCurrentIndex(index + start);

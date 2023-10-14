@@ -1,14 +1,5 @@
 "use client";
-import {
-  Box,
-  Flex,
-  Stack,
-  Image,
-  Text,
-  Group,
-  Grid,
-  Container,
-} from "@mantine/core";
+import { Stack, Image, Text, Group, Grid, Container } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
 const SubMainSection = () => {

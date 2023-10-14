@@ -30,7 +30,11 @@ const GetYourPassSection = () => {
             {Array(3)
               .fill(null)
               .map((_, index) => (
-                <Image key={index} src={"/star-icon.svg"} alt="" />
+                <Image
+                  key={index}
+                  src={"/tarangCardPageImages/star-icon.svg"}
+                  alt=""
+                />
               ))}
           </Group>
           <Text
