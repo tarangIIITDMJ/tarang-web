@@ -17,37 +17,146 @@ import cssStyles from "@/app/styles/gallery.module.css";
 
 const images = [
   {
-    src: "/galleryViewImages/galleryView7.webp",
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315512/Gallery/IMG_4169_g996ls.webp",
   },
   {
-    src: "/galleryViewImages/galleryView6.webp",
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315512/Gallery/IMG_6242_r9smxw.webp",
   },
   {
-    src: "/galleryViewImages/galleryView5.webp",
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315512/Gallery/IMG_5098_ui8w5c.webp",
   },
   {
-    src: "/galleryViewImages/galleryView4.webp",
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315512/Gallery/IMG_5465_as61fv.webp",
   },
   {
-    src: "/galleryViewImages/galleryView2.webp",
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315511/Gallery/IMG_3590_eqfckl.webp",
   },
   {
-    src: "/galleryViewImages/galleryView3.webp",
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315509/Gallery/IMG_7047_ea1ouv.webp",
   },
   {
-    src: "/galleryViewImages/galleryView1.webp",
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315509/Gallery/IMG_2948_copy_1_irva2t.webp",
   },
   {
-    src: "/galleryViewImages/galleryView6.webp",
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315509/Gallery/IMG_3457_kdcibe.webp",
   },
   {
-    src: "/galleryViewImages/galleryView7.webp",
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315510/Gallery/IMG_3789_eed6vf.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315508/Gallery/IMG_1718_copy_hujshz.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315508/Gallery/IMG_1390_pq2ddr.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315507/Gallery/IMG_1267_npcfkh.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315504/Gallery/IMG_7023_iqlvbd.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315505/Gallery/IMG_8690_p2ino5.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315505/Gallery/IMG_8387_uef9mk.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315506/Gallery/_MG_8631_hfruqn.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315507/Gallery/IMG_1277_szhlvd.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315504/Gallery/IMG_7043_mdb1zq.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315504/Gallery/IMG_6920_q9xwdy.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315503/Gallery/IMG_6958_zsexsz.webp",
+  },
+
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315503/Gallery/IMG_6975_kht6zt.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315502/Gallery/IMG_6085_gmlfch.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315494/Gallery/_MG_0280_ykl4z7.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315502/Gallery/IMG_1929_h5fmsc.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315501/Gallery/IMG_6758_zbuol4.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315501/Gallery/IMG_6723_ekhpha.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315500/Gallery/IMG_6002_mu4ged.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315500/Gallery/IMG_6327_c6nb4s.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315498/Gallery/IMG_6675_knefwz.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315498/Gallery/IMG_5769_rsxl0l.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315497/Gallery/IMG_5677_lmy88y.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315495/Gallery/IMG_6828_ss2oc3.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315494/Gallery/IMG_0311_dcsspd.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315494/Gallery/_MG_4652-01_u63mdj.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315491/Gallery/IMG_7540_b297sq.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315491/Gallery/_MG_0056_flmie3.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315488/Gallery/IMG_5460_rjf3xr.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315493/Gallery/IMG_6469_firqql.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315491/Gallery/IMG_7486_ypfp7y.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315489/Gallery/IMG_7195_ktvxw4.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315491/Gallery/IMG_7361_n7agx7.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315489/Gallery/IMG_7110_i24re5.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315488/Gallery/IMG_5808_opfmtw.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315487/Gallery/IMG_7029_eyhefv.webp",
+  },
+  {
+    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315495/Gallery/DSC_8155_1_mvaxgh.webp",
   },
 ];
 
-const ImageGridCol = ({ row, setCurrentIndex, setOpen }) => {
-  const imagesPerRow = Math.ceil(images.length / 3);
-  const start = row * imagesPerRow;
+const ImageGridCol = ({ activePage, row, setCurrentIndex, setOpen }) => {
+  const imagesPerRow = Math.ceil(images.length / 12);
+  const start = row * imagesPerRow + (activePage - 1) * 12;
   const end = Math.min(start + imagesPerRow, images.length);
 
   return (
@@ -69,12 +178,13 @@ const ImageGridCol = ({ row, setCurrentIndex, setOpen }) => {
   );
 };
 
-const ImagesGrid = ({ setCurrentIndex, setOpen }) => {
+const ImagesGrid = ({ activePage, setCurrentIndex, setOpen }) => {
   return (
     <Center>
       <SimpleGrid className={cssStyles.sg} w={"70%"} cols={3} gap={0}>
         {[0, 1, 2].map((row) => (
           <ImageGridCol
+            activePage={activePage}
             key={row}
             images={images}
             row={row}
@@ -106,9 +216,13 @@ export default function ImageView() {
         p={"5rem"}
         align="center"
       >
-        A line related to gallery or something related to the event? maybe?
+        A Glimpse into our WILD past!
       </Text>
-      <ImagesGrid setCurrentIndex={setCurrentIndex} setOpen={setOpen} />
+      <ImagesGrid
+        activePage={activePage}
+        setCurrentIndex={setCurrentIndex}
+        setOpen={setOpen}
+      />
       <Lightbox
         isOpen={isOpen}
         onPrev={gotoPrevious}
@@ -176,7 +290,7 @@ export default function ImageView() {
         <Pagination
           value={activePage}
           onChange={setPage}
-          total={10}
+          total={Math.ceil(images.length / 12)}
           radius={"xl"}
           color={"black"}
         />
