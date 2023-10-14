@@ -79,16 +79,15 @@ export default function EventCategories({
       >
         {events.filter((el) => selectedEvents.includes(el.event_category))
           .length || events.length}{" "}
-        Events in{" "}
+        Events {" "}
         {selectedEvents.length !== 0
-          ? selectedEvents
-              .map((eventCategory, index) =>
-                index === selectedEvents.length - 1
-                  ? `and ${eventCategory}`
-                  : eventCategory
-              )
-              .join(", ")
-          : "Total"}
+          ? selectedEvents.map((eventCategory, index) => (
+            <React.Fragment key={eventCategory}>
+              {index > 0 ? (index === selectedEvents.length - 1 ? " and " : ", ") : " in "}
+              {eventCategory}
+            </React.Fragment>
+          ))
+        : " in Total"}
       </Text>
     </Container>
   );

@@ -8,6 +8,8 @@ import { login } from "@/app/utils/apis";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/app/store/authStore";
+import { PasswordInput } from '@mantine/core';
+
 
 const LoginForm = ({ isMobileView }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -81,9 +83,9 @@ const LoginForm = ({ isMobileView }) => {
             radius={0}
             {...form.getInputProps("email")}
           />
-          <TextInput
-            type="password"
+           <PasswordInput
             label="Password"
+            type="password"
             placeholder="Enter password"
             mt="md"
             styles={{ input: { border: "1px solid #000", marginTop: 6 } }}

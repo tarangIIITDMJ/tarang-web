@@ -13,7 +13,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { removeRegisteredEvent } from "@/app/utils/apis";
 import { notifications } from "@mantine/notifications";
 
-export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
+export default function ProfileEventCard({ event, hasPaid ,formFilled,  onEventRemoved }) {
   const [removeBtnVisibility, setRemoveBtnVisibility] = useState(false);
   const [cardBorder, setCardBorder] = useState(false);
   const [opened, { open, close }] = useDisclosure(false);
@@ -98,6 +98,19 @@ export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
               >
                 Paid & Confirmed
               </Badge>
+            ) :
+             formFilled ? (
+              <Badge
+                leftSection={icon1}
+                p={"0.85rem"}
+                lh={"1.5rem"}
+                size={"0.95rem"}
+                radius={5}
+                color="#FDE57E"
+                className={profileCSS.eventCardBadge3}
+              >
+              Payment Verification Pending
+              </Badge>
             ) : (
               <Badge
                 leftSection={icon1}
@@ -110,7 +123,7 @@ export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
               >
                 Purchase Tarang Card
               </Badge>
-            )}
+            )} 
           </Flex>
           <Text
             color="#383F45"
