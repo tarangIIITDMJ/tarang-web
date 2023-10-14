@@ -108,7 +108,6 @@ export default function EventDetails({ event }) {
         open();
       }
     } catch (error) {
-      console.log(error, "Error");
       notifications.show({
         title: "Error",
         message: "Something went wrong",
@@ -144,7 +143,6 @@ export default function EventDetails({ event }) {
         close();
       }
     } catch (error) {
-      console.log(error, "Error");
       notifications.show({
         title: "Error",
         message: "Something went wrong",

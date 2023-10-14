@@ -4,20 +4,24 @@ import {
   Card,
   Divider,
   Flex,
+  Group,
   Paper,
   Space,
   Stack,
   Text,
 } from "@mantine/core";
-import { IconLogout, IconUserCircle } from "@tabler/icons-react";
+import { IconClipboard, IconLogout, IconUserCircle } from "@tabler/icons-react";
 import Image from "next/image";
 import ProfileStar from "@/public/ProfileStar.svg";
 import profileCSS from "@/app/styles/profile.module.css";
 import { useMediaQuery } from "@mantine/hooks";
 import { logout } from "@/app/utils/apis";
 import { notifications } from "@mantine/notifications";
+import { useAuthStore } from "../../store/authStore";
+import Link from "next/link";
 
 export default function LeftProfileCard({ user }) {
+  const { setUser, setIsAuth, setIsLoading } = useAuthStore();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [loading, setLoading] = useState(false);
   const handelLogout = async () => {
@@ -25,6 +29,8 @@ export default function LeftProfileCard({ user }) {
     try {
       const response = await logout();
       if (response.status === 200) {
+        setUser(null);
+        setIsAuth(false);
         notifications.show({
           title: "Success",
           message: "Logged out successfully",
@@ -80,6 +86,16 @@ export default function LeftProfileCard({ user }) {
               Refer a friend or a group and unlock exciting offers for both of
               you!
             </Text>
+            <Link href="/referral">
+              <Text
+                fw={600}
+                style={{
+                  textDecorationLine: "underline",
+                }}
+              >
+                Learn More
+              </Text>
+            </Link>
           </Stack>
         </Flex>
       </Paper>
@@ -113,19 +129,36 @@ export default function LeftProfileCard({ user }) {
             className={profileCSS.profileFlex}
           >
             <IconUserCircle color="#ED3C71" size={96} stroke={1} />
-            <Stack gap={0} ta="center">
+            <Stack gap={0}>
               <Text fz={32}>Hi {user.fname}!</Text>
-              <Text fz={18} c={"#454C52"}>
-                Tarang ID: {user.tarang_id}
+              <Text fz={18} mt={10} c={"#454C52"} ta={isMobile ? "" : "center"}>
+                Tarang ID:{" "}
+                <Flex
+                  align="start"
+                  gap={4}
+                  style={{
+                    cursor: "pointer",
+                  }}
+                >
+                  <Text
+                    fw={600}
+                    onClick={() => {
+                      navigator.clipboard.writeText(user.tarang_id);
+                      notifications.show({
+                        title: "Success",
+                        message: "Copied to clipboard",
+                        autoClose: 2000,
+                      });
+                    }}
+                    style={{
+                      textDecorationLine: "underline",
+                    }}
+                  >
+                    {user.tarang_id}
+                  </Text>
+                  <IconClipboard size={22} />
+                </Flex>
               </Text>
-              {!isMobile && (
-                <Divider
-                  color="#9EA5AD"
-                  size={"sm"}
-                  w={"100%"}
-                  orientation="horizontal"
-                />
-              )}
             </Stack>
           </Flex>
           <StarPaper pc={true} />

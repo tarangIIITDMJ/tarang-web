@@ -71,18 +71,20 @@ const HeroMain = () => {
             The Tide is turning
           </Text>
           <Flex columnGap={"xl"} className={cssstyles.HeroMainButtonFlex}>
+          <Link href="/signup">
             <Button
-              bg="#999999"
+              bg="#D0EB4C"
               c="black"
               radius={0}
               size={"lg"}
               mt={44}
-              disabled // TODO: Remove this when registration opens
+             // disabled // TODO: Remove this when registration opens
               className={cssstyles.HeroMainExploreButton}
               rightSection={<IconArrowRight />}
             >
               Register Now
             </Button>
+            </Link>
             <Link href="/events">
               <Button
                 color="transparent"

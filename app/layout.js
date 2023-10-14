@@ -38,11 +38,13 @@ export default function RootLayout({ children }) {
         <ColorSchemeScript />
       </head>
       <body>
-        <CheckUser />
-        <MantineProvider>
-          <Notifications position="bottom-right" />
-          <Suspense fallback={<Loading />}>{children}</Suspense>
-        </MantineProvider>
+        <Suspense fallback={<Loading />}>
+          <CheckUser />
+          <MantineProvider>
+            <Notifications position="bottom-right" />
+            {children}
+          </MantineProvider>
+        </Suspense>
       </body>
     </html>
   );
