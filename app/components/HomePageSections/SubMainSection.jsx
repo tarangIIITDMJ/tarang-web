@@ -98,5 +98,6 @@ export default function SubMainSection() {
         </Link>
       </Stack>
     </Flex>
+
   );
 }

@@ -1,5 +1,5 @@
 "use client";
-import { Box, Stack, Container, Text, Image, Group } from "@mantine/core";
+import { Box, Stack, Container, Text } from "@mantine/core";
 import cssStyles from "@/app/styles/about.module.css";
 import { useMediaQuery } from "@mantine/hooks";
 
@@ -7,15 +7,12 @@ const PastTarangSection = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   return (
-    <Box bg={"#0F0F0F"}>
-      <Box bg={"#6421F4"} py={"3rem"} style={{ border: "3px solid black" }}>
-        {isMobileView ? (
-          <Image src={"aboutPageImages/tarangBannerMobile.svg"} alt="" />
-        ) : (
-          <Image src={"aboutPageImages/tarangBanner.svg"} alt="" />
-        )}
-      </Box>
-      <Container py="6rem" className={cssStyles.PastTarangSectionContainer}>
+    <Box
+      py={"6rem"}
+      bg={"#0F0F0F"}
+      className={cssStyles.PastTarangSectionContainer}
+    >
+      <Container>
         <Stack
           style={{ gap: "3rem" }}
           className={cssStyles.PastTarangSectionSubContainer}
@@ -49,21 +46,6 @@ const PastTarangSection = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
-          <Group
-            align="center"
-            justify="center"
-            gap={isMobileView ? "1rem" : "3rem"}
-          >
-            {Array(3)
-              .fill(null)
-              .map((_, index) => (
-                <Image
-                  key={index}
-                  src={"/aboutPageImages/star-icon.svg"}
-                  alt=""
-                />
-              ))}
-          </Group>
         </Stack>
       </Container>
     </Box>

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   Button,
   Card,
@@ -11,37 +10,13 @@ import {
 } from "@mantine/core";
 import { IconLogout, IconUserCircle } from "@tabler/icons-react";
 import Image from "next/image";
+import React from "react";
 import ProfileStar from "@/public/ProfileStar.svg";
 import profileCSS from "@/app/styles/profile.module.css";
 import { useMediaQuery } from "@mantine/hooks";
-import { logout } from "@/app/utils/apis";
-import { notifications } from "@mantine/notifications";
 
-export default function LeftProfileCard({ user }) {
+export default function LeftProfileCard() {
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const [loading, setLoading] = useState(false);
-  const handelLogout = async () => {
-    setLoading(true);
-    try {
-      const response = await logout();
-      if (response.status === 200) {
-        notifications.show({
-          title: "Success",
-          message: "Logged out successfully",
-          autoClose: 2000,
-        });
-      }
-      setLoading(false);
-    } catch (error) {
-      notifications.show({
-        title: "Error",
-        color: "red",
-        message: "Something went wrong",
-        autoClose: 2000,
-      });
-      setLoading(false);
-    }
-  };
 
   function StarPaper({ pc }) {
     return (
@@ -66,19 +41,13 @@ export default function LeftProfileCard({ user }) {
             alt="Profile Star"
           />
           <Stack
-            gap={"xs"}
+            gap={30}
             align="center"
             className={profileCSS.profileCardFlexStack}
           >
-            <Text fz={24}>Refer a friend</Text>
-            <Text
-              className={profileCSS.text}
-              ta={isMobile ? "" : "center"}
-              fz={18}
-              c={"#383F45"}
-            >
-              Refer a friend or a group and unlock exciting offers for both of
-              you!
+            <Text fz={24}>Unlock Free Entry</Text>
+            <Text className={profileCSS.text} fz={18} c={"#383F45"}>
+              Enjoy complimentary entry by registering for any paid event!
             </Text>
           </Stack>
         </Flex>
@@ -113,10 +82,10 @@ export default function LeftProfileCard({ user }) {
             className={profileCSS.profileFlex}
           >
             <IconUserCircle color="#ED3C71" size={96} stroke={1} />
-            <Stack gap={0} ta="center">
-              <Text fz={32}>Hi {user.fname}!</Text>
+            <Stack gap={0}>
+              <Text fz={32}>Hi Aditya !</Text>
               <Text fz={18} c={"#454C52"}>
-                Tarang ID: {user.tarang_id}
+                Tarang ID: xxx xxx
               </Text>
               {!isMobile && (
                 <Divider
@@ -137,8 +106,6 @@ export default function LeftProfileCard({ user }) {
             color="#F34141"
             fz={18}
             className={profileCSS.logoutButton}
-            onClick={handelLogout}
-            loading={loading}
             rightSection={<IconLogout size={25} stroke={1.5} />}
           >
             Log out

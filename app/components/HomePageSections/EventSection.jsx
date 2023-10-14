@@ -2,6 +2,7 @@
 import {
   Box,
   Button,
+  Card,
   Flex,
   Grid,
   Image,
@@ -26,6 +27,8 @@ export default function EventSection() {
         radius={0}
         p={6}
       >
+
+    
         <Link href={data.link}>
           <Flex
             p={0}
@@ -120,12 +123,12 @@ export default function EventSection() {
                 <CardComp
                   data={{
                     title: "Artful Alteration",
-                    desc: "Got the mad skills with brush and paints? Get ready for an electrifying three-hour challenge! Gather your dream team to create an unparalleled masterpiece.",
+                    desc: "Unleash your artistic flair with The Big Picture's canvas creativity and conquer the Photoshop Battle for graphic design supremacy!",
                     imgData: {
                       h: isMobileView ? 150 : 300,
                       src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448432/the_big_picture_b6y9pq.webp",
                     },
-                    link: "/events/artful-alteration",
+                    link: "#",
                   }}
                 />
                 <Grid>
@@ -200,7 +203,7 @@ export default function EventSection() {
                 <CardComp
                   data={{
                     title: "Off the wall",
-                    desc: 'With the theme of "Fantasy", this event is sure to be one to look out for. Unleash your inner creativity and make sure our unsuspecting judges are in for a wild ride!',
+                    desc: "Express your creativity through art with our Mural Painting competition or get hands-on with Bamboo furniture crafting and Pottery at our Creative Workshop!",
                     imgData: {
                       h: isMobileView ? 150 : 300,
                       src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448287/Mural-painting_1_h4s6ko.webp",

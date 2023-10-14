@@ -34,7 +34,7 @@
 
   /* Event Cards  */
   .EventCardStack {
-    padding: 1rem 2rem !important;
+    padding: 2rem !important;
   }
   .EventCardsFlex {
     flex-direction: row !important;
@@ -50,7 +50,6 @@
   .EventCardsStack {
     width: 65% !important;
     gap: 5 !important;
-    border: 2px solid #000 !important;
     padding: 8px 18px 8px 18px !important;
   }
   .EventCardsImage {
@@ -59,15 +58,13 @@
 }
 @media (min-width: $mantine-breakpoint-xs) {
   /* Event Cards  */
-  .EventCardsFlex {
-    transition: all 0.3s ease-in-out;
-  }
   .EventCardsFlex:hover {
-    box-shadow: 8px 8px 0px 0px #000;
-    transform: translateY(-8px);
     .EventCardsImage {
       transform: scale(1.05);
-      box-shadow: 16px 16px 0px 0px #000;
+    }
+    .EventCardsStack {
+      transform: translateY(-8px);
+      box-shadow: #65c8dcca 0px 1px 1px, #65c8dcca 0px 1px 16px;
     }
   }
 }
