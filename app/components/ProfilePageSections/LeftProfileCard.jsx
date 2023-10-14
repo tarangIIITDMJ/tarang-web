@@ -16,8 +16,10 @@ import profileCSS from "@/app/styles/profile.module.css";
 import { useMediaQuery } from "@mantine/hooks";
 import { logout } from "@/app/utils/apis";
 import { notifications } from "@mantine/notifications";
+import { useAuthStore } from "../../store/authStore";
 
 export default function LeftProfileCard({ user }) {
+  const { setUser,  setIsAuth , setIsLoading } = useAuthStore();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [loading, setLoading] = useState(false);
   const handelLogout = async () => {
@@ -25,6 +27,8 @@ export default function LeftProfileCard({ user }) {
     try {
       const response = await logout();
       if (response.status === 200) {
+        setUser(null);
+        setIsAuth(false);
         notifications.show({
           title: "Success",
           message: "Logged out successfully",

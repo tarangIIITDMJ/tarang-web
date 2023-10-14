@@ -172,7 +172,8 @@ export default function ProfileDashboard({ user }) {
                     <IconArrowRight />
                   </Group>
                 </Alert>
-              ) : (
+              ) :
+               (
                 <Alert
                   mb={"xl"}
                   mt={"md"}
@@ -191,9 +192,7 @@ export default function ProfileDashboard({ user }) {
                       pb={"1rem"}
                       px={"5px"}
                     >
-                      You've added events to your dashboard, but your Tarang
-                      Pass payment is pending. Secure your spot for all selected
-                      events now to avoid missing out!
+                      To confirm your registration, make sure to buy your Tarang Card! After that, you can add as many events as you'd like.
                     </Text>
                     <Link href="/tarang-card">
                       <Button
@@ -241,7 +240,8 @@ export default function ProfileDashboard({ user }) {
                       eventDetails.map((event, index) => (
                         <ProfileEventCard
                           key={index}
-                          hasPaid={user.hasPaid}
+                          hasPaid={user.paymentVerified}
+                          formFilled={user.paymentFormFilled}
                           event={event}
                           onEventRemoved={handleEventRemoved}
                         />
@@ -294,7 +294,7 @@ export default function ProfileDashboard({ user }) {
                 />
                 <UserDetails
                   heading={"Address"}
-                  value={user.district + " " + user.state}
+                  value={user.district + ", " + user.state}
                 />
                 <UserDetails heading={"Degree"} value={user.degree} />
                 <UserDetails
