@@ -34,11 +34,7 @@ const HeroMain = () => {
         style={styles.video}
       >
         <source
-          src={
-            isMobileView
-              ? "https://res.cloudinary.com/dxcjzquen/video/upload/v1696364452/mobile_bg_video_uqucru.mp4"
-              : "https://res.cloudinary.com/dxcjzquen/video/upload/v1696364225/desktop_bg_video_asad_hmhmzn.mp4"
-          }
+          src={isMobileView ? "/video-mobile.mp4" : "/video-desktop.mp4"}
           type="video/mp4"
         />
       </video>

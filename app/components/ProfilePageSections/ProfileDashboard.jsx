@@ -11,6 +11,7 @@ import {
   Badge,
   Alert,
   ScrollArea,
+  Center,
 } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import classes from "@/app/styles/profile.module.css";
@@ -123,10 +124,11 @@ export default function ProfileDashboard({ user }) {
                   mb={"xl"}
                   variant="filled"
                   color="green"
+                  radius={0}
                   // title="Payment done and verified"
                 >
                   <Flex
-                    align={"center"}
+                    align={"start"}
                     gap={"0.5rem"}
                     className={classes.completePaymentFlex}
                   >
@@ -134,7 +136,6 @@ export default function ProfileDashboard({ user }) {
                     <Text
                       lh={"1.35rem"}
                       fz={isMobile ? "1rem" : "1.125rem"}
-                      pb={"1rem"}
                       px={"8px"}
                     >
                       Congratulations! Your Tarang Card payment has been
@@ -149,6 +150,7 @@ export default function ProfileDashboard({ user }) {
                   mb={"xl"}
                   variant="filled"
                   color="yellow"
+                  radius={0}
                   // title="verification pending"
                   icon={<IconInfoCircle />}
                 >
@@ -178,6 +180,7 @@ export default function ProfileDashboard({ user }) {
                   mt={"md"}
                   variant="filled"
                   color="red"
+                  radius={0}
                   // title="Payment not done yet"
                   icon={<IconInfoCircle />}
                 >
@@ -247,14 +250,9 @@ export default function ProfileDashboard({ user }) {
                         />
                       ))
                     ) : (
-                      <Alert
-                        variant="light"
-                        color="yellow"
-                        title="No Event Registered"
-                        icon={<IconInfoCircle />}
-                      >
-                        You haven't added any events so far.
-                      </Alert>
+                      <Center h={"100%"} w={"100%"}>
+                        <Text fz={isMobile ? 25 : 32}>No Events Added</Text>
+                      </Center>
                     )}
                   </ScrollArea>
                 </>

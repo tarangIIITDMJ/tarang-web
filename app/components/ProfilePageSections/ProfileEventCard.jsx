@@ -10,15 +10,16 @@ import {
 } from "@tabler/icons-react";
 import profileCSS from "@/app/styles/profile.module.css";
 import { useDisclosure } from "@mantine/hooks";
-import { removeRegisteredEvent } from "@/app/utils/apis";
+import { getUser, removeRegisteredEvent } from "@/app/utils/apis";
 import { notifications } from "@mantine/notifications";
+import { useAuthStore } from "@/app/store/authStore";
 
-export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
+export default function ProfileEventCard({ event, hasPaid, onEventRemoved }) {
   const [removeBtnVisibility, setRemoveBtnVisibility] = useState(false);
   const [cardBorder, setCardBorder] = useState(false);
   const [opened, { open, close }] = useDisclosure(false);
   const [loading, setLoading] = useState(false);
-
+  const { setUser } = useAuthStore();
   const handleRemoveEvent = async () => {
     setLoading(true);
     try {
@@ -30,6 +31,10 @@ export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
           autoClose: 2000,
         });
         onEventRemoved(event.slug);
+        const newUserData = await getUser(); // TODO: get this from the backend
+        if (newUserData?.status === 200) {
+          setUser(newUserData.data.user);
+        }
       }
       setLoading(false);
       close();
@@ -101,9 +106,9 @@ export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
             ) : (
               <Badge
                 leftSection={icon1}
-                p={isMobileView?"0.5rem":"0.85rem"}
+                p={isMobileView ? "0.5rem" : "0.85rem"}
                 lh={"1.5rem"}
-                size={isMobileView?"0.6rem":"0.95rem"}
+                size={isMobileView ? "0.6rem" : "0.95rem"}
                 radius={5}
                 color="#FAC7C7"
                 className={profileCSS.eventCardBadge1}
