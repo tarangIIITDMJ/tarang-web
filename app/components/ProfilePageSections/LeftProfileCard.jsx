@@ -136,20 +136,20 @@ export default function LeftProfileCard({ user }) {
                 <Flex
                   align="start"
                   gap={4}
+                  onClick={() => {
+                    navigator.clipboard.writeText(user.tarang_id);
+                    notifications.show({
+                      title: "Success",
+                      message: "Copied to clipboard",
+                      autoClose: 2000,
+                    });
+                  }}
                   style={{
                     cursor: "pointer",
                   }}
                 >
                   <Text
                     fw={600}
-                    onClick={() => {
-                      navigator.clipboard.writeText(user.tarang_id);
-                      notifications.show({
-                        title: "Success",
-                        message: "Copied to clipboard",
-                        autoClose: 2000,
-                      });
-                    }}
                     style={{
                       textDecorationLine: "underline",
                     }}
