@@ -10,25 +10,17 @@ import {
   Stack,
   Text,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 import cssStyles from "@/app/styles/home.module.css";
-import { useMediaQuery } from "@mantine/hooks";
 
 export default function EventSection() {
-  const isMobileView = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   function CardComp({ data, makeMobile = false }) {
     return (
-      <Paper
-        className={cssStyles.EventSectionPaper}
-        bg={"transparent"}
-        h={"100%"}
-        radius={0}
-        p={6}
-      >
-
-    
+      <Paper bg={"transparent"} h={"100%"} radius={0} p={0}>
         <Link href={data.link}>
           <Flex
             p={0}
@@ -46,13 +38,13 @@ export default function EventSection() {
               />
             </Box>
             <Stack
-              p={"12px 32px 24px 32px"}
+              p={isMobile ? "12px 24px 12px 24px" : "12px 32px 24px 32px"}
               gap={5}
               align="flex-start"
-              h={130}
+              h={"130"}
               w={makeMobile ? "65%" : "100%"}
               style={{
-                border: "3px solid #000",
+                border: isMobile ? "1px solid #000" : "3px solid #000",
               }}
               bg={"white"}
               className={cssStyles.EventCardsStack}
@@ -67,8 +59,7 @@ export default function EventSection() {
                 style={{
                   wordBreak: "break-word",
                 }}
-                lineClamp={3}
-                className={cssStyles.EventCardDesc}
+                lineClamp={isMobile ? 2 : 3}
               >
                 {data.desc ?? "Description"}
               </Text>
@@ -94,45 +85,33 @@ export default function EventSection() {
         py={"3rem"}
         style={{ border: "3px solid black", borderTopWidth: "0px" }}
       >
-        {isMobileView ? (
-          <Image
-            src={"homePageImages/highlightEventsBannerMobile.svg"}
-            alt=""
-          />
-        ) : (
-          <Image src={"homePageImages/highlightEventsBanner.svg"} alt="" />
-        )}
+        <Image src={"homePageImages/highlightEvents.webp"} alt="" />
       </Box>
       <Box
         bg={"#D0EB4C"}
-        className={cssStyles.EventSectionBox}
-        py={"6rem"}
-        px={"6.75rem"}
+        py={isMobile ? "3rem" : "6rem"}
+        px={isMobile ? "1rem" : "6.75rem"}
       >
         <Stack gap={"3.5rem"} align="center">
-          <Text
-            className={cssStyles.EventSectionBoxText}
-            size={"4rem"}
-            c="#24292E"
-          >
+          <Text size={isMobile ? "2rem" : "4rem"} c="#24292E">
             Here&apos;s what to expect!
           </Text>
           <Grid gutter={20} justify="center" align="stretch">
-            <Grid.Col span={isMobileView ? 12 : 6}>
+            <Grid.Col span={isMobile ? 12 : 6}>
               <Stack gap={20}>
                 <CardComp
                   data={{
                     title: "Artful Alteration",
                     desc: "Unleash your artistic flair with The Big Picture's canvas creativity and conquer the Photoshop Battle for graphic design supremacy!",
                     imgData: {
-                      h: isMobileView ? 150 : 300,
+                      h: isMobile ? 150 : 300,
                       src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448432/the_big_picture_b6y9pq.webp",
                     },
                     link: "#",
                   }}
                 />
                 <Grid>
-                  <Grid.Col className={cssStyles.EventGridCol} span={6}>
+                  <Grid.Col span={isMobile ? 12 : 6}>
                     <CardComp
                       data={{
                         title: "Picxellence",
@@ -143,10 +122,10 @@ export default function EventSection() {
                         },
                         link: "/events/pixcellence",
                       }}
-                      makeMobile={isMobileView}
+                      makeMobile={isMobile}
                     />
                   </Grid.Col>
-                  <Grid.Col className={cssStyles.EventGridCol} span={6}>
+                  <Grid.Col span={isMobile ? 12 : 6}>
                     <CardComp
                       data={{
                         title: "Pen It Down",
@@ -157,21 +136,20 @@ export default function EventSection() {
                         },
                         link: "/events/pen-it-down",
                       }}
-                      makeMobile={isMobileView}
+                      makeMobile={isMobile}
                     />
                   </Grid.Col>
                 </Grid>
               </Stack>
             </Grid.Col>
-            <Grid.Col className={cssStyles.EventGridCol} span={6}>
+            <Grid.Col span={isMobile ? 12 : 6}>
               <Flex
-                className={cssStyles.EventSectionFlex}
-                direction={"column"}
+                direction={isMobile ? "column-reverse" : "column"}
                 align={"center"}
                 gap={20}
               >
                 <Grid>
-                  <Grid.Col className={cssStyles.EventGridCol} span={6}>
+                  <Grid.Col span={isMobile ? 12 : 6}>
                     <CardComp
                       data={{
                         title: "Theater Wars",
@@ -182,10 +160,10 @@ export default function EventSection() {
                         },
                         link: "/events/theatre-wars",
                       }}
-                      makeMobile={isMobileView}
+                      makeMobile={isMobile}
                     />
                   </Grid.Col>
-                  <Grid.Col className={cssStyles.EventGridCol} span={6}>
+                  <Grid.Col span={isMobile ? 12 : 6}>
                     <CardComp
                       data={{
                         title: "Jhankaar",
@@ -196,7 +174,7 @@ export default function EventSection() {
                         },
                         link: "/events/jhankaar",
                       }}
-                      makeMobile={isMobileView}
+                      makeMobile={isMobile}
                     />
                   </Grid.Col>
                 </Grid>
@@ -205,7 +183,7 @@ export default function EventSection() {
                     title: "Off the wall",
                     desc: "Express your creativity through art with our Mural Painting competition or get hands-on with Bamboo furniture crafting and Pottery at our Creative Workshop!",
                     imgData: {
-                      h: isMobileView ? 150 : 300,
+                      h: isMobile ? 150 : 300,
                       src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448287/Mural-painting_1_h4s6ko.webp",
                     },
                     link: "/events/off-the-wall",
