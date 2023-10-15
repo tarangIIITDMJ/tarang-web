@@ -10,11 +10,88 @@ import {
 } from "../utils/apis";
 import ValidateAuth from "../components/ValidateAuth";
 
-const Admin = () => {
+const UserCard = ({ user, getUsers, getRejUser }) => {
   const [value, setValue] = useState("");
+
+  const handleReject = async (id) => {
+    try {
+      const response = await rejectPayment(id, value);
+      if (response.status == 200) {
+        setValue("");
+        getUsers();
+        getRejUser();
+      } else {
+        console.log(response);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleVerify = async (id) => {
+    try {
+      const response = await verifyPayment(id);
+      if (response.status == 200) {
+        setRefStatus(response.data.refStatus);
+        setValue("");
+        getUsers();
+      } else {
+        console.log(response);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <Card
+      shadow="sm"
+      padding={20}
+      radius={8}
+      style={{ width: "100%", textAlign: "left" }}
+    >
+      <Flex justify="space-between" align="center" style={{ width: "100%" }}>
+        <div>
+          <p style={{ color: "green" }}>Name: {user.fname}</p>
+          <p style={{ color: "green" }}>Email: {user.email}</p>
+          <p style={{ color: "green" }}>Tarang ID: {user.tarang_id}</p>
+          <p style={{ color: "green" }}>Phone: {user.phone}</p>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          <TextInput
+            placeholder="Comments for Rejection(optional)"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+          <Button
+            variant="light"
+            color="green"
+            onClick={() => handleVerify(user.tarang_id)}
+          >
+            Verify
+          </Button>
+          <Button
+            variant="light"
+            color="red"
+            onClick={() => handleReject(user.tarang_id)}
+          >
+            Reject
+          </Button>
+        </div>
+      </Flex>
+    </Card>
+  );
+};
+
+const Admin = () => {
   const [users, setUsers] = useState([]);
   const [rejectedUsers, setRejectedUsers] = useState([]);
-  const [refStatus, setRefStatus] = useState("");
 
   const updateRej = async (id) => {
     try {
@@ -57,36 +134,6 @@ const Admin = () => {
     }
   };
 
-  const handleReject = async (id) => {
-    try {
-      const response = await rejectPayment(id, value);
-      if (response.status == 200) {
-        setValue("");
-        getUsers();
-        getRejUser();
-      } else {
-        console.log(response);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleVerify = async (id) => {
-    try {
-      const response = await verifyPayment(id);
-      if (response.status == 200) {
-        setRefStatus(response.data.refStatus);
-        setValue("");
-        getUsers();
-      } else {
-        console.log(response);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     getUsers();
     getRejUser();
@@ -105,53 +152,12 @@ const Admin = () => {
         >
           <h2>Unverified Users</h2>
           {users.map((user) => (
-            <Card
-              shadow="sm"
-              padding={20}
-              radius={8}
-              style={{ width: "100%", textAlign: "left" }}
+            <UserCard
+              user={user}
               key={user._id}
-            >
-              <Flex
-                justify="space-between"
-                align="center"
-                style={{ width: "100%" }}
-              >
-                <div>
-                  <p style={{ color: "green" }}>Name: {user.fname}</p>
-                  <p style={{ color: "green" }}>Email: {user.email}</p>
-                  <p style={{ color: "green" }}>Tarang ID: {user.tarang_id}</p>
-                  <p style={{ color: "green" }}>Phone: {user.phone}</p>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "1rem",
-                  }}
-                >
-                  <TextInput
-                    placeholder="Reference ID"
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                  />
-                  <Button
-                    variant="light"
-                    color="green"
-                    onClick={() => handleVerify(user.tarang_id)}
-                  >
-                    Verify
-                  </Button>
-                  <Button
-                    variant="light"
-                    color="red"
-                    onClick={() => handleReject(user.tarang_id)}
-                  >
-                    Reject
-                  </Button>
-                </div>
-              </Flex>
-            </Card>
+              getRejUser={getRejUser}
+              getUsers={getUsers}
+            />
           ))}
         </Flex>
         <Flex
