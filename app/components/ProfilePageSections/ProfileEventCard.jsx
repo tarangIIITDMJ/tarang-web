@@ -1,7 +1,7 @@
 "use client";
+
 import React, { useState } from "react";
 import { useMediaQuery } from "@mantine/hooks";
-import { Link } from "next/link";
 import { Text, Image, Button, Flex, Stack, Badge, Modal } from "@mantine/core";
 import {
   IconTrash,
