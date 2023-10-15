@@ -204,7 +204,14 @@ export default function ProfileDashboard({ user }) {
                       Card! After that, you can add as many events as you'd
                       like.
                     </Text>
-                    <Link href="/tarang-card">
+                    <Link
+                      target="_blank"
+                      href={`https://docs.google.com/forms/d/e/1FAIpQLSd7Bs0uQayl1GSOaB_dwZFYtpRBAO67iehIgOC88eOD-lhOFA/viewform?usp=pp_url&entry.275844225=${
+                        user.fname + " " + user.lname
+                      }&entry.1392576540=${user.tarang_id}&entry.272288439=${
+                        user.email
+                      }&entry.610706180=${user.phone}`}
+                    >
                       <Button
                         bg="#FFF"
                         c="black"

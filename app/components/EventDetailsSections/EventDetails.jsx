@@ -108,12 +108,14 @@ export default function EventDetails({ event }) {
         open();
       }
     } catch (error) {
-      notifications.show({
-        title: "Error",
-        message: "Something went wrong",
-        color: "red",
-        autoClose: 2000,
-      });
+      if (error.response.status === 401) {
+        notifications.show({
+          title: "Error",
+          message: "You need to be logged in to register for this event",
+          color: "red",
+          autoClose: 2000,
+        });
+      }
     }
     setLoading(false);
   };
