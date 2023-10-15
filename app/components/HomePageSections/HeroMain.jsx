@@ -24,7 +24,7 @@ const HeroMain = () => {
       <video
         preload="none"
         ref={videoRef}
-        onCanPlayThrough={() => {
+        onCanPlay={() => {
           setvideoLoaded(true);
         }}
         loop
