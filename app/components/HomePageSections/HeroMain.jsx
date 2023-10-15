@@ -13,7 +13,6 @@ const HeroMain = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [videoLoaded, setvideoLoaded] = useState(false);
   const videoRef = useRef(null);
-
   useEffect(() => {
     if (videoRef.current.readyState == 4) {
       setvideoLoaded(true);
@@ -71,19 +70,19 @@ const HeroMain = () => {
             The Tide is turning
           </Text>
           <Flex columnGap={"xl"} className={cssstyles.HeroMainButtonFlex}>
-          <Link href="/signup">
-            <Button
-              bg="#D0EB4C"
-              c="black"
-              radius={0}
-              size={"lg"}
-              mt={44}
-             // disabled // TODO: Remove this when registration opens
-              className={cssstyles.HeroMainExploreButton}
-              rightSection={<IconArrowRight />}
-            >
-              Register Now
-            </Button>
+            <Link href="/signup">
+              <Button
+                bg="#D0EB4C"
+                c="black"
+                radius={0}
+                size={"lg"}
+                mt={44}
+                // disabled // TODO: Remove this when registration opens
+                className={cssstyles.HeroMainExploreButton}
+                rightSection={<IconArrowRight />}
+              >
+                Register Now
+              </Button>
             </Link>
             <Link href="/events">
               <Button

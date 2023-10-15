@@ -10,8 +10,9 @@ import {
 } from "@tabler/icons-react";
 import profileCSS from "@/app/styles/profile.module.css";
 import { useDisclosure } from "@mantine/hooks";
-import { removeRegisteredEvent } from "@/app/utils/apis";
+import { getUser, removeRegisteredEvent } from "@/app/utils/apis";
 import { notifications } from "@mantine/notifications";
+import { useAuthStore } from "@/app/store/authStore";
 
 export default function ProfileEventCard({
   event,
@@ -24,6 +25,7 @@ export default function ProfileEventCard({
   const [opened, { open, close }] = useDisclosure(false);
   const [loading, setLoading] = useState(false);
 
+  const { setUser } = useAuthStore();
   const handleRemoveEvent = async () => {
     setLoading(true);
     try {
@@ -35,6 +37,8 @@ export default function ProfileEventCard({
           autoClose: 2000,
         });
         onEventRemoved(event.slug);
+        const newUser = await getUser();
+        if (newUser.status === 200) setUser(newUser.data.user);
       }
       setLoading(false);
       close();
