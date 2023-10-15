@@ -34,11 +34,7 @@ const HeroMain = () => {
         style={styles.video}
       >
         <source
-          src={
-            isMobileView
-              ? "https://res.cloudinary.com/dxcjzquen/video/upload/v1696364452/mobile_bg_video_uqucru.mp4"
-              : "https://res.cloudinary.com/dxcjzquen/video/upload/v1696364225/desktop_bg_video_asad_hmhmzn.mp4"
-          }
+          src={isMobileView ? "/video-mobile.mp4" : "/video-desktop.mp4"}
           type="video/mp4"
         />
       </video>
@@ -75,18 +71,20 @@ const HeroMain = () => {
             The Tide is turning
           </Text>
           <Flex columnGap={"xl"} className={cssstyles.HeroMainButtonFlex}>
+          <Link href="/signup">
             <Button
-              bg="#999999"
+              bg="#D0EB4C"
               c="black"
               radius={0}
               size={"lg"}
               mt={44}
-              disabled // TODO: Remove this when registration opens
+             // disabled // TODO: Remove this when registration opens
               className={cssstyles.HeroMainExploreButton}
               rightSection={<IconArrowRight />}
             >
               Register Now
             </Button>
+            </Link>
             <Link href="/events">
               <Button
                 color="transparent"

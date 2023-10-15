@@ -18,9 +18,7 @@ export default function Profile() {
       try {
         const response = await getUser();
         setUser(response.data.user);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
       setIsLoading(false);
     }
     fetchUser();

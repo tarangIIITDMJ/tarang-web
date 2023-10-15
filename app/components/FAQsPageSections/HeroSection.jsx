@@ -12,7 +12,7 @@ export default function HeroSection() {
       className={cssStyles.HeroSectionContainer}
     >
       <BackgroundImage
-        src={"/bgImage.jpg"}
+        src={"https://res.cloudinary.com/djzdhk09p/image/upload/v1697317290/bgImage_daqgzb.webp"}
         miw={"100%"}
         h={"100%"}
         style={{

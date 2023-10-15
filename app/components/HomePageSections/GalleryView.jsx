@@ -14,11 +14,12 @@ import Link from "next/link";
 import cssStyles from "@/app/styles/home.module.css";
 
 const galleryImages = [
-  "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365168/GalleryImage1_1_txilwo.webp",
-  "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365167/GalleryImage2_1_a8p9vh.webp",
-  "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365167/GalleryImage3_1_qtzjjh.webp",
-  "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365167/GalleryImage5_1_kilgqt.webp",
-  "https://res.cloudinary.com/dxcjzquen/image/upload/v1696365167/GalleryImage4_1_lqmh4m.webp",
+  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319631/homepage_event/png%20and%20jpg/IMG_6758_ux42wq.png",
+  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319630/homepage_event/png%20and%20jpg/IMG_7043_wxzdcw.png",
+  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319628/homepage_event/png%20and%20jpg/IMG_7023_cfd4zx.png",
+  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319626/homepage_event/png%20and%20jpg/DSC_8155__1_nqee72.png",
+  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319621/homepage_event/png%20and%20jpg/IMG_7540_1_xxtt4o.png",
+  // "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319617/homepage_event/png%20and%20jpg/IMG_6905_1_yeothv.png",
 ];
 
 const ImageAccordion = () => {
@@ -118,7 +119,6 @@ function GalleryView() {
             bg="white"
             c={"black"}
             radius={0}
-            disabled
           >
             View more
           </Button>

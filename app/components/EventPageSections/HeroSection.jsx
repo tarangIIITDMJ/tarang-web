@@ -18,7 +18,13 @@ export default function HeroSection() {
         },
       }}
     >
-      <BackgroundImage src={"/bgImage.jpg"} miw={"100%"} h={"100%"}>
+      <BackgroundImage
+        src={
+          "https://res.cloudinary.com/djzdhk09p/image/upload/v1697317290/bgImage_daqgzb.webp"
+        }
+        miw={"100%"}
+        h={"100%"}
+      >
         <div
           style={{
             position: "absolute",

@@ -13,7 +13,12 @@ import { useDisclosure } from "@mantine/hooks";
 import { removeRegisteredEvent } from "@/app/utils/apis";
 import { notifications } from "@mantine/notifications";
 
-export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
+export default function ProfileEventCard({
+  event,
+  hasPaid,
+  formFilled,
+  onEventRemoved,
+}) {
   const [removeBtnVisibility, setRemoveBtnVisibility] = useState(false);
   const [cardBorder, setCardBorder] = useState(false);
   const [opened, { open, close }] = useDisclosure(false);
@@ -58,32 +63,29 @@ export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
       <Flex
         onMouseEnter={() => setRemoveBtnVisibility(true)}
         onMouseLeave={() => setRemoveBtnVisibility(false)}
-        align={"center"}
-        className={`${profileCSS.eventCard} ${
-          cardBorder ? profileCSS.cardHovered : ""
-        }`}
+        align={"start"}
+        className={`${profileCSS.eventCard}`}
         my="md"
         p="sm"
         style={{
           overflow: "hidden",
           width: "100%",
-          backgroundColor: "#0000000D",
-          "&:hover": {
-            backgroundColor: "#0000000D",
-          },
         }}
         gap={"15"}
       >
         <Image
-          h={80}
-          w={"20%"}
+          miw="6rem"
           src={event.images.mainPhone}
           alt={event.name}
           aspectRatio={1}
         />
         <Stack w={"70%"}>
-          <Flex direction={isMobileView ? "column" : "row"}>
-            <Text size="lg" style={{ fontWeight: "625", width: "10rem" }}>
+          <Flex
+            direction={isMobileView ? "column" : "row"}
+            align={isMobileView ? "flex-start" : "center"}
+            justify="start"
+          >
+            <Text size="md" fw={625} mr="md">
               {event.name.toUpperCase()}
             </Text>
             {hasPaid ? (
@@ -98,12 +100,25 @@ export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
               >
                 Paid & Confirmed
               </Badge>
+            ) : formFilled ? (
+              <Badge
+                leftSection={icon1}
+                p={"0.85rem"}
+                lh={"1.5rem"}
+                size={"0.95rem"}
+                radius={5}
+                mt={isMobileView ? "0.5rem" : "0"}
+                color="#FDE57E"
+                className={profileCSS.eventCardBadge3}
+              >
+                Verification Pending
+              </Badge>
             ) : (
               <Badge
                 leftSection={icon1}
-                p={isMobileView?"0.5rem":"0.85rem"}
+                p={isMobileView ? "0.5rem" : "0.85rem"}
                 lh={"1.5rem"}
-                size={isMobileView?"0.6rem":"0.95rem"}
+                size={isMobileView ? "0.6rem" : "0.95rem"}
                 radius={5}
                 color="#FAC7C7"
                 className={profileCSS.eventCardBadge1}
@@ -121,7 +136,7 @@ export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
             {event.event_date}, {event.event_time}
           </Text>
         </Stack>
-        {isMobileView && <IconTrash onClick={open} size={20} />}
+        {isMobileView && <IconTrash onClick={open} size={25} color="#676e76" />}
         {removeBtnVisibility && !isMobileView ? (
           <Button
             pl={"2rem"}
@@ -129,6 +144,7 @@ export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
             onMouseLeave={() => setCardBorder(false)}
             className={profileCSS.profileEventCardButton}
             size="md"
+            c="#676e76"
             variant="filled"
             leftSection={<IconTrash size={20} />}
             onClick={open}
@@ -139,7 +155,7 @@ export default function ProfileEventCard({ event, hasPaid ,  onEventRemoved }) {
           <></>
         )}
       </Flex>
-      <Modal opened={opened} onClose={close} title="Remove Event">
+      <Modal opened={opened} onClose={close} title="Remove Event" centered>
         <Stack
           pt={"3rem"}
           p={"1rem"}

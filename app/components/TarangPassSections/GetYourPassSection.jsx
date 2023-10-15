@@ -30,7 +30,11 @@ const GetYourPassSection = () => {
             {Array(3)
               .fill(null)
               .map((_, index) => (
-                <Image key={index} src={"/star-icon.svg"} alt="" />
+                <Image
+                  key={index}
+                  src={"/tarangCardPageImages/star-icon.svg"}
+                  alt=""
+                />
               ))}
           </Group>
           <Text
@@ -71,6 +75,7 @@ const GetYourPassSection = () => {
                 py={isMobileView ? "0.75rem" : "1.125rem"}
                 radius={0}
                 mt={isMobileView ? "1.5rem" : "3rem"}
+                lh={1.2}
               >
                 Get Your Tarang Card
               </Button>
@@ -86,6 +91,7 @@ const GetYourPassSection = () => {
                 py={isMobileView ? "0.75rem" : "1.125rem"}
                 radius={0}
                 mt={isMobileView ? "1.5rem" : "3rem"}
+                lh={1.2}
               >
                 Get Your Tarang Card
               </Button>

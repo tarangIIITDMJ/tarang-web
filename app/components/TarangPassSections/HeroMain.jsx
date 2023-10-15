@@ -16,17 +16,22 @@ import SubMainSection from "./SubMainSection";
 import Link from "next/link";
 import { useMediaQuery } from "@mantine/hooks";
 import { useAuthStore } from "@/app/store/authStore";
+
 const HeroSection = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const { user, isAuth } = useAuthStore();
 
   const headingImageSrc = isMobileView
-    ? "/heading-mobile.svg"
-    : "/heading-desktop.svg";
+    ? "/tarangCardPageImages/heading-mobile.svg"
+    : "/tarangCardPageImages/heading-desktop.svg";
 
   return (
     <BackgroundImage
-      src={isMobileView ? "tarang-card-bg-mob.jpg" : "tarang-card-bg-web.jpg"}
+      src={
+        isMobileView
+          ? "/tarangCardPageImages/tarang-card-bg-mob.jpg"
+          : "/tarangCardPageImages/tarang-card-bg-web.jpg"
+      }
       miw="100%"
     >
       <Box
@@ -88,6 +93,7 @@ const HeroSection = () => {
               py={isMobileView ? "0.75rem" : "1.125rem"}
               radius={0}
               mt={isMobileView ? "1.5rem" : "2rem"}
+              lh={1.2}
             >
               Get Your Tarang Card
             </Button>
@@ -104,6 +110,7 @@ const HeroSection = () => {
               py={isMobileView ? "0.75rem" : "1.125rem"}
               radius={0}
               mt={isMobileView ? "1.5rem" : "2rem"}
+              lh={1.2}
             >
               Get Your Tarang Card
             </Button>

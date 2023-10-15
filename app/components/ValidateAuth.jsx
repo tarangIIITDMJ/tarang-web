@@ -13,6 +13,8 @@ const ValidateAuth = ({ children }) => {
     else return router.push("/verify-email");
   } else if (isAuth && user.verifyToken == "*") {
     if (pathname == "/verify-email") return router.push("/profile");
+    else if (pathname == "/admin" && user.role != "admin")
+      return router.push("/profile");
     else return children;
   }
 };

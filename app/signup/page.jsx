@@ -12,6 +12,7 @@ import {
   Select,
   Stack,
 } from "@mantine/core";
+import { PasswordInput } from '@mantine/core';
 import MainAppShell from "../components/MainAppShell";
 import { useMediaQuery } from "@mantine/hooks";
 import { useEffect, useState } from "react";
@@ -73,6 +74,7 @@ export default function Signup() {
         phone: "",
         password: "",
         confirmPassword: "",
+        referredBy: ""
       },
 
       collegeDetails: {
@@ -327,27 +329,39 @@ const StepOne = ({ isMobileView, form }) => {
         />
       </Grid.Col>
       <Grid.Col span={isMobileView ? 12 : 6}>
-        <TextInput
-          label="Password"
-          type="password"
-          placeholder="Password"
-          styles={{
-            input: { border: "1px solid #000", marginTop: 6 },
-          }}
-          radius={0}
-          {...form.getInputProps("personalDetails.password")}
-        />
+       <PasswordInput
+         label="Password"
+         type="password"
+         placeholder="Password"
+         styles={{
+          input: { border: "1px solid #000", marginTop: 6 },
+        }}
+        radius={0}
+        {...form.getInputProps("personalDetails.password")}
+       />
       </Grid.Col>
       <Grid.Col span={isMobileView ? 12 : 6}>
-        <TextInput
-          label="Confirm Password"
-          type="password"
-          placeholder="Confirm Password"
+      <PasswordInput
+         label="Confirm Password"
+         type="password"
+         placeholder="Confirm Password"
+         styles={{
+          input: { border: "1px solid #000", marginTop: 6 },
+        }}
+        radius={0}
+        {...form.getInputProps("personalDetails.confirmPassword")}
+       />
+      </Grid.Col>
+      <Grid.Col span={isMobileView ? 12 : 6}>
+      <TextInput
+          label="Referral Code (Eg. TRNG-123456)"
+          type="text"
+          placeholder="Your Friend's Tarang-ID (optional)"
           styles={{
             input: { border: "1px solid #000", marginTop: 6 },
           }}
           radius={0}
-          {...form.getInputProps("personalDetails.confirmPassword")}
+          {...form.getInputProps("personalDetails.referredBy")}
         />
       </Grid.Col>
     </Grid>

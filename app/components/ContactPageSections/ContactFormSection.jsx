@@ -13,6 +13,7 @@ import {
 import { useForm } from "@mantine/form";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconMail } from "@tabler/icons-react";
+import Link from "next/link";
 
 const ContactFormSection = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -46,8 +47,8 @@ const ContactFormSection = () => {
     >
       <Text
         c="#FFF"
-        fz={isMobileView ? "2rem" : "4rem"}
-        lh={isMobileView ? "2rem" : "4rem"}
+        fz={isMobileView ? "2rem" : "3rem"}
+        lh={isMobileView ? "2rem" : "3.5rem"}
         mb={isMobileView ? "2rem" : "3rem"}
       >
         Reach out to us via our user-friendly contact form. We're here to help!
@@ -86,7 +87,9 @@ const ContactFormSection = () => {
                 </Text>
               </Box>
               <Text c="#E5E7EA" fz={isMobileView ? "0.75rem" : "1.125rem"}>
-                tarang@iiitdmj.ac.in
+                <Link href="mailto:tarang@iiitdmj.ac.in">
+                  tarang@iiitdmj.ac.in
+                </Link>
               </Text>
             </Stack>
           </Stack>
@@ -139,7 +142,8 @@ const ContactFormSection = () => {
             <Group pt="2rem" justify="center">
               <Button
                 size={isMobileView ? "sm" : "lg"}
-                color="#0047FF"
+                color="#fff"
+                c={"#24292E"}
                 leftSection={<IconMail />}
                 h="auto"
                 px={isMobileView ? "0.5rem" : "1.125rem"}

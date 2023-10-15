@@ -32,7 +32,7 @@ function SubMainSection() {
       <Group justify="center">
         <Image
           ref={imageRef}
-          src="/tarangCard.svg"
+          src="/tarangCardPageImages/tarangCard.svg"
           alt=""
           w={isMobileView ? "20rem" : "100rem"}
           style={{
@@ -46,7 +46,7 @@ function SubMainSection() {
           <Text c="#FFF" fz="3.5rem" fw={600} lh="-0.125rem">
             What's in it for you:
           </Text>
-          <Image src="/bgImage.svg" alt="" w="16rem" />
+          <Image src="/tarangCardPageImages/bgImage.svg" alt="" w="16rem" />
         </Stack>
         <Stack maw={isMobileView ? "100%" : "50%"}>
           <Text

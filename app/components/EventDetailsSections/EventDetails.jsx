@@ -17,7 +17,7 @@ import { Breadcrumbs, Anchor } from "@mantine/core";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
-import { registerEvent } from "@/app/utils/apis";
+import { getUser, registerEvent } from "@/app/utils/apis";
 import { useAuthStore } from "@/app/store/authStore";
 import { notifications } from "@mantine/notifications";
 import { useRouter } from "next/navigation";
@@ -68,7 +68,7 @@ export default function EventDetails({ event }) {
   const [opened, { open, close }] = useDisclosure(false);
   const [teamName, setTeamName] = useState();
   const { push } = useRouter();
-  const { user } = useAuthStore();
+  const { user, setUser } = useAuthStore();
   useEffect(() => {
     if (user) {
       if (user.events.some((usrEvent) => usrEvent.slug === event.slug)) {
@@ -97,6 +97,10 @@ export default function EventDetails({ event }) {
             color: "green",
             autoClose: 2000,
           });
+          const newUserData = await getUser(); // TODO: get this from the backend
+          if (newUserData?.status === 200) {
+            setUser(newUserData.data.user);
+          }
         }
 
         setLoading(false);
@@ -104,7 +108,6 @@ export default function EventDetails({ event }) {
         open();
       }
     } catch (error) {
-      console.log(error, "Error");
       notifications.show({
         title: "Error",
         message: "Something went wrong",
@@ -140,7 +143,6 @@ export default function EventDetails({ event }) {
         close();
       }
     } catch (error) {
-      console.log(error, "Error");
       notifications.show({
         title: "Error",
         message: "Something went wrong",

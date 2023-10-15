@@ -1,7 +1,7 @@
 .tab {
   position: relative;
   border: none;
-  
+
   &:first-of-type {
     background: transparent;
     border: none;
@@ -41,7 +41,6 @@
 @media (max-width: $mantine-breakpoint-xs) {
   .PersonalDetailsStack {
     padding: 12px 0px !important;
-    
   }
   .userDetailsGroup {
     gap: 20px !important;
@@ -53,15 +52,15 @@
     width: 150px !important;
     word-break: break-all;
   }
-  .completePaymentFlex{
+  .completePaymentFlex {
     flex-direction: column;
     width: 100% !important;
   }
   .tab {
     font-size: 0.93rem !important;
-  padding-inline: 10px !important;
+    padding-inline: 10px !important;
   }
-  .DashboardStack{
+  .DashboardStack {
     padding-inline: 16px !important;
   }
   .text {
@@ -133,10 +132,16 @@
   text-transform: none;
   font-weight: 600;
 }
-
+.eventCardBadge3 {
+  color: #c8811a;
+  border: 1px solid #c8811a;
+  text-transform: none;
+  font-weight: 600;
+}
 .eventCard {
-  transition: border 0.2s ease-in-out;
+  transition: border 0.3s ease-in-out;
+  background: rgba(0, 0, 0, 0.05);
 }
 .eventCard:hover {
-  border: 2px solid #00000043;
+  border: 1px solid #9ea5ad;
 }

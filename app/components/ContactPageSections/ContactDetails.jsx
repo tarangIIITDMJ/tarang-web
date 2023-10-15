@@ -72,10 +72,10 @@ const ContactDetails = () => {
       px={isMobileView ? "2rem" : "5rem"}
       py={isMobileView ? "2rem" : "4.5rem"}
     >
-      <Text fz={isMobileView ? "2rem" : "4rem"} c="#E5E7EA" lh="100%">
+      <Text fz={isMobileView ? "2rem" : "3rem"} c="#E5E7EA" lh="100%">
         Need help about a specific event?
       </Text>
-      <Text fz={isMobileView ? "2rem" : "4rem"} c="#E5E7EA" lh="100%">
+      <Text fz={isMobileView ? "2rem" : "3rem"} c="#E5E7EA" lh="100%">
         Contact the coordinators.
       </Text>
 

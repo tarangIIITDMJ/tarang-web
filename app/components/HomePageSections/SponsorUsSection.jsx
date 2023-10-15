@@ -67,7 +67,13 @@ function SponsorUsSection() {
           span={1}
           order={isMobileView ? 3 : ""}
         >
-          <Image h={"100%"} src={"homePageImages/MobileFrame.webp"} alt="" />
+          <Image
+            h={"100%"}
+            src={
+              "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319617/homepage_event/png%20and%20jpg/IMG_2363_i94mam.png"
+            }
+            alt=""
+          />
         </Grid.Col>
         <Grid.Col
           style={style.borderBox}
@@ -79,12 +85,14 @@ function SponsorUsSection() {
             style={{
               transform: "scaleX(-1)",
             }}
-            src={"homePageImages/MobileFrame.webp"}
+            src={
+              "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319614/homepage_event/png%20and%20jpg/IMG_2376_j80lqi.png"
+            }
             alt=""
           />
         </Grid.Col>
         <Grid.Col
-          bg="#6421F4"
+          bg="#9a0cca"
           order={isMobileView ? 4 : ""}
           span={1}
           py={isMobileView ? "4rem" : "4.5rem"}
