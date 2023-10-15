@@ -33,7 +33,7 @@ const HeroMain = () => {
         style={styles.video}
       >
         <source
-          src={isMobileView ? "/video-mobile.mp4" : "/video-desktop.mp4"}
+          src={isMobileView ? "https://tarangstorage.blob.core.windows.net/video/video-mob.mp4" : "https://tarangstorage.blob.core.windows.net/video/video-desktop.mp4"}
           type="video/mp4"
         />
       </video>
