@@ -14,11 +14,17 @@ const HeroMain = () => {
   const [videoLoaded, setvideoLoaded] = useState(false);
   const videoRef = useRef(null);
   useEffect(() => {
-    if (videoRef.current.readyState == 4) {
-      setvideoLoaded(true);
-    }
-  }, [videoRef.current]);
+    const videoElement = videoRef.current;
 
+    if (videoElement) {
+      videoElement.addEventListener("canplay", () => {
+        videoElement.play().catch((error) => {
+          console.error("Video playback error:", error);
+        });
+        setvideoLoaded(true);
+      });
+    }
+  }, []);
   return (
     <Container h="100vh" m={0} bg="blue" miw="100%" style={styles.container}>
       <video
@@ -27,13 +33,19 @@ const HeroMain = () => {
         onCanPlay={() => {
           setvideoLoaded(true);
         }}
+        playsInline
+        loading="eager"
         loop
         muted
         autoPlay
         style={styles.video}
       >
         <source
-          src={isMobileView ? "https://tarangfrontdoor-hhgtfrc4efa3g3b9.z01.azurefd.net/video/video-mob.mp4" : "https://tarangfrontdoor-hhgtfrc4efa3g3b9.z01.azurefd.net/video/video-desktop.mp4"}
+          src={
+            isMobileView
+              ? "https://tarangstorage.blob.core.windows.net/video/video-mob.mp4"
+              : "https://tarangstorage.blob.core.windows.net/video/video-desktop.mp4"
+          }
           type="video/mp4"
         />
       </video>
