@@ -7,6 +7,7 @@ import Script from "next/script";
 import { CheckUser } from "./components/CheckUser";
 import Loading from "./loading";
 import { Suspense } from "react";
+import PreLoader from "./components/uiComponents/PreLoader";
 
 export const metadata = {
   title: "Tarang'23 ",
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
           <CheckUser />
           <MantineProvider>
             <Notifications position="bottom-right" />
+            <PreLoader />
             {children}
           </MantineProvider>
         </Suspense>
