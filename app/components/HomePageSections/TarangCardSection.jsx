@@ -50,48 +50,22 @@ export default function TarangCardSection() {
           Get Your Tarang Card Today and Dive into a World of Creativity and
           Fun.
         </Text>
-        {isAuth ? (
-          <Link
-            target="_blank"
-            href={`https://docs.google.com/forms/d/e/1FAIpQLSd7Bs0uQayl1GSOaB_dwZFYtpRBAO67iehIgOC88eOD-lhOFA/viewform?usp=pp_url&entry.275844225=${
-              user.fname + " " + user.lname
-            }&entry.1392576540=${user.tarang_id}&entry.272288439=${
-              user.email
-            }&entry.610706180=${user.phone}`}
+        <Link href="/tarang-card">
+          <Button
+            size={isMobileView ? "sm" : "lg"}
+            bg="#FFF"
+            c="#000"
+            rightSection={<IconArrowUpRight />}
+            h="auto"
+            px={isMobileView ? "1.25rem" : "1.625rem"}
+            py={isMobileView ? "0.75rem" : "1.125rem"}
+            radius={0}
+            mt={!isMobileView && "1.5rem"}
+            lh={1.2}
           >
-            <Button
-              size={isMobileView ? "sm" : "lg"}
-              bg="#FFF"
-              c="#000"
-              rightSection={<IconArrowUpRight />}
-              h="auto"
-              px={isMobileView ? "1.25rem" : "1.625rem"}
-              py={isMobileView ? "0.75rem" : "1.125rem"}
-              radius={0}
-              mt={!isMobileView && "1.5rem"}
-              lh={1.2}
-            >
-              Get Your Tarang Card
-            </Button>
-          </Link>
-        ) : (
-          <Link href="/login">
-            <Button
-              size={isMobileView ? "sm" : "lg"}
-              bg="#FFF"
-              c="#000"
-              rightSection={<IconArrowUpRight />}
-              h="auto"
-              px={isMobileView ? "1.25rem" : "1.625rem"}
-              py={isMobileView ? "0.75rem" : "1.125rem"}
-              radius={0}
-              mt={!isMobileView && "1.5rem"}
-              lh={1.2}
-            >
-              Get Your Tarang Card
-            </Button>
-          </Link>
-        )}
+            Get Your Tarang Card
+          </Button>
+        </Link>
       </Stack>
       {isMobileView ? (
         <Image
