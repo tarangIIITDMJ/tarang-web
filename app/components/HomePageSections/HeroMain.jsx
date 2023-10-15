@@ -1,7 +1,6 @@
 "use client";
 import { Button, Text, Container, Box, Flex } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
-import { useMediaQuery } from "@mantine/hooks";
 import Image from "next/image";
 import tarangHeading from "@/public/tarangHeading.svg";
 import cssstyles from "@/app/styles/home.module.css";
@@ -10,21 +9,14 @@ import { useEffect, useRef, useState } from "react";
 import Loading from "@/app/loading";
 
 const HeroMain = () => {
-  const isMobileView = useMediaQuery("(max-width: 768px)");
   const [videoLoaded, setvideoLoaded] = useState(false);
   const videoRef = useRef(null);
   useEffect(() => {
-    const videoElement = videoRef.current;
-
-    if (videoElement) {
-      videoElement.addEventListener("canplay", () => {
-        videoElement.play().catch((error) => {
-          console.error("Video playback error:", error);
-        });
-        setvideoLoaded(true);
-      });
+    if (videoRef.current.readyState == 4) {
+      setvideoLoaded(true);
     }
   }, []);
+
   return (
     <Container h="100vh" m={0} bg="blue" miw="100%" style={styles.container}>
       <video
@@ -40,14 +32,7 @@ const HeroMain = () => {
         autoPlay
         style={styles.video}
       >
-        <source
-          src={
-            isMobileView
-              ? "https://tarangstorage.blob.core.windows.net/video/video-mob.mp4"
-              : "https://tarangstorage.blob.core.windows.net/video/video-desktop.mp4"
-          }
-          type="video/mp4"
-        />
+        <source src="/bg-video.mp4" type="video/mp4" />
       </video>
       {!videoLoaded && <Loading />}
 
