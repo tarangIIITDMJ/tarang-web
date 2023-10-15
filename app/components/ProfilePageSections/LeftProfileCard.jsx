@@ -1,18 +1,7 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Card,
-  Divider,
-  Flex,
-  Group,
-  Paper,
-  Space,
-  Stack,
-  Text,
-} from "@mantine/core";
+import { Button, Card, Flex, Paper, Stack, Text } from "@mantine/core";
 import { IconClipboard, IconLogout, IconUserCircle } from "@tabler/icons-react";
-import Image from "next/image";
-import ProfileStar from "@/public/ProfileStar.svg";
+import { Image } from "@mantine/core";
 import profileCSS from "@/app/styles/profile.module.css";
 import { useMediaQuery } from "@mantine/hooks";
 import { logout } from "@/app/utils/apis";
@@ -21,10 +10,11 @@ import { useAuthStore } from "../../store/authStore";
 import Link from "next/link";
 
 export default function LeftProfileCard({ user }) {
-  const { setUser, setIsAuth, setIsLoading } = useAuthStore();
+  const { setUser, setIsAuth } = useAuthStore();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [loading, setLoading] = useState(false);
-  const handelLogout = async () => {
+
+  const handleLogout = async () => {
     setLoading(true);
     try {
       const response = await logout();
@@ -52,8 +42,8 @@ export default function LeftProfileCard({ user }) {
   function StarPaper({ pc }) {
     return (
       <Paper
-        p={15}
         bg={"transparent"}
+        p={15}
         visibleFrom={pc ? "sm" : null}
         hiddenFrom={pc ? null : "sm"}
       >
@@ -67,9 +57,11 @@ export default function LeftProfileCard({ user }) {
           bg={"#ebff8a"}
         >
           <Image
+            src="/profileStar.svg"
+            alt=""
+            w="4.5rem"
+            h="4.5rem"
             className={profileCSS.profileStar}
-            src={ProfileStar}
-            alt="Profile Star"
           />
           <Stack
             gap={"xs"}
@@ -78,21 +70,17 @@ export default function LeftProfileCard({ user }) {
           >
             <Text fz={24}>Refer a friend</Text>
             <Text
-              className={profileCSS.text}
+              c="#383F45"
               ta={isMobile ? "" : "center"}
               fz={18}
-              c={"#383F45"}
+              lh="1.5rem"
+              className={profileCSS.text}
             >
               Refer a friend or a group and unlock exciting offers for both of
               you!
             </Text>
             <Link href="/referral">
-              <Text
-                fw={600}
-                style={{
-                  textDecorationLine: "underline",
-                }}
-              >
+              <Text fw={500} style={{ textDecorationLine: "underline" }}>
                 Learn More
               </Text>
             </Link>
@@ -105,36 +93,35 @@ export default function LeftProfileCard({ user }) {
   return (
     <>
       <Card
-        bg={"#D0EB4C"}
-        miw={"18rem"}
+        bg="#D0EB4C"
+        miw="18rem"
         w={"18rem"}
         p={0}
         radius={0}
         className={profileCSS.leftCard}
       >
-        <Stack
-          align="flex-start"
-          py={36}
-          px={16}
-          w={"100%"}
-          h={"100%"}
-          gap={32}
-          justify="space-between"
-        >
+        <Stack py="2.25rem" px="1rem" w={"100%"} h={"100%"} gap="2rem">
           <Flex
-            w={"100%"}
-            gap={24}
             direction={"column"}
             align="center"
+            w={"100%"}
+            gap="0.5rem"
             className={profileCSS.profileFlex}
           >
             <IconUserCircle color="#ED3C71" size={96} stroke={1} />
             <Stack gap={0}>
               <Text fz={32}>Hi {user.fname}!</Text>
-              <Text fz={18} mt={10} c={"#454C52"} ta={isMobile ? "" : "center"}>
+              <Text
+                fz={18}
+                mt={10}
+                c="#454C52"
+                fw={500}
+                ta={isMobile ? "" : "center"}
+              >
                 Tarang ID:{" "}
                 <Flex
-                  align="start"
+                  justify="center"
+                  align="center"
                   gap={4}
                   onClick={() => {
                     navigator.clipboard.writeText(user.tarang_id);
@@ -144,16 +131,10 @@ export default function LeftProfileCard({ user }) {
                       autoClose: 2000,
                     });
                   }}
-                  style={{
-                    cursor: "pointer",
-                  }}
+                  style={{ cursor: "pointer" }}
+                  className={profileCSS.profileCardSubFlex}
                 >
-                  <Text
-                    fw={600}
-                    style={{
-                      textDecorationLine: "underline",
-                    }}
-                  >
+                  <Text fw={600} style={{ textDecorationLine: "underline" }}>
                     {user.tarang_id}
                   </Text>
                   <IconClipboard size={22} />
@@ -164,15 +145,15 @@ export default function LeftProfileCard({ user }) {
           <StarPaper pc={true} />
 
           <Button
-            radius={0}
-            fullWidth={!isMobile}
             size="xl"
             color="#F34141"
             fz={18}
-            className={profileCSS.logoutButton}
-            onClick={handelLogout}
-            loading={loading}
             rightSection={<IconLogout size={25} stroke={1.5} />}
+            radius={0}
+            fullWidth={!isMobile}
+            onClick={handleLogout}
+            loading={loading}
+            className={profileCSS.logoutButton}
           >
             Log out
           </Button>

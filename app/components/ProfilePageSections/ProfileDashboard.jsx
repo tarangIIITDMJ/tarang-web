@@ -1,4 +1,6 @@
 "use client";
+
+import React, { useEffect, useState } from "react";
 import {
   Divider,
   Group,
@@ -8,28 +10,24 @@ import {
   Text,
   Button,
   Flex,
-  Badge,
   Alert,
   ScrollArea,
   Center,
   Image,
 } from "@mantine/core";
-import React, { useEffect, useState } from "react";
-import classes from "@/app/styles/profile.module.css";
-import { getEvent } from "@/app/utils/apis";
-import ProfileEventCard from "./ProfileEventCard";
 import {
   IconArrowUpRight,
   IconPlus,
-  IconAlertCircleFilled,
   IconInfoCircle,
-  IconDiscountCheck,
   IconDiscountCheckFilled,
   IconArrowRight,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import Loader from "@/app/components/Loader/index";
+import { getEvent } from "@/app/utils/apis";
 import { useMediaQuery } from "@mantine/hooks";
+import ProfileEventCard from "./ProfileEventCard";
+import classes from "@/app/styles/profile.module.css";
 
 async function fetchEventDetails(eventSlug) {
   try {
@@ -46,8 +44,6 @@ export default function ProfileDashboard({ user }) {
   const [eventDetails, setEventDetails] = useState([]);
   const [eventsLoader, setEventsLoader] = useState(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
-
-  const icon = <IconAlertCircleFilled color="#CD3636" size={25} />;
 
   const handleEventRemoved = (removedEventSlug) => {
     setEventsLoader(true);
@@ -76,7 +72,7 @@ export default function ProfileDashboard({ user }) {
     return (
       <Group align="flex-start">
         <Text
-          c={"#454C52"}
+          c="#454C52"
           w={isMobile ? "7rem" : "9rem"}
           fz={isMobile ? 15 : 18}
         >
@@ -89,32 +85,43 @@ export default function ProfileDashboard({ user }) {
   return (
     <>
       <Paper
-        style={{ border: "1px solid #383F45" }}
-        m={isMobile ? "2px" : ""}
-        w={"100%"}
         bg={"transparent"}
+        style={{ border: !isMobile ? "1px solid #383F45" : "" }}
+        w={"100%"}
+        py={isMobile ? "1rem" : "2.5rem"}
         radius={0}
-        py={40}
-        // visibleFrom="sm"
       >
         <Stack h={"100%"} px={32} className={classes.DashboardStack}>
-          <Text fz={isMobile ? 35 : 48}>Dashboard</Text>
+          <Text fz={isMobile ? 32 : 48} c="#24292E">
+            Dashboard
+          </Text>
           <Tabs
             value={activeTab}
-            fw={600}
             classNames={classes}
             onChange={setActiveTab}
             h={"100%"}
             styles={{ list: { border: "none" } }}
           >
             <Tabs.List>
-              <Tabs.Tab fz={20} value="first">
+              <Tabs.Tab
+                fz={20}
+                fw={activeTab === "first" ? 600 : 500}
+                value="first"
+              >
                 My Events
               </Tabs.Tab>
-              <Tabs.Tab fz={20} value="second">
+              <Tabs.Tab
+                fz={20}
+                fw={activeTab === "second" ? 600 : 500}
+                value="second"
+              >
                 My Profile
               </Tabs.Tab>
-              <Tabs.Tab fz={20} value="Third">
+              <Tabs.Tab
+                fz={20}
+                fw={activeTab === "third" ? 600 : 500}
+                value="third"
+              >
                 Payment History
               </Tabs.Tab>
             </Tabs.List>
@@ -126,7 +133,6 @@ export default function ProfileDashboard({ user }) {
                   variant="filled"
                   color="green"
                   radius={0}
-                  // title="Payment done and verified"
                 >
                   <Flex
                     align={"start"}
@@ -152,7 +158,6 @@ export default function ProfileDashboard({ user }) {
                   variant="filled"
                   color="yellow"
                   radius={0}
-                  // title="verification pending"
                   icon={<IconInfoCircle />}
                 >
                   <Flex className={classes.completePaymentFlex}>
@@ -182,11 +187,11 @@ export default function ProfileDashboard({ user }) {
                   variant="filled"
                   color="red"
                   radius={0}
-                  // title="Payment not done yet"
                   icon={<IconInfoCircle />}
                 >
                   <Flex
-                    align={"flex-start"}
+                    align={"space-between"}
+                    gap="1rem"
                     className={classes.completePaymentFlex}
                   >
                     <Text
@@ -201,11 +206,11 @@ export default function ProfileDashboard({ user }) {
                     </Text>
                     <Link href="/tarang-card">
                       <Button
+                        bg="#FFF"
+                        c="black"
                         radius={0}
-                        bg={"#FFFFFF"}
                         size={isMobile ? "sm" : "xl"}
-                        c={"black"}
-                        style={{ fontWeight: "650" }}
+                        style={{ fontWeight: "600" }}
                         rightSection={<IconArrowUpRight />}
                         fullWidth={isMobile ? true : false}
                       >
@@ -216,21 +221,17 @@ export default function ProfileDashboard({ user }) {
                 </Alert>
               )}
               <Flex justify={"space-between"} align={"center"}>
-                <Text
-                  style={{ fontWeight: "600" }}
-                  size={"lg"}
-                  color={"#383F45"}
-                >
+                <Text c="#383F45" size={"lg"} style={{ fontWeight: "600" }}>
                   {eventDetails.length} Events
                 </Text>
                 <Link href="/events">
                   {" "}
                   <Button
-                    mr={"-1rem"}
-                    className={classes.profileAddEventButton}
                     size="md"
                     variant="filled"
                     rightSection={<IconPlus />}
+                    mr={"-1rem"}
+                    className={classes.profileAddEventButton}
                   >
                     Add more events
                   </Button>
@@ -268,10 +269,10 @@ export default function ProfileDashboard({ user }) {
 
             <Tabs.Panel value="second">
               <Stack
-                p={32}
-                className={classes.PersonalDetailsStack}
                 w={"100%"}
+                p={32}
                 gap={10}
+                className={classes.PersonalDetailsStack}
               >
                 <Text fz={isMobile ? 25 : 32}>Personal Details</Text>
                 <Divider w={"90%"} />
@@ -309,7 +310,7 @@ export default function ProfileDashboard({ user }) {
               </Stack>
             </Tabs.Panel>
 
-            <Tabs.Panel value="Third">
+            <Tabs.Panel value="third">
               {" "}
               <Center h={"100%"} w={"100%"} mt="3rem">
                 <Stack gap={10} align="center">
