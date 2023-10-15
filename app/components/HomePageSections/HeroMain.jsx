@@ -43,8 +43,8 @@ const HeroMain = () => {
         <source
           src={
             isMobileView
-              ? "https://tarangstorage.blob.core.windows.net/video/video-mob.mp4"
-              : "https://tarangstorage.blob.core.windows.net/video/video-desktop.mp4"
+              ? "https://tarangcdn.azureedge.net/video/video-mob-cmp.mp4"
+              : "https://tarangcdn.azureedge.net/video/video-desktop-cmp.mp4"
           }
           type="video/mp4"
         />
