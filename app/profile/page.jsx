@@ -3,10 +3,10 @@
 import MainAppShell from "../components/MainAppShell";
 import LeftProfileCard from "../components/ProfilePageSections/LeftProfileCard";
 import ProfileDashboard from "../components/ProfilePageSections/ProfileDashboard";
-import { useAuthStore } from "../store/authStore";
 import ValidateAuth from "../components/ValidateAuth";
-import { Flex, ScrollArea } from "@mantine/core";
 import profileCSS from "@/app/styles/profile.module.css";
+import { Flex } from "@mantine/core";
+import { useAuthStore } from "../store/authStore";
 import { useEffect } from "react";
 import { getUser } from "../utils/apis";
 
@@ -23,6 +23,7 @@ export default function Profile() {
     }
     fetchUser();
   }, [setIsLoading, setUser]);
+
   return (
     <ValidateAuth>
       <MainAppShell>
@@ -32,6 +33,7 @@ export default function Profile() {
           py={30}
           bg={"#F6F4C8"}
           gap={24}
+          align={"flex-start"}
           className={profileCSS.MainFlex}
         >
           <LeftProfileCard user={user} />
