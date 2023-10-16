@@ -12,6 +12,7 @@ import { useMediaQuery } from "@mantine/hooks";
 const HeroMain = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [videoLoaded, setvideoLoaded] = useState(false);
+  const [progress, setProgress] = useState(0);
   const videoRef = useRef(null);
 
   return (
