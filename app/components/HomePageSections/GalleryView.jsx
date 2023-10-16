@@ -11,6 +11,7 @@ import {
 } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import cssStyles from "@/app/styles/home.module.css";
 
 const galleryImages = [
@@ -64,6 +65,7 @@ const ImageAccordion = () => {
             alt="Images"
             w={"100%"}
             h={"100%"}
+            loading="lazy"
             src={Img}
             style={{
               objectFit: "cover",
@@ -112,16 +114,22 @@ function GalleryView() {
       </ScrollArea>
       <Center p={"4rem"}>
         <Link href="/gallery">
-          <Button
-            rightSection={<IconArrowRight />}
-            size="lg"
-            style={{ border: "2px solid black" }}
-            bg="white"
-            c={"black"}
-            radius={0}
+          <motion.div
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            View more
-          </Button>
+            <Button
+              rightSection={<IconArrowRight />}
+              size="lg"
+              style={{ border: "2px solid black" }}
+              bg="white"
+              c={"black"}
+              radius={0}
+            >
+              View more
+            </Button>
+          </motion.div>
         </Link>
       </Center>
     </Container>

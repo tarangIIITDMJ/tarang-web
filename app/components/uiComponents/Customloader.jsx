@@ -1,4 +1,4 @@
-import { Flex } from "@mantine/core";
+import { Flex, Text } from "@mantine/core";
 import React from "react";
 import loadingStyles from "@/app/styles/loading.module.css";
 import Image from "next/image";
@@ -21,7 +21,9 @@ export default function Customloader() {
         priority
         src={tarangLoader}
         width={600}
+        alt="Tarang Loader"
         className={loadingStyles.loaderPlayer}
+        loading="eager"
       />
     </Flex>
   );

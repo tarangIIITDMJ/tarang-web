@@ -13,6 +13,7 @@ import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 import cssStyles from "@/app/styles/home.module.css";
 import { useMediaQuery } from "@mantine/hooks";
+import { motion } from "framer-motion";
 
 export default function EventSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -212,16 +213,22 @@ export default function EventSection() {
             </Grid.Col>
           </Grid>
           <Link href="/events">
-            <Button
-              rightSection={<IconArrowRight />}
-              size="lg"
-              bg="white"
-              c={"black"}
-              radius={0}
-              style={{ border: "3px solid black" }}
+            <motion.div
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              More Events
-            </Button>
+              <Button
+                rightSection={<IconArrowRight />}
+                size="lg"
+                bg="white"
+                c={"black"}
+                radius={0}
+                style={{ border: "3px solid black" }}
+              >
+                More Events
+              </Button>
+            </motion.div>
           </Link>
         </Stack>
       </Box>

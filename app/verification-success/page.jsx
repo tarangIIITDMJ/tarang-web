@@ -6,7 +6,7 @@ import { Button, Flex, Stack, Text } from "@mantine/core";
 import { IconCheck } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import Link from "next/link";
-
+import { motion } from "framer-motion";
 function VerificationSuccess() {
   const searchParams = useSearchParams();
   const code = searchParams.get("code");
@@ -44,9 +44,15 @@ function VerificationSuccess() {
             account.
           </Text>
           <Link href="/profile">
-            <Button bg="black" color="white" mt="md">
-              Go to Dashboard
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Button bg="black" color="white" mt="md">
+                Go to Dashboard
+              </Button>
+            </motion.div>
           </Link>
         </Stack>
       </Flex>

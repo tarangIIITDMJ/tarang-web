@@ -20,6 +20,7 @@ import Footer from "./uiComponents/Footer";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuthStore } from "../store/authStore";
+import { motion } from "framer-motion";
 
 const commonTextStyles = {
   fontSize: "2rem",
@@ -253,23 +254,29 @@ function ScrollVisibleBox({ isScrolled, isAuth }) {
       }}
     >
       <Link href={isAuth ? "/profile" : "/login"}>
-        <Button
-          size="lg"
-          color="#D0EB4C"
-          leftSection={
-            <IconUserCircle size={32} strokeWidth={1} color="black" />
-          }
-          style={{
-            fontSize: "1.125rem",
-            fontWeight: 500,
-            border: "2px solid black",
-          }}
-          c="#000"
-          py="0.3125rem"
-          radius="2.5rem"
+        <motion.div
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
-          {isAuth ? "Dashboard" : "Login"}
-        </Button>
+          <Button
+            size="lg"
+            color="#D0EB4C"
+            leftSection={
+              <IconUserCircle size={32} strokeWidth={1} color="black" />
+            }
+            style={{
+              fontSize: "1.125rem",
+              fontWeight: 500,
+              border: "2px solid black",
+            }}
+            c="#000"
+            py="0.3125rem"
+            radius="2.5rem"
+          >
+            {isAuth ? "Dashboard" : "Login"}
+          </Button>
+        </motion.div>
       </Link>
     </Box>
   );

@@ -4,6 +4,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import { IconDownload } from "@tabler/icons-react";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 function SponsorUsSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -47,17 +48,23 @@ function SponsorUsSection() {
                 target="_blank"
                 download="Sponsor Tarang"
               >
-                <Button
-                  rightSection={<IconDownload />}
-                  mt={"3rem"}
-                  size="lg"
-                  style={{ border: "2px solid black" }}
-                  bg="black"
-                  c={"white"}
-                  radius={0}
+                <motion.div
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  Download PDF
-                </Button>
+                  <Button
+                    rightSection={<IconDownload />}
+                    mt={"3rem"}
+                    size="lg"
+                    style={{ border: "2px solid black" }}
+                    bg="black"
+                    c={"white"}
+                    radius={0}
+                  >
+                    Download PDF
+                  </Button>
+                </motion.div>
               </Link>
             </Container>
           </Stack>
@@ -121,17 +128,23 @@ function SponsorUsSection() {
                 download="Sponsor Tarang"
                 rel="noreferrer"
               >
-                <Button
-                  rightSection={<IconDownload />}
-                  mt={"3rem"}
-                  size="lg"
-                  style={{ border: "2px solid black" }}
-                  bg="black"
-                  c={"white"}
-                  radius={0}
+                <motion.div
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  Download Sponsor PDF
-                </Button>
+                  <Button
+                    rightSection={<IconDownload />}
+                    mt={"3rem"}
+                    size="lg"
+                    style={{ border: "2px solid black" }}
+                    bg="black"
+                    c={"white"}
+                    radius={0}
+                  >
+                    Download Sponsor PDF
+                  </Button>
+                </motion.div>
               </Link>
             </Container>
           </Stack>

@@ -12,7 +12,7 @@ import {
   Select,
   Stack,
 } from "@mantine/core";
-import { PasswordInput } from '@mantine/core';
+import { PasswordInput } from "@mantine/core";
 import MainAppShell from "../components/MainAppShell";
 import { useMediaQuery } from "@mantine/hooks";
 import { useEffect, useState } from "react";
@@ -23,6 +23,7 @@ import { register } from "../utils/apis";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "../store/authStore";
 import Loader from "../components/Loader";
+import { motion } from "framer-motion";
 
 export default function Signup() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -74,7 +75,7 @@ export default function Signup() {
         phone: "",
         password: "",
         confirmPassword: "",
-        referredBy: ""
+        referredBy: "",
       },
 
       collegeDetails: {
@@ -123,6 +124,7 @@ export default function Signup() {
     },
   });
   const nextStep = () => {
+    window.scrollTo(0, 0);
     if (active === 0) {
       const validationErrors = form.validateField("personalDetails");
 
@@ -225,26 +227,38 @@ export default function Signup() {
                 </Stepper.Step>
               </Stepper>
               <Group justify="center" mt="3rem">
-                <Button
-                  variant="default"
-                  size={isMobileView ? "sm" : "md"}
-                  radius={0}
-                  onClick={prevStep}
-                  leftSection={<IconArrowLeft />}
-                  disabled={active > 1}
+                <motion.div
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  Go Back
-                </Button>
-                <Button
-                  onClick={nextStep}
-                  color="black"
-                  size={isMobileView ? "sm" : "md"}
-                  radius={0}
-                  loading={loading}
-                  rightSection={<IconArrowRight />}
+                  <Button
+                    variant="default"
+                    size={isMobileView ? "sm" : "md"}
+                    radius={0}
+                    onClick={prevStep}
+                    leftSection={<IconArrowLeft />}
+                    disabled={active > 1}
+                  >
+                    Go Back
+                  </Button>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  {active === 2 ? "Finish" : "Next Step"}
-                </Button>
+                  <Button
+                    onClick={nextStep}
+                    color="black"
+                    size={isMobileView ? "sm" : "md"}
+                    radius={0}
+                    loading={loading}
+                    rightSection={<IconArrowRight />}
+                  >
+                    {active === 2 ? "Finish" : "Next Step"}
+                  </Button>
+                </motion.div>
               </Group>
             </form>
           </Box>
@@ -329,31 +343,31 @@ const StepOne = ({ isMobileView, form }) => {
         />
       </Grid.Col>
       <Grid.Col span={isMobileView ? 12 : 6}>
-       <PasswordInput
-         label="Password"
-         type="password"
-         placeholder="Password"
-         styles={{
-          input: { border: "1px solid #000", marginTop: 6 },
-        }}
-        radius={0}
-        {...form.getInputProps("personalDetails.password")}
-       />
+        <PasswordInput
+          label="Password"
+          type="password"
+          placeholder="Password"
+          styles={{
+            input: { border: "1px solid #000", marginTop: 6 },
+          }}
+          radius={0}
+          {...form.getInputProps("personalDetails.password")}
+        />
       </Grid.Col>
       <Grid.Col span={isMobileView ? 12 : 6}>
-      <PasswordInput
-         label="Confirm Password"
-         type="password"
-         placeholder="Confirm Password"
-         styles={{
-          input: { border: "1px solid #000", marginTop: 6 },
-        }}
-        radius={0}
-        {...form.getInputProps("personalDetails.confirmPassword")}
-       />
+        <PasswordInput
+          label="Confirm Password"
+          type="password"
+          placeholder="Confirm Password"
+          styles={{
+            input: { border: "1px solid #000", marginTop: 6 },
+          }}
+          radius={0}
+          {...form.getInputProps("personalDetails.confirmPassword")}
+        />
       </Grid.Col>
       <Grid.Col span={isMobileView ? 12 : 6}>
-      <TextInput
+        <TextInput
           label="Referral Code (Eg. TRNG-123456)"
           type="text"
           placeholder="Your Friend's Tarang-ID (optional)"

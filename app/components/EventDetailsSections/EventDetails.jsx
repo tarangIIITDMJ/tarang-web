@@ -22,7 +22,7 @@ import { useAuthStore } from "@/app/store/authStore";
 import { notifications } from "@mantine/notifications";
 import { useRouter } from "next/navigation";
 import { useDisclosure } from "@mantine/hooks";
-
+import { motion } from "framer-motion";
 const items = (name) => {
   return [
     { title: "Home", href: "/" },
@@ -175,14 +175,20 @@ export default function EventDetails({ event }) {
             }}
             onChange={(e) => setTeamName(e.target.value)}
           />
-          <Button
-            bg="#000"
-            color="#fff"
-            loading={loading}
-            onClick={() => handleTeamRegistration(teamName)}
+          <motion.div
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            Register
-          </Button>
+            <Button
+              bg="#000"
+              color="#fff"
+              loading={loading}
+              onClick={() => handleTeamRegistration(teamName)}
+            >
+              Register
+            </Button>
+          </motion.div>
         </Group>
         <Group py={5} mt={10}>
           <Text c="#676E76" fz="0.75rem">
@@ -284,92 +290,105 @@ export default function EventDetails({ event }) {
                 </>
               ) : (
                 <Link href="/tarang-card">
-                  <Stack
-                    p={isMobileView ? "0.7rem" : "1.5rem"}
-                    gap="1rem"
-                    style={styles.card}
+                  <motion.div
+                    // shift up on hover and scale on tap
+                    whileHover={{ translateY: -5 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    <Flex gap="1rem" justify="space-between" align="center">
-                      <Text
-                        lh={isMobileView ? "1.5rem" : "2.5rem"}
-                        fw={500}
-                        size={isMobileView ? "1.2rem" : "2rem"}
-                      >
-                        Experience it all with the Tarang Card!
-                      </Text>
-                      <Image
-                        mt={"0.2rem"}
-                        mr={"0.85rem"}
-                        src={"/eventDetailsPageImages/LearnMore.svg"}
-                        w={isMobileView ? "3rem" : "5rem"}
-                        h={isMobileView ? "3rem" : "5rem"}
-                        alt=""
-                      />
-                    </Flex>
-                    <Stack align="flex-start" gap={"0.5rem"}>
-                      {[
-                        "Get access to every event, workshop, and pro nights.",
-                        "All this for just ₹1999!",
-                      ].map((text, index) => (
-                        <Badge
-                          variant="transparent"
-                          c={"black"}
-                          pl={"0rem"}
-                          h="fit-content"
-                          leftSection={icon}
-                          style={{ textTransform: "none" }}
-                          key={index}
+                    <Stack
+                      p={isMobileView ? "0.7rem" : "1.5rem"}
+                      gap="1rem"
+                      style={styles.card}
+                    >
+                      <Flex gap="1rem" justify="space-between" align="center">
+                        <Text
+                          lh={isMobileView ? "1.5rem" : "2.5rem"}
+                          fw={500}
+                          size={isMobileView ? "1.2rem" : "2rem"}
                         >
-                          <Text
-                            lh={isMobileView ? "1rem" : "1.5rem"}
-                            fw="500"
-                            size={isMobileView ? "0.6rem" : "1rem"}
-                            ml={isMobileView ? "0rem" : "0.5rem"}
+                          Experience it all with the Tarang Card!
+                        </Text>
+                        <Image
+                          mt={"0.2rem"}
+                          mr={"0.85rem"}
+                          src={"/eventDetailsPageImages/LearnMore.svg"}
+                          w={isMobileView ? "3rem" : "5rem"}
+                          h={isMobileView ? "3rem" : "5rem"}
+                          alt=""
+                        />
+                      </Flex>
+                      <Stack align="flex-start" gap={"0.5rem"}>
+                        {[
+                          "Get access to every event, workshop, and pro nights.",
+                          "All this for just ₹1999!",
+                        ].map((text, index) => (
+                          <Badge
+                            variant="transparent"
+                            c={"black"}
+                            pl={"0rem"}
+                            h="fit-content"
+                            leftSection={icon}
+                            style={{ textTransform: "none" }}
+                            key={index}
                           >
-                            {text}
-                          </Text>
-                        </Badge>
-                      ))}
+                            <Text
+                              lh={isMobileView ? "1rem" : "1.5rem"}
+                              fw="500"
+                              size={isMobileView ? "0.6rem" : "1rem"}
+                              ml={isMobileView ? "0rem" : "0.5rem"}
+                            >
+                              {text}
+                            </Text>
+                          </Badge>
+                        ))}
+                      </Stack>
                     </Stack>
-                  </Stack>
+                  </motion.div>
                 </Link>
               )}
               {
-                <Button
-                  h="auto"
-                  bg="#fff"
-                  c="black"
-                  w="100%"
-                  py={isMobileView ? "0.75rem" : "1rem"}
-                  onClick={handleRegisterEvent}
-                  loading={loading}
+                <motion.div
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  {isRegistered ? (
-                    <>
+                  <Button
+                    h="auto"
+                    bg="#fff"
+                    c="black"
+                    w="100%"
+                    py={isMobileView ? "0.75rem" : "1rem"}
+                    onClick={handleRegisterEvent}
+                    loading={loading}
+                  >
+                    {isRegistered ? (
+                      <>
+                        <Text
+                          fw={"500"}
+                          size={isMobileView ? "0.85rem" : "1.25rem"}
+                        >
+                          Go to Dashboard{" "}
+                        </Text>
+                        <Box ml="0.5rem">
+                          <IconArrowUpRight
+                            size={32}
+                            strokeWidth={2}
+                            color={"black"}
+                          />
+                        </Box>
+                      </>
+                    ) : (
                       <Text
                         fw={"500"}
-                        size={isMobileView ? "0.85rem" : "1.25rem"}
+                        size={isMobileView ? "0.85rem" : "1.35rem"}
+                        lh={isMobileView ? "1.5rem" : "2.5rem"}
                       >
-                        Go to Dashboard{" "}
+                        Add to My Events
                       </Text>
-                      <Box ml="0.5rem">
-                        <IconArrowUpRight
-                          size={32}
-                          strokeWidth={2}
-                          color={"black"}
-                        />
-                      </Box>
-                    </>
-                  ) : (
-                    <Text
-                      fw={"500"}
-                      size={isMobileView ? "0.85rem" : "1.35rem"}
-                      lh={isMobileView ? "1.5rem" : "2.5rem"}
-                    >
-                      Add to My Events
-                    </Text>
-                  )}
-                </Button>
+                    )}
+                  </Button>
+                </motion.div>
               }
               <Text
                 mt={"-1.5rem"}

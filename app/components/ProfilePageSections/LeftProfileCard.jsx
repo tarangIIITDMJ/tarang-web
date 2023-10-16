@@ -8,6 +8,7 @@ import { logout } from "@/app/utils/apis";
 import { notifications } from "@mantine/notifications";
 import { useAuthStore } from "../../store/authStore";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function LeftProfileCard({ user }) {
   const { setUser, setIsAuth } = useAuthStore();
@@ -143,20 +144,25 @@ export default function LeftProfileCard({ user }) {
             </Stack>
           </Flex>
           <StarPaper pc={true} />
-
-          <Button
-            size="xl"
-            color="#F34141"
-            fz={18}
-            rightSection={<IconLogout size={25} stroke={1.5} />}
-            radius={0}
-            fullWidth={!isMobile}
-            onClick={handleLogout}
-            loading={loading}
-            className={profileCSS.logoutButton}
+          <motion.div
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            Log out
-          </Button>
+            <Button
+              size="xl"
+              color="#F34141"
+              fz={18}
+              rightSection={<IconLogout size={25} stroke={1.5} />}
+              radius={0}
+              fullWidth={!isMobile}
+              onClick={handleLogout}
+              loading={loading}
+              className={profileCSS.logoutButton}
+            >
+              Log out
+            </Button>
+          </motion.div>
         </Stack>
       </Card>
       <StarPaper pc={false} />

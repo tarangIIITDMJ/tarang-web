@@ -14,7 +14,7 @@ import { useForm } from "@mantine/form";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconMail } from "@tabler/icons-react";
 import Link from "next/link";
-
+import { motion } from "framer-motion";
 const ContactFormSection = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
@@ -140,18 +140,24 @@ const ContactFormSection = () => {
               />
             </Stack>
             <Group pt="2rem" justify="center">
-              <Button
-                size={isMobileView ? "sm" : "lg"}
-                color="#fff"
-                c={"#24292E"}
-                leftSection={<IconMail />}
-                h="auto"
-                px={isMobileView ? "0.5rem" : "1.125rem"}
-                py="0.75rem"
-                radius={0}
+              <motion.div
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                Send Message
-              </Button>
+                <Button
+                  size={isMobileView ? "sm" : "lg"}
+                  color="#fff"
+                  c={"#24292E"}
+                  leftSection={<IconMail />}
+                  h="auto"
+                  px={isMobileView ? "0.5rem" : "1.125rem"}
+                  py="0.75rem"
+                  radius={0}
+                >
+                  Send Message
+                </Button>
+              </motion.div>
             </Group>
           </form>
         </Box>

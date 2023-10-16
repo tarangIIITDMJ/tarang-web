@@ -27,6 +27,7 @@ import Loader from "@/app/components/Loader/index";
 import { getEvent } from "@/app/utils/apis";
 import { useMediaQuery } from "@mantine/hooks";
 import ProfileEventCard from "./ProfileEventCard";
+import { motion } from "framer-motion";
 import classes from "@/app/styles/profile.module.css";
 
 async function fetchEventDetails(eventSlug) {
@@ -212,17 +213,27 @@ export default function ProfileDashboard({ user }) {
                         user.email
                       }&entry.610706180=${user.phone}`}
                     >
-                      <Button
-                        bg="#FFF"
-                        c="black"
-                        radius={0}
-                        size={isMobile ? "sm" : "xl"}
-                        style={{ fontWeight: "600" }}
-                        rightSection={<IconArrowUpRight />}
-                        fullWidth={isMobile ? true : false}
+                      <motion.div
+                        whileHover={{ scale: 1.04 }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 17,
+                        }}
                       >
-                        Complete Payment
-                      </Button>
+                        <Button
+                          bg="#FFF"
+                          c="black"
+                          radius={0}
+                          size={isMobile ? "sm" : "xl"}
+                          style={{ fontWeight: "600" }}
+                          rightSection={<IconArrowUpRight />}
+                          fullWidth={isMobile ? true : false}
+                        >
+                          Complete Payment
+                        </Button>
+                      </motion.div>
                     </Link>
                   </Flex>
                 </Alert>
@@ -232,16 +243,21 @@ export default function ProfileDashboard({ user }) {
                   {eventDetails.length} Events
                 </Text>
                 <Link href="/events">
-                  {" "}
-                  <Button
-                    size="md"
-                    variant="filled"
-                    rightSection={<IconPlus />}
-                    mr={"-1rem"}
-                    className={classes.profileAddEventButton}
+                  <motion.div
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    Add more events
-                  </Button>
+                    <Button
+                      size="md"
+                      variant="filled"
+                      rightSection={<IconPlus />}
+                      mr={"-1rem"}
+                      className={classes.profileAddEventButton}
+                    >
+                      Add more events
+                    </Button>
+                  </motion.div>
                 </Link>
               </Flex>
               {eventsLoader ? (
