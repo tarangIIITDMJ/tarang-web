@@ -4,13 +4,12 @@ import loadingStyles from "@/app/styles/loading.module.css";
 import Image from "next/image";
 import tarangLoader from "@/public/tarangLoader.gif";
 
-export default function Customloader({ progress }) {
+export default function Customloader() {
   return (
     <Flex
       h={"100vh"}
       w={"100vw"}
       bg={"black"}
-      direction={"column"}
       align={"center"}
       justify={"center"}
       pos={"fixed"}
@@ -26,11 +25,6 @@ export default function Customloader({ progress }) {
         className={loadingStyles.loaderPlayer}
         loading="eager"
       />
-      {progress && (
-        <Text c="#fff" className={loadingStyles.loaderProgress} fz={32}>
-          {Math.round(progress)}%
-        </Text>
-      )}
     </Flex>
   );
 }

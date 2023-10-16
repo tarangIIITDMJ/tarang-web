@@ -12,7 +12,6 @@ import { useMediaQuery } from "@mantine/hooks";
 const HeroMain = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [videoLoaded, setvideoLoaded] = useState(false);
-  const [progress, setProgress] = useState(0);
   const videoRef = useRef(null);
   useEffect(() => {
     if (videoRef.current.readyState == 4) {
@@ -26,11 +25,6 @@ const HeroMain = () => {
         onCanPlay={() => {
           setvideoLoaded(true);
         }}
-        onTimeUpdate={() => {
-          setProgress(
-            (videoRef.current.currentTime / videoRef.current.duration) * 100
-          );
-        }}
         playsInline
         loading="eager"
         loop
@@ -43,7 +37,7 @@ const HeroMain = () => {
           type="video/webm"
         />
       </video>
-      {!videoLoaded && <Loading progress={progress} />}
+      {!videoLoaded && <Loading />}
 
       <Box style={styles.videoOverlay}>
         <Container
