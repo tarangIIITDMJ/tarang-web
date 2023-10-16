@@ -16,7 +16,7 @@ import cssStyles from "@/app/styles/home.module.css";
 
 const galleryImages = [
   "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478126/homepage_event/webp/compressed/IMG_6758_ohpxfw_11zon_zvfrtl.webp",
-  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478126/homepage_event/webp/compressed/IMG_6905_1_yeothv_rjg85u.webp",
+  // "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478126/homepage_event/webp/compressed/IMG_6905_1_yeothv_rjg85u.webp",
   "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478125/homepage_event/webp/compressed/IMG_7043_zmw9bi_11zon_zcy715.webp",
   "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478125/homepage_event/webp/compressed/DSC_8155__1_krkdzd_11zon_d4962v.webp",
   "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478125/homepage_event/webp/compressed/IMG_7023_udkhy3_11zon_lfbsqh.webp",
