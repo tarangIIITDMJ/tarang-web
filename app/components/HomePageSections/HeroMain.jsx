@@ -9,21 +9,21 @@ import { useEffect, useRef, useState } from "react";
 import Loading from "@/app/loading";
 
 const HeroMain = () => {
-  const [videoLoaded, setvideoLoaded] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [progress, setProgress] = useState(0);
   const videoRef = useRef(null);
-  useEffect(() => {
-    if (videoRef.current.readyState == 4) {
-      setvideoLoaded(true);
-    }
-  }, []);
 
   return (
     <Container h="100vh" m={0} bg="blue" miw="100%" style={styles.container}>
       <video
-        preload="none"
         ref={videoRef}
         onCanPlay={() => {
-          setvideoLoaded(true);
+          setVideoLoaded(true);
+        }}
+        onTimeUpdate={() => {
+          setProgress(
+            (videoRef.current.currentTime / videoRef.current.duration) * 100
+          );
         }}
         playsInline
         loading="eager"
@@ -34,7 +34,7 @@ const HeroMain = () => {
       >
         <source src="/bg-video.mp4" type="video/mp4" />
       </video>
-      {!videoLoaded && <Loading />}
+      {!videoLoaded && <Loading progress={progress} />}
 
       <Box style={styles.videoOverlay}>
         <Container
