@@ -14,13 +14,17 @@ const HeroMain = () => {
   const [videoLoaded, setvideoLoaded] = useState(false);
   const [progress, setProgress] = useState(0);
   const videoRef = useRef(null);
-
+  useEffect(() => {
+    if (videoRef.current.readyState == 4) {
+      setvideoLoaded(true);
+    }
+  }, []);
   return (
     <Container h="100vh" m={0} bg="blue" miw="100%" style={styles.container}>
       <video
         ref={videoRef}
         onCanPlay={() => {
-          setVideoLoaded(true);
+          setvideoLoaded(true);
         }}
         onTimeUpdate={() => {
           setProgress(
