@@ -64,6 +64,7 @@ const ImageAccordion = () => {
             alt="Images"
             w={"100%"}
             h={"100%"}
+            loading="lazy"
             src={Img}
             style={{
               objectFit: "cover",

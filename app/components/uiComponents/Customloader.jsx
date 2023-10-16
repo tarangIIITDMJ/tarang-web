@@ -22,6 +22,7 @@ export default function Customloader() {
         src={tarangLoader}
         width={600}
         className={loadingStyles.loaderPlayer}
+        loading="eager"
       />
     </Flex>
   );
