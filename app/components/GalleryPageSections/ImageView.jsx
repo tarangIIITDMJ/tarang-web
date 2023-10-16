@@ -5,6 +5,7 @@ import {
   Center,
   Group,
   Image,
+  Loader,
   Pagination,
   SimpleGrid,
   Stack,
@@ -251,6 +252,16 @@ export default function ImageView() {
   const [activePage, setPage] = useState(1);
   const [isOpen, setOpen] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
+  const switchPage = (page) => {
+    setLoading(true);
+    setPage(page);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
+
   const gotoPrevious = () =>
     currentImageIndex > 0 && setCurrentIndex(currentImageIndex - 1);
 
@@ -268,11 +279,18 @@ export default function ImageView() {
       >
         A Glimpse into our WILD past!
       </Text>
-      <ImagesGrid
-        activePage={activePage}
-        setCurrentIndex={setCurrentIndex}
-        setOpen={setOpen}
-      />
+      {loading ? (
+        <Center>
+          <Loader />
+        </Center>
+      ) : (
+        <ImagesGrid
+          activePage={activePage}
+          setCurrentIndex={setCurrentIndex}
+          setOpen={setOpen}
+        />
+      )}
+
       <Lightbox
         isOpen={isOpen}
         onPrev={gotoPrevious}
@@ -339,7 +357,7 @@ export default function ImageView() {
       <Center py={"8rem"}>
         <Pagination
           value={activePage}
-          onChange={setPage}
+          onChange={switchPage}
           total={Math.ceil(images.length / 12)}
           radius={"xl"}
           color={"black"}
