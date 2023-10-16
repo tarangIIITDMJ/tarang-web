@@ -8,9 +8,8 @@ import { login } from "@/app/utils/apis";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/app/store/authStore";
-import { PasswordInput } from '@mantine/core';
-
-
+import { PasswordInput } from "@mantine/core";
+import { motion } from "framer-motion";
 const LoginForm = ({ isMobileView }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { push } = useRouter();
@@ -82,7 +81,7 @@ const LoginForm = ({ isMobileView }) => {
             radius={0}
             {...form.getInputProps("email")}
           />
-           <PasswordInput
+          <PasswordInput
             label="Password"
             type="password"
             placeholder="Enter password"
@@ -100,18 +99,24 @@ const LoginForm = ({ isMobileView }) => {
           >
             Forgot password?
           </Text>
-          <Button
-            type="submit"
-            color="black"
-            size={isMobileView ? "md" : "lg"}
-            mt="1.5rem"
-            mx="auto"
-            loading={isLoading}
-            fullWidth
-            rightSection={<IconArrowRight />}
+          <motion.div
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            Sign in
-          </Button>
+            <Button
+              type="submit"
+              color="black"
+              size={isMobileView ? "md" : "lg"}
+              mt="1.5rem"
+              mx="auto"
+              loading={isLoading}
+              fullWidth
+              rightSection={<IconArrowRight />}
+            >
+              Sign in
+            </Button>
+          </motion.div>
           <Text size="md" mt="3rem" mb="1rem" align="center">
             Don&apos;t have an account? &nbsp;
             <Link

@@ -1,6 +1,7 @@
 "use client";
 import { Button, Card, Flex, TextInput } from "@mantine/core";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import {
   verifyPayment,
   getUnverifiedUsers,
@@ -69,20 +70,32 @@ const UserCard = ({ user, getUsers, getRejUser }) => {
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
-          <Button
-            variant="light"
-            color="green"
-            onClick={() => handleVerify(user.tarang_id)}
+          <motion.div
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            Verify
-          </Button>
-          <Button
-            variant="light"
-            color="red"
-            onClick={() => handleReject(user.tarang_id)}
+            <Button
+              variant="light"
+              color="green"
+              onClick={() => handleVerify(user.tarang_id)}
+            >
+              Verify
+            </Button>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            Reject
-          </Button>
+            <Button
+              variant="light"
+              color="red"
+              onClick={() => handleReject(user.tarang_id)}
+            >
+              Reject
+            </Button>
+          </motion.div>
         </div>
       </Flex>
     </Card>
@@ -195,13 +208,19 @@ const Admin = () => {
                     gap: "1rem",
                   }}
                 >
-                  <Button
-                    variant="light"
-                    color="green"
-                    onClick={() => updateRej(user.tarang_id)}
+                  <motion.div
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    Verify
-                  </Button>
+                    <Button
+                      variant="light"
+                      color="green"
+                      onClick={() => updateRej(user.tarang_id)}
+                    >
+                      Verify
+                    </Button>
+                  </motion.div>
                 </div>
               </Flex>
             </Card>

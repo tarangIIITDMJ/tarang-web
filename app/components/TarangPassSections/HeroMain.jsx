@@ -16,6 +16,7 @@ import SubMainSection from "./SubMainSection";
 import Link from "next/link";
 import { useMediaQuery } from "@mantine/hooks";
 import { useAuthStore } from "@/app/store/authStore";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -83,37 +84,49 @@ const HeroSection = () => {
               user.email
             }&entry.610706180=${user.phone}`}
           >
-            <Button
-              size={isMobileView ? "sm" : "lg"}
-              bg="#FFF"
-              c="#000"
-              rightSection={<IconArrowUpRight />}
-              h="auto"
-              px={isMobileView ? "1.25rem" : "1.625rem"}
-              py={isMobileView ? "0.75rem" : "1.125rem"}
-              radius={0}
-              mt={isMobileView ? "1.5rem" : "2rem"}
-              lh={1.2}
+            <motion.div
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              Get Your Tarang Card
-            </Button>
+              <Button
+                size={isMobileView ? "sm" : "lg"}
+                bg="#FFF"
+                c="#000"
+                rightSection={<IconArrowUpRight />}
+                h="auto"
+                px={isMobileView ? "1.25rem" : "1.625rem"}
+                py={isMobileView ? "0.75rem" : "1.125rem"}
+                radius={0}
+                mt={isMobileView ? "1.5rem" : "2rem"}
+                lh={1.2}
+              >
+                Get Your Tarang Card
+              </Button>
+            </motion.div>
           </Link>
         ) : (
           <Link href="/login">
-            <Button
-              size={isMobileView ? "sm" : "lg"}
-              bg="#FFF"
-              c="#000"
-              rightSection={<IconArrowUpRight />}
-              h="auto"
-              px={isMobileView ? "1.25rem" : "1.625rem"}
-              py={isMobileView ? "0.75rem" : "1.125rem"}
-              radius={0}
-              mt={isMobileView ? "1.5rem" : "2rem"}
-              lh={1.2}
+            <motion.div
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              Get Your Tarang Card
-            </Button>
+              <Button
+                size={isMobileView ? "sm" : "lg"}
+                bg="#FFF"
+                c="#000"
+                rightSection={<IconArrowUpRight />}
+                h="auto"
+                px={isMobileView ? "1.25rem" : "1.625rem"}
+                py={isMobileView ? "0.75rem" : "1.125rem"}
+                radius={0}
+                mt={isMobileView ? "1.5rem" : "2rem"}
+                lh={1.2}
+              >
+                Get Your Tarang Card
+              </Button>
+            </motion.div>
           </Link>
         )}
         {isMobileView && (

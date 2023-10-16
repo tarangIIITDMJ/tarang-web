@@ -5,6 +5,7 @@ import { IconArrowUpRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import { useAuthStore } from "@/app/store/authStore";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function TarangCardSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -51,20 +52,26 @@ export default function TarangCardSection() {
           Fun.
         </Text>
         <Link href="/tarang-card">
-          <Button
-            size={isMobileView ? "sm" : "lg"}
-            bg="#FFF"
-            c="#000"
-            rightSection={<IconArrowUpRight />}
-            h="auto"
-            px={isMobileView ? "1.25rem" : "1.625rem"}
-            py={isMobileView ? "0.75rem" : "1.125rem"}
-            radius={0}
-            mt={!isMobileView && "1.5rem"}
-            lh={1.2}
+          <motion.div
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            Get Your Tarang Card
-          </Button>
+            <Button
+              size={isMobileView ? "sm" : "lg"}
+              bg="#FFF"
+              c="#000"
+              rightSection={<IconArrowUpRight />}
+              h="auto"
+              px={isMobileView ? "1.25rem" : "1.625rem"}
+              py={isMobileView ? "0.75rem" : "1.125rem"}
+              radius={0}
+              mt={!isMobileView && "1.5rem"}
+              lh={1.2}
+            >
+              Get Your Tarang Card
+            </Button>
+          </motion.div>
         </Link>
       </Stack>
       {isMobileView ? (
@@ -84,5 +91,21 @@ export default function TarangCardSection() {
         />
       )}
     </Flex>
+  );
+}
+function FadeInWhenVisible({ children }) {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+      variants={{
+        visible: { opacity: 1, scale: 1 },
+        hidden: { opacity: 0, scale: 0 },
+      }}
+    >
+      {children}
+    </motion.div>
   );
 }

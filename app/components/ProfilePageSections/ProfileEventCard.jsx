@@ -13,6 +13,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { getUser, removeRegisteredEvent } from "@/app/utils/apis";
 import { notifications } from "@mantine/notifications";
 import { useAuthStore } from "@/app/store/authStore";
+import { motion } from "framer-motion";
 
 export default function ProfileEventCard({
   event,
@@ -142,19 +143,25 @@ export default function ProfileEventCard({
         </Stack>
         {isMobileView && <IconTrash onClick={open} size={25} color="#676e76" />}
         {removeBtnVisibility && !isMobileView ? (
-          <Button
-            pl={"2rem"}
-            onMouseEnter={() => setCardBorder(true)}
-            onMouseLeave={() => setCardBorder(false)}
-            className={profileCSS.profileEventCardButton}
-            size="md"
-            c="#676e76"
-            variant="filled"
-            leftSection={<IconTrash size={20} />}
-            onClick={open}
+          <motion.div
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            Remove Event
-          </Button>
+            <Button
+              pl={"2rem"}
+              onMouseEnter={() => setCardBorder(true)}
+              onMouseLeave={() => setCardBorder(false)}
+              className={profileCSS.profileEventCardButton}
+              size="md"
+              c="#676e76"
+              variant="filled"
+              leftSection={<IconTrash size={20} />}
+              onClick={open}
+            >
+              Remove Event
+            </Button>
+          </motion.div>
         ) : (
           <></>
         )}
@@ -172,30 +179,42 @@ export default function ProfileEventCard({
             Are you sure you want to remove this event from your dashboard?
           </Text>
           <Flex align={"center"} gap="3rem">
-            <Button
-              radius={0}
-              onClick={close}
-              color="black"
-              style={{
-                height: "3rem",
-                width: "8rem",
-                fontWeight: "650",
-                border: "1.75px solid black",
-              }}
-              variant="outline"
+            <motion.div
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              Keep Event
-            </Button>
-            <Button
-              radius={0}
-              onClick={handleRemoveEvent}
-              bg="#F34141"
-              style={{ height: "3rem", width: "9rem", fontWeight: "650" }}
-              variant="filled"
-              loading={loading}
+              <Button
+                radius={0}
+                onClick={close}
+                color="black"
+                style={{
+                  height: "3rem",
+                  width: "8rem",
+                  fontWeight: "650",
+                  border: "1.75px solid black",
+                }}
+                variant="outline"
+              >
+                Keep Event
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              Remove Event
-            </Button>
+              <Button
+                radius={0}
+                onClick={handleRemoveEvent}
+                bg="#F34141"
+                style={{ height: "3rem", width: "9rem", fontWeight: "650" }}
+                variant="filled"
+                loading={loading}
+              >
+                Remove Event
+              </Button>
+            </motion.div>
           </Flex>
         </Stack>
       </Modal>

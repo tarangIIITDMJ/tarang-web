@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Loading from "@/app/loading";
 import { useMediaQuery } from "@mantine/hooks";
-
+import { motion } from "framer-motion";
 const HeroMain = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [videoLoaded, setvideoLoaded] = useState(false);
@@ -71,31 +71,43 @@ const HeroMain = () => {
           </Text>
           <Flex columnGap={"xl"} className={cssstyles.HeroMainButtonFlex}>
             <Link href="/signup">
-              <Button
-                bg="#D0EB4C"
-                c="black"
-                radius={0}
-                size={"lg"}
-                mt={44}
-                // disabled // TODO: Remove this when registration opens
-                className={cssstyles.HeroMainExploreButton}
-                rightSection={<IconArrowRight />}
+              <motion.div
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                Register Now
-              </Button>
+                <Button
+                  bg="#D0EB4C"
+                  c="black"
+                  radius={0}
+                  size={"lg"}
+                  mt={44}
+                  // disabled // TODO: Remove this when registration opens
+                  className={cssstyles.HeroMainExploreButton}
+                  rightSection={<IconArrowRight />}
+                >
+                  Register Now
+                </Button>
+              </motion.div>
             </Link>
             <Link href="/events">
-              <Button
-                color="transparent"
-                size={"lg"}
-                radius={0}
-                mt={44}
-                className={cssstyles.HeroMainExploreButton}
-                style={{ border: "2px solid white" }}
-                rightSection={<IconArrowRight />}
+              <motion.div
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                Explore Events
-              </Button>
+                <Button
+                  color="transparent"
+                  size={"lg"}
+                  radius={0}
+                  mt={44}
+                  className={cssstyles.HeroMainExploreButton}
+                  style={{ border: "2px solid white" }}
+                  rightSection={<IconArrowRight />}
+                >
+                  Explore Events
+                </Button>
+              </motion.div>
             </Link>
           </Flex>
         </Container>

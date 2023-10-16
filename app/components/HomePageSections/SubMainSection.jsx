@@ -1,6 +1,8 @@
+"use client";
 import { Box, Flex, Group, Stack, Text, Image, Button } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import homeStyles from "@/app/styles/home.module.css";
 
 export default function SubMainSection() {
@@ -41,7 +43,7 @@ export default function SubMainSection() {
         className={homeStyles.SubMainTextStack}
       >
         <Text className={homeStyles.SubMainText} size={"4rem"} c="#000">
-          A Display of Dedication
+          The tide is turning!
         </Text>
         <Text
           size={"1.25rem"}
@@ -57,9 +59,9 @@ export default function SubMainSection() {
           cultures and talents, an ocean where the rivers of everyone&apos;s
           unique skills combine and blossom.
         </Text>
-        <Group>
+        <Group gap="2rem">
           {[
-            { number: "100+", text: "Over 100+ participating colleges" },
+            { number: "100+", text: "Participating colleges" },
             { number: "30+", text: "30+ events" },
           ].map(({ number, text }) => (
             <Stack key={number}>
@@ -83,18 +85,24 @@ export default function SubMainSection() {
           ))}
         </Group>
         <Link href="/about">
-          <Button
-            size={"lg"}
-            rightSection={<IconArrowRight />}
-            px={"1.125rem"}
-            py={"1.125rem"}
-            color="#000"
-            h="auto"
-            radius={0}
-            className={homeStyles.SubMainReadMore}
+          <motion.div
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            Read More
-          </Button>
+            <Button
+              size={"lg"}
+              rightSection={<IconArrowRight />}
+              px={"1.125rem"}
+              py={"1.125rem"}
+              color="#000"
+              h="auto"
+              radius={0}
+              className={homeStyles.SubMainReadMore}
+            >
+              Read More
+            </Button>
+          </motion.div>
         </Link>
       </Stack>
     </Flex>
