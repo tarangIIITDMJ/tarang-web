@@ -7,10 +7,11 @@ import cssstyles from "@/app/styles/home.module.css";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Loading from "@/app/loading";
+import { useMediaQuery } from "@mantine/hooks";
 
 const HeroMain = () => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const isMobileView = useMediaQuery("(max-width: 768px)");
+  const [videoLoaded, setvideoLoaded] = useState(false);
   const videoRef = useRef(null);
 
   return (
@@ -32,7 +33,10 @@ const HeroMain = () => {
         autoPlay
         style={styles.video}
       >
-        <source src="/bg-video.mp4" type="video/mp4" />
+        <source
+          src={isMobileView ? "/bg-video-mob.webm" : "/bg-video.webm"}
+          type="video/webm"
+        />
       </video>
       {!videoLoaded && <Loading progress={progress} />}
 

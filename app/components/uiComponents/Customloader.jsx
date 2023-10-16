@@ -24,6 +24,7 @@ export default function Customloader({ progress }) {
         width={600}
         alt="Tarang Loader"
         className={loadingStyles.loaderPlayer}
+        loading="eager"
       />
       {progress && (
         <Text c="#fff" className={loadingStyles.loaderProgress} fz={32}>
