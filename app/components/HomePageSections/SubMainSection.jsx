@@ -62,7 +62,7 @@ export default function SubMainSection() {
         <Group gap="2rem">
           {[
             { number: "100+", text: "Participating colleges" },
-            { number: "30+", text: "30+ events" },
+            { number: "30+", text: "Events" },
           ].map(({ number, text }) => (
             <Stack key={number}>
               <Text
