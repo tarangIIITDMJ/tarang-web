@@ -34,7 +34,7 @@ function SponsorUsSection() {
                 fz={isMobileView ? "2rem" : "4rem"}
                 c="#FFF"
               >
-                Interested about Tarang?
+                Interested in Tarang?
               </Text>
               <Text
                 c="#FFF"

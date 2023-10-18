@@ -6,16 +6,13 @@ const SubMainSection = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   const styles = {
-    img: {
-      borderRadius: "50%",
-      objectFit: "cover",
-    },
     flexContainer: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "flex-start",
       gap: isMobileView ? "1.5rem" : "3rem",
+      border: "1px solid black",
     },
   };
 
@@ -27,15 +24,15 @@ const SubMainSection = () => {
           span={1}
           order={isMobileView ? 1 : ""}
           px={isMobileView ? "2rem" : "4.25rem"}
-          py="3rem"
+          py="2rem"
+          style={{ border: "1px solid black" }}
         >
-          <Group justify="center" style={{ flexShrink: "0" }}>
+          <Group justify="center">
             <Image
-              src={"/aboutPageImages/aboutSectionImg(1).webp"}
+              src={"/aboutPageImages/aboutSectionImg(1).png"}
               alt=""
-              style={styles.img}
-              w={isMobileView ? "20.5rem" : "32rem"}
-              h={isMobileView ? "20.5rem" : "32rem"}
+              w={isMobileView ? "20.5rem" : "35rem"}
+              mah={isMobileView ? "20.5rem" : "35rem"}
             />
           </Group>
         </Grid.Col>
@@ -46,9 +43,13 @@ const SubMainSection = () => {
           span={1}
           pl={isMobileView ? "2rem" : "6rem"}
           pr={"2rem"}
-          py="3rem"
+          py="2rem"
         >
-          <Text size={isMobileView ? "2rem" : "4rem"} c="#000">
+          <Text
+            size={isMobileView ? "2rem" : "4rem"}
+            lh={isMobileView && "2.4rem"}
+            c="#000"
+          >
             A Display of Dedication
           </Text>
           <Text
@@ -64,10 +65,10 @@ const SubMainSection = () => {
             cultures and talents, an ocean where the rivers of everyone&apos;s
             unique skills combine and blossom.
           </Text>
-          <Group>
+          <Group gap={"2rem"}>
             {[
-              { number: "100+", text: "Over 100+ participating colleges" },
-              { number: "30+", text: "30+ events" },
+              { number: "100+", text: "participating colleges" },
+              { number: "30+", text: "events" },
             ].map(({ number, text }) => (
               <Stack key={number}>
                 <Text
@@ -100,7 +101,7 @@ const SubMainSection = () => {
           <Text
             c={"#000"}
             fz={isMobileView ? "2rem" : "3rem"}
-            lh={isMobileView ? 1.2 : ""}
+            lh={isMobileView ? "2.4rem" : "3.6rem"}
           >
             Star-Studded Spectacle
           </Text>
@@ -128,12 +129,26 @@ const SubMainSection = () => {
             to this day!
           </Text>
         </Grid.Col>
-        <Grid.Col span={1} order={isMobileView ? 3 : ""}>
-          <Image
-            src={"/aboutPageImages/aboutSectionImg(2).webp"}
-            alt=""
+        <Grid.Col
+          bg="#FFC900"
+          span={1}
+          order={isMobileView ? 3 : ""}
+          style={{ border: "1px solid black" }}
+        >
+          <Group
+            justify="center"
+            align="center"
             h="100%"
-          />
+            px={isMobileView && "2rem"}
+            py={isMobileView && "4rem"}
+          >
+            <Image
+              src={"/aboutPageImages/aboutSectionImg(2).png"}
+              alt=""
+              maw={isMobileView ? "15rem" : "20rem"}
+              mah={isMobileView ? "15rem" : "20rem"}
+            />
+          </Group>
         </Grid.Col>
       </Grid>
     </Container>
