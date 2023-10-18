@@ -250,7 +250,8 @@ function ScrollVisibleBox({ isScrolled, isAuth }) {
       top="20px"
       style={{
         opacity: isScrolled ? 0 : 1,
-        transition: "opacity 0.3s ease-in-out",
+        visibility: isScrolled ? "hidden" : "visible",
+        transition: "opacity 0.3s ease-in-out, visibility 0.3s ease-in-out",
       }}
     >
       <Link href={isAuth ? "/profile" : "/login"}>
