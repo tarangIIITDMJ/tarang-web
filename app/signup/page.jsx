@@ -24,6 +24,7 @@ import { useRouter } from "next/navigation";
 import { useAuthStore } from "../store/authStore";
 import Loader from "../components/Loader";
 import { motion } from "framer-motion";
+import Head from "next/head";
 
 export default function Signup() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -172,98 +173,111 @@ export default function Signup() {
     return router.push("/verify-email");
   else
     return (
-      <MainAppShell>
-        <Flex
-          h={isMobileView ? "100%" : "100vh"}
-          bg="#D0EB4C"
-          miw="100%"
-          m={0}
-          justify="center"
-          p={isMobileView ? "1rem" : "4rem"}
-          align="center"
-        >
-          <Box
-            px={isMobileView ? "1rem" : "4rem"}
-            py="2rem"
-            w="100%"
-            bg="#F6F4C8"
-            my={isMobileView ? 120 : ""}
-            style={{ border: "2px solid #000" }}
+      <>
+        <Head>
+          <title>Signup | Tarang'23</title>
+          <meta
+            name="description"
+            content="Signup to your Tarang'23 account to register for events, workshops, and much more."
+          />
+          <meta
+            name="keywords"
+            content="Tarang, Tarang'23, IIITDMJ Cultural Fest, Signup, Register, Sign Up"
+          />
+        </Head>
+        <MainAppShell>
+          <Flex
+            h={isMobileView ? "100%" : "100vh"}
+            bg="#D0EB4C"
+            miw="100%"
+            m={0}
+            justify="center"
+            p={isMobileView ? "1rem" : "4rem"}
+            align="center"
           >
-            <Text size="1.5rem" fw={500} mb="3rem">
-              Sign Up
-            </Text>
-            <form>
-              <Stepper
-                active={active}
-                onStepClick={setActive}
-                color="#ED3C71"
-                px="0.5rem"
-                mx="auto"
-                my="1rem"
-                orientation={isMobileView ? "vertical" : "horizontal"}
-                allowNextStepsSelect={false}
-              >
-                <Stepper.Step
-                  label="First step"
-                  description="Personal Information"
-                  disabled={active !== 0}
+            <Box
+              px={isMobileView ? "1rem" : "4rem"}
+              py="2rem"
+              w="100%"
+              bg="#F6F4C8"
+              my={isMobileView ? 120 : ""}
+              style={{ border: "2px solid #000" }}
+            >
+              <Text size="1.5rem" fw={500} mb="3rem">
+                Sign Up
+              </Text>
+              <form>
+                <Stepper
+                  active={active}
+                  onStepClick={setActive}
+                  color="#ED3C71"
+                  px="0.5rem"
+                  mx="auto"
+                  my="1rem"
+                  orientation={isMobileView ? "vertical" : "horizontal"}
+                  allowNextStepsSelect={false}
                 >
-                  <StepOne isMobileView={isMobileView} form={form} />
-                </Stepper.Step>
-                <Stepper.Step
-                  label="Second step"
-                  description="College Information"
-                  disabled={active !== 1}
-                >
-                  <StepTwo isMobileView={isMobileView} form={form} />
-                </Stepper.Step>
-                <Stepper.Step
-                  label="Final step"
-                  description="Confirmation"
-                  disabled={active !== 2}
-                >
-                  <StepThree isMobileView={isMobileView} />
-                </Stepper.Step>
-              </Stepper>
-              <Group justify="center" mt="3rem">
-                <motion.div
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <Button
-                    variant="default"
-                    size={isMobileView ? "sm" : "md"}
-                    radius={0}
-                    onClick={prevStep}
-                    leftSection={<IconArrowLeft />}
-                    disabled={active > 1}
+                  <Stepper.Step
+                    label="First step"
+                    description="Personal Information"
+                    disabled={active !== 0}
                   >
-                    Go Back
-                  </Button>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <Button
-                    onClick={nextStep}
-                    color="black"
-                    size={isMobileView ? "sm" : "md"}
-                    radius={0}
-                    loading={loading}
-                    rightSection={<IconArrowRight />}
+                    <StepOne isMobileView={isMobileView} form={form} />
+                  </Stepper.Step>
+                  <Stepper.Step
+                    label="Second step"
+                    description="College Information"
+                    disabled={active !== 1}
                   >
-                    {active === 2 ? "Finish" : "Next Step"}
-                  </Button>
-                </motion.div>
-              </Group>
-            </form>
-          </Box>
-        </Flex>
-      </MainAppShell>
+                    <StepTwo isMobileView={isMobileView} form={form} />
+                  </Stepper.Step>
+                  <Stepper.Step
+                    label="Final step"
+                    description="Confirmation"
+                    disabled={active !== 2}
+                  >
+                    <StepThree isMobileView={isMobileView} />
+                  </Stepper.Step>
+                </Stepper>
+                <Group justify="center" mt="3rem">
+                  <motion.div
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
+                    <Button
+                      variant="default"
+                      size={isMobileView ? "sm" : "md"}
+                      radius={0}
+                      onClick={prevStep}
+                      leftSection={<IconArrowLeft />}
+                      disabled={active > 1}
+                    >
+                      Go Back
+                    </Button>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
+                    <Button
+                      onClick={nextStep}
+                      color="black"
+                      size={isMobileView ? "sm" : "md"}
+                      radius={0}
+                      loading={loading}
+                      rightSection={<IconArrowRight />}
+                    >
+                      {active === 2 ? "Finish" : "Next Step"}
+                    </Button>
+                  </motion.div>
+                </Group>
+              </form>
+            </Box>
+          </Flex>
+        </MainAppShell>
+      </>
     );
 }
 

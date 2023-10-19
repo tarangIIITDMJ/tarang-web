@@ -4,19 +4,35 @@ import HeroSection from "@/app/components/EventDetailsSections/HeroSection";
 import EventDetails from "@/app/components/EventDetailsSections/EventDetails";
 import EventGuidelines from "@/app/components/EventDetailsSections/EventGuidelines";
 import { getAllEvents, getEvent } from "@/app/utils/apis";
+import Head from "next/head";
 
 export default async function Events({ params: { event } }) {
   const eventDetail = await getEvent(event);
   const eventData = eventDetail.data.event;
 
   return (
-    <MainAppShell>
-      <Box style={{ backgroundColor: "#0F0F0F" }}>
-        <HeroSection event={eventData} />
-        <EventDetails event={eventData} />
-        <EventGuidelines event={eventData} />
-      </Box>
-    </MainAppShell>
+    <>
+      <Head>
+        <title>{eventData.name} | Tarang'23</title>
+        <meta name="description" content={eventData.description} />
+        <meta
+          name="keywords"
+          content={
+            eventData.name +
+            "," +
+            eventData.event_category +
+            ", Tarang, Tarang'23, IIITDMJ Cultural Fest"
+          }
+        />
+      </Head>
+      <MainAppShell>
+        <Box style={{ backgroundColor: "#0F0F0F" }}>
+          <HeroSection event={eventData} />
+          <EventDetails event={eventData} />
+          <EventGuidelines event={eventData} />
+        </Box>
+      </MainAppShell>
+    </>
   );
 }
 
