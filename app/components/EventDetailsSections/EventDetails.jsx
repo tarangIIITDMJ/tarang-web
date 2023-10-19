@@ -70,13 +70,13 @@ export default function EventDetails({ event }) {
   const [teamLeader, setTeamLeader] = useState();
   const [canRegister, setCanRegister] = useState(true);
   const { push } = useRouter();
-  const { user, setUser } = useAuthStore();
+  const { user, setUser, isAuth } = useAuthStore();
   useEffect(() => {
     if (user) {
       if (user.paymentVerified && user.purchaseTarangCard) {
         setHasTarangPass(true);
       }
-      if (!user.purchaseTarangCard){
+      if (!user.purchaseTarangCard) {
         setCanRegister(false);
       }
       if (user.events.some((usrEvent) => usrEvent.slug === event.slug)) {
@@ -91,6 +91,15 @@ export default function EventDetails({ event }) {
   const handleRegisterEvent = async () => {
     if (isRegistered) {
       push("/profile");
+      return;
+    }
+    if (!isAuth) {
+      notifications.show({
+        title: "Error",
+        message: "You need to be logged in to register for this event",
+        color: "red",
+        autoClose: 2000,
+      });
       return;
     }
     setLoading(true);
@@ -208,7 +217,8 @@ export default function EventDetails({ event }) {
         </motion.div>
         <Group py={5} mt={10}>
           <Text c="#676E76" fz="0.75rem">
-            Note: Ensure Each Team Member Individually registers in this event and provides same team name and leader ID.
+            Note: Ensure Each Team Member Individually registers in this event
+            and provides same team name and leader ID.
           </Text>
         </Group>
       </Modal>
@@ -306,97 +316,110 @@ export default function EventDetails({ event }) {
                 </>
               ) : (
                 <>
-                    <Link href="/tarang-card">
-                      <motion.div
-                        // shift up on hover and scale on tap
-                        whileHover={{ translateY: -5 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  <Link href="/tarang-card">
+                    <motion.div
+                      // shift up on hover and scale on tap
+                      whileHover={{ translateY: -5 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 17,
+                      }}
+                    >
+                      <Stack
+                        p={isMobileView ? "0.7rem" : "1.5rem"}
+                        gap="1rem"
+                        style={styles.card}
                       >
-                        <Stack
-                          p={isMobileView ? "0.7rem" : "1.5rem"}
-                          gap="1rem"
-                          style={styles.card}
-                        >
-                          <Flex gap="1rem" justify="space-between" align="center">
-                            <Text
-                              lh={isMobileView ? "1.5rem" : "2.5rem"}
-                              fw={500}
-                              size={isMobileView ? "1.2rem" : "2rem"}
+                        <Flex gap="1rem" justify="space-between" align="center">
+                          <Text
+                            lh={isMobileView ? "1.5rem" : "2.5rem"}
+                            fw={500}
+                            size={isMobileView ? "1.2rem" : "2rem"}
+                          >
+                            Experience it all with the Tarang Card!
+                          </Text>
+                          <Image
+                            mt={"0.2rem"}
+                            mr={"0.85rem"}
+                            src={"/eventDetailsPageImages/LearnMore.svg"}
+                            w={isMobileView ? "3rem" : "5rem"}
+                            h={isMobileView ? "3rem" : "5rem"}
+                            alt=""
+                          />
+                        </Flex>
+                        <Stack align="flex-start" gap={"0.5rem"}>
+                          {[
+                            "Get access to every event, workshop, and pro nights.",
+                            "All this for just ₹1499!",
+                          ].map((text, index) => (
+                            <Badge
+                              variant="transparent"
+                              c={"black"}
+                              pl={"0rem"}
+                              h="fit-content"
+                              leftSection={icon}
+                              style={{ textTransform: "none" }}
+                              key={index}
                             >
-                              Experience it all with the Tarang Card!
-                            </Text>
-                            <Image
-                              mt={"0.2rem"}
-                              mr={"0.85rem"}
-                              src={"/eventDetailsPageImages/LearnMore.svg"}
-                              w={isMobileView ? "3rem" : "5rem"}
-                              h={isMobileView ? "3rem" : "5rem"}
-                              alt=""
-                            />
-                          </Flex>
-                          <Stack align="flex-start" gap={"0.5rem"}>
-                            {[
-                              "Get access to every event, workshop, and pro nights.",
-                              "All this for just ₹1499!",
-                            ].map((text, index) => (
-                              <Badge
-                                variant="transparent"
-                                c={"black"}
-                                pl={"0rem"}
-                                h="fit-content"
-                                leftSection={icon}
-                                style={{ textTransform: "none" }}
-                                key={index}
+                              <Text
+                                lh={isMobileView ? "1rem" : "1.5rem"}
+                                fw="500"
+                                size={isMobileView ? "0.6rem" : "1rem"}
+                                ml={isMobileView ? "0rem" : "0.5rem"}
                               >
-                                <Text
-                                  lh={isMobileView ? "1rem" : "1.5rem"}
-                                  fw="500"
-                                  size={isMobileView ? "0.6rem" : "1rem"}
-                                  ml={isMobileView ? "0rem" : "0.5rem"}
-                                >
-                                  {text}
-                                </Text>
-                              </Badge>
-                            ))}
-                          </Stack>
+                                {text}
+                              </Text>
+                            </Badge>
+                          ))}
                         </Stack>
-                      </motion.div>
-                    </Link>
+                      </Stack>
+                    </motion.div>
+                  </Link>
 
-                    <Divider my="xs" label="Or pay individually" labelPosition="center" />
-                    
-                    <Flex gap="1rem" justify="left" align="center" wrap="wrap" pl={10}>
-                        <Text
-                          lh={isMobileView ? "2rem" : "2.5rem"}
-                          fw={800}
-                          size={isMobileView ? "2.2rem" : "3rem"}
-                            c="#FFF"
-                        >
-                          ₹ {event.reg_fees}
-                        </Text>
-                        <Stack align="flex-start" gap={"0.1rem"}>
-                            <Text
-                              lh={isMobileView ? "1rem" : "1.5rem"}
-                              fw="600"
-                              size={isMobileView ? "0.8rem" : "1rem"}
-                              ml={isMobileView ? "0rem" : "0.5rem"}
-                                c="#FFF"
-                            >
-                              Registration Fee if you pay individually
-                            </Text>
-                            <Text
-                              lh={isMobileView ? "1rem" : "1.5rem"}
-                              fw="400"
-                              size={isMobileView ? "0.8rem" : "1rem"}
-                              ml={isMobileView ? "0rem" : "0.5rem"}
-                                c="#868e96"
-                            >
-                                Free entry with purchase  
-                            </Text>
+                  <Divider
+                    my="xs"
+                    label="Or pay individually"
+                    labelPosition="center"
+                  />
 
-                          </Stack>
-                    </Flex>
+                  <Flex
+                    gap="1rem"
+                    justify="left"
+                    align="center"
+                    wrap="wrap"
+                    pl={10}
+                  >
+                    <Text
+                      lh={isMobileView ? "2rem" : "2.5rem"}
+                      fw={800}
+                      size={isMobileView ? "2.2rem" : "3rem"}
+                      c="#FFF"
+                    >
+                      ₹ {event.reg_fees}
+                    </Text>
+                    <Stack align="flex-start" gap={"0.1rem"}>
+                      <Text
+                        lh={isMobileView ? "1rem" : "1.5rem"}
+                        fw="600"
+                        size={isMobileView ? "0.8rem" : "1rem"}
+                        ml={isMobileView ? "0rem" : "0.5rem"}
+                        c="#FFF"
+                      >
+                        Registration Fee if you pay individually
+                      </Text>
+                      <Text
+                        lh={isMobileView ? "1rem" : "1.5rem"}
+                        fw="400"
+                        size={isMobileView ? "0.8rem" : "1rem"}
+                        ml={isMobileView ? "0rem" : "0.5rem"}
+                        c="#868e96"
+                      >
+                        Free entry with purchase
+                      </Text>
+                    </Stack>
+                  </Flex>
                 </>
               )}
               {
