@@ -23,7 +23,6 @@ export default async function Events({ params: { event } }) {
 export async function getStaticPaths() {
   const eventDetails = await getAllEvents();
   const events = eventDetails.data.events;
-  console.log(events);
   return {
     paths: events.map((event) => ({
       params: { event: event.slug },
