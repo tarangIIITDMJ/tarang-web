@@ -19,7 +19,7 @@ export default function SubMainSection() {
     >
       <Box pos="relative">
         <Image
-          src={"homePageImages/tarangCircle.svg"}
+          src={"homePageImages/TARANG 23 IIITDMJ_circle.svg"}
           alt=""
           className={homeStyles.SubMainImage}
           w={"32rem"}

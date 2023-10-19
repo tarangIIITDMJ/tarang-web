@@ -43,12 +43,13 @@ export const getEvent = (eventSlug) => {
   return axios.get(`https://api.tarangfest.com/api/events/${eventSlug}`);
 };
 
-export const registerEvent = (eventSlug, teamName) => {
+export const registerEvent = (eventSlug, teamName, teamLeader) => {
   return axios.post(
     `https://api.tarangfest.com/api/events/register`,
     {
       slug: eventSlug,
       teamName,
+      teamLeader,
     },
     {
       withCredentials: true,

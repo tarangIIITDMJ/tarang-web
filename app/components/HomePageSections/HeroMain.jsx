@@ -3,6 +3,7 @@ import { Button, Text, Container, Box, Flex } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import Image from "next/image";
 import tarangHeading from "@/public/tarangHeading.svg";
+import iiitdmLogo from "@/public/iiitdmj-logo.png";
 import cssstyles from "@/app/styles/home.module.css";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -53,11 +54,25 @@ const HeroMain = () => {
             pointerEvents: "auto",
           }}
         >
+          <Flex gap="1rem" justify="center" align="center" wrap="wrap" mb={26}>
+            <Image
+              src={iiitdmLogo}
+              alt="IIITDM Jabalpur"
+              height={36}
+            />
+            <Text
+              size="26px"
+              c="white"
+              ta={"center"}
+            >
+              PDPM IIITDM Jabalpur Presents
+            </Text>
+          </Flex>
           <Image
             src={tarangHeading}
             className={cssstyles.HeroMaintarangHeadingImg}
             alt="Tarang Heading"
-            width={375}
+            width={430}
           />
           <Text
             size="28px"
