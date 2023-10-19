@@ -19,7 +19,7 @@ export default function SubMainSection() {
     >
       <Box pos="relative">
         <Image
-          src={"homePageImages/tarangCircle.svg"}
+          src={"homePageImages/TARANG 23 IIITDMJ_circle.svg"}
           alt=""
           className={homeStyles.SubMainImage}
           w={"32rem"}
@@ -62,7 +62,7 @@ export default function SubMainSection() {
         <Group gap="2rem">
           {[
             { number: "100+", text: "Participating colleges" },
-            { number: "30+", text: "30+ events" },
+            { number: "30+", text: "Events" },
           ].map(({ number, text }) => (
             <Stack key={number}>
               <Text

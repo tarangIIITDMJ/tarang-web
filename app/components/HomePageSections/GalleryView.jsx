@@ -15,12 +15,12 @@ import { motion } from "framer-motion";
 import cssStyles from "@/app/styles/home.module.css";
 
 const galleryImages = [
-  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697367216/homepage_event/webp/IMG_6758_ohpxfw.webp",
-  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697367216/homepage_event/webp/IMG_7043_zmw9bi.webp",
-  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697367214/homepage_event/webp/IMG_7023_udkhy3.webp",
-  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697367216/homepage_event/webp/DSC_8155__1_krkdzd.webp",
-  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319621/homepage_event/png%20and%20jpg/IMG_7540_1_xxtt4o.png",
-  // "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319617/homepage_event/png%20and%20jpg/IMG_6905_1_yeothv.png",
+  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478126/homepage_event/webp/compressed/IMG_6758_ohpxfw_11zon_zvfrtl.webp",
+  // "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478126/homepage_event/webp/compressed/IMG_6905_1_yeothv_rjg85u.webp",
+  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478125/homepage_event/webp/compressed/IMG_7043_zmw9bi_11zon_zcy715.webp",
+  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478125/homepage_event/webp/compressed/DSC_8155__1_krkdzd_11zon_d4962v.webp",
+  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478125/homepage_event/webp/compressed/IMG_7023_udkhy3_11zon_lfbsqh.webp",
+  "https://res.cloudinary.com/dss8aihs0/image/upload/v1697478125/homepage_event/webp/compressed/IMG_7540_1_xxtt4o_mzhgym.webp"
 ];
 
 const ImageAccordion = () => {

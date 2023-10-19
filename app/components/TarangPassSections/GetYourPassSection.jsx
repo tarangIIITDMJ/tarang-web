@@ -56,7 +56,7 @@ const GetYourPassSection = () => {
             fw={500}
             lh={isMobileView ? "1.8rem" : "2.4rem"}
           >
-            All this for just ₹1999!
+            All this for just ₹1499!
           </Text>
           {isAuth ? (
             <Link

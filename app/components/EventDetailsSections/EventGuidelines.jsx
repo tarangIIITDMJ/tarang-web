@@ -1,10 +1,11 @@
 "use client";
 import { Divider, Stack, Text, List, Box } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import { useEffect, useState } from "react";
 
 export default function EventGuidelines({ event }) {
   const isMobileView = useMediaQuery("(max-width: 768px)");
-  const guidelines = [
+  const [guidelines, setGuidelines] = useState([
     {
       title: "Instructions",
       content: event.instructions.map((instruction) => instruction),
@@ -23,7 +24,18 @@ export default function EventGuidelines({ event }) {
       title: "Prize Pool",
       content: [`There is a prize pool of ₹${event.prize_pool} to be won.`],
     },
-  ];
+  ]);
+
+  useEffect(() => {
+    if(event.judging_criteria?.length){
+      console.log(event);
+      setGuidelines( oldGuidelines => [{
+        title:"Judging Criteria",
+        content: event.judging_criteria.map((criteria) => criteria),
+      }, ...oldGuidelines]);
+    }
+  }, [])
+  
 
   return (
     <Stack

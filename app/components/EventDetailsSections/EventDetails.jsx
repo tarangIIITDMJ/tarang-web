@@ -13,7 +13,7 @@ import {
   Group,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import { Breadcrumbs, Anchor } from "@mantine/core";
+import { Breadcrumbs, Anchor, Divider } from "@mantine/core";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { IconArrowUpRight } from "@tabler/icons-react";
@@ -67,10 +67,18 @@ export default function EventDetails({ event }) {
   const [loading, setLoading] = useState(false);
   const [opened, { open, close }] = useDisclosure(false);
   const [teamName, setTeamName] = useState();
+  const [teamLeader, setTeamLeader] = useState();
+  const [canRegister, setCanRegister] = useState(true);
   const { push } = useRouter();
   const { user, setUser } = useAuthStore();
   useEffect(() => {
     if (user) {
+      if (user.paymentVerified && user.purchaseTarangCard) {
+        setHasTarangPass(true);
+      }
+      if (!user.purchaseTarangCard){
+        setCanRegister(false);
+      }
       if (user.events.some((usrEvent) => usrEvent.slug === event.slug)) {
         setIsRegistered(true);
       } else {
@@ -130,10 +138,10 @@ export default function EventDetails({ event }) {
     />
   );
 
-  const handleTeamRegistration = async (teamName) => {
+  const handleTeamRegistration = async (teamName, teamLeader) => {
     try {
       setLoading(true);
-      const response = await registerEvent(event.slug, teamName);
+      const response = await registerEvent(event.slug, teamName, teamLeader);
       if (response?.status === 200) {
         setIsRegistered(true);
         notifications.show({
@@ -166,33 +174,41 @@ export default function EventDetails({ event }) {
           border: "2px solid #000",
         }}
       >
-        <Group>
+        <Stack>
           <TextInput
             placeholder="Enter Your Team Name"
-            w="70%"
             style={{
               border: "2px solid #000",
             }}
             onChange={(e) => setTeamName(e.target.value)}
           />
-          <motion.div
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          <TextInput
+            placeholder={`Enter Your Team Leader tarandID (for eg: TRNG-97294)`}
+            style={{
+              border: "2px solid #000",
+            }}
+            onChange={(e) => setTeamLeader(e.target.value)}
+          />
+        </Stack>
+        <motion.div
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+          <Button
+            bg="#000"
+            color="#fff"
+            loading={loading}
+            fullWidth
+            onClick={() => handleTeamRegistration(teamName, teamLeader)}
+            mt={15}
           >
-            <Button
-              bg="#000"
-              color="#fff"
-              loading={loading}
-              onClick={() => handleTeamRegistration(teamName)}
-            >
-              Register
-            </Button>
-          </motion.div>
-        </Group>
+            Register
+          </Button>
+        </motion.div>
         <Group py={5} mt={10}>
           <Text c="#676E76" fz="0.75rem">
-            Note: Ensure Each Team Member Presents a Tarang Card for Entry
+            Note: Ensure Each Team Member Individually registers in this event and provides same team name and leader ID.
           </Text>
         </Group>
       </Modal>
@@ -289,63 +305,99 @@ export default function EventDetails({ event }) {
                   </Flex>
                 </>
               ) : (
-                <Link href="/tarang-card">
-                  <motion.div
-                    // shift up on hover and scale on tap
-                    whileHover={{ translateY: -5 }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <Stack
-                      p={isMobileView ? "0.7rem" : "1.5rem"}
-                      gap="1rem"
-                      style={styles.card}
-                    >
-                      <Flex gap="1rem" justify="space-between" align="center">
-                        <Text
-                          lh={isMobileView ? "1.5rem" : "2.5rem"}
-                          fw={500}
-                          size={isMobileView ? "1.2rem" : "2rem"}
+                <>
+                    <Link href="/tarang-card">
+                      <motion.div
+                        // shift up on hover and scale on tap
+                        whileHover={{ translateY: -5 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                      >
+                        <Stack
+                          p={isMobileView ? "0.7rem" : "1.5rem"}
+                          gap="1rem"
+                          style={styles.card}
                         >
-                          Experience it all with the Tarang Card!
+                          <Flex gap="1rem" justify="space-between" align="center">
+                            <Text
+                              lh={isMobileView ? "1.5rem" : "2.5rem"}
+                              fw={500}
+                              size={isMobileView ? "1.2rem" : "2rem"}
+                            >
+                              Experience it all with the Tarang Card!
+                            </Text>
+                            <Image
+                              mt={"0.2rem"}
+                              mr={"0.85rem"}
+                              src={"/eventDetailsPageImages/LearnMore.svg"}
+                              w={isMobileView ? "3rem" : "5rem"}
+                              h={isMobileView ? "3rem" : "5rem"}
+                              alt=""
+                            />
+                          </Flex>
+                          <Stack align="flex-start" gap={"0.5rem"}>
+                            {[
+                              "Get access to every event, workshop, and pro nights.",
+                              "All this for just ₹1499!",
+                            ].map((text, index) => (
+                              <Badge
+                                variant="transparent"
+                                c={"black"}
+                                pl={"0rem"}
+                                h="fit-content"
+                                leftSection={icon}
+                                style={{ textTransform: "none" }}
+                                key={index}
+                              >
+                                <Text
+                                  lh={isMobileView ? "1rem" : "1.5rem"}
+                                  fw="500"
+                                  size={isMobileView ? "0.6rem" : "1rem"}
+                                  ml={isMobileView ? "0rem" : "0.5rem"}
+                                >
+                                  {text}
+                                </Text>
+                              </Badge>
+                            ))}
+                          </Stack>
+                        </Stack>
+                      </motion.div>
+                    </Link>
+
+                    <Divider my="xs" label="Or pay individually" labelPosition="center" />
+                    
+                    <Flex gap="1rem" justify="left" align="center" wrap="wrap" pl={10}>
+                        <Text
+                          lh={isMobileView ? "2rem" : "2.5rem"}
+                          fw={800}
+                          size={isMobileView ? "2.2rem" : "3rem"}
+                            c="#FFF"
+                        >
+                          ₹ {event.reg_fees}
                         </Text>
-                        <Image
-                          mt={"0.2rem"}
-                          mr={"0.85rem"}
-                          src={"/eventDetailsPageImages/LearnMore.svg"}
-                          w={isMobileView ? "3rem" : "5rem"}
-                          h={isMobileView ? "3rem" : "5rem"}
-                          alt=""
-                        />
-                      </Flex>
-                      <Stack align="flex-start" gap={"0.5rem"}>
-                        {[
-                          "Get access to every event, workshop, and pro nights.",
-                          "All this for just ₹1999!",
-                        ].map((text, index) => (
-                          <Badge
-                            variant="transparent"
-                            c={"black"}
-                            pl={"0rem"}
-                            h="fit-content"
-                            leftSection={icon}
-                            style={{ textTransform: "none" }}
-                            key={index}
-                          >
+                        <Stack align="flex-start" gap={"0.1rem"}>
                             <Text
                               lh={isMobileView ? "1rem" : "1.5rem"}
-                              fw="500"
-                              size={isMobileView ? "0.6rem" : "1rem"}
+                              fw="600"
+                              size={isMobileView ? "0.8rem" : "1rem"}
                               ml={isMobileView ? "0rem" : "0.5rem"}
+                                c="#FFF"
                             >
-                              {text}
+                              Registration Fee if you pay individually
                             </Text>
-                          </Badge>
-                        ))}
-                      </Stack>
-                    </Stack>
-                  </motion.div>
-                </Link>
+                            <Text
+                              lh={isMobileView ? "1rem" : "1.5rem"}
+                              fw="400"
+                              size={isMobileView ? "0.8rem" : "1rem"}
+                              ml={isMobileView ? "0rem" : "0.5rem"}
+                                c="#868e96"
+                            >
+                                Free entry with purchase  
+                            </Text>
+
+                          </Stack>
+                    </Flex>
+                </>
               )}
               {
                 <motion.div
@@ -361,6 +413,7 @@ export default function EventDetails({ event }) {
                     py={isMobileView ? "0.75rem" : "1rem"}
                     onClick={handleRegisterEvent}
                     loading={loading}
+                    disabled={!canRegister}
                   >
                     {isRegistered ? (
                       <>

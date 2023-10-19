@@ -5,9 +5,9 @@ const AboutTarangSection = () => (
     <Group align="center" justify="space-around" gap="2rem">
       {[
         { number: "2007", text: "Since 2007" },
-        { number: "100+", text: "Over 100+ participating colleges" },
-        { number: "4500+", text: "Footfall of over 4500" },
-        { number: "30+", text: "30+ events" },
+        { number: "100+", text: "Participating colleges" },
+        { number: "4500+", text: "Footfall " },
+        { number: "30+", text: "Events" },
       ].map((item) => (
         <Stack key={item.number} align="center">
           <Text c="#1A1D1F" fz="3.5rem" fw={600} lh="4rem" ta="center">

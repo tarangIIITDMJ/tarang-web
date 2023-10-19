@@ -6,37 +6,55 @@ import cssStyles from "@/app/styles/contact.module.css";
 
 const contactData_1 = [
   {
-    eventName: "Malang",
-    person1Name: "Ashish Chaudhary",
-    person1Number: "9991689805",
-    person2Name: "Bhavika Sehgal",
-    person2Number: "8726788999",
+    clubName: "Abhivyakti",
+    person1Name: "Rohan",
+    person1Number: "+91 87450 99910",
+    person2Name: "Tejas Suryawanshi",
+    person2Number: "+91 94202 44605",
   },
   {
-    eventName: "Nukkad: Ek Goonj",
-    person1Name: "Uday Shakya",
-    person1Number: "7017474241",
-    person2Name: "Shivansh Shukla",
-    person2Number: "7895043346",
+    clubName: "Aavartan",
+    person1Name: "Ankur",
+    person1Number: "+91 76199 84684",
+    person2Name: "Ashish Choudhary",
+    person2Number: "+91 99916 89805",
   },
   {
-    eventName: "ArtLabs",
-    person1Name: "Uday Shakya",
-    person1Number: "7017474241",
+    clubName: "Samvaad",
+    person1Name: "Kushagra",
+    person1Number: "+91 75098 55423",
+    person2Name: "Sambhav",
+    person2Number: "+91 96672 82886",
   },
 ];
 
 const contactData_2 = [
   {
-    eventName: "Shutter Stories",
-    person1Name: "Pulivarthi Mahesh",
-    person1Number: "9392816922",
+    clubName: "Shutterbox",
+    person1Name: "Hemanth",
+    person1Number: "+91 79952 32738",
+    person2Name: "Manjith",
+    person2Number: "+91 93464 85364",
+  },
+  {
+    clubName: "Jazbaat",
+    person1Name: "Vedant Bande",
+    person1Number: "+91 83808 06436",
+    person2Name: "Abhishek Ranjan",
+    person2Number: "+91 81020 41076",
+  },
+  {
+    clubName: "Saaz",
+    person1Name: "Aditya Ghai",
+    person1Number: "+91 70003 25890",
+    person2Name: "Prateek Pandey",
+    person2Number: "+91 98925 37975",
   },
 ];
 
 const EventContact = ({
   makeMobile,
-  eventName,
+  clubName,
   person1Name,
   person1Number,
   person2Name,
@@ -45,7 +63,7 @@ const EventContact = ({
   return (
     <Stack gap="1rem">
       <Text fz="1.5rem" c="#E5E7EA" lh="1.5rem">
-        {eventName}
+        {clubName}
       </Text>
       <Box>
         <Text c="#E5E7EA" fz={makeMobile ? "1rem" : "1.125rem"} lh={"1.5rem"}>

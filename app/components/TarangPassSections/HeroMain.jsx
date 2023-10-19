@@ -68,7 +68,7 @@ const HeroSection = () => {
             lh={isMobileView ? "1.2rem" : "1.8rem"}
             maw={isMobileView ? "100%" : "50%"}
           >
-            For just ₹1999, enjoy three unforgettable days of non-stop
+            For just ₹1499, enjoy three unforgettable days of non-stop
             entertainment, workshops, and pro nights. With seamless access to
             every event, the Tarang Card makes your festival experience
             effortless and extraordinary.
