@@ -7,7 +7,14 @@ import { useMediaQuery } from "@mantine/hooks";
 import { useAuthStore } from "../store/authStore";
 import Loader from "../components/Loader";
 import { useRouter } from "next/navigation";
-import Head from "next/head";
+
+export const metadata = {
+  title: "Login | Tarang'23",
+  description:
+    "Login to your Tarang'23 account to register for events, workshops, and much more.",
+  keywords:
+    "Tarang, Tarang'23, IIITDMJ Cultural Fest, Login, Register, Sign In",
+};
 
 export default function Login() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
@@ -20,17 +27,6 @@ export default function Login() {
   else
     return (
       <>
-        <Head>
-          <title>Login | Tarang'23</title>
-          <meta
-            name="description"
-            content="Login to your Tarang'23 account to register for events, workshops, and much more."
-          />
-          <meta
-            name="keywords"
-            content="Tarang, Tarang'23, IIITDMJ Cultural Fest, Login, Register, Sign In"
-          />
-        </Head>
         <MainAppShell>
           <Flex
             h={isMobileView ? "100%" : "100vh"}

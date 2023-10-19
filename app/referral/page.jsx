@@ -3,24 +3,20 @@
 import { Box, Stack, Text, List, Grid, Flex, Image } from "@mantine/core";
 import MainAppShell from "../components/MainAppShell";
 import { useMediaQuery } from "@mantine/hooks";
-import Head from "next/head";
+
+export const metadata = {
+  title: "Referral | Tarang'23",
+  description:
+    "Refer your friends to Tarang'23 and get discounts on events, pro nights, and accommodation.",
+  keywords:
+    "Tarang, Tarang'23, IIITDMJ Cultural Fest, Referral, Refer, Discounts, Events, Pro Nights, Accommodation",
+};
 
 export default function Referral() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
   return (
     <>
-      <Head>
-        <title>Referral | Tarang'23</title>
-        <meta
-          name="description"
-          content="Refer your friends to Tarang'23 and get discounts on events, pro nights, and accommodation."
-        />
-        <meta
-          name="keywords"
-          content="Tarang, Tarang'23, IIITDMJ Cultural Fest, Referral, Refer, Discounts, Events, Pro Nights, Accommodation"
-        />
-      </Head>
       <MainAppShell>
         <Box bg="#0F0F0F" p={0}>
           <Stack
