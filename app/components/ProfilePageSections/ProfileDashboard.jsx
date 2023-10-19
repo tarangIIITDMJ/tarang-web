@@ -108,6 +108,7 @@ export default function ProfileDashboard({ user }) {
               justify={"space-between"}
               ml={10}
               mr={10}
+              key={index}
             >
               <Text>{event.name}: </Text>
               <Text>₹ {event.reg_fees}</Text>
@@ -350,14 +351,6 @@ export default function ProfileDashboard({ user }) {
                             </Button>
                           </motion.div>
                       }
-                      {/* <Link
-                          target="_blank"
-                          href={`https://docs.google.com/forms/d/e/1FAIpQLSfLgebQDZPpvuLCTe6jTPMB_34KueapBtcOLRQQofFT8WT0xw/viewform?usp=sf_link&entry.275844225=${
-                            user.fname + " " + user.lname
-                          }&entry.1392576540=${user.tarang_id}&entry.272288439=${
-                            user.email
-                          }&entry.610706180=${user.phone}`}
-                        > */}
                     </Flex>
                   </Flex>
                 </Alert>
