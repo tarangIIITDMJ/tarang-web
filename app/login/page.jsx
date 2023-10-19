@@ -7,15 +7,6 @@ import { useMediaQuery } from "@mantine/hooks";
 import { useAuthStore } from "../store/authStore";
 import Loader from "../components/Loader";
 import { useRouter } from "next/navigation";
-
-export const metadata = {
-  title: "Login | Tarang'23",
-  description:
-    "Login to your Tarang'23 account to register for events, workshops, and much more.",
-  keywords:
-    "Tarang, Tarang'23, IIITDMJ Cultural Fest, Login, Register, Sign In",
-};
-
 export default function Login() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const { isAuth, isloading, user } = useAuthStore();
