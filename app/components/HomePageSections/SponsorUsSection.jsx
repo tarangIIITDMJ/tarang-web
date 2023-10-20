@@ -1,7 +1,7 @@
 "use client";
 import { Button, Container, Grid, Image, Stack, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import { IconDownload } from "@tabler/icons-react";
+import { IconArrowRight, IconArrowRightBar, IconDownload, IconLink } from "@tabler/icons-react";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
@@ -113,18 +113,18 @@ function SponsorUsSection() {
                 c="#FFF"
                 fz={isMobileView ? "2rem" : "4rem"}
               >
-                Here&apos;s how to sponsor us
+                Want to sponsor us?
               </Text>
               <Text
                 mt={"2.25rem"}
                 c="#FFF"
                 fz={isMobileView ? "1.125rem" : "1.25rem"}
               >
-                Explore sponsorship opportunities and benefits in the booklet.
+                Explore sponsorship opportunities and benefits by reaching out to us.
               </Text>
               <Link
-                href=""
-                target="_blank"
+                href="/contact-us"
+                // target="_blank"
                 download="Sponsor Tarang"
                 rel="noreferrer"
               >
@@ -134,7 +134,7 @@ function SponsorUsSection() {
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   <Button
-                    rightSection={<IconDownload />}
+                    rightSection={<IconArrowRight/>}
                     mt={"3rem"}
                     size="lg"
                     style={{ border: "2px solid black" }}
@@ -142,7 +142,7 @@ function SponsorUsSection() {
                     c={"white"}
                     radius={0}
                   >
-                    Download Sponsor PDF
+                    Contact-Us
                   </Button>
                 </motion.div>
               </Link>

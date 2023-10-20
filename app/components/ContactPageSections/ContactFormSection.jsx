@@ -15,6 +15,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import { IconMail } from "@tabler/icons-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState } from "react";
 const ContactFormSection = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
 
@@ -34,10 +35,14 @@ const ContactFormSection = () => {
   const form = useForm({
     initialValues: {
       name: "",
-      email: "",
+      subject: "",
       message: "",
     },
   });
+
+  const [name, setName] = useState("");
+  const [subject, setSubject] = useState("");
+  const [body, setBody] = useState("");
 
   return (
     <Box
@@ -117,15 +122,17 @@ const ContactFormSection = () => {
                 placeholder="Enter your name here"
                 styles={commonInputStyles}
                 radius={0}
-                {...form.getInputProps("name")}
+                value={name}
+                onChange={e=>setName(e.target.value)}
               />
               <TextInput
-                type="email"
-                label="Email"
-                placeholder="abc@gmail.com"
+                type="subject"
+                label="Subject"
+                placeholder="subject"
                 styles={commonInputStyles}
                 radius={0}
-                {...form.getInputProps("email")}
+                value={subject}
+                onChange={e=>setSubject(e.target.value)}
               />
               <Textarea
                 type="textarea"
@@ -136,28 +143,38 @@ const ContactFormSection = () => {
                 placeholder="Enter your message"
                 styles={commonInputStyles}
                 radius={0}
-                {...form.getInputProps("message")}
+                value={body}
+                onChange={e=>setBody(e.target.value)}
               />
             </Stack>
             <Group pt="2rem" justify="center">
-              <motion.div
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <Button
-                  size={isMobileView ? "sm" : "lg"}
-                  color="#fff"
-                  c={"#24292E"}
-                  leftSection={<IconMail />}
-                  h="auto"
-                  px={isMobileView ? "0.5rem" : "1.125rem"}
-                  py="0.75rem"
-                  radius={0}
+
+            <motion.div
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  Send Message
-                </Button>
-              </motion.div>
+                <Link 
+                    href={`mailto:tarang@iiitdmj.ac.in?
+                      cc=tarang2k23.contact@gmail.com&
+                      bcc=tarangfest2k23@gmail.com&
+                      &subject=${name + ":" + subject}
+                      &body=${body}`}>
+
+                  <Button
+                    size={isMobileView ? "sm" : "lg"}
+                    color="#fff"
+                    c={"#24292E"}
+                    leftSection={<IconMail />}
+                    h="auto"
+                    px={isMobileView ? "0.5rem" : "1.125rem"}
+                    py="0.75rem"
+                    radius={0}
+                  >
+                    Send Message
+                  </Button>
+                      </Link>
+                </motion.div>
             </Group>
           </form>
         </Box>
