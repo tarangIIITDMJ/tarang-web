@@ -292,6 +292,7 @@ export default function EventDetails({ event }) {
                   { label: "Date", value: event.event_date },
                   { label: "Time", value: event.event_time },
                   { label: "Event Category", value: event.event_category },
+                  { label: "Event Mode", value: event.mode }
                 ].map((item, index) => (
                   <Text
                     key={index}
@@ -453,42 +454,71 @@ export default function EventDetails({ event }) {
                   whileTap={{ scale: 0.9 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Button
-                    h="auto"
-                    bg={!canRegister ? "#d6d6d6" : "#fff"}
-                    c={!canRegister ? "#878787" : "#000"}
-                    w="100%"
-                    py={isMobileView ? "0.75rem" : "1rem"}
-                    onClick={handleRegisterEvent}
-                    loading={loading}
-                    disabled={!canRegister}
-                  >
-                    {isRegistered ? (
-                      <>
-                        <Text
-                          fw={"500"}
-                          size={isMobileView ? "0.85rem" : "1.25rem"}
-                        >
-                          Go to Dashboard{" "}
-                        </Text>
-                        <Box ml="0.5rem">
-                          <IconArrowUpRight
-                            size={32}
-                            strokeWidth={2}
-                            color={"black"}
-                          />
-                        </Box>
-                      </>
-                    ) : (
-                      <Text
-                        fw={"500"}
-                        size={isMobileView ? "0.85rem" : "1.35rem"}
-                        lh={isMobileView ? "1.5rem" : "2.5rem"}
+                  {
+                    event.mode === "online" ?
+                    (
+                      <Link 
+                        href={event.reg_link}
+                        target="_blank"
                       >
-                        Add to My Events
-                      </Text>
-                    )}
-                  </Button>
+                        <Button
+                          h="auto"
+                          bg={!canRegister ? "#d6d6d6" : "#fff"}
+                          c={!canRegister ? "#878787" : "#000"}
+                          w="100%"
+                          py={isMobileView ? "0.75rem" : "1rem"}
+                          loading={loading}
+                          disabled={!canRegister}
+                        >
+                          <Text
+                            fw={"500"}
+                            size={isMobileView ? "0.85rem" : "1.35rem"}
+                            lh={isMobileView ? "1.5rem" : "2.5rem"}
+                          >
+                            Register for this event
+                          </Text>
+                        </Button>
+                      </Link>
+                    )  :
+                    (
+                      <Button
+                        h="auto"
+                        bg={!canRegister ? "#d6d6d6" : "#fff"}
+                        c={!canRegister ? "#878787" : "#000"}
+                        w="100%"
+                        py={isMobileView ? "0.75rem" : "1rem"}
+                        onClick={handleRegisterEvent}
+                        loading={loading}
+                        disabled={!canRegister}
+                      >
+                        {isRegistered ? (
+                          <>
+                            <Text
+                              fw={"500"}
+                              size={isMobileView ? "0.85rem" : "1.25rem"}
+                            >
+                              Go to Dashboard{" "}
+                            </Text>
+                            <Box ml="0.5rem">
+                              <IconArrowUpRight
+                                size={32}
+                                strokeWidth={2}
+                                color={"black"}
+                              />
+                            </Box>
+                          </>
+                        ) : (
+                          <Text
+                            fw={"500"}
+                            size={isMobileView ? "0.85rem" : "1.35rem"}
+                            lh={isMobileView ? "1.5rem" : "2.5rem"}
+                          >
+                            Add to My Events
+                          </Text>
+                        )}
+                      </Button>
+                    ) 
+                  }
                 </motion.div>
               }
               <Text
