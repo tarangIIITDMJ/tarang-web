@@ -58,7 +58,9 @@ const UserCard = ({ user, getUsers, getRejUser }) => {
           <p style={{ color: "green" }}>Tarang ID: {user.tarang_id}</p>
           <p style={{ color: "green" }}>Phone: {user.phone}</p>
           <p style={{ color: "green" }}>Events Cost: {user.totalCost}</p>
-          <p style={{ color: "green" }}>Accomodation taken: {user.hasAccomodation}</p>
+          <p style={{ color: "green" }}>
+            Accomodation taken: {user.hasAccomodation}
+          </p>
         </div>
         <div
           style={{

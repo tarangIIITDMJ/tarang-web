@@ -1,15 +1,16 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import { Button, Text, Container, Box, Flex } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
+import { useMediaQuery } from "@mantine/hooks";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import tarangHeading from "@/public/tarangHeading.svg";
 import iiitdmLogo from "@/public/iiitdmj-logo.png";
 import cssstyles from "@/app/styles/home.module.css";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import Loading from "@/app/loading";
-import { useMediaQuery } from "@mantine/hooks";
-import { motion } from "framer-motion";
+
 const HeroMain = () => {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [videoLoaded, setvideoLoaded] = useState(false);
@@ -54,18 +55,20 @@ const HeroMain = () => {
             pointerEvents: "auto",
           }}
         >
-          <Flex gap="1rem" justify="center" align="center" wrap="wrap" mb={26}>
-            <Image
-              src={iiitdmLogo}
-              alt="IIITDM Jabalpur"
-              height={36}
-            />
+          <Flex
+            gap="1rem"
+            justify="center"
+            align="center"
+            wrap="wrap"
+            mb="2rem"
+            className={cssstyles.HereMainTarangContainer}
+          >
+            <Image src={iiitdmLogo} alt="IIITDM Jabalpur" height={36} />
             <Text
-              size="26px"
-              c="white"
-              ta={"center"}
-              pl={10}
-              pr={10}
+              fz="1.5rem"
+              c="#FFF"
+              ta="center"
+              className={cssstyles.HeroMainTarangSubText}
             >
               PDPM IIITDM Jabalpur Presents
             </Text>
