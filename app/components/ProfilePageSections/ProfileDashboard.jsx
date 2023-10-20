@@ -19,6 +19,7 @@ import {
   Card,
   List,
   ListItem,
+  Tooltip,
 } from "@mantine/core";
 import {
   IconArrowUpRight,
@@ -26,6 +27,8 @@ import {
   IconInfoCircle,
   IconDiscountCheckFilled,
   IconArrowRight,
+  IconFolderExclamation,
+  IconFocus,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import Loader from "@/app/components/Loader/index";
@@ -111,18 +114,34 @@ export default function ProfileDashboard({ user }) {
               key={index}
             >
               <Text>{event.name}: </Text>
-              <Text>₹ {event.reg_fees}</Text>
+              <Text>₹ {user.events.filter(usrEvent => usrEvent.slug === event.slug)[0]?.eventFee}</Text>
             </Flex>
           ))
         }
+        {
+              user.totalCost<300 ?
+              <Flex
+              justify={"space-between"}
+              ml={10}
+              mr={10}
+              >
+                <Text>Extra Fee: </Text>
+                <Text>₹ {300-parseInt(user.totalCost)}
+                  <Tooltip label={"If your events total is less than 300, an extra fee is added."}>
+                  <IconInfoCircle style={{width: 14}}/>
+                  </Tooltip>
+                </Text>
+              </Flex> :
+              <></>
+            }
         <Divider m={10}/>
         <Flex
           justify={"space-between"}
           ml={10}
           mr={10}
         >
-          <Text fw={700}>Total: </Text>
-          <Text fw={700}>₹ {user.totalCost}</Text>
+          <Text fw={700} mt={7}>Total: </Text>
+            <Text mt={7} fw={700}>₹ {user.totalCost < 300 ? 300 : user.totalCost}</Text>
         </Flex>
         <Card padding="lg" radius="md" mt={20} mb={20} bg={"rgba(217, 248, 0, 0.1)"} c={"rgba(56, 63, 69, 1)"}>
           <Text>
