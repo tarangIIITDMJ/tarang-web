@@ -97,6 +97,7 @@ function createNavItem(isMobileView, item, hovered, sethovered) {
 export default function MainAppShell({ children }) {
   const navItems = [
     { name: "Home", link: "/" },
+    { name:"Profile", link: "/profile" },
     { name: "About", link: "/about" },
     { name: "Events", link: "/events" },
     { name: "Gallery", link: "/gallery" },

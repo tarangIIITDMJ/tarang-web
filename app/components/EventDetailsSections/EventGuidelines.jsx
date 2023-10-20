@@ -21,6 +21,10 @@ export default function EventGuidelines({ event }) {
       ),
     },
     {
+      title: "Helpdesk",
+      content: [event.helpdesk.name + " (+91 " + event.helpdesk.pno + ")"],
+    },
+    {
       title: "Prize Pool",
       content: [`There is a prize pool of ₹${event.prize_pool} to be won.`],
     },
