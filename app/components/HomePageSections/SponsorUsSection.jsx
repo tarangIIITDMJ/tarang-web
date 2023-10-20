@@ -44,7 +44,7 @@ function SponsorUsSection() {
                 Discover Tarang's rich lineup and event details in the booklet.
               </Text>
               <Link
-                href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696759577/Tarang_23_Event_Brochure_hnbhi1.pdf"
+                href="https://drive.google.com/file/d/1ddkoNed3ddR3BRXBEfrhIKZOBU4z2G3X/view?usp=sharing"
                 target="_blank"
                 download="Sponsor Tarang"
               >
