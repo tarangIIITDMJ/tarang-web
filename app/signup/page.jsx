@@ -24,8 +24,6 @@ import { useRouter } from "next/navigation";
 import { useAuthStore } from "../store/authStore";
 import Loader from "../components/Loader";
 import { motion } from "framer-motion";
-import Head from "next/head";
-
 export default function Signup() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
   const [active, setActive] = useState(0);
@@ -174,17 +172,6 @@ export default function Signup() {
   else
     return (
       <>
-        <Head>
-          <title>Signup | Tarang'23</title>
-          <meta
-            name="description"
-            content="Signup to your Tarang'23 account to register for events, workshops, and much more."
-          />
-          <meta
-            name="keywords"
-            content="Tarang, Tarang'23, IIITDMJ Cultural Fest, Signup, Register, Sign Up"
-          />
-        </Head>
         <MainAppShell>
           <Flex
             h={isMobileView ? "100%" : "100vh"}

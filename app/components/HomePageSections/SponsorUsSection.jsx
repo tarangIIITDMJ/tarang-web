@@ -123,7 +123,7 @@ function SponsorUsSection() {
                 Explore sponsorship opportunities and benefits in the booklet.
               </Text>
               <Link
-                href="https://res.cloudinary.com/dgnsogmh4/image/upload/v1696742894/Sponsor-Tarang.pdf"
+                href=""
                 target="_blank"
                 download="Sponsor Tarang"
                 rel="noreferrer"

@@ -27,15 +27,16 @@ export default function EventGuidelines({ event }) {
   ]);
 
   useEffect(() => {
-    if(event.judging_criteria?.length){
-      console.log(event);
-      setGuidelines( oldGuidelines => [{
-        title:"Judging Criteria",
-        content: event.judging_criteria.map((criteria) => criteria),
-      }, ...oldGuidelines]);
+    if (event.judging_criteria?.length) {
+      setGuidelines((oldGuidelines) => [
+        {
+          title: "Judging Criteria",
+          content: event.judging_criteria.map((criteria) => criteria),
+        },
+        ...oldGuidelines,
+      ]);
     }
-  }, [])
-  
+  }, []);
 
   return (
     <Stack

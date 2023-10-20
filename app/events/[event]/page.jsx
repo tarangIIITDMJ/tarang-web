@@ -46,3 +46,17 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
+
+export const generateMetadata = async ({ params }) => {
+  const event = params.event;
+  const eventDetails = await getEvent(event);
+  const eventData = eventDetails.data.event;
+  const title = `${eventData.name} | Tarang'23`;
+  const description = `${eventData.description}`;
+  const keywords = `${eventData.name}, Tarang, Tarang'23, IIITDMJ Cultural Fest, ${eventData.name} Details, ${eventData.name} Guidelines`;
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
