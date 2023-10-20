@@ -64,6 +64,8 @@ const HeroMain = () => {
               size="26px"
               c="white"
               ta={"center"}
+              pl={10}
+              pr={10}
             >
               PDPM IIITDM Jabalpur Presents
             </Text>

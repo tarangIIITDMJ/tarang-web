@@ -11,6 +11,8 @@ import {
   Modal,
   TextInput,
   Group,
+  Radio,
+  CheckIcon,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { Breadcrumbs, Anchor, Divider } from "@mantine/core";
@@ -71,6 +73,8 @@ export default function EventDetails({ event }) {
   const [canRegister, setCanRegister] = useState(true);
   const { push } = useRouter();
   const { user, setUser, isAuth } = useAuthStore();
+  const [registerAs, setRegisterAs] = useState("leader");
+
   useEffect(() => {
     if (user) {
       if (user.paymentVerified && user.purchaseTarangCard) {
@@ -88,6 +92,7 @@ export default function EventDetails({ event }) {
       setIsRegistered(false);
     }
   }, [event.slug, user]);
+
   const handleRegisterEvent = async () => {
     if (isRegistered) {
       push("/profile");
@@ -150,7 +155,7 @@ export default function EventDetails({ event }) {
   const handleTeamRegistration = async (teamName, teamLeader) => {
     try {
       setLoading(true);
-      const response = await registerEvent(event.slug, teamName, teamLeader);
+      const response = await registerEvent(event.slug, teamName, teamLeader, registerAs);
       if (response?.status === 200) {
         setIsRegistered(true);
         notifications.show({
@@ -183,21 +188,35 @@ export default function EventDetails({ event }) {
           border: "2px solid #000",
         }}
       >
+        <Radio.Group
+          value={registerAs}
+          onChange={setRegisterAs}
+          label="Register As: "
+          mb={10}
+        >
+          <Group gap={"1.5rem"}>
+            <Radio icon={CheckIcon} value="leader" label="Leader" />
+            <Radio icon={CheckIcon} value="member" label="Member" />
+          </Group>
+        </Radio.Group>
         <Stack>
-          <TextInput
-            placeholder="Enter Your Team Name"
-            style={{
-              border: "2px solid #000",
-            }}
-            onChange={(e) => setTeamName(e.target.value)}
-          />
-          <TextInput
-            placeholder={`Enter Your Team Leader tarandID (for eg: TRNG-97294)`}
-            style={{
-              border: "2px solid #000",
-            }}
-            onChange={(e) => setTeamLeader(e.target.value)}
-          />
+          {
+            registerAs==="leader" ?
+            <TextInput
+              placeholder="Enter Your Team Name"
+              style={{
+                border: "2px solid #000",
+              }}
+              onChange={(e) => setTeamName(e.target.value)}
+            /> :
+            <TextInput
+              placeholder={`Enter Your Team Leader tarandID (for eg: TRNG-97294)`}
+              style={{
+                border: "2px solid #000",
+              }}
+              onChange={(e) => setTeamLeader(e.target.value)}
+            />
+          }
         </Stack>
         <motion.div
           whileHover={{ scale: 1.04 }}
@@ -218,7 +237,7 @@ export default function EventDetails({ event }) {
         <Group py={5} mt={10}>
           <Text c="#676E76" fz="0.75rem">
             Note: Ensure Each Team Member Individually registers in this event
-            and provides same team name and leader ID.
+            and provides same leader ID.
           </Text>
         </Group>
       </Modal>
@@ -408,6 +427,11 @@ export default function EventDetails({ event }) {
                         c="#FFF"
                       >
                         Registration Fee if you pay individually
+                        {
+                          event.event_type !== "Solo" ?
+                           " (Only the team leader must pay registration amount)":
+                          <></>
+                        }
                       </Text>
                       <Text
                         lh={isMobileView ? "1rem" : "1.5rem"}
