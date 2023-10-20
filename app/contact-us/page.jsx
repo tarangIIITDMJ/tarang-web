@@ -2,6 +2,7 @@ import MainAppShell from "@/app/components/MainAppShell";
 import HeroSection from "../components/ContactPageSections/HereSection";
 import ContactFormSection from "../components/ContactPageSections/ContactFormSection";
 import ContactDetails from "../components/ContactPageSections/ContactDetails";
+import Head from "next/head";
 
 export const metadata = {
   title: "Contact Us | Tarang'23",

@@ -2,6 +2,7 @@ import React from "react";
 import MainAppShell from "../components/MainAppShell";
 import ImageView from "../components/GalleryPageSections/ImageView";
 import HeroSection from "../components/GalleryPageSections/HeroSection";
+import Head from "next/head";
 
 export const metadata = {
   title: "Gallery | Tarang'23",

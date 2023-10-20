@@ -2,6 +2,7 @@ import MainAppShell from "@/app/components/MainAppShell";
 import HeroSection from "../components/FAQsPageSections/HeroSection";
 import FaqsBody from "@/app/components/FAQsPageSections/FaqsBody";
 import faqsData from "./faqsData.json";
+import Head from "next/head";
 
 export const metadata = {
   title: "FAQs | Tarang'23",

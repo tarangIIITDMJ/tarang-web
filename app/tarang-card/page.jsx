@@ -1,3 +1,4 @@
+import Head from "next/head";
 import MainAppShell from "../components/MainAppShell";
 import GetYourPassSection from "../components/TarangPassSections/GetYourPassSection";
 import HeroSection from "../components/TarangPassSections/HeroMain";

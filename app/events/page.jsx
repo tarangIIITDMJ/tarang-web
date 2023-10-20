@@ -2,6 +2,7 @@ import MainAppShell from "@/app/components/MainAppShell";
 import HeroSection from "@/app/components/EventPageSections/HeroSection";
 import { getAllEvents } from "../utils/apis";
 import EventMain from "../components/EventPageSections/EventMain";
+import Head from "next/head";
 
 export const metadata = {
   title: "Events | Tarang'23",
