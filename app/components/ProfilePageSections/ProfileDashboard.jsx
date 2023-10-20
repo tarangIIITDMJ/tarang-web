@@ -143,7 +143,35 @@ export default function ProfileDashboard({ user }) {
           <Text fw={700} mt={7}>Total: </Text>
             <Text mt={7} fw={700}>₹ {user.totalCost < 300 ? 300 : user.totalCost}</Text>
         </Flex>
-        <Card padding="lg" radius="md" mt={20} mb={20} bg={"rgba(217, 248, 0, 0.1)"} c={"rgba(56, 63, 69, 1)"}>
+        <Card padding="lg" radius="md" mt={10} mb={20} bg={"rgba(64, 192, 87, 0.1)"} c={"rgba(56, 63, 69, 1)"}>
+          <Text>
+            Get access to all events just for ₹1499!
+          </Text>
+          <motion.div
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Link
+              target="_blank"
+              href={`https://docs.google.com/forms/d/e/1FAIpQLSd7Bs0uQayl1GSOaB_dwZFYtpRBAO67iehIgOC88eOD-lhOFA/viewform?usp=pp_url&entry.275844225=${
+                          user.fname + " " + user.lname
+                        }&entry.1392576540=${user.tarang_id}&entry.272288439=${
+                          user.email
+                        }&entry.610706180=${user.phone}`}
+            >
+              <Button
+                bg="#000"
+                color="#fff"
+                size="sm"
+                rightSection={<IconArrowRight />}
+              >
+                Get Tarang Card
+              </Button>
+            </Link>
+          </motion.div>
+        </Card>
+        <Card padding="lg" radius="md" mt={20} mb={10} bg={"rgba(217, 248, 0, 0.1)"} c={"rgba(56, 63, 69, 1)"}>
           <Text>
           <b>Disclaimer: </b>By proceeding with individual event payments, you understand and agree to the following:
           </Text>
@@ -249,7 +277,7 @@ export default function ProfileDashboard({ user }) {
                       fz={isMobile ? "1rem" : "1.125rem"}
                       px={"8px"}
                     >
-                      Congratulations! Your Tarang Card payment has been
+                      Congratulations! Your payment has been
                       verified. You're all set to enjoy all selected events. Get
                       ready for a fantastic Tarang experience!
                     </Text>
@@ -305,7 +333,7 @@ export default function ProfileDashboard({ user }) {
                       pb={"1rem"}
                       px={"5px"}
                     >
-                      Your Tarang Card payment is pending, but you've added events to your dashboard. To secure your spot for all selected events, take one of these actions now:
+                      Your payment is pending, but you've added events to your dashboard. To secure your spot for all selected events, take one of these actions now:
                     </Text>
                     <Flex
                       align={"left"}

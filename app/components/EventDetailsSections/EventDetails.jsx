@@ -371,6 +371,7 @@ export default function EventDetails({ event }) {
                         <Stack align="flex-start" gap={"0.5rem"}>
                           {[
                             "Get access to every event, workshop, and pro nights.",
+                            "Save events to your Dashboard, pay with Tarang Card.",
                             "All this for just ₹1499!",
                           ].map((text, index) => (
                             <Badge
@@ -454,8 +455,8 @@ export default function EventDetails({ event }) {
                 >
                   <Button
                     h="auto"
-                    bg="#fff"
-                    c="black"
+                    bg={!canRegister ? "#d6d6d6" : "#fff"}
+                    c={!canRegister ? "#878787" : "#000"}
                     w="100%"
                     py={isMobileView ? "0.75rem" : "1rem"}
                     onClick={handleRegisterEvent}
@@ -496,7 +497,11 @@ export default function EventDetails({ event }) {
                 ta="center"
                 c="#BDBDBD"
               >
-                Save to your Dashboard, pay with Tarang Card
+                { 
+                  canRegister ? 
+                  "" : 
+                  "You've already paid for some selected events, can't add more"  
+                }
               </Text>
             </Stack>
           </Flex>
