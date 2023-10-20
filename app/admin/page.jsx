@@ -57,6 +57,7 @@ const UserCard = ({ user, getUsers, getRejUser }) => {
           <p style={{ color: "green" }}>Email: {user.email}</p>
           <p style={{ color: "green" }}>Tarang ID: {user.tarang_id}</p>
           <p style={{ color: "green" }}>Phone: {user.phone}</p>
+          <p style={{ color: "green" }}>Phone: {user.totalCost}</p>
         </div>
         <div
           style={{
@@ -200,6 +201,7 @@ const Admin = () => {
                   <p style={{ color: "Red" }}>Email: {user.email}</p>
                   <p style={{ color: "Red" }}>Tarang ID: {user.tarang_id}</p>
                   <p style={{ color: "Red" }}>Phone: {user.phone}</p>
+                  <p style={{ color: "Red" }}>Phone: {user.totalCost}</p>
                 </div>
                 <div
                   style={{
