@@ -124,7 +124,7 @@ export default function EventSection() {
                     desc: "Got the mad skills with brush and paints? Get ready for an electrifying three-hour challenge! Gather your dream team to create an unparalleled masterpiece.",
                     imgData: {
                       h: isMobileView ? 150 : 300,
-                      src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448432/the_big_picture_b6y9pq.webp",
+                      src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696700998/eventPage/main/artful_ovw8ii.webp",
                     },
                     link: "/events/artful-alteration",
                   }}
@@ -137,7 +137,7 @@ export default function EventSection() {
                         desc: "Where Pixels Meet Excellence.",
                         imgData: {
                           h: 193,
-                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/pixcillance_1_x64mhv.webp",
+                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696701004/eventPage/main/sunglasses_1_tiyseh.webp",
                         },
                         link: "/events/pixcellence",
                       }}
@@ -151,7 +151,7 @@ export default function EventSection() {
                         desc: "An online-only event where participants are given the space to unleash their creativity through written material (storyline) based on topics given by the organizers.",
                         imgData: {
                           h: 193,
-                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448287/pen_it_down_1_erqnku.webp",
+                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1697641425/Final%20Event%20images/card/PenItDown_card_jdveco.webp",
                         },
                         link: "/events/pen-it-down",
                       }}
@@ -176,7 +176,7 @@ export default function EventSection() {
                         desc: "your chance to set the stage ablaze in a glorious stage-act competition!",
                         imgData: {
                           h: 193,
-                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/Theater_wars_1_pbw4ib.webp",
+                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1697641427/Final%20Event%20images/card/Theatre_wars_card_vcxx9s.webp",
                         },
                         link: "/events/theatre-wars",
                       }}
@@ -190,7 +190,7 @@ export default function EventSection() {
                         desc: "Unleash your dance crew's energy and creativity in JHANKAAR, the ultimate group dance competition with a chance to win from a generous prize pool!",
                         imgData: {
                           h: 193,
-                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1696448288/Jhankaar_1_sr4l5a.webp",
+                          src: "https://res.cloudinary.com/dxcjzquen/image/upload/v1697641424/Final%20Event%20images/card/Jhankaar_card_grfs5p.webp",
                         },
                         link: "/events/jhankaar",
                       }}
