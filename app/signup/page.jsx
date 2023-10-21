@@ -55,7 +55,7 @@ export default function Signup() {
     } catch (error) {
       notifications.show({
         title: "Error",
-        message: error.response.data.message,
+        message: error.response.data?.message,
         color: "red",
         autoClose: 2000,
       });

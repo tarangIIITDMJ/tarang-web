@@ -65,7 +65,7 @@ const LoginForm = ({ isMobileView }) => {
             } catch (error) {
               notifications.show({
                 title: "Error",
-                message: "Invalid credentials or server error",
+                message: error.response.data?.message || "Invalid credentials or server error",
                 color: "red",
                 autoClose: 2000,
               });
