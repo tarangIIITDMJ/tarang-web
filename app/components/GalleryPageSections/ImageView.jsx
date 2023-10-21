@@ -18,182 +18,176 @@ import cssStyles from "@/app/styles/gallery.module.css";
 
 const images = [
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315512/Gallery/IMG_6242_r9smxw.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_0.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315512/Gallery/IMG_5098_ui8w5c.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_1.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315512/Gallery/IMG_5465_as61fv.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_2.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315512/Gallery/IMG_4169_g996ls.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_3.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315511/Gallery/IMG_3590_eqfckl.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_4.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315489/Gallery/IMG_7195_ktvxw4.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873844/gallery_5.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
-  },
-
-  {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315509/Gallery/IMG_2948_copy_1_irva2t.webp",
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315509/Gallery/IMG_3457_kdcibe.webp",
-  },
-
-  {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315508/Gallery/IMG_1718_copy_hujshz.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_6.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315508/Gallery/IMG_1390_pq2ddr.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_7.webp'
+  },
+  {
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_8.webp'
+  },
+  {
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873845/gallery_9.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315507/Gallery/IMG_1267_npcfkh.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_10.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315505/Gallery/IMG_8690_p2ino5.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_11.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315504/Gallery/IMG_7023_iqlvbd.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_12.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315510/Gallery/IMG_3789_eed6vf.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_13.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315505/Gallery/IMG_8387_uef9mk.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873844/gallery_14.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315506/Gallery/_MG_8631_hfruqn.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_15.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315507/Gallery/IMG_1277_szhlvd.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873844/gallery_16.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315504/Gallery/IMG_7043_mdb1zq.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_17.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315495/Gallery/DSC_8155_1_mvaxgh.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_18.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315503/Gallery/IMG_6958_zsexsz.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_19.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315504/Gallery/IMG_6920_q9xwdy.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_20.webp'
   },
-
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315503/Gallery/IMG_6975_kht6zt.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_21.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315494/Gallery/_MG_0280_ykl4z7.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_22.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315502/Gallery/IMG_1929_h5fmsc.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_23.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315502/Gallery/IMG_6085_gmlfch.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_24.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315501/Gallery/IMG_6758_zbuol4.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_25.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315501/Gallery/IMG_6723_ekhpha.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_26.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315500/Gallery/IMG_6002_mu4ged.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_27.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315500/Gallery/IMG_6327_c6nb4s.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_28.webp'
   },
-
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315498/Gallery/IMG_5769_rsxl0l.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873844/gallery_29.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315497/Gallery/IMG_5677_lmy88y.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_30.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315487/Gallery/IMG_7029_eyhefv.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_31.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315495/Gallery/IMG_6828_ss2oc3.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_32.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315494/Gallery/IMG_0311_dcsspd.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_33.webp'
   },
-
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315491/Gallery/IMG_7540_b297sq.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873844/gallery_34.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315491/Gallery/IMG_7486_ypfp7y.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873844/gallery_35.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315488/Gallery/IMG_5460_rjf3xr.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_36.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315493/Gallery/IMG_6469_firqql.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_37.webp'
   },
-
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315509/Gallery/IMG_7047_ea1ouv.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_38.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315491/Gallery/IMG_7361_n7agx7.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_39.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315494/Gallery/_MG_4652-01_u63mdj.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_40.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315491/Gallery/_MG_0056_flmie3.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_41.webp'
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315489/Gallery/IMG_7110_i24re5.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_42.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315488/Gallery/IMG_5808_opfmtw.webp",
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_43.webp',
     rotate: true,
-    style: { rotate: "-90deg" },
+    style: { rotate: '-90deg' }
   },
   {
-    src: "https://res.cloudinary.com/dss8aihs0/image/upload/v1697315498/Gallery/IMG_6675_knefwz.webp",
-  },
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_44.webp'
+  }
 ];
 
 const ImageGridCol = ({ activePage, row, setCurrentIndex, setOpen }) => {
