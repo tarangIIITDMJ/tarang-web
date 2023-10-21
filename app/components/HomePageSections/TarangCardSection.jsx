@@ -3,13 +3,11 @@
 import { Flex, Stack, Image, Text, Button } from "@mantine/core";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
-import { useAuthStore } from "@/app/store/authStore";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function TarangCardSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
-  const { user, isAuth } = useAuthStore();
 
   return (
     <Flex
@@ -21,10 +19,10 @@ export default function TarangCardSection() {
         })`,
       }}
       direction={isMobileView ? "column" : "row"}
-      justify="space-between"
+      justify={isMobileView ? "center" : "space-between"}
       h="100vh"
       px={isMobileView ? "0rem" : "5rem"}
-      py={isMobileView ? "4rem" : "0rem"}
+      py={isMobileView ? "2rem" : "0rem"}
       gap={isMobileView ? "4rem" : "2rem"}
     >
       <Stack
@@ -91,21 +89,5 @@ export default function TarangCardSection() {
         />
       )}
     </Flex>
-  );
-}
-function FadeInWhenVisible({ children }) {
-  return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      transition={{ duration: 0.3 }}
-      variants={{
-        visible: { opacity: 1, scale: 1 },
-        hidden: { opacity: 0, scale: 0 },
-      }}
-    >
-      {children}
-    </motion.div>
   );
 }
