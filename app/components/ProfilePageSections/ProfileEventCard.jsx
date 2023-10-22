@@ -141,8 +141,8 @@ export default function ProfileEventCard({
             {event.event_date}, {event.event_time}
           </Text>
         </Stack>
-        {isMobileView && <IconTrash onClick={open} size={25} color="#676e76" />}
-        {removeBtnVisibility && !isMobileView ? (
+        {isMobileView && !formFilled  && <IconTrash onClick={open} size={25} color="#676e76" />}
+        {removeBtnVisibility && !formFilled && !isMobileView ? (
           <motion.div
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.9 }}
