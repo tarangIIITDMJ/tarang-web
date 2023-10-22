@@ -1,9 +1,20 @@
-import { Text, Stack, Grid, Flex, Box, Image, Paper } from "@mantine/core";
+import { Text, Stack, Grid, Flex, Box, Paper } from "@mantine/core";
 import cssStyles from "@/app/styles/events.module.css";
+import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function EventCards({ selectedEvents, events }) {
   function CardComp({ event }) {
+    const [minSrc, setMinSrc] = useState();
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+      let srcArr=event.images.mainPhone.split('/');
+      srcArr.splice(6,0,'c_scale,w_15');
+      srcArr.splice(7,0,'f_auto');
+      setMinSrc(srcArr.join('/'));
+    }, [])
+    
     return (
       <Link href={`/events/${event.slug}`}>
         <Paper radius={0} p={0} bg={"transparent"}>
@@ -18,18 +29,37 @@ export default function EventCards({ selectedEvents, events }) {
               w={"100%"}
               className={cssStyles.EventCardsBox}
             >
-              <Image
-                src={event.images.mainPhone}
-                h={300}
-                w={"100%"}
+              <div
+                className={loaded ? cssStyles.loaded : cssStyles.blur}
                 style={{
-                  objectPosition: "50% 20%",
-                  transition: "0.3s",
-                  aspectRatio: "1/1",
+                  backgroundImage: `url(${minSrc})`, 
+                  backgroundSize: "cover", 
+                  backgroundPosition: "center", 
+                  height: "300",
+                  position: "relative"
                 }}
-                alt={event.name}
-                className={cssStyles.EventCardsImage}
-              />
+              >
+                <Image
+                  src={event.images.mainPhone}
+                  width={0}
+                  height={300}
+                  sizes="100vw"
+                  style={{
+                    objectPosition: "50% 20%",
+                    transition: "0.3s",
+                    width: "100%",
+                    objectFit: "cover",
+                    opacity: "0",
+                    transition: "opacity 400ms ease-in-out",
+                  }}
+                  alt={event.name}
+                  className={cssStyles.EventCardsImage}
+                  onLoadingComplete={() => {
+                      setLoaded(true)
+                    }
+                  }
+                />
+              </div>
             </Box>
             <Stack
               p={"12px 24px 24px 24px"}
