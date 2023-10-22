@@ -105,6 +105,14 @@ export default function ProfileDashboard({ user }) {
         }}
         size={"lg"}
       >
+      <Flex
+      justify={"space-between"}
+      ml={10}
+      mr={10}
+      >
+        <Text>Entry Pass: </Text>
+        <Text>₹ 300</Text>
+      </Flex>
         {
           eventDetails.map((event, index) => (
             <Flex
@@ -118,22 +126,6 @@ export default function ProfileDashboard({ user }) {
             </Flex>
           ))
         }
-        {
-              user.totalCost<300 ?
-              <Flex
-              justify={"space-between"}
-              ml={10}
-              mr={10}
-              >
-                <Text>Extra Fee: </Text>
-                <Text>₹ {300-parseInt(user.totalCost)}
-                  <Tooltip label={"If your events total is less than 300, an extra fee is added."}>
-                  <IconInfoCircle style={{width: 14}}/>
-                  </Tooltip>
-                </Text>
-              </Flex> :
-              <></>
-            }
         <Divider m={10}/>
         <Flex
           justify={"space-between"}
@@ -141,7 +133,7 @@ export default function ProfileDashboard({ user }) {
           mr={10}
         >
           <Text fw={700} mt={7}>Total: </Text>
-            <Text mt={7} fw={700}>₹ {user.totalCost < 300 ? 300 : user.totalCost}</Text>
+            <Text mt={7} fw={700}>₹ {user.totalCost + 300}</Text>
         </Flex>
         <Card padding="lg" radius="md" mt={10} mb={20} bg={"rgba(64, 192, 87, 0.1)"} c={"rgba(56, 63, 69, 1)"}>
           <Text>

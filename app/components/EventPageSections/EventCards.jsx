@@ -3,11 +3,14 @@ import cssStyles from "@/app/styles/events.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function EventCards({ selectedEvents, events }) {
   function CardComp({ event }) {
     const [minSrc, setMinSrc] = useState();
     const [loaded, setLoaded] = useState(false);
+    const isMobileView = useMediaQuery("(max-width: 768px");
+
     useEffect(() => {
       let srcArr=event.images.mainPhone.split('/');
       srcArr.splice(6,0,'c_scale,w_15');
@@ -48,6 +51,7 @@ export default function EventCards({ selectedEvents, events }) {
                     objectPosition: "50% 20%",
                     transition: "0.3s",
                     width: "100%",
+                    minHeight: "120px",
                     objectFit: "cover",
                     opacity: "0",
                     transition: "opacity 400ms ease-in-out",
