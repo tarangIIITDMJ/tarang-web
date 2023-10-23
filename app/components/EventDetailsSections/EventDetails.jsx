@@ -454,8 +454,8 @@ export default function EventDetails({ event }) {
                         >
                           <Button
                             h="auto"
-                            bg={!canRegister ? "#d6d6d6" : "#fff"}
-                            c={!canRegister ? "#878787" : "#000"}
+                            bg={"#fff"}
+                            c={"#000"}
                             w="100%"
                             py={isMobileView ? "0.75rem" : "1rem"}
                             loading={loading}
@@ -518,7 +518,7 @@ export default function EventDetails({ event }) {
                 c="#BDBDBD"
               >
                 {
-                  canRegister ?
+                  (canRegister || event.mode === "online") ?
                     "" :
                     "You've already paid for some selected events, can't add more"
                 }
