@@ -459,7 +459,6 @@ export default function EventDetails({ event }) {
                             w="100%"
                             py={isMobileView ? "0.75rem" : "1rem"}
                             loading={loading}
-                            disabled={!canRegister}
                           >
                             <Text
                               fw={"500"}
