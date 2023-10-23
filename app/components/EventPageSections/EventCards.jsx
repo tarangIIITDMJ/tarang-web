@@ -9,7 +9,7 @@ export default function EventCards({ selectedEvents, events }) {
   function CardComp({ event }) {
     const [minSrc, setMinSrc] = useState();
     const [loaded, setLoaded] = useState(false);
-    const isMobileView = useMediaQuery("(max-width: 768px");
+    const isMobileView = useMediaQuery("(max-width: 768px)");
 
     useEffect(() => {
       let srcArr=event.images.mainPhone.split('/');
@@ -38,7 +38,7 @@ export default function EventCards({ selectedEvents, events }) {
                   backgroundImage: `url(${minSrc})`, 
                   backgroundSize: "cover", 
                   backgroundPosition: "center", 
-                  height: "300",
+                  height: isMobileView ? "100%" : "300px",
                   position: "relative"
                 }}
               >

@@ -55,7 +55,7 @@ export default function ProfileEventCard({
     }
   };
 
-  const isMobileView = useMediaQuery("(max-width: 768px");
+  const isMobileView = useMediaQuery("(max-width: 768px)");
 
   const icon1 = (
     <IconAlertCircleFilled color="#CD3636" size={13} pl={"-1rem"} />
