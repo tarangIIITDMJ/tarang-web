@@ -1,13 +1,16 @@
 "use client";
-import { Button, Container, Grid, Image, Stack, Text } from "@mantine/core";
+import { Button, Container, Grid, Stack, Text } from "@mantine/core";
+import Image from "next/image";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconArrowRight, IconArrowRightBar, IconDownload, IconLink } from "@tabler/icons-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import cssStyles from "@/app/styles/home.module.css";
 
 function SponsorUsSection() {
   const isMobileView = useMediaQuery("(max-width: 768px)");
+  const [loaded, setLoaded] = useState([]);
 
   return (
     <Container m={0} p={0} miw={"100%"}>
@@ -74,29 +77,73 @@ function SponsorUsSection() {
           span={1}
           order={isMobileView ? 3 : ""}
         >
-          <Image
-            h={"100%"}
-            src={
-              "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319617/homepage_event/png%20and%20jpg/IMG_2363_i94mam.png"
-            }
-            alt=""
-          />
+          <div
+            className={loaded.includes(0) ? cssStyles.loaded : cssStyles.blur}
+            style={{
+              backgroundImage: `url("https://res.cloudinary.com/dss8aihs0/image/upload/c_scale,w_15/f_auto/v1697319617/homepage_event/png%20and%20jpg/IMG_2363_i94mam.png")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: "100%",
+              position: "relative",
+            }}
+          >
+            <Image
+              height={0}
+              width={0}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "100%",
+                opacity: "0",
+                transition: "opacity 400ms ease-in-out",
+              }}
+              src={
+                "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319617/homepage_event/png%20and%20jpg/IMG_2363_i94mam.png"
+              }
+              alt=""
+              onLoadingComplete={() => {
+                setLoaded((prevIndex) => [...prevIndex, 0])
+              }
+              }
+            />
+          </div>
         </Grid.Col>
         <Grid.Col
           style={style.borderBox}
           order={isMobileView ? 1 : ""}
           span={1}
         >
-          <Image
-            h={"100%"}
+          <div
+            className={loaded.includes(1) ? cssStyles.loaded : cssStyles.blur}
             style={{
-              transform: "scaleX(-1)",
+              backgroundImage: `url("https://res.cloudinary.com/dss8aihs0/image/upload/c_scale,w_15/f_auto/v1697319614/homepage_event/png%20and%20jpg/IMG_2376_j80lqi.png")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: "100%",
+              position: "relative",
             }}
-            src={
-              "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319614/homepage_event/png%20and%20jpg/IMG_2376_j80lqi.png"
-            }
-            alt=""
-          />
+          >
+            <Image
+              height={0}
+              width={0}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "100%",
+                transform: "scaleX(-1)",
+                opacity: "0",
+                transition: "opacity 400ms ease-in-out",
+              }}
+              src={
+                "https://res.cloudinary.com/dss8aihs0/image/upload/v1697319614/homepage_event/png%20and%20jpg/IMG_2376_j80lqi.png"
+              }
+              alt=""
+              onLoadingComplete={() => {
+                setLoaded((prevIndex) => [...prevIndex, 1])
+              }
+              }
+            />
+          </div>
         </Grid.Col>
         <Grid.Col
           bg="#9a0cca"
@@ -134,7 +181,7 @@ function SponsorUsSection() {
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   <Button
-                    rightSection={<IconArrowRight/>}
+                    rightSection={<IconArrowRight />}
                     mt={"3rem"}
                     size="lg"
                     style={{ border: "2px solid black" }}

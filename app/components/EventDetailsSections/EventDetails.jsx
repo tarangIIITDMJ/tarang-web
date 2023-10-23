@@ -201,21 +201,21 @@ export default function EventDetails({ event }) {
         </Radio.Group>
         <Stack>
           {
-            registerAs==="leader" ?
-            <TextInput
-              placeholder="Enter Your Team Name"
-              style={{
-                border: "2px solid #000",
-              }}
-              onChange={(e) => setTeamName(e.target.value)}
-            /> :
-            <TextInput
-              placeholder={`Enter Your Team Leader tarandID (for eg: TRNG-97294)`}
-              style={{
-                border: "2px solid #000",
-              }}
-              onChange={(e) => setTeamLeader(e.target.value)}
-            />
+            registerAs === "leader" ?
+              <TextInput
+                placeholder="Enter Your Team Name"
+                style={{
+                  border: "2px solid #000",
+                }}
+                onChange={(e) => setTeamName(e.target.value)}
+              /> :
+              <TextInput
+                placeholder={`Enter Your Team Leader tarandID (for eg: TRNG-97294)`}
+                style={{
+                  border: "2px solid #000",
+                }}
+                onChange={(e) => setTeamLeader(e.target.value)}
+              />
           }
         </Stack>
         <motion.div
@@ -431,18 +431,9 @@ export default function EventDetails({ event }) {
                         Registration Fee if you pay individually
                         {
                           event.event_type !== "Solo" ?
-                           " (Only the team leader must pay registration amount)":
-                          <></>
+                            " (Only the team leader must pay registration amount)" :
+                            <></>
                         }
-                      </Text>
-                      <Text
-                        lh={isMobileView ? "1rem" : "1.5rem"}
-                        fw="400"
-                        size={isMobileView ? "0.8rem" : "1rem"}
-                        ml={isMobileView ? "0rem" : "0.5rem"}
-                        c="#868e96"
-                      >
-                        Free entry with purchase
                       </Text>
                     </Stack>
                   </Flex>
@@ -456,68 +447,68 @@ export default function EventDetails({ event }) {
                 >
                   {
                     event.mode === "online" ?
-                    (
-                      <Link 
-                        href={event.reg_link}
-                        target="_blank"
-                      >
+                      (
+                        <Link
+                          href={event.reg_link}
+                          target="_blank"
+                        >
+                          <Button
+                            h="auto"
+                            bg={!canRegister ? "#d6d6d6" : "#fff"}
+                            c={!canRegister ? "#878787" : "#000"}
+                            w="100%"
+                            py={isMobileView ? "0.75rem" : "1rem"}
+                            loading={loading}
+                            disabled={!canRegister}
+                          >
+                            <Text
+                              fw={"500"}
+                              size={isMobileView ? "0.85rem" : "1.35rem"}
+                              lh={isMobileView ? "1.5rem" : "2.5rem"}
+                            >
+                              Register for this event
+                            </Text>
+                          </Button>
+                        </Link>
+                      ) :
+                      (
                         <Button
                           h="auto"
                           bg={!canRegister ? "#d6d6d6" : "#fff"}
                           c={!canRegister ? "#878787" : "#000"}
                           w="100%"
                           py={isMobileView ? "0.75rem" : "1rem"}
+                          onClick={handleRegisterEvent}
                           loading={loading}
                           disabled={!canRegister}
                         >
-                          <Text
-                            fw={"500"}
-                            size={isMobileView ? "0.85rem" : "1.35rem"}
-                            lh={isMobileView ? "1.5rem" : "2.5rem"}
-                          >
-                            Register for this event
-                          </Text>
-                        </Button>
-                      </Link>
-                    )  :
-                    (
-                      <Button
-                        h="auto"
-                        bg={!canRegister ? "#d6d6d6" : "#fff"}
-                        c={!canRegister ? "#878787" : "#000"}
-                        w="100%"
-                        py={isMobileView ? "0.75rem" : "1rem"}
-                        onClick={handleRegisterEvent}
-                        loading={loading}
-                        disabled={!canRegister}
-                      >
-                        {isRegistered ? (
-                          <>
+                          {isRegistered ? (
+                            <>
+                              <Text
+                                fw={"500"}
+                                size={isMobileView ? "0.85rem" : "1.25rem"}
+                              >
+                                Go to Dashboard{" "}
+                              </Text>
+                              <Box ml="0.5rem">
+                                <IconArrowUpRight
+                                  size={32}
+                                  strokeWidth={2}
+                                  color={"black"}
+                                />
+                              </Box>
+                            </>
+                          ) : (
                             <Text
                               fw={"500"}
-                              size={isMobileView ? "0.85rem" : "1.25rem"}
+                              size={isMobileView ? "0.85rem" : "1.35rem"}
+                              lh={isMobileView ? "1.5rem" : "2.5rem"}
                             >
-                              Go to Dashboard{" "}
+                              Add to My Events
                             </Text>
-                            <Box ml="0.5rem">
-                              <IconArrowUpRight
-                                size={32}
-                                strokeWidth={2}
-                                color={"black"}
-                              />
-                            </Box>
-                          </>
-                        ) : (
-                          <Text
-                            fw={"500"}
-                            size={isMobileView ? "0.85rem" : "1.35rem"}
-                            lh={isMobileView ? "1.5rem" : "2.5rem"}
-                          >
-                            Add to My Events
-                          </Text>
-                        )}
-                      </Button>
-                    ) 
+                          )}
+                        </Button>
+                      )
                   }
                 </motion.div>
               }
@@ -527,10 +518,10 @@ export default function EventDetails({ event }) {
                 ta="center"
                 c="#BDBDBD"
               >
-                { 
-                  canRegister ? 
-                  "" : 
-                  "You've already paid for some selected events, can't add more"  
+                {
+                  canRegister ?
+                    "" :
+                    "You've already paid for some selected events, can't add more"
                 }
               </Text>
             </Stack>
