@@ -292,18 +292,21 @@ export default function EventDetails({ event }) {
                   { label: "Date", value: event.event_date },
                   { label: "Time", value: event.event_time },
                   { label: "Event Category", value: event.event_category },
-                  { label: "Event Mode", value: event.mode }
-                ].map((item, index) => (
-                  <Text
-                    key={index}
-                    size={isMobileView ? "0.75rem" : "1.125rem"}
-                    c="#F6F7F9"
-                    fw="500"
-                  >
-                    {item.label}:
-                    {item.value !== "" ? ` ${item.value}` : " To be decided"}
-                  </Text>
-                ))}
+                  { label: "Event Mode", value: event.mode },
+                  { label: "Location", value: event.location}
+                ].map((item, index) => 
+                    item.value ?
+                    (<Text
+                      key={index}
+                      size={isMobileView ? "0.75rem" : "1.125rem"}
+                      c="#F6F7F9"
+                      fw="500"
+                    >
+                      {item.label}:
+                      {item.value !== "" ? ` ${item.value}` : " To be decided"}
+                    </Text>) :
+                    (<></>)
+                )}
               </Stack>
               {hasTarangPass ? (
                 <>
@@ -435,6 +438,19 @@ export default function EventDetails({ event }) {
                             <></>
                         }
                       </Text>
+                      {
+                        event.mode === "offline" ?
+                        <Text
+                          lh={isMobileView ? "1rem" : "1.5rem"}
+                          fw="400"
+                          size={isMobileView ? "0.8rem" : "1rem"}
+                          ml={isMobileView ? "0rem" : "0.5rem"}
+                          c="#868e96"
+                        >
+                          An additional entry pass worth ₹300 must be purchased
+                        </Text> :
+                        <></>
+                      }
                     </Stack>
                   </Flex>
                 </>
