@@ -59,7 +59,7 @@ const UserCard = ({ user, getUsers, getRejUser }) => {
           <p style={{ color: "green" }}>Phone: {user.phone}</p>
           <p style={{ color: "green" }}>Events Cost: {user.totalCost}</p>
           <p style={{ color: "green" }}>
-            Accomodation taken: {user.hasAccomodation}
+            Accomodation taken: {user.hasAccomodation.toString()}
           </p>
         </div>
         <div
