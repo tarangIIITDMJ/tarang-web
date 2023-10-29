@@ -194,10 +194,6 @@ const images = [
     src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_36.webp'
   },
   {
-    minSrc: 'https://res.cloudinary.com/dpkqrvt72/image/upload/c_scale,w_15/f_auto/v1697873843/gallery_37.webp',
-    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_37.webp'
-  },
-  {
     minSrc: 'https://res.cloudinary.com/dpkqrvt72/image/upload/c_scale,w_15/f_auto/v1697873843/gallery_38.webp',
     src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_38.webp',
     rotate: true,
@@ -232,11 +228,27 @@ const images = [
   {
     minSrc: 'https://res.cloudinary.com/dpkqrvt72/image/upload/c_scale,w_15/f_auto/v1697873843/gallery_44.webp',
     src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1697873843/gallery_44.webp'
+  },
+  {
+    minSrc: 'https://res.cloudinary.com/dpkqrvt72/image/upload/c_scale,w_15/v1698585547/gallery_45.webp',
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1698585547/gallery_45.webp'
+  },
+  {
+    minSrc: 'https://res.cloudinary.com/dpkqrvt72/image/upload/c_scale,w_15/v1698585545/gallery_46.webp',
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1698585545/gallery_46.webp'
+  },
+  {
+    minSrc: 'https://res.cloudinary.com/dpkqrvt72/image/upload/c_scale,w_15/v1698586157/gallery_48.webp',
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1698586157/gallery_48.webp'
+  },
+  {
+    minSrc: 'https://res.cloudinary.com/dpkqrvt72/image/upload/c_scale,w_15/v1698586108/gallery_49.webp',
+    src: 'https://res.cloudinary.com/dpkqrvt72/image/upload/v1698586108/gallery_49.webp'
   }
 ];
 
 const ImageGridCol = ({ activePage, row, setCurrentIndex, setOpen }) => {
-  const imagesPerRow = Math.ceil(images.length / 12);
+  const imagesPerRow = Math.ceil(images.length / 15);
   const start = row * imagesPerRow + (activePage - 1) * 12;
   const end = Math.min(start + imagesPerRow, images.length);
   const [loaded, setLoaded] = useState([]);
@@ -421,7 +433,7 @@ export default function ImageView() {
         <Pagination
           value={activePage}
           onChange={switchPage}
-          total={Math.ceil(images.length / 12)}
+          total={Math.ceil(images.length / 15)}
           radius={"xl"}
           color={"black"}
         />
