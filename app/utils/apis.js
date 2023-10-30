@@ -119,3 +119,28 @@ export const updateRejection = (tarangID) => {
     }
   );
 };
+
+export const getVerifiedUsers = () => {
+  return axios.get(`https://api.tarangfest.com/api/admin/verified`, {
+    withCredentials: true,
+  });
+};
+
+export const getUserByID = (userID) => {
+  return axios.get(`https://api.tarangfest.com/api/admin/user`, {
+    params: {userID},
+    withCredentials: true
+  });
+};
+
+export const getUsersByEvent = (slug) => {
+  return axios.get(`https://api.tarangfest.com/api/admin/event/${slug}`, {
+    withCredentials: true,
+  });
+};
+
+export const getAllUsers = () => {
+  return axios.get(`https://api.tarangfest.com/api/admin`, {
+    withCredentials: true,
+  });
+};
