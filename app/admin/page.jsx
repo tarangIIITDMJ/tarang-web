@@ -49,6 +49,18 @@ const Admin = () => {
             <Text>{users.filter(usr => usr.paymentFormFilled && !usr.paymentVerified && !usr.paymentRejected).length}</Text>
           </Group>
         </Card>
+        <Card padding={"xl"} radius={"xl"} m={10} shadow="sm" withBorder bg={"rgba(180, 48, 232, 0.1)"} c={"rgba(56, 63, 69, 1)"}>
+          <Group>
+            <Text fw={700}>Total Users with verified Tarang-card:</Text>
+            <Text>{users.filter(usr => usr.paymentVerified && usr.purchaseTarangCard).length}</Text>
+          </Group>
+        </Card>
+        <Card padding={"xl"} radius={"xl"} m={10} shadow="sm" withBorder bg={"rgba(206, 45, 131, 0.1)"} c={"rgba(56, 63, 69, 1)"}>
+          <Group>
+            <Text fw={700}>Total Users with verified Entry-Pass:</Text>
+            <Text>{users.filter(usr => usr.paymentVerified && usr.hasEntryPass).length}</Text>
+          </Group>
+        </Card>
       </Flex>
       <Flex wrap={"wrap"} justify={"center"} align={"center"} mt={30} gap={50}>
         <motion.div
