@@ -79,9 +79,9 @@ export default function User({ params: { user } }) {
         </Group>
         <Group>
           <Text fw={700}>Events Registered:</Text>
-          <Flex wrap={"wrap"} gap={"md"}>{userData.events?.map(event => {
+          <Flex wrap={"wrap"} gap={"md"}>{userData.events?.map((event,index) => {
             return (
-              <Card padding={"sm"} radius={"sm"} withBorder>
+              <Card padding={"sm"} radius={"sm"} withBorder key={index}>
                 <Text fw={700}>{event.slug}</Text>
                 {event.registerAs ? <Text>{event.registerAs}</Text> : <></>}
               </Card>
