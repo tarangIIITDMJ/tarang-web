@@ -1,27 +1,94 @@
 "use client"
 import ValidateAuth from "@/app/components/ValidateAuth";
-import axios from "axios";
+import { getUserByID } from "@/app/utils/apis";
+import { Badge, Card, Flex, Group, Text } from "@mantine/core"
 import { useEffect, useState } from "react";
 
 export default function User({ params: { user } }) {
-    const [users, setUsers] = useState([]);
-    const getUsers = async () => {
-        // try {
-        //   const response = await axios.get("https://api.tarangfest.com/api/admin/user", {withCredentials: true});
-        //   console.log(response);
-        //   if (response.status == 200) {
-        //     setUsers(response.data.users);
-        //   } else {
-        //     console.log(response);
-        //   }
-        // } catch (error) {
-        //   console.log(error);
-        // }
-      };
-    useEffect(()=>{
-        getUsers();
-    },[])
-    return <ValidateAuth>
-        {user}
+  const [userData, setUserData] = useState([]);
+
+  const getUsers = async () => {
+    const res = await getUserByID(user);
+    setUserData(res.data?.users[0]);
+  }
+
+  useEffect(() => {
+    getUsers();
+  }, [])
+
+  return (
+    <ValidateAuth>
+      <Card padding={"xl"} radius={"lg"} shadow="sm" withBorder m={30} >
+        <Group>
+          <Text fw={700}>Name:</Text>
+          <Text>{userData?.fname + " " + userData?.lname}</Text>
+          <Badge
+            color={
+              userData.paymentVerified ?
+                "green" :
+                (userData.paymentFormFilled && !userData.paymentRejected ?
+                  "yellow" :
+                  "red")}
+            variant="light"
+          >
+            {userData.paymentVerified ?
+              "Verified" :
+              (userData.paymentFormFilled ?
+                (userData.paymentRejected ?
+                  "Rejected" :
+                  "Verification Pending") :
+                "Unverified")
+            }
+          </Badge>
+        </Group>
+        <Group>
+          <Text fw={700}>Tarang-ID:</Text>
+          <Text>{userData.tarang_id}</Text>
+        </Group>
+        <Group>
+          <Text fw={700}>Email:</Text>
+          <Text>{userData.email}</Text>
+        </Group>
+        <Group>
+          <Text fw={700}>Phone No:</Text>
+          <Text>{userData.phone}</Text>
+        </Group>
+        <Group>
+          <Text fw={700}>College:</Text>
+          <Text>{userData.college}</Text>
+        </Group>
+        <Group>
+          <Text fw={700}>Cost incurred:</Text>
+          <Text>{userData.totalCost}</Text>
+        </Group>
+        <Group>
+          <Text fw={700}>Accomodation Taken:</Text>
+          <Text>{userData.hasAccomodation ? "Yes" : "No"}</Text>
+        </Group>
+        <Group>
+          <Text fw={700}>Pass Type:</Text>
+          <Text>
+            {
+              userData.paymentFormFilled ?
+                (userData.purchaseTarangCard ?
+                  "Tarang Card" :
+                  "Entry Pass (Individual event)") :
+                "None Yet"
+            }
+          </Text>
+        </Group>
+        <Group>
+          <Text fw={700}>Events Registered:</Text>
+          <Flex wrap={"wrap"} gap={"md"}>{userData.events?.map(event => {
+            return (
+              <Card padding={"sm"} radius={"sm"} withBorder>
+                <Text fw={700}>{event.slug}</Text>
+                {event.registerAs ? <Text>{event.registerAs}</Text> : <></>}
+              </Card>
+            )
+          })}</Flex>
+        </Group>
+      </Card>
     </ValidateAuth>
+  )
 }
