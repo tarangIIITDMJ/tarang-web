@@ -170,10 +170,9 @@ const Admin = () => {
                 >
                     <h2>Unverified Users</h2>
                     {users.map((user) => (
-                        <Link href={`/admin/user/${user.tarang_id}`}>
+                        <Link href={`/admin/user/${user.tarang_id}`} key={user._id}>
                             <UserCard
                                 user={user}
-                                key={user._id}
                                 getRejUser={getRejUser}
                                 getUsers={getUsers}
                             />
@@ -190,13 +189,12 @@ const Admin = () => {
                 >
                     <h2>Rejected Users</h2>
                     {rejectedUsers.map((user) => (
-                        <Link href={`/admin/user/${user.tarang_id}`}>
+                        <Link href={`/admin/user/${user.tarang_id}`} key={user._id}>
                             <Card
                                 shadow="sm"
                                 padding={20}
                                 radius={8}
                                 style={{ width: "100%", textAlign: "left" }}
-                                key={user._id}
                             >
                                 <Flex
                                     justify="space-between"
