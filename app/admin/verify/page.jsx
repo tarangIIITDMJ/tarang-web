@@ -52,7 +52,7 @@ const UserCard = ({ user, getUsers, getRejUser }) => {
             radius={8}
             style={{ width: "100%", textAlign: "left" }}
         >
-            <Flex justify="space-between" align="center" style={{ width: "100%" }}>
+            <Flex justify="space-between" align="center" style={{ width: "100%" }} wrap={"wrap"}>
                 <div>
                     <p style={{ color: "green" }}>Name: {user.fname}</p>
                     <p style={{ color: "green" }}>Email: {user.email}</p>
@@ -62,6 +62,7 @@ const UserCard = ({ user, getUsers, getRejUser }) => {
                     <p style={{ color: "green" }}>
                         Accomodation taken: {user.hasAccomodation.toString()}
                     </p>
+                    <p style={{ color: "green" }}>College: {user.college}</p>
                 </div>
                 <div
                     style={{
@@ -101,6 +102,21 @@ const UserCard = ({ user, getUsers, getRejUser }) => {
                             Reject
                         </Button>
                     </motion.div>
+                    <Link href={`/admin/user/${user.tarang_id}`}>
+                        <motion.div
+                            whileHover={{ scale: 1.04 }}
+                            whileTap={{ scale: 0.9 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                        >
+                            <Button
+                                variant="light"
+                                color="blue"
+                                onClick={() => updateRej(user.tarang_id)}
+                            >
+                                User profile
+                            </Button>
+                        </motion.div>
+                    </Link>
                 </div>
             </Flex>
         </Card>
@@ -159,61 +175,74 @@ const Admin = () => {
 
     return (
         <ValidateAuth>
-            <Flex mt={20}>
+            <Flex mt={20} wrap={"wrap"} justify={"space-around"}  >
                 <Flex
                     direction={"column"}
                     gap={24}
-                    px={60}
-                    py={30}
-                    w="60rem"
+                    w="45vw"
+                    miw={"20rem"}
                     mih={"50rem"}
                 >
                     <h2>Unverified Users</h2>
                     {users.map((user) => (
-                        <Link href={`/admin/user/${user.tarang_id}`} key={user._id}>
-                            <UserCard
-                                user={user}
-                                getRejUser={getRejUser}
-                                getUsers={getUsers}
-                            />
-                        </Link>
+                        <UserCard
+                            user={user}
+                            getRejUser={getRejUser}
+                            getUsers={getUsers}
+                            key={user._id}
+                        />
                     ))}
                 </Flex>
                 <Flex
                     direction={"column"}
                     gap={24}
-                    px={60}
-                    py={30}
-                    w="60rem"
+                    w="45vw"
+                    miw={"20rem"}
                     mih={"50rem"}
                 >
                     <h2>Rejected Users</h2>
                     {rejectedUsers.map((user) => (
-                        <Link href={`/admin/user/${user.tarang_id}`} key={user._id}>
-                            <Card
-                                shadow="sm"
-                                padding={20}
-                                radius={8}
-                                style={{ width: "100%", textAlign: "left" }}
+                        <Card
+                            shadow="sm"
+                            padding={20}
+                            radius={8}
+                            style={{ width: "100%", textAlign: "left" }}
+                            key={user._id}
+                        >
+                            <Flex
+                                justify="space-between"
+                                align="center"
+                                style={{ width: "100%" }}
+                                wrap={"wrap"}
                             >
-                                <Flex
-                                    justify="space-between"
-                                    align="center"
-                                    style={{ width: "100%" }}
+                                <div>
+                                    <p style={{ color: "Red" }}>Name: {user.fname}</p>
+                                    <p style={{ color: "Red" }}>Email: {user.email}</p>
+                                    <p style={{ color: "Red" }}>Tarang ID: {user.tarang_id}</p>
+                                    <p style={{ color: "Red" }}>Phone: {user.phone}</p>
+                                    <p style={{ color: "Red" }}>College: {user.college}</p>
+                                </div>
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "1rem"
+                                    }}
                                 >
-                                    <div>
-                                        <p style={{ color: "Red" }}>Name: {user.fname}</p>
-                                        <p style={{ color: "Red" }}>Email: {user.email}</p>
-                                        <p style={{ color: "Red" }}>Tarang ID: {user.tarang_id}</p>
-                                        <p style={{ color: "Red" }}>Phone: {user.phone}</p>
-                                    </div>
-                                    <div
-                                        style={{
-                                            display: "flex",
-                                            flexDirection: "column",
-                                            gap: "1rem",
-                                        }}
+                                    <motion.div
+                                        whileHover={{ scale: 1.04 }}
+                                        whileTap={{ scale: 0.9 }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
                                     >
+                                        <Button
+                                            variant="light"
+                                            color="green"
+                                            onClick={() => updateRej(user.tarang_id)}
+                                        >
+                                            Verify
+                                        </Button>
+                                    </motion.div>
+                                    <Link href={`/admin/user/${user.tarang_id}`}>
                                         <motion.div
                                             whileHover={{ scale: 1.04 }}
                                             whileTap={{ scale: 0.9 }}
@@ -221,16 +250,16 @@ const Admin = () => {
                                         >
                                             <Button
                                                 variant="light"
-                                                color="green"
+                                                color="blue"
                                                 onClick={() => updateRej(user.tarang_id)}
                                             >
-                                                Verify
+                                                User profile
                                             </Button>
                                         </motion.div>
-                                    </div>
-                                </Flex>
-                            </Card>
-                        </Link>
+                                    </Link>
+                                </div>
+                            </Flex>
+                        </Card>
                     ))}
                 </Flex>
             </Flex>
