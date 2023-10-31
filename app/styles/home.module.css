@@ -186,3 +186,52 @@
 .loaded {
   filter: grayscale(0%) !important;
 }
+
+/* Sponsor sec */
+
+/* QuickStart Ribbon */
+.ribbonElement img {
+  width: 3em;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-inline: 1rem;
+}
+.marquee:hover .marqueeContent {
+  animation-play-state: paused;
+}
+
+.marqueeContent {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  animation: scrolling 20s linear infinite;
+  width: fit-content; /* Added for smooth loop transition */
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      calc(-100vw)
+    ); /* Adjusted to create an instant appearance effect */
+  }
+}
+
+/* Additional styles for proper functionality */
+@media (min-width: 768px) {
+  .marquee:before,
+  .marquee:after {
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 100%;
+    content: "";
+    z-index: 1;
+  }
+}
