@@ -7,6 +7,7 @@ import EventSection from "./components/HomePageSections/EventSection";
 import GalleryView from "./components/HomePageSections/GalleryView";
 import SponsorUsSection from "./components/HomePageSections/SponsorUsSection";
 import Head from "next/head";
+import SponsorSection from "./components/HomePageSections/SponsorSection";
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
       </Head>
       <MainAppShell>
         <HeroMain />
+        <SponsorSection />
         <DateRevealSection />
         <TarangCardSection />
         <SubMainSection />
