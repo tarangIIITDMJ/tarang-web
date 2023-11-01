@@ -137,7 +137,7 @@ export default function ProfileDashboard({ user }) {
         </Flex>
         <Card padding="lg" radius="md" mt={10} mb={20} bg={"rgba(64, 192, 87, 0.1)"} c={"rgba(56, 63, 69, 1)"}>
           <Text>
-            Get access to all events just for ₹1499!
+            Get access to all events just for ₹799!
           </Text>
           <motion.div
             whileHover={{ scale: 1.04 }}

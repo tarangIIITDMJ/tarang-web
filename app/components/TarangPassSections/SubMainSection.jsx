@@ -32,7 +32,7 @@ function SubMainSection() {
       <Group justify="center">
         <Image
           ref={imageRef}
-          src="/tarangCardPageImages/tarangCard.svg"
+          src="/tarangCardPageImages/tarangCard799.svg"
           alt=""
           w={isMobileView ? "20rem" : "100rem"}
           style={{
