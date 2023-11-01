@@ -74,13 +74,13 @@ export default function TarangCardSection() {
       </Stack>
       {isMobileView ? (
         <Image
-          src="/homePageImages/tarangCardsMobile.svg"
+          src="/homePageImages/tarangCardsMobile799.svg"
           alt=""
           style={{ cursor: "pointer" }}
         />
       ) : (
         <Image
-          src="/homePageImages/tarangCards.svg"
+          src="/homePageImages/tarangCards799.svg"
           alt=""
           w="40%"
           h="100vh"

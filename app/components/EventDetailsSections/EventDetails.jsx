@@ -376,7 +376,7 @@ export default function EventDetails({ event }) {
                           {[
                             "Get access to every event, workshop, and pro nights.",
                             "Save events to your Dashboard, pay with Tarang Card.",
-                            "All this for just ₹1499!",
+                            "All this for just ₹799!",
                           ].map((text, index) => (
                             <Badge
                               variant="transparent"
