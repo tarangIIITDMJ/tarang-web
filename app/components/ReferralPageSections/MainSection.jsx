@@ -38,7 +38,6 @@ const MainSection = () => {
               fz={isMobileView ? "0.75rem" : "1.125rem"}
             >
               <List.Item>Discounts on Events</List.Item>
-              <List.Item>Discounts on Pro Nights</List.Item>
               <List.Item>Discounts on Accommodation</List.Item>
             </List>
           </Box>

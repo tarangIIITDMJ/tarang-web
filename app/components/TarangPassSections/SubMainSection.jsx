@@ -68,7 +68,7 @@ function SubMainSection() {
                     {number === 1
                       ? "One-Time Fee, Limitless Access"
                       : number === 2
-                      ? "Explore Every Event, Workshop, and Pro Nights"
+                      ? "Explore Every Event and workshops"
                       : "Connect, Create, and Learn"}
                   </Text>
                   <Text c="#CED2D6" fz={smallFontSize}>
@@ -78,8 +78,7 @@ function SubMainSection() {
                         epic Tarang adventure.`
                       : number === 2
                       ? `Dive into the cultural extravaganza with access to every corner 
-                      of Tarang. From electrifying performances to mind-boggling workshops 
-                      and unforgettable pro nights, you're invited to it all!`
+                      of Tarang. From electrifying performances to mind-boggling workshops, you're invited to it all!`
                       : `Make memories, forge friendships, and unleash your creativity at workshops that span 
                       various domains. Whether it's dance, art, or music, Tarang 
                       Pass holders get exclusive opportunities to learn from the best.`}

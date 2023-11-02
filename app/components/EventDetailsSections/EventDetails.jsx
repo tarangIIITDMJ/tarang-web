@@ -374,7 +374,7 @@ export default function EventDetails({ event }) {
                         </Flex>
                         <Stack align="flex-start" gap={"0.5rem"}>
                           {[
-                            "Get access to every event, workshop, and pro nights.",
+                            "Get access to every event and workshop.",
                             "Save events to your Dashboard, pay with Tarang Card.",
                             "All this for just ₹799!",
                           ].map((text, index) => (
