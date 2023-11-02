@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Button, Text, Container, Box, Flex } from "@mantine/core";
+import { Button, Text, Container, Box, Flex, Stack } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
@@ -41,16 +41,6 @@ const HeroMain = () => {
       </video>
       {!videoLoaded && <Loading />}
       <Box style={styles.videoOverlay}>
-      <Image 
-        src={iiitdmLogo} 
-        alt="IIITDM Jabalpur" 
-        height={isMobileView ? 48 : 72} 
-        style={{
-          position:"absolute",
-          top:isMobileView ? "48px" : "20px",
-          left:isMobileView ? "68%" : "20px",
-        }}
-        />
         <Container
           h="100%"
           p={0}
@@ -72,14 +62,26 @@ const HeroMain = () => {
             mb="2rem"
             className={cssstyles.HereMainTarangContainer}
           >
-            <Text
-              fz="1.9rem"
-              c="#FFF"
-              ta="center"
-              className={cssstyles.HeroMainTarangSubText}
-            >
-              PDPM IIITDM Jabalpur Presents
-            </Text>
+            <Stack align="center">
+              <Image 
+                src={iiitdmLogo} 
+                alt="IIITDM Jabalpur" 
+                height={isMobileView ? 48 : 72} 
+                // style={{
+                //   position:"absolute",
+                //   top:isMobileView ? "48px" : "20px",
+                //   left:isMobileView ? "68%" : "20px",
+                // }}
+              />
+              <Text
+                fz="1.9rem"
+                c="#FFF"
+                ta="center"
+                className={cssstyles.HeroMainTarangSubText}
+              >
+                PDPM IIITDM Jabalpur Presents
+              </Text>
+            </Stack>
           </Flex>
           <Image
             src={tarangHeading}
