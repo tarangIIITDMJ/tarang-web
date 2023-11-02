@@ -78,11 +78,12 @@ const HeroSection = () => {
         {isAuth ? (
           <Link
             target="_blank"
-            href={`https://docs.google.com/forms/d/e/1FAIpQLSd7Bs0uQayl1GSOaB_dwZFYtpRBAO67iehIgOC88eOD-lhOFA/viewform?usp=pp_url&entry.275844225=${
-              user.fname + " " + user.lname
-            }&entry.1392576540=${user.tarang_id}&entry.272288439=${
-              user.email
-            }&entry.610706180=${user.phone}`}
+            href={"/"}
+            // href={`https://docs.google.com/forms/d/e/1FAIpQLSd7Bs0uQayl1GSOaB_dwZFYtpRBAO67iehIgOC88eOD-lhOFA/viewform?usp=pp_url&entry.275844225=${
+            //   user.fname + " " + user.lname
+            // }&entry.1392576540=${user.tarang_id}&entry.272288439=${
+            //   user.email
+            // }&entry.610706180=${user.phone}`}
           >
             <motion.div
               whileHover={{ scale: 1.01 }}
@@ -100,6 +101,7 @@ const HeroSection = () => {
                 radius={0}
                 mt={isMobileView ? "1.5rem" : "2rem"}
                 lh={1.2}
+                disabled
               >
                 Get Your Tarang Card
               </Button>
