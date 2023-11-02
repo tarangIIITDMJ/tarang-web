@@ -38,11 +38,25 @@ export default function Footer() {
         wrap={"wrap"}
         bg={"#1E1E1E"}
       >
-        <Image
-          src={"/tarangHeading_2.svg"}
-          alt=""
-          w={isMobileView ? 175 : 375}
-        />
+        <Flex
+          direction={"column"}
+          wrap={"wrap"}
+        >
+          <Image
+            src={"/tarangHeading_2.svg"}
+            alt=""
+            w={isMobileView ? 175 : 375}
+          />
+          {
+            !isMobileView && (
+              <Group justify="center" gap={20} mt={15}>
+                <Link href="https://www.instagram.com/tarang.iiitdmj/" target="_blank" >
+                  <IconBrandInstagram size={28} color="#fff" />
+                </Link>
+              </Group>
+            )
+          }
+        </Flex>
         <Divider
           visibleFrom="lg"
           orientation="vertical"
@@ -102,9 +116,11 @@ export default function Footer() {
             </Text>
             {isMobileView && (
               <Group justify="center" gap={20}>
-                <IconBrandFacebook size={28} color="#fff" />
-                <IconBrandYoutube size={28} color="#fff" />
-                <IconBrandInstagram size={28} color="#fff" />
+                {/* <IconBrandFacebook size={28} color="#fff" /> */}
+                {/* <IconBrandYoutube size={28} color="#fff" /> */}
+                <Link href="https://www.instagram.com/tarang.iiitdmj/" target="_blank" >
+                  <IconBrandInstagram size={28} color="#fff" />
+                </Link>
               </Group>
             )}
             {isMobileView && (
