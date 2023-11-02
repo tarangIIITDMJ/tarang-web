@@ -40,8 +40,17 @@ const HeroMain = () => {
         />
       </video>
       {!videoLoaded && <Loading />}
-
       <Box style={styles.videoOverlay}>
+      <Image 
+        src={iiitdmLogo} 
+        alt="IIITDM Jabalpur" 
+        height={isMobileView ? 48 : 72} 
+        style={{
+          position:"absolute",
+          top:isMobileView ? "48px" : "20px",
+          left:isMobileView ? "68%" : "20px",
+        }}
+        />
         <Container
           h="100%"
           p={0}
@@ -63,9 +72,8 @@ const HeroMain = () => {
             mb="2rem"
             className={cssstyles.HereMainTarangContainer}
           >
-            <Image src={iiitdmLogo} alt="IIITDM Jabalpur" height={36} />
             <Text
-              fz="1.5rem"
+              fz="1.9rem"
               c="#FFF"
               ta="center"
               className={cssstyles.HeroMainTarangSubText}
