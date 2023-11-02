@@ -146,17 +146,18 @@ export default function ProfileDashboard({ user }) {
           >
             <Link
               target="_blank"
-              href={`https://docs.google.com/forms/d/e/1FAIpQLSd7Bs0uQayl1GSOaB_dwZFYtpRBAO67iehIgOC88eOD-lhOFA/viewform?usp=pp_url&entry.275844225=${
-                          user.fname + " " + user.lname
-                        }&entry.1392576540=${user.tarang_id}&entry.272288439=${
-                          user.email
-                        }&entry.610706180=${user.phone}`}
+              // href={`https://docs.google.com/forms/d/e/1FAIpQLSd7Bs0uQayl1GSOaB_dwZFYtpRBAO67iehIgOC88eOD-lhOFA/viewform?usp=pp_url&entry.275844225=${
+              //             user.fname + " " + user.lname
+              //           }&entry.1392576540=${user.tarang_id}&entry.272288439=${
+              //             user.email
+              //           }&entry.610706180=${user.phone}`}
             >
               <Button
                 bg="#000"
                 color="#fff"
                 size="sm"
                 rightSection={<IconArrowRight />}
+                disabled
               >
                 Get Tarang Card
               </Button>
@@ -190,17 +191,18 @@ export default function ProfileDashboard({ user }) {
           >
             <Link
               target="_blank"
-              href={`https://docs.google.com/forms/d/e/1FAIpQLSfLgebQDZPpvuLCTe6jTPMB_34KueapBtcOLRQQofFT8WT0xw/viewform?usp=sf_link&entry.275844225=${
-                user.fname + " " + user.lname
-              }&entry.1392576540=${user.tarang_id}&entry.272288439=${
-                user.email
-              }&entry.610706180=${user.phone}`}
+              // href={`https://docs.google.com/forms/d/e/1FAIpQLSfLgebQDZPpvuLCTe6jTPMB_34KueapBtcOLRQQofFT8WT0xw/viewform?usp=sf_link&entry.275844225=${
+              //   user.fname + " " + user.lname
+              // }&entry.1392576540=${user.tarang_id}&entry.272288439=${
+              //   user.email
+              // }&entry.610706180=${user.phone}`}
             >
               <Button
                 bg="#000"
                 color="#fff"
                 size="lg"
                 rightSection={<IconArrowRight />}
+                disabled
               >
               Continue to Checkout
               </Button>
@@ -325,20 +327,21 @@ export default function ProfileDashboard({ user }) {
                       pb={"1rem"}
                       px={"5px"}
                     >
-                      Your payment is pending, but you've added events to your dashboard. To secure your spot for all selected events, take one of these actions now:
+                      {/* Your payment is pending, but you've added events to your dashboard. To secure your spot for all selected events, take one of these actions now: */}
+                      Registrations are now closed!
                     </Text>
-                    <Flex
+                    {/* <Flex
                       align={"left"}
                       gap="1rem"
                       wrap={"wrap"}
                     >
                       <Link
                         target="_blank"
-                        href={`https://docs.google.com/forms/d/e/1FAIpQLSd7Bs0uQayl1GSOaB_dwZFYtpRBAO67iehIgOC88eOD-lhOFA/viewform?usp=pp_url&entry.275844225=${
-                          user.fname + " " + user.lname
-                        }&entry.1392576540=${user.tarang_id}&entry.272288439=${
-                          user.email
-                        }&entry.610706180=${user.phone}`}
+                        // href={`https://docs.google.com/forms/d/e/1FAIpQLSd7Bs0uQayl1GSOaB_dwZFYtpRBAO67iehIgOC88eOD-lhOFA/viewform?usp=pp_url&entry.275844225=${
+                        //   user.fname + " " + user.lname
+                        // }&entry.1392576540=${user.tarang_id}&entry.272288439=${
+                        //   user.email
+                        // }&entry.610706180=${user.phone}`}
                       >
                         <motion.div
                           whileHover={{ scale: 1.04 }}
@@ -357,6 +360,7 @@ export default function ProfileDashboard({ user }) {
                             style={{ fontWeight: "600" }}
                             rightSection={<IconArrowUpRight />}
                             fullWidth={isMobile ? true : false}
+                            disabled
                           >
                             Checkout For Tarang Card
                           </Button>
@@ -390,7 +394,7 @@ export default function ProfileDashboard({ user }) {
                             </Button>
                           </motion.div>
                       }
-                    </Flex>
+                    </Flex> */}
                   </Flex>
                 </Alert>
               )}
